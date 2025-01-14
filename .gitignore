@@ -1,0 +1,11 @@
+# Node.js dependencies
+node_modules/
+
+# Lock files
+package-lock.json
+
+# VS Code settings
+.vscode/
+
+# Misc
+.env
