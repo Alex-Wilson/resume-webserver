@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/certifications", (req, res) => {
-  res.render("certifications"); // Render the certs.pug template
+  res.render("certifications"); // Render the certifications.pug template
 });
 
 

@@ -1,0 +1,66 @@
+/* General table container styling */
+table {
+    width: 100%; /* Full width for responsive design */
+    border-collapse: collapse; /* Remove spacing between table borders */
+    margin: 1.5rem 0; /* Add space above and below the table */
+  }
+  
+  /* Header row styling */
+  thead th {
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Make header text stand out */
+    background-color: #111; /* Dark background for table headers */
+    color: #00ff00; /* Bright green for headers */
+    padding: 0.75rem; /* Add padding for readability */
+    border-bottom: 2px solid #00ff00; /* Add a green underline */
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.5); /* Glow effect for headers */
+  }
+  
+  /* Body rows styling */
+  tbody tr {
+    border-bottom: 1px solid #333; /* Add a subtle separator between rows */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #1a1a1a; /* Alternate row background color */
+  }
+  
+  tbody tr:hover {
+    background-color: rgba(0, 255, 0, 0.1); /* Highlight row on hover */
+  }
+  
+  /* Cell styling */
+  tbody td {
+    padding: 0.75rem; /* Add padding for readability */
+    color: #ddd; /* Light gray text for readability */
+    font-size: 0.9rem; /* Slightly smaller font size for a compact look */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.2); /* Subtle glow effect for text */
+  }
+  
+  /* Links inside the table */
+  tbody td a {
+    color: #00ff00; /* Bright green for links */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  tbody td a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: #ffffff; /* White text on hover */
+  }
+  
+  /* Status column (first column) styling */
+  tbody td:first-child {
+    text-align: center; /* Center-align emojis or icons */
+    font-size: 1.5rem; /* Larger font size for emphasis */
+  }
+  
+  /* Table caption styling (if applicable) */
+  caption {
+    font-size: 1.2rem; /* Slightly larger text */
+    font-weight: bold; /* Bold caption text */
+    color: #00ff00; /* Bright green to match the theme */
+    margin-bottom: 0.5rem; /* Add spacing below caption */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Glow effect for captions */
+  }
+  

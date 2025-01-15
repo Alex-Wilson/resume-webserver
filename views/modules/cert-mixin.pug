@@ -1,0 +1,16 @@
+mixin certificationTable(domain, rows)
+  h2 #{domain}
+  table
+    thead
+      tr
+        th Status
+        th Organization - Certification Name
+        th Link
+        th Description
+    tbody
+      each row in rows
+        tr
+          td #{row.status}
+          td #{row.certName}
+          td: a(href=row.orgLink, target="_blank") Link
+          td #{row.description}
