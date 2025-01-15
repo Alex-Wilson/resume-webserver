@@ -16,8 +16,8 @@ app.get("/", (req, res) => {
   res.render("index"); // Render the homepage (index.pug)
 });
 
-app.get("/certs", (req, res) => {
-  res.render("certs"); // Render the certs.pug template
+app.get("/certifications", (req, res) => {
+  res.render("certifications"); // Render the certs.pug template
 });
 
 
