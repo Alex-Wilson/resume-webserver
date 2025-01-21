@@ -1,18 +1,13 @@
-/* Importing the font used across the application */
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+.footer{
+    background-color: black;
+}
 
-/* ASCII art container to maintain proper alignment and spacing */
-.ascii-logo {
+.ascii-text {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
     position: relative;
     overflow: hidden;
-}
-
-/* ASCII art styling with enhanced readability and animations */
-.ascii-logo pre {
     font-family: 'Space Mono', monospace; /* Ensures consistency with the site's font */
     white-space: pre; /* Preserves the structure of the ASCII art */
     line-height: 1.2; /* Consistent spacing between lines */
@@ -28,6 +23,7 @@
     letter-spacing: 0.5px; /* Slightly increases spacing for clarity */
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
+
 
 /* Keyframe animation for the rainbow border effect */
 @keyframes rainbowBorder {
@@ -71,23 +67,4 @@
         -1px  1px 0 #ff0000,  1px  1px 0 #ff0000,
         -2px -2px 0 #ff0000,  2px -2px 0 #ff0000,
         -2px  2px 0 #ff0000,  2px  2px 0 #ff0000; }
-}
-
-/* Change text color to white on hover or click */
-.ascii-logo:hover pre, .ascii-logo:active pre {
-    color: #ffffff; /* Change text color to white */
-    text-shadow: none; /* Remove text shadow for clarity */
-    animation: none; /* Stop rainbow animation */
-}
-
-/* Remove ripple effect */
-.ascii-logo:hover::after {
-    content: none; /* No pseudo-element for ripple */
-}
-
-/* Responsive design adjustments for smaller screens */
-@media (max-width: 768px) {
-    .ascii-logo pre {
-        font-size: 12px; /* Reduces font size for better fit */
-    }
 }

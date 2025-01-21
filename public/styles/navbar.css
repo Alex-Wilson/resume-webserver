@@ -1,7 +1,7 @@
 /* Navbar container styles to maintain a consistent structure. */
 nav {
     background-color: #1a1a1a; /* Dark background for contrast. */
-    padding: 1rem; /* Adds space around the navigation links. */
+    padding: .4rem 0; /* Adds space around the navigation links. */
     box-shadow: 0 2px 4px rgba(0, 255, 0, 0.1); /* Subtle glow effect below the navbar. */
     position: sticky; /* Keeps the navbar at the top of the viewport when scrolling. */
     top: 0;
@@ -14,7 +14,7 @@ nav {
     margin: 0 auto; /* Centers the container horizontally. */
     display: flex;
     flex-wrap: wrap; /* Allows items to wrap to the next line if necessary. */
-    gap: 1.5rem; /* Adds spacing between navigation items. */
+    gap: .5rem; /* Adds spacing between navigation items. */
     justify-content: space-between; /* Aligns items to the edges: left, center, right. */
     align-items: center; /* Aligns navigation items vertically. */
 }
@@ -23,11 +23,12 @@ nav {
 .nav-link {
     color: #00ff00; /* Bright green for visibility. */
     text-decoration: none; /* Removes underline from links. */
-    font-size: 1rem;
+    font-size: .8rem;
     transition: all 0.3s ease; /* Smooth hover effects. */
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.3); /* Subtle glowing effect. */
-    padding: 0.5rem 1rem; /* Adds padding around the links. */
+    padding: 0.3rem .6rem; /* Adds padding around the links. */
     border-radius: 4px; /* Slightly rounded edges for a softer look. */
+    gap: 1rem;
 }
 
 /* Hover effects to indicate interactivity. */
@@ -40,18 +41,78 @@ nav {
 /* Container for icons (LinkedIn, GitHub) positioned on the far right of the navbar. */
 .nav-icons {
     display: flex; /* Aligns icons horizontally. */
-    gap: 1rem; /* Adds spacing between icons. */
+    gap: .5rem; /* Adds spacing between icons. */
+    align-items: center;;
 }
 
 /* Styling for icon images to maintain consistent size and alignment. */
 .nav-icons img {
     width: 24px; /* Set a standard size for the icons. */
-    height: 24px;
+    height: 24;
     cursor: pointer; /* Adds a pointer cursor to indicate interactivity. */
     transition: opacity 0.3s ease; /* Smooth hover effect. */
+    display: flex;
+    align-items: center;
 }
 
 /* Hover effect for icons. */
 .nav-icons img:hover {
     opacity: 0.8; /* Slightly dims icons on hover. */
 }
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Stack navigation items vertically */
+    .nav-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem; /* Add some spacing between items */
+    }
+  
+    /* Adjust navigation links */
+    .nav-link {
+      font-size: 1rem; /* Slightly larger font for readability */
+      padding: 0.4rem 0.8rem; /* Increase padding */
+      text-align: left; /* Align text to the left */
+      width: 100%; /* Take full width */
+    }
+  
+    /* Center icons horizontally */
+    .nav-icons {
+      justify-content: center;
+      width: 100%; /* Center-align in the container */
+      gap: 1rem;
+    }
+  
+    .nav-icons img {
+      width: 20px; /* Slightly larger icons */
+      height: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Adjust padding for very small screens */
+    nav {
+      padding: 0.3rem;
+    }
+  
+    /* Stack everything centrally */
+    .nav-container {
+      align-items: center;
+      text-align: center;
+    }
+  
+    .nav-link {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  
+    .nav-icons {
+      gap: 0.5rem;
+    }
+  
+    .nav-icons img {
+      width: 18px;
+      height: 18px;
+    }
