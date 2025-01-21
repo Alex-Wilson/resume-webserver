@@ -1,66 +1,93 @@
-/* General table container styling */
+/* Table container styles for responsive layout */
 table {
-    width: 100%; /* Full width for responsive design */
-    border-collapse: collapse; /* Remove spacing between table borders */
-    margin: 1.5rem 0; /* Add space above and below the table */
+  width: 100%; /* Full-width table */
+  border-collapse: collapse; /* Remove spacing between table cells */
+  margin: 1rem 0; /* Add spacing around the table */
+  font-size: 0.9rem; /* Adjust font size for readability */
+  background-color: #1a1a1a; /* Match table background with site theme */
+  color: #00ff00; /* Bright green for text to maintain theme */
+  text-align: left; /* Align text to the left for readability */
+  border: 1px solid rgba(0, 255, 0, 0.2); /* Subtle border to frame the table */
+}
+
+/* Table header styles */
+table thead th {
+  padding: 0.75rem; /* Add padding for spacing */
+  background-color: #2a2a2a; /* Darker background for header */
+  color: #ffffff; /* White text for better contrast */
+  text-transform: uppercase; /* Make headers stand out */
+  font-weight: bold; /* Emphasize headers */
+  border-bottom: 2px solid rgba(0, 255, 0, 0.5); /* Subtle glowing bottom border */
+}
+
+/* Table row styles */
+table tbody tr {
+  border-bottom: 1px solid rgba(0, 255, 0, 0.1); /* Add row separators */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Alternating row colors for better readability */
+table tbody tr:nth-child(even) {
+  background-color: #222222; /* Slightly lighter background for alternate rows */
+}
+
+/* Hover effect for table rows */
+table tbody tr:hover {
+  background-color: rgba(0, 255, 0, 0.1); /* Highlight row on hover */
+}
+
+/* Table cell styles */
+table tbody td {
+  padding: 0.75rem; /* Add padding for better spacing */
+  border-right: 1px solid rgba(0, 255, 0, 0.1); /* Subtle vertical dividers */
+  vertical-align: middle; /* Align cell content to the middle */
+}
+
+/* Remove the border on the last column */
+table tbody td:last-child {
+  border-right: none;
+}
+
+/* Link styles for clickable links */
+table tbody a {
+  color: #00ff00; /* Bright green for consistency */
+  text-decoration: underline; /* Indicate that it's a link */
+  font-weight: bold; /* Emphasize links */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect for links */
+table tbody a:hover {
+  color: #ffffff; /* White text when hovered */
+}
+
+/* Responsive table for smaller screens */
+@media screen and (max-width: 768px) {
+  table {
+    font-size: 0.8rem; /* Reduce font size for smaller screens */
   }
-  
-  /* Header row styling */
-  thead th {
-    text-align: left; /* Align text to the left */
-    font-weight: bold; /* Make header text stand out */
-    background-color: #111; /* Dark background for table headers */
-    color: #00ff00; /* Bright green for headers */
-    padding: 0.75rem; /* Add padding for readability */
-    border-bottom: 2px solid #00ff00; /* Add a green underline */
-    text-shadow: 0 0 8px rgba(0, 255, 0, 0.5); /* Glow effect for headers */
+
+  table thead {
+    display: none; /* Hide table headers */
   }
-  
-  /* Body rows styling */
-  tbody tr {
-    border-bottom: 1px solid #333; /* Add a subtle separator between rows */
-    transition: background-color 0.3s ease; /* Smooth hover transition */
+
+  table tbody tr {
+    display: block; /* Stack rows */
+    margin-bottom: 1rem; /* Add spacing between rows */
   }
-  
-  tbody tr:nth-child(even) {
-    background-color: #1a1a1a; /* Alternate row background color */
+
+  table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem; /* Reduce padding for compactness */
+    border-right: none; /* Remove vertical dividers */
   }
-  
-  tbody tr:hover {
-    background-color: rgba(0, 255, 0, 0.1); /* Highlight row on hover */
+
+  table tbody td::before {
+    content: attr(data-label); /* Add labels for each cell */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff; /* White text for labels */
+    margin-right: 1rem; /* Add spacing after labels */
   }
-  
-  /* Cell styling */
-  tbody td {
-    padding: 0.75rem; /* Add padding for readability */
-    color: #ddd; /* Light gray text for readability */
-    font-size: 0.9rem; /* Slightly smaller font size for a compact look */
-    text-shadow: 0 0 5px rgba(0, 255, 0, 0.2); /* Subtle glow effect for text */
-  }
-  
-  /* Links inside the table */
-  tbody td a {
-    color: #00ff00; /* Bright green for links */
-    text-decoration: none; /* Remove underline */
-  }
-  
-  tbody td a:hover {
-    text-decoration: underline; /* Add underline on hover */
-    color: #ffffff; /* White text on hover */
-  }
-  
-  /* Status column (first column) styling */
-  tbody td:first-child {
-    text-align: center; /* Center-align emojis or icons */
-    font-size: 1.5rem; /* Larger font size for emphasis */
-  }
-  
-  /* Table caption styling (if applicable) */
-  caption {
-    font-size: 1.2rem; /* Slightly larger text */
-    font-weight: bold; /* Bold caption text */
-    color: #00ff00; /* Bright green to match the theme */
-    margin-bottom: 0.5rem; /* Add spacing below caption */
-    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Glow effect for captions */
-  }
-  
+}

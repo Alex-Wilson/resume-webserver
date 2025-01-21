@@ -1,68 +1,13 @@
-//-todo
-//-update the list of certs
-//-group them by domain
-//-order them by difficulty or work experience
-//-change emojis to checkmark, book, or star based on completed, studying, or goal status respectively
-//-
-
-
 extends layouts/template
+
+include modules/cert-mixin.pug
 
 block head
   link(rel="stylesheet" href="/styles/table.css")
 
 block content
   h1 Certifications
-  p Below is a categorized list of certifications, grouped by status and domain, with detailed descriptions of their content and curriculum.
+  p Below is a categorized list of certifications dynamically loaded from a JSON file.
 
-  // Include the table mixin
-  include modules/cert-mixin
-
-  // Completed Certifications
-  +certificationTable('Completed', [
-    { status: '✅', certName: 'PMI - PMP', orgLink: 'https://www.pmi.org/certifications/project-management-pmp', description: 'Focuses on project management methodologies, tools, and best practices, including agile and predictive approaches. Requires expertise in managing teams and delivering projects.' },
-    { status: '✅', certName: 'CompTIA - Network+', orgLink: 'https://www.comptia.org/certifications/network', description: 'Covers networking fundamentals such as protocols, topologies, hardware, and troubleshooting. Includes security concepts and network implementation.' }
-  ])
-
-  // In Progress Certifications
-  +certificationTable('In Progress', [
-    { status: '📚', certName: 'CompTIA - Security+', orgLink: 'https://www.comptia.org/certifications/security', description: 'Covers cybersecurity fundamentals, including risk management, incident response, and cryptography. Aimed at foundational knowledge for entry-level security roles.' }
-  ])
-
-  // Goal Certifications - Networking
-  +certificationTable('Goal: Networking', [
-    { status: '🤔', certName: 'Cloud Security Alliance - CCZT', orgLink: 'https://cloudsecurityalliance.org/education/cczt/', description: 'Focuses on implementing zero-trust principles in cloud environments, covering architecture, identity, and data protection strategies.' },
-    { status: '🤔', certName: 'AWS - Advanced Networking Specialty', orgLink: 'https://aws.amazon.com/certification/advanced-networking-specialty/', description: 'Covers complex networking concepts on AWS, including hybrid networking, edge services, and performance optimization for distributed systems.' }
-  ])
-
-  // Goal Certifications - Cybersecurity
-  +certificationTable('Goal: Cybersecurity', [
-    { status: '🤔', certName: 'CompTIA - PenTest+', orgLink: 'https://www.comptia.org/certifications/pentest', description: 'Covers penetration testing methodologies, vulnerability assessment, and ethical hacking tools to simulate and analyze security risks.' },
-    { status: '🤔', certName: '(ISC)² - SSCP', orgLink: 'https://www.isc2.org/Certifications/SSCP', description: 'Focuses on IT infrastructure security, including cryptography, monitoring, and access controls. Designed for operational security roles.' },
-    { status: '🤔', certName: 'CompTIA - CASP+', orgLink: 'https://www.comptia.org/certifications/casp', description: 'Advanced security certification covering enterprise security architecture, risk management, and cryptographic solutions for large organizations.' },
-    { status: '🤔', certName: 'AWS - Security Specialty', orgLink: 'https://aws.amazon.com/certification/certified-security-specialty/', description: 'Focuses on securing AWS workloads, including data protection, identity management, and infrastructure security best practices.' },
-    { status: '🤔', certName: 'EC-Council - CEH', orgLink: 'https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/', description: 'Covers ethical hacking techniques, tools, and procedures to identify vulnerabilities and mitigate risks in IT environments.' },
-    { status: '🤔', certName: '(ISC)² - CISSP', orgLink: 'https://www.isc2.org/Certifications/CISSP', description: 'Comprehensive security certification covering governance, risk, software security, cryptography, and more. Designed for senior security professionals.' },
-    { status: '🤔', certName: 'Offensive Security - OSCP', orgLink: 'https://www.offensive-security.com/pwk-oscp/', description: 'Intensive hands-on training and certification focusing on penetration testing, vulnerability exploitation, and post-exploitation techniques.' }
-  ])
-
-  // Goal Certifications - Cloud
-  +certificationTable('Goal: Cloud', [
-    { status: '🤔', certName: 'AWS - Cloud Practitioner', orgLink: 'https://aws.amazon.com/certification/certified-cloud-practitioner/', description: 'Provides foundational knowledge of AWS services, billing, pricing models, and basic architectural principles.' },
-    { status: '🤔', certName: 'HashiCorp - Terraform Associate', orgLink: 'https://developer.hashicorp.com/terraform/certification/associate', description: 'Covers the use of Terraform for Infrastructure as Code (IaC), including resource management, state files, and provisioning.' },
-    { status: '🤔', certName: 'AWS - Solutions Architect Associate', orgLink: 'https://aws.amazon.com/certification/certified-solutions-architect-associate/', description: 'Focuses on designing secure and scalable architectures on AWS, including storage, networking, and compute services.' }
-  ])
-
-  // Goal Certifications - Linux & Kubernetes
-  +certificationTable('Goal: Linux & Kubernetes', [
-    { status: '🤔', certName: 'Linux Professional Institute - LPIC-1', orgLink: 'https://www.lpi.org/our-certifications/lpic-1-overview', description: 'Covers Linux administration, including command-line usage, system architecture, and basic scripting.' },
-    { status: '🤔', certName: 'Linux Professional Institute - LPIC-2', orgLink: 'https://www.lpi.org/our-certifications/lpic-2-overview', description: 'Advanced Linux administration topics, including network configuration, security, and troubleshooting.' },
-    { status: '🤔', certName: 'Linux Foundation - Certified Kubernetes Administrator', orgLink: 'https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/', description: 'Covers managing Kubernetes clusters, including deployment, scaling, and troubleshooting.' }
-  ])
-
-  // Goal Certifications - Other
-  +certificationTable('Goal: Other', [
-    { status: '🤔', certName: 'Docker - Docker Certified Associate', orgLink: 'https://www.docker.com/certification/', description: 'Covers containerization fundamentals, Docker CLI, and orchestration tools.' },
-    { status: '🤔', certName: 'Mile2 - Certified Digital Forensics Examiner', orgLink: 'https://www.mile2.com/certified-digital-forensics-examiner.html', description: 'Covers digital forensics methodologies, evidence handling, and legal considerations.' },
-    { status: '🤔', certName: 'Cloud Security Alliance - CCSK', orgLink: 'https://cloudsecurityalliance.org/education/ccsk/', description: 'Focuses on cloud security fundamentals, governance, and compliance frameworks.' }
-  ])
+  // Render the certification table
+  +certificationTable(certifications)

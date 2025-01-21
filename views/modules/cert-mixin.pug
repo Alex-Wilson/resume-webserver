@@ -1,16 +1,23 @@
-mixin certificationTable(domain, rows)
-  h2 #{domain}
+mixin certificationTable(rows)
   table
     thead
       tr
+        th Domain
         th Status
-        th Organization - Certification Name
+        th Certification Name
+        th Organization
         th Link
+        th Price
+        th Work Experience Required
         th Description
     tbody
       each row in rows
         tr
+          td #{row.domain}
           td #{row.status}
           td #{row.certName}
-          td: a(href=row.orgLink, target="_blank") Link
+          td #{row.orgName}
+          td: a(href=row.link, target="_blank") Link
+          td $#{row.price}
+          td #{row.workExperienceRequired ? 'Yes' : 'No'}
           td #{row.description}
