@@ -1,80 +1,98 @@
 {
     "certifications": [
-      // CompTIA
+      {
+        "domain": "Project Management",
+        "status": "✔️",
+        "certName": "Project Management Professional (PMP)",
+        "orgName": "Project Management Institute",
+        "link": "https://www.pmi.org/certifications/project-management-pmp",
+        "price": 675,
+        "workExperienceRequired": "3-5 years",
+        "description": "Demonstrate your ability to lead projects in any industry with this globally recognized certification and open the door to a world of opportunities"
+      },
       {
         "domain": "Networking",
-        "status": "🤔",
-        "certName": "Network+ (Net+)",
+        "status": "✔️",
+        "certName": "Network+",
         "orgName": "CompTIA",
         "link": "https://www.comptia.org/certifications/network",
-        "price": 392,
+        "price": 369,
         "workExperienceRequired": false,
         "description": "Covers foundational networking concepts, protocols, and troubleshooting techniques."
       },
       {
         "domain": "Cybersecurity",
-        "status": "🤔",
-        "certName": "Security+ (Sec+)",
+        "status": "📚",
+        "certName": "Security+",
         "orgName": "CompTIA",
         "link": "https://www.comptia.org/certifications/security",
-        "price": 392,
+        "price": 404,
         "workExperienceRequired": false,
         "description": "Focuses on foundational cybersecurity skills, including risk management and cryptography."
       },
       {
-        "domain": "Cybersecurity",
-        "status": "🤔",
+        "domain": "Blue Team",
+        "status": "🎯",
         "certName": "Cyber Security Analyst+ (CySA+)",
         "orgName": "CompTIA",
-        "link": "https://www.comptia.org/certifications/cysa",
-        "price": 392,
+        "link": "https://www.comptia.org/certifications/cybersecurity-analyst/",
+        "price": 404,
         "workExperienceRequired": false,
         "description": "Covers threat detection, incident response, and security operations monitoring."
       },
       {
         "domain": "Cybersecurity",
-        "status": "🤔",
-        "certName": "Advanced Security Practitioner+ (CASP+)",
+        "status": "🚀",
+        "certName": "SecurityX",
         "orgName": "CompTIA",
-        "link": "https://www.comptia.org/certifications/casp",
-        "price": 494,
+        "link": "https://www.comptia.org/certifications/comptia-advanced-security-practitioner",
+        "price": 509,
         "workExperienceRequired": false,
-        "description": "Focuses on enterprise-level security, including risk management and cryptographic solutions."
+        "description": "Focuses on enterprise-level security, including risk management and cryptographic solutions. Previosuly known as Advanced Security Practitioner+ (CASP+)"
       },
       {
-        "domain": "Cybersecurity",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🎯",
         "certName": "Penetration Test+ (Pen+)",
         "orgName": "CompTIA",
         "link": "https://www.comptia.org/certifications/pentest",
-        "price": 392,
+        "price": 404,
         "workExperienceRequired": false,
         "description": "Covers penetration testing methodologies, tools, and ethical hacking techniques."
       },
       {
         "domain": "Cloud",
-        "status": "🤔",
+        "status": "🎯",
         "certName": "Cloud+",
         "orgName": "CompTIA",
         "link": "https://www.comptia.org/certifications/cloud",
-        "price": 392,
+        "price": 369,
         "workExperienceRequired": false,
         "description": "Focuses on cloud infrastructure, deployment, security, and troubleshooting."
       },
       {
-        "domain": "Systems Administration",
-        "status": "🤔",
+        "domain": "Dev Ops",
+        "status": "🎯",
         "certName": "Server+",
         "orgName": "CompTIA",
         "link": "https://www.comptia.org/certifications/server",
-        "price": 392,
+        "price": 369,
         "workExperienceRequired": false,
         "description": "Covers server architecture, management, and troubleshooting."
       },
-      //AWS
+      {
+        "domain": "Dev Ops",
+        "status": "🎯",
+        "certName": "Linux+",
+        "orgName": "CompTIA",
+        "link": "https://www.comptia.org/certifications/linux",
+        "price": 369,
+        "workExperienceRequired": false,
+        "description": "Covers an evolving job role that focuses more on how Linux powers the cloud."
+      },
       {
         "domain": "Cloud",
-        "status": "🤔",
+        "status": "🎯",
         "certName": "Cloud Practitioner Foundational",
         "orgName": "AWS",
         "link": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
@@ -83,262 +101,258 @@
         "description": "Provides foundational knowledge of AWS services, billing, and architecture."
     },
     {
-        "domain": "Cloud",
-        "status": "🤔",
+        "domain": "Machine Learning",
+        "status": "🎯",
         "certName": "AI Practitioner Foundational",
         "orgName": "AWS",
-        "link": "https://aws.amazon.com/certification/",
+        "link": "https://aws.amazon.com/certification/certified-ai-practitioner/",
         "price": 100,
         "workExperienceRequired": false,
         "description": "Covers AI fundamentals and AWS AI/ML services for foundational-level knowledge."
     },
     {
         "domain": "Cloud",
-        "status": "🤔",
+        "status": "🎯",
         "certName": "Solutions Architect Associate",
         "orgName": "AWS",
         "link": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
         "price": 150,
-        "workExperienceRequired": true,
+        "workExperienceRequired": false,
         "description": "Focuses on designing secure, scalable, and cost-optimized architectures."
     },
     {
-        "domain": "Cloud",
-        "status": "🤔",
+        "domain": "Development",
+        "status": "🎯",
         "certName": "Developer Associate",
         "orgName": "AWS",
         "link": "https://aws.amazon.com/certification/certified-developer-associate/",
         "price": 150,
-        "workExperienceRequired": true,
+        "workExperienceRequired": false,
         "description": "Covers AWS application development, deployment, and debugging best practices."
     },
     {
-        "domain": "Cloud",
-        "status": "🤔",
+        "domain": "Machine Learning",
+        "status": "🎯",
         "certName": "Machine Learning Engineer Associate",
         "orgName": "AWS",
-        "link": "https://aws.amazon.com/certification/",
+        "link": "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
         "price": 150,
-        "workExperienceRequired": true,
+        "workExperienceRequired": false,
         "description": "Focuses on deploying and optimizing machine learning models using AWS services."
     },
     {
-        "domain": "Cloud",
-        "status": "🤔",
+        "domain": "Dev Ops",
+        "status": "🎯",
         "certName": "DevOps Engineer Professional",
         "orgName": "AWS",
         "link": "https://aws.amazon.com/certification/certified-devops-engineer-professional/",
         "price": 300,
-        "workExperienceRequired": true,
+        "workExperienceRequired": false,
         "description": "Covers advanced DevOps practices including CI/CD pipelines, automation, and monitoring."
     },
     {
         "domain": "Cloud",
-        "status": "🤔",
+        "status": "🎯",
         "certName": "Solutions Architect Professional",
         "orgName": "AWS",
         "link": "https://aws.amazon.com/certification/certified-solutions-architect-professional/",
         "price": 300,
-        "workExperienceRequired": true,
+        "workExperienceRequired": false,
         "description": "Focuses on designing and implementing complex AWS architectures."
     },
     {
-        "domain": "Cloud",
-        "status": "🤔",
+        "domain": "Dev Ops",
+        "status": "🎯",
         "certName": "SysOps Administrator Associate",
         "orgName": "AWS",
-        "link": "https://aws.amazon.com/certification/certified-sysops-administrator-associate/",
+        "link": "https://aws.amazon.com/certification/certified-sysops-admin-associate/",
         "price": 150,
-        "workExperienceRequired": true,
+        "workExperienceRequired": false,
         "description": "Covers AWS systems operations, monitoring, and optimization."
     },
     {
-        "domain": "Cloud",
-        "status": "🤔",
-        "certName": "Security Specialty",
+        "domain": "Cybersecurity",
+        "status": "🚀",
+        "certName": "Security - Specialty",
         "orgName": "AWS",
         "link": "https://aws.amazon.com/certification/certified-security-specialty/",
         "price": 300,
-        "workExperienceRequired": true,
+        "workExperienceRequired": false,
         "description": "Focuses on securing AWS workloads, data, and identity management."
     },
     {
-        "domain": "Cloud",
-        "status": "🤔",
-        "certName": "Advanced Networking Specialty",
+        "domain": "Networking",
+        "status": "🚀",
+        "certName": "Networking - Specialty",
         "orgName": "AWS",
-        "link": "https://aws.amazon.com/certification/advanced-networking-specialty/",
+        "link": "https://aws.amazon.com/certification/certified-advanced-networking-specialty/",
         "price": 300,
-        "workExperienceRequired": true,
+        "workExperienceRequired": false,
         "description": "Covers advanced networking concepts for AWS environments, including hybrid solutions."
     },
     {
         "domain": "Machine Learning",
-        "status": "🤔",
-        "certName": "Machine Learning Specialty",
+        "status": "🚀",
+        "certName": "Machine Learning - Specialty",
         "orgName": "AWS",
-        "link": "https://aws.amazon.com/certification/machine-learning-specialty/",
+        "link": "https://aws.amazon.com/certification/certified-machine-learning-specialty/",
         "price": 300,
-        "workExperienceRequired": true,
+        "workExperienceRequired": false,
         "description": "Covers AWS ML tools, deployment strategies, and real-world case studies."
     },
-    //ISACA
     {
-        "domain": "Cybersecurity",
-        "status": "🤔",
+        "domain": "Governance",
+        "status": "🚀",
         "certName": "Information Security Manager (CISM)",
         "orgName": "ISACA",
         "link": "https://www.isaca.org/credentialing/cism",
         "price": 760,
-        "workExperienceRequired": true,
+        "workExperienceRequired": "3 - 5 years",
         "description": "Focuses on managing and governing enterprise information security programs, including risk management and compliance."
     },
     {
-        "domain": "Cybersecurity",
-        "status": "🤔",
+        "domain": "Blue Team",
+        "status": "🎯",
         "certName": "Certified Cybersecurity Operations Analyst (CCOA)",
         "orgName": "ISACA",
-        "link": "https://www.isaca.org/credentialing",
-        "price": 500,
+        "link": "https://www.isaca.org/credentialing/ccoa",
+        "price": 760,
         "workExperienceRequired": false,
         "description": "Covers cybersecurity analysis, operations, and monitoring techniques for security events."
     },
     {
         "domain": "Cybersecurity",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "CSX Cybersecurity Practitioner (CSX-P)",
         "orgName": "ISACA",
         "link": "https://www.isaca.org/credentialing/csx-p",
-        "price": 650,
-        "workExperienceRequired": false,
+        "price": 760,
+        "workExperienceRequired": "1 year",
         "description": "Covers hands-on cybersecurity skills in areas like incident response, threat management, and system hardening."
     },
-    //ISC2
     {
         "domain": "Cybersecurity",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "Information Systems Security Professional (CISSP)",
         "orgName": "ISC2",
         "link": "https://www.isc2.org/Certifications/CISSP",
-        "price": 749,
-        "workExperienceRequired": true,
+        "price": 799,
+        "workExperienceRequired": "5 years",
         "description": "Comprehensive certification covering governance, risk management, cryptography, and security operations."
     },
     {
         "domain": "Cybersecurity",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "Cloud Security Professional (CCSP)",
         "orgName": "ISC2",
         "link": "https://www.isc2.org/Certifications/CCSP",
-        "price": 599,
-        "workExperienceRequired": true,
+        "price": 749,
+        "workExperienceRequired": "5 years",
         "description": "Focuses on cloud security architecture, operations, and compliance."
     },
     {
-        "domain": "Cybersecurity",
-        "status": "🤔",
+        "domain": "Blue Team",
+        "status": "🎯",
         "certName": "Systems Security Certified Practitioner (SSCP)",
         "orgName": "ISC2",
         "link": "https://www.isc2.org/Certifications/SSCP",
-        "price": 250,
-        "workExperienceRequired": true,
+        "price": 349,
+        "workExperienceRequired": "1 year",
         "description": "Covers IT infrastructure security, including access control and cryptography."
     },
     {
-        "domain": "Cybersecurity",
-        "status": "🤔",
+        "domain": "Development",
+        "status": "🚀",
         "certName": "Certified Secure Software Lifecycle Professional (CSSLP)",
         "orgName": "ISC2",
         "link": "https://www.isc2.org/Certifications/CSSLP",
-        "price": 599,
-        "workExperienceRequired": true,
+        "price": 749,
+        "workExperienceRequired": "4 years",
         "description": "Covers secure software design, development, and lifecycle management."
     },
     {
         "domain": "Cybersecurity",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "Information Systems Security Architecture Professional (ISSAP)",
         "orgName": "ISC2",
         "link": "https://www.isc2.org/Certifications/ISSAP",
-        "price": 599,
-        "workExperienceRequired": true,
+        "price": 699,
+        "workExperienceRequired": "5 years",
         "description": "Focuses on enterprise security architecture and engineering."
     },
     {
-        "domain": "Cybersecurity",
-        "status": "🤔",
+        "domain": "Blue Team",
+        "status": "🚀",
         "certName": "Information Systems Security Engineering Professional (ISSEP)",
         "orgName": "ISC2",
         "link": "https://www.isc2.org/Certifications/ISSEP",
-        "price": 599,
-        "workExperienceRequired": true,
+        "price": 699,
+        "workExperienceRequired": "5 years",
         "description": "Focuses on systems engineering and security management best practices."
     },
-    //HTB
     {
-        "domain": "Penetration Testing",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🎯",
         "certName": "Certified Penetration Testing Specialist (CPTS)",
         "orgName": "Hack The Box",
-        "link": "https://www.hackthebox.com/certifications/cpts",
-        "price": 300,
+        "link": "https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist",
+        "price": 490,
         "workExperienceRequired": false,
         "description": "Hands-on certification focusing on penetration testing methodologies and tools."
     },
     {
-        "domain": "Defensive Security",
-        "status": "🤔",
+        "domain": "Blue Team",
+        "status": "🎯",
         "certName": "Certified Defensive Security Analyst (CDSA)",
         "orgName": "Hack The Box",
-        "link": "https://www.hackthebox.com/certifications/cdsa",
-        "price": 300,
+        "link": "https://academy.hackthebox.com/preview/certifications/htb-certified-defensive-security-analyst",
+        "price": 490,
         "workExperienceRequired": false,
         "description": "Focuses on defensive security analysis, incident response, and threat management."
     },
     {
-        "domain": "Web Exploitation",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🎯",
         "certName": "Certified Web Exploitation Expert (CWEE)",
         "orgName": "Hack The Box",
-        "link": "https://www.hackthebox.com/certifications/cwee",
-        "price": 300,
+        "link": "https://academy.hackthebox.com/preview/certifications/htb-certified-web-exploitation-expert",
+        "price": 1260,
         "workExperienceRequired": false,
         "description": "Covers advanced web application exploitation techniques and assessments."
     },
     {
-        "domain": "Active Directory Security",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🎯",
         "certName": "Active Directory Pentesting Expert (CAPE)",
         "orgName": "Hack The Box",
-        "link": "https://www.hackthebox.com/certifications/cape",
-        "price": 400,
+        "link": "https://academy.hackthebox.com/preview/certifications/htb-certified-active-directory-pentesting-expert",
+        "price": 1260,
         "workExperienceRequired": false,
         "description": "Focuses on Active Directory security and exploitation techniques."
     },
-    //OSCP
     {
-        "domain": "Penetration Testing",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🚀",
         "certName": "OffSec Certified Practitioner (OSCP+)",
         "orgName": "Offensive Security",
         "link": "https://www.offensive-security.com/pwk-oscp/",
-        "price": 999,
+        "price": 2749,
         "workExperienceRequired": false,
         "description": "Covers hands-on penetration testing, vulnerability exploitation, and post-exploitation techniques."
     },
     {
-        "domain": "Penetration Testing",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🚀",
         "certName": "OffSec Experienced Penetration Tester (OSEP)",
         "orgName": "Offensive Security",
-        "link": "https://www.offensive-security.com/osep/",
+        "link": "https://www.offsec.com/courses/pen-300/",
         "price": 1499,
         "workExperienceRequired": false,
         "description": "Focuses on advanced penetration testing techniques, evasion, and lateral movement."
     },
     {
-        "domain": "Web Security",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🚀",
         "certName": "OffSec Web Assessor (OSWA)",
         "orgName": "Offensive Security",
         "link": "https://www.offensive-security.com/oswa/",
@@ -347,8 +361,8 @@
         "description": "Covers hands-on web application security assessment and exploitation techniques."
     },
     {
-        "domain": "Exploit Development",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🚀",
         "certName": "OffSec Exploit Developer (OSED)",
         "orgName": "Offensive Security",
         "link": "https://www.offensive-security.com/osed/",
@@ -357,8 +371,8 @@
         "description": "Focuses on exploit development, reverse engineering, and vulnerability discovery."
     },
     {
-        "domain": "Exploit Development",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🚀",
         "certName": "OffSec Exploitation Expert (OSEE)",
         "orgName": "Offensive Security",
         "link": "https://www.offensive-security.com/osee/",
@@ -367,8 +381,8 @@
         "description": "Covers advanced exploitation techniques, including Windows kernel vulnerability analysis."
     },
     {
-        "domain": "Web Security",
-        "status": "🤔",
+        "domain": "Red Team",
+        "status": "🚀",
         "certName": "OffSec Web Expert (OSWE)",
         "orgName": "Offensive Security",
         "link": "https://www.offensive-security.com/oswe/",
@@ -379,7 +393,7 @@
     //GIAC
     {
         "domain": "Penetration Testing",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "GIAC Penetration Tester (GPEN)",
         "orgName": "GIAC",
         "link": "https://www.giac.org/certifications/penetration-tester-gpen",
@@ -389,7 +403,7 @@
     },
     {
         "domain": "Cybersecurity",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "GIAC Certified Intrusion Analyst (GCIA)",
         "orgName": "GIAC",
         "link": "https://www.giac.org/certifications/intrusion-analyst-gcia",
@@ -399,7 +413,7 @@
     },
     {
         "domain": "Cloud Security",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "GIAC Cloud Security Essentials Certification (GCLD)",
         "orgName": "GIAC",
         "link": "https://www.giac.org/certifications/cloud-security-essentials-gcld",
@@ -409,7 +423,7 @@
     },
     {
         "domain": "Web Security",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "GIAC Certified Web Application Defender (GWEB)",
         "orgName": "GIAC",
         "link": "https://www.giac.org/certifications/web-application-defender-gweb",
@@ -419,7 +433,7 @@
     },
     {
         "domain": "Penetration Testing",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "GIAC Exploit Researcher and Advanced Penetration Tester (GXPN)",
         "orgName": "GIAC",
         "link": "https://www.giac.org/certifications/exploit-researcher-and-advanced-penetration-tester-gxpn",
@@ -429,7 +443,7 @@
     },
     {
         "domain": "Cloud Security",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "Certified Cloud Security Engineer (CSE)",
         "orgName": "GIAC",
         "link": "https://www.giac.org/certifications/cse",
@@ -439,7 +453,7 @@
     },
     {
         "domain": "DevSecOps",
-        "status": "🤔",
+        "status": "🚀",
         "certName": "Certified DevSecOps Engineer (CDE)",
         "orgName": "GIAC",
         "link": "https://www.giac.org/certifications/cde",
@@ -467,6 +481,192 @@
         "price": 1200,
         "workExperienceRequired": false,
         "description": "Focuses on advanced penetration testing techniques, including exploit development."
+    },
+    //INE
+    {
+        "domain": "Penetration Testing",
+        "status": "🤔",
+        "certName": "Junior Penetration Testing (eJPT)",
+        "orgName": "INE",
+        "link": "https://ine.com/learning/certifications/ejpt",
+        "price": 200,
+        "workExperienceRequired": false,
+        "description": "Covers fundamental penetration testing concepts, tools, and methodologies."
+    },
+    {
+        "domain": "Penetration Testing",
+        "status": "🤔",
+        "certName": "Certified Professional Penetration Tester (eCPPT)",
+        "orgName": "INE",
+        "link": "https://ine.com/learning/certifications/ecppt",
+        "price": 400,
+        "workExperienceRequired": false,
+        "description": "Focuses on intermediate penetration testing skills, including network and web exploitation."
+    },
+    {
+        "domain": "Mobile Security",
+        "status": "🤔",
+        "certName": "Mobile Application Penetration Tester (eMAPT)",
+        "orgName": "INE",
+        "link": "https://ine.com/learning/certifications/emapt",
+        "price": 400,
+        "workExperienceRequired": false,
+        "description": "Covers mobile application security assessment and vulnerability exploitation."
+    },
+    {
+        "domain": "Web Security",
+        "status": "🤔",
+        "certName": "Web Application Penetration Tester (eWPT)",
+        "orgName": "INE",
+        "link": "https://ine.com/learning/certifications/ewpt",
+        "price": 400,
+        "workExperienceRequired": false,
+        "description": "Focuses on web application security testing and common vulnerabilities."
+    },
+    {
+        "domain": "Web Security",
+        "status": "🤔",
+        "certName": "Web Application Penetration Tester eXtreme (eWPTX)",
+        "orgName": "INE",
+        "link": "https://ine.com/learning/certifications/ewptx",
+        "price": 500,
+        "workExperienceRequired": false,
+        "description": "Covers advanced web application penetration testing, including custom exploit development."
+    },
+    {
+        "domain": "Defensive Security",
+        "status": "🤔",
+        "certName": "Enterprise Defense Administrator (eEDA)",
+        "orgName": "INE",
+        "link": "https://ine.com/learning/certifications/eeda",
+        "price": 300,
+        "workExperienceRequired": false,
+        "description": "Focuses on enterprise-level defensive security, including system monitoring and threat detection."
+    },
+    {
+        "domain": "Digital Forensics",
+        "status": "🤔",
+        "certName": "Certified Digital Forensics Professional (eCDFP)",
+        "orgName": "INE",
+        "link": "https://ine.com/learning/certifications/ecdfp",
+        "price": 400,
+        "workExperienceRequired": false,
+        "description": "Covers digital forensics methodologies, evidence handling, and analysis techniques."
+    },
+    //Linux Foundation
+    {
+        "domain": "Linux & Kubernetes",
+        "status": "🤔",
+        "certName": "Certified Kubernetes Administrator (CKA)",
+        "orgName": "Linux Foundation",
+        "link": "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/",
+        "price": 395,
+        "workExperienceRequired": false,
+        "description": "Covers Kubernetes cluster management, deployment, scaling, and troubleshooting."
+    },
+    {
+        "domain": "Linux & Kubernetes",
+        "status": "🤔",
+        "certName": "Certified Kubernetes Application Developer (CKAD)",
+        "orgName": "Linux Foundation",
+        "link": "https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/",
+        "price": 395,
+        "workExperienceRequired": false,
+        "description": "Focuses on designing, building, and deploying applications in Kubernetes environments."
+    },
+    {
+        "domain": "Linux & Kubernetes",
+        "status": "🤔",
+        "certName": "Certified Kubernetes Security Specialist (CKS)",
+        "orgName": "Linux Foundation",
+        "link": "https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist-cks/",
+        "price": 395,
+        "workExperienceRequired": true,
+        "description": "Covers securing Kubernetes clusters, workloads, and infrastructure."
+    },
+    {
+        "domain": "Node.js",
+        "status": "🤔",
+        "certName": "OpenJS Node.js Services Developer (JSNSD)",
+        "orgName": "Linux Foundation",
+        "link": "https://training.linuxfoundation.org/certification/openjs-node-js-services-developer/",
+        "price": 295,
+        "workExperienceRequired": false,
+        "description": "Covers developing Node.js services, API integrations, and performance optimization."
+    },
+    {
+        "domain": "Node.js",
+        "status": "🤔",
+        "certName": "OpenJS Node.js Application Developer (JSNAD)",
+        "orgName": "Linux Foundation",
+        "link": "https://training.linuxfoundation.org/certification/openjs-node-js-application-developer/",
+        "price": 295,
+        "workExperienceRequired": false,
+        "description": "Focuses on building and maintaining Node.js applications with best practices."
+    },
+    //LPI
+    {
+        "domain": "Linux Administration",
+        "status": "🤔",
+        "certName": "Linux Professional Institute Certification 1 (LPIC-1)",
+        "orgName": "Linux Professional Institute",
+        "link": "https://www.lpi.org/our-certifications/lpic-1-overview",
+        "price": 400,
+        "workExperienceRequired": false,
+        "description": "Covers basic Linux administration, command-line skills, and system architecture."
+    },
+    {
+        "domain": "Linux Administration",
+        "status": "🤔",
+        "certName": "Linux Professional Institute Certification 2 (LPIC-2)",
+        "orgName": "Linux Professional Institute",
+        "link": "https://www.lpi.org/our-certifications/lpic-2-overview",
+        "price": 400,
+        "workExperienceRequired": false,
+        "description": "Focuses on advanced Linux administration, including networking and security."
+    },
+    //Zero Point
+    {
+        "domain": "Red Teaming",
+        "status": "🤔",
+        "certName": "Red Team Ops",
+        "orgName": "Zero Point Security",
+        "link": "https://www.zeropointsecurity.co.uk/red-team-ops",
+        "price": 499,
+        "workExperienceRequired": false,
+        "description": "Covers red team operations, including adversary emulation and stealth techniques."
+    },
+    //Hashicorp
+    {
+        "domain": "Cloud Infrastructure",
+        "status": "🤔",
+        "certName": "Terraform Associate",
+        "orgName": "HashiCorp",
+        "link": "https://developer.hashicorp.com/terraform/certification/associate",
+        "price": 150,
+        "workExperienceRequired": false,
+        "description": "Covers fundamental Terraform knowledge, including configuration, provisioning, and state management."
+    },
+    {
+        "domain": "Cloud Infrastructure",
+        "status": "🤔",
+        "certName": "Terraform Authoring and Operations Professional",
+        "orgName": "HashiCorp",
+        "link": "https://developer.hashicorp.com/terraform/",
+        "price": 300,
+        "workExperienceRequired": false,
+        "description": "Focuses on advanced Terraform skills, including module development and operational workflows."
+    },
+    //Docker
+    {
+        "domain": "Containerization",
+        "status": "🤔",
+        "certName": "Docker for Developers",
+        "orgName": "Docker",
+        "link": "https://www.docker.com/certification/",
+        "price": 195,
+        "workExperienceRequired": false,
+        "description": "Covers Docker basics, container management, and orchestration tools for developers."
     }
 ]
 }
