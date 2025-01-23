@@ -1,41 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
   const glitchText = document.querySelector(".glitch-text");
 
-  if (!glitchText) {
-    console.error("Error: .glitch-text element not found.");
-    return;
-  }
-
-  const targetText = ">alexwilson.info";
-
-  const createGlitchSpans = (text) => {
-    // Clear existing content
-    glitchText.innerHTML = "";
-
-    // Create the before span
-    const beforeSpan = document.createElement("span");
-    beforeSpan.textContent = text;
-    beforeSpan.classList.add("before");
-
-    // Create the after span
-    const afterSpan = document.createElement("span");
-    afterSpan.textContent = text;
-    afterSpan.classList.add("after");
-
-    // Append spans for the glitch effect
-    glitchText.appendChild(beforeSpan);
-    glitchText.append(text); // Main visible text
-    glitchText.appendChild(afterSpan);
-
-    // Activate glitch animation
-    glitchText.classList.add("active");
+  // Helper to check if glitchText exists
+  const isValidElement = (element) => {
+    if (!element) {
+      console.error("Error: .glitch-text element not found.");
+      return false;
+    }
+    return true;
   };
 
-  const typeText = async () => {
+  // Helper to create a span element
+  const createSpan = (text, className) => {
+    const span = document.createElement("span");
+    span.textContent = text;
+    if (className) span.classList.add(className);
+    return span;
+  };
+
+  // Add spans for glitch effect
+  const createGlitchEffect = (container, text) => {
+    container.innerHTML = ""; // Clear existing content
+    container.appendChild(createSpan(text, "before")); // Before span
+    container.appendChild(document.createTextNode(text)); // Main text node
+    container.appendChild(createSpan(text, "after")); // After span
+    container.classList.add("active"); // Activate glitch animation
+  };
+
+  // Typing animation
+  const runTypingAnimation = async (container, targetText) => {
     let currentText = ">";
-    const baseText = document.createElement("span");
-    baseText.classList.add("base");
-    glitchText.appendChild(baseText);
+    const baseText = createSpan("", "base");
+    container.appendChild(baseText);
 
     const randomChar = () =>
       String.fromCharCode(Math.floor(Math.random() * (126 - 32) + 32));
@@ -44,26 +40,33 @@ document.addEventListener("DOMContentLoaded", () => {
       let randomLetter = randomChar();
 
       while (randomLetter !== targetText[i]) {
-        baseText.textContent = currentText + randomLetter; // Update base text only
+        baseText.textContent = currentText + randomLetter;
         randomLetter = randomChar();
-        await new Promise((resolve) => setTimeout(resolve, 37.5)); // Typing speed
+        await delay(37.5); // Typing speed
       }
 
       currentText += targetText[i];
-      baseText.textContent = currentText; // Append correct letter
-      await new Promise((resolve) => setTimeout(resolve, 75));
+      baseText.textContent = currentText;
+      await delay(75); // Delay between letters
     }
 
-    // Replace the base text with glitch effect spans
-    createGlitchSpans(currentText);
+    createGlitchEffect(container, currentText);
   };
 
-  // Check the current path
-  if (window.location.pathname === "/") {
-    // Homepage: Play the typing animation
-    typeText();
-  } else {
-    // Other pages: Directly show glitch effect
-    createGlitchSpans(targetText);
-  }
+  // Helper for delays
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  // Main execution
+  const init = () => {
+    if (!isValidElement(glitchText)) return;
+
+    const targetText = ">alexwilson.info";
+    if (window.location.pathname === "/") {
+      runTypingAnimation(glitchText, targetText);
+    } else {
+      createGlitchEffect(glitchText, targetText);
+    }
+  };
+
+  init();
 });

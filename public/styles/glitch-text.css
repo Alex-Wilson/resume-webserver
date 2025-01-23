@@ -14,9 +14,11 @@
   position: relative;
   color: #00ff00;
   line-height: 1;
+  transition: text-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.glitch-text.active span {
+.glitch-text span.before,
+.glitch-text span.after {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,20 +26,44 @@
   height: 100%;
 }
 
-.glitch-text.active span:first-child {
+.glitch-text.active span.before,
+.glitch-text.active span.after {
+  visibility: visible;
+}
+
+.glitch-text.active span.before {
   animation: glitch 650ms infinite;
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
   transform: translate(-0.025em, -0.0125em);
   opacity: 0.8;
 }
 
-.glitch-text.active span:last-child {
+.glitch-text.active span.after {
   animation: glitch 375ms infinite;
   clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
   transform: translate(0.0125em, 0.025em);
   opacity: 0.8;
 }
 
+/* Hover Effect */
+.glitch-text:hover {
+  text-shadow: 0.15em 0 0 rgba(255, 0, 0, 0.85),
+    -0.1em -0.1em 0 rgba(0, 255, 0, 0.85),
+    0.1em 0.1em 0 rgba(0, 0, 255, 0.85);
+  transform: scale(1.05); /* Slightly enlarge the text */
+}
+
+.glitch-text:hover span.before {
+  transform: translate(-0.05em, -0.025em);
+  opacity: 1; /* Increase opacity on hover */
+}
+
+.glitch-text:hover span.after {
+  transform: translate(0.025em, 0.05em);
+  opacity: 1; /* Increase opacity on hover */
+}
+
+/* Glitch animation */
 @keyframes glitch {
   0% {
     text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
