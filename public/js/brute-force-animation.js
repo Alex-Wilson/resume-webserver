@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const glitchText = document.querySelector(".glitch-text");
 
-  // Helper to check if glitchText exists
   const isValidElement = (element) => {
     if (!element) {
       console.error("Error: .glitch-text element not found.");
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return true;
   };
 
-  // Helper to create a span element
   const createSpan = (text, className) => {
     const span = document.createElement("span");
     span.textContent = text;
@@ -18,45 +16,80 @@ document.addEventListener("DOMContentLoaded", () => {
     return span;
   };
 
-  // Add spans for glitch effect
   const createGlitchEffect = (container, text) => {
     container.innerHTML = ""; // Clear existing content
-    container.appendChild(createSpan(text, "before")); // Before span
-    container.appendChild(document.createTextNode(text)); // Main text node
-    container.appendChild(createSpan(text, "after")); // After span
+
+    // Create the before and after spans
+    const beforeSpan = createSpan(text, "before");
+    const afterSpan = createSpan(text, "after");
+
+    // Append spans for glitch effect
+    container.appendChild(beforeSpan);
+    container.appendChild(document.createTextNode(text)); // Main visible text
+    container.appendChild(afterSpan);
+
     container.classList.add("active"); // Activate glitch animation
   };
 
-  // Typing animation
+  const generateHash = async (text) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+  };
+
+  const setupClickToggle = async (container, text) => {
+    const hash = await generateHash(text); // Generate hash once
+    let isHashVisible = false;
+
+    container.addEventListener("click", () => {
+      isHashVisible = !isHashVisible;
+      const displayText = isHashVisible ? hash : text;
+      createGlitchEffect(container, displayText); // Toggle display
+    });
+  };
+
   const runTypingAnimation = async (container, targetText) => {
     let currentText = ">";
     const baseText = createSpan("", "base");
     container.appendChild(baseText);
 
-    const randomChar = () =>
-      String.fromCharCode(Math.floor(Math.random() * (126 - 32) + 32));
+    // Initialize character pools for each position
+    const charPools = targetText.split("").map(() =>
+      Array.from({ length: 126 - 32 }, (_, i) => String.fromCharCode(32 + i))
+    );
 
     for (let i = 1; i < targetText.length; i++) {
-      let randomLetter = randomChar();
+      const targetChar = targetText[i];
+      let pool = charPools[i];
+      let randomLetter;
 
-      while (randomLetter !== targetText[i]) {
+      while (true) {
+        const randomIndex = Math.floor(Math.random() * pool.length);
+        randomLetter = pool[randomIndex];
+
         baseText.textContent = currentText + randomLetter;
-        randomLetter = randomChar();
+
+        if (randomLetter === targetChar) {
+          break; // Correct character guessed
+        }
+
+        pool.splice(randomIndex, 1); // Remove incorrect character from pool
         await delay(37.5); // Typing speed
       }
 
-      currentText += targetText[i];
-      baseText.textContent = currentText;
-      await delay(75); // Delay between letters
+      currentText += targetChar;
+      baseText.textContent = currentText; // Update current text
+      await delay(15); // Delay between letters
     }
 
     createGlitchEffect(container, currentText);
+    setupClickToggle(container, currentText); // Enable click toggling
   };
 
-  // Helper for delays
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  // Main execution
   const init = () => {
     if (!isValidElement(glitchText)) return;
 
@@ -65,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       runTypingAnimation(glitchText, targetText);
     } else {
       createGlitchEffect(glitchText, targetText);
+      setupClickToggle(glitchText, targetText); // Enable click toggling
     }
   };
 
