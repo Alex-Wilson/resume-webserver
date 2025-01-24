@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       currentText += targetChar;
       baseText.textContent = currentText; // Update current text
-      await delay(15); // Delay between letters
+      await delay(5); // Delay between letters
     }
 
     createGlitchEffect(container, currentText);
