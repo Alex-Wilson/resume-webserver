@@ -1,64 +1,85 @@
-/* Table container styles for responsive layout */
+/* Table container styles */
 table {
   width: 100%; /* Full-width table */
   border-collapse: collapse; /* Remove spacing between table cells */
   margin: 1rem 0; /* Add spacing around the table */
   font-size: 0.9rem; /* Adjust font size for readability */
-  background-color: #1a1a1a; /* Match table background with site theme */
-  color: #00ff00; /* Bright green for text to maintain theme */
-  text-align: left; /* Align text to the left for readability */
-  border: 1px solid rgba(0, 255, 0, 0.2); /* Subtle border to frame the table */
+  background-color: #2e2e2e; /* Dark gray background for contrast */
+  color: #ffffff; /* White text for all table content */
+  text-align: center; /* Center all text in table */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border to frame the table */
 }
 
 /* Table header styles */
 table thead th {
   padding: 0.75rem; /* Add padding for spacing */
-  background-color: #2a2a2a; /* Darker background for header */
-  color: #ffffff; /* White text for better contrast */
+  background-color: #3a3a3a; /* Slightly darker gray for headers */
+  color: #ffffff; /* White text for headers */
   text-transform: uppercase; /* Make headers stand out */
   font-weight: bold; /* Emphasize headers */
-  border-bottom: 2px solid rgba(0, 255, 0, 0.5); /* Subtle glowing bottom border */
+  font-size: 0.9rem; /* Adjusted for readability */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Subtle glowing bottom border */
+  position: relative; /* Required for button alignment */
+  text-align: center; /* Center header text */
+}
+
+/* Sort button styles */
+button.sort-btn {
+  all: unset; /* Reset default button styles */
+  display: inline-block;
+  font-size: 0.8rem; /* Slightly smaller than header text */
+  font-family: "Courier New", Courier, monospace; /* Terminal-style font */
+  color: #dcdcdc; /* Light gray for distinction from white */
+  margin-left: 0.5rem; /* Add spacing from header text */
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px; /* Slight rounding for refinement */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button.sort-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle white highlight */
+  color: #ffffff; /* Bright white text on hover */
+}
+
+button.sort-btn:active {
+  background-color: rgba(255, 255, 255, 0.3); /* Slightly darker on active */
 }
 
 /* Table row styles */
 table tbody tr {
-  border-bottom: 1px solid rgba(0, 255, 0, 0.1); /* Add row separators */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add row separators */
   transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
-/* Alternating row colors for better readability */
 table tbody tr:nth-child(even) {
-  background-color: #222222; /* Slightly lighter background for alternate rows */
+  background-color: #3a3a3a; /* Slightly lighter background for alternate rows */
 }
 
-/* Hover effect for table rows */
 table tbody tr:hover {
-  background-color: rgba(0, 255, 0, 0.1); /* Highlight row on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Highlight row on hover */
 }
 
 /* Table cell styles */
 table tbody td {
   padding: 0.75rem; /* Add padding for better spacing */
-  border-right: 1px solid rgba(0, 255, 0, 0.1); /* Subtle vertical dividers */
+  color: #ffffff; /* White text for readability */
   vertical-align: middle; /* Align cell content to the middle */
+  text-align: center; /* Center cell text */
 }
 
-/* Remove the border on the last column */
-table tbody td:last-child {
-  border-right: none;
-}
-
-/* Link styles for clickable links */
+/* Links in table */
 table tbody a {
-  color: #00ff00; /* Bright green for consistency */
+  color: #dcdcdc; /* Light gray for distinction */
   text-decoration: underline; /* Indicate that it's a link */
   font-weight: bold; /* Emphasize links */
   transition: color 0.3s ease; /* Smooth color transition */
 }
 
-/* Hover effect for links */
 table tbody a:hover {
-  color: #ffffff; /* White text when hovered */
+  color: #ffffff; /* Bright white text when hovered */
 }
 
 /* Responsive table for smaller screens */
