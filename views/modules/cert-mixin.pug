@@ -21,11 +21,11 @@ mixin certificationTable(rows)
     tbody
       each row in rows
         tr
-          td #{row.domain}
-          td #{row.status}
-          td #{row.certName}
-          td #{row.orgName}
-          td: a(href=row.link, target="_blank") Link
-          td $#{row.price}
-          td #{row.workExperienceRequired ? 'Yes' : 'No'}
-          td #{row.description}
+          td(data-column="domain" data-label="Domain") #{row.domain}
+          td(data-column="status" data-label="Status") #{row.status}
+          td(data-column="certName" data-label="Certification Name") #{row.certName}
+          td(data-column="orgName" data-label="Organization") #{row.orgName}
+          td(data-column="link" data-label="Link"): a(href=row.link, target="_blank") Link
+          td(data-column="price" data-label="Price") $#{row.price}
+          td(data-column="workExperienceRequired" data-label="Work Experience Required") #{row.workExperienceRequired ? 'Yes' : 'No'}
+          td(data-column="description" data-label="Description") #{row.description}
