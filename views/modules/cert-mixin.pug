@@ -2,30 +2,21 @@ mixin certificationTable(rows)
   table#certifications-table
     thead
       tr
-        th Domain
-          button.sort-btn(data-column="domain") ↕
-        th Status
-          button.sort-btn(data-column="status") ↕
-        th Certification Name
-          button.sort-btn(data-column="certName") ↕
-        th Organization
-          button.sort-btn(data-column="orgName") ↕
-        th Link
-          button.sort-btn(data-column="link") ↕
-        th Price
-          button.sort-btn(data-column="price") ↕
-        th Work Experience Required
-          button.sort-btn(data-column="workExperienceRequired") ↕
-        th Description
-          button.sort-btn(data-column="description") ↕
+        th(data-column="domain") Domain
+        th(data-column="status") Status
+        th(data-column="certName") Certification Name
+        th(data-column="orgName") Organization
+        th(data-column="price") Price
+        th(data-column="workExperienceRequired") Work Experience Required
+        th(data-column="description") Description
     tbody
       each row in rows
         tr
           td(data-column="domain" data-label="Domain") #{row.domain}
           td(data-column="status" data-label="Status") #{row.status}
-          td(data-column="certName" data-label="Certification Name") #{row.certName}
+          td(data-column="certName" data-label="Certification Name") 
+            a(href=row.link, target="_blank") #{row.certName}
           td(data-column="orgName" data-label="Organization") #{row.orgName}
-          td(data-column="link" data-label="Link"): a(href=row.link, target="_blank") Link
           td(data-column="price" data-label="Price") $#{row.price}
           td(data-column="workExperienceRequired" data-label="Work Experience Required") #{row.workExperienceRequired ? 'Yes' : 'No'}
           td(data-column="description" data-label="Description") #{row.description}

@@ -1,45 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const table = document.querySelector("#certifications-table");
-    const headers = document.querySelectorAll(".sort-btn");
-    let sortDirection = {}; // Keeps track of the sort direction for each column
-  
-    // Attach click event listeners to each sort button
-    headers.forEach((header) => {
-      const column = header.dataset.column;
-  
-      sortDirection[column] = 1; // Initialize as ascending
-  
-      header.addEventListener("click", () => {
-        const rows = Array.from(table.querySelectorAll("tbody tr"));
-  
-        // Sort rows based on the column data
-        rows.sort((a, b) => {
-          const aText = a.querySelector(`td:nth-child(${getColumnIndex(column)})`).textContent.trim();
-          const bText = b.querySelector(`td:nth-child(${getColumnIndex(column)})`).textContent.trim();
-  
-          // Convert to number if the column is Price
-          const aValue = column === "price" ? parseFloat(aText.replace("$", "")) : aText.toLowerCase();
-          const bValue = column === "price" ? parseFloat(bText.replace("$", "")) : bText.toLowerCase();
-  
-          if (aValue < bValue) return -1 * sortDirection[column];
-          if (aValue > bValue) return 1 * sortDirection[column];
-          return 0;
-        });
-  
-        // Toggle sort direction
-        sortDirection[column] *= -1;
-  
-        // Reorder the rows in the DOM
-        const tbody = table.querySelector("tbody");
-        tbody.innerHTML = ""; // Clear current rows
-        rows.forEach((row) => tbody.appendChild(row));
-      });
-    });
-  
-    // Get the column index for sorting
-    function getColumnIndex(column) {
-      const headerCells = Array.from(table.querySelectorAll("thead th"));
-      return headerCells.findIndex((th) => th.textContent.trim().toLowerCase().includes(column.toLowerCase())) + 1;
+  const table = document.querySelector("#certifications-table");
+
+  if (!table) {
+    console.error("Error: Table element not found.");
+    return;
+  }
+
+  const getCellValue = (row, columnIndex) => {
+    const cell = row.children[columnIndex];
+    if (!cell) return "";
+
+    if (columnIndex === 2) { // Certification Name column (contains the hyperlink)
+      const link = cell.querySelector("a");
+      return link ? link.textContent.trim() : cell.textContent.trim();
     }
+
+    if (columnIndex === 4) { // Price column
+      return parseFloat(cell.textContent.replace(/[^0-9.-]+/g, "")) || 0;
+    }
+
+    return cell.textContent.trim();
+  };
+
+  const compareValues = (a, b, ascending) => {
+    if (a < b) return ascending ? -1 : 1;
+    if (a > b) return ascending ? 1 : -1;
+    return 0;
+  };
+
+  const sortTable = (columnIndex, ascending) => {
+    const rows = Array.from(table.querySelector("tbody").rows);
+
+    rows.sort((rowA, rowB) => {
+      const valueA = getCellValue(rowA, columnIndex);
+      const valueB = getCellValue(rowB, columnIndex);
+
+      return compareValues(valueA, valueB, ascending);
+    });
+
+    rows.forEach((row) => table.querySelector("tbody").appendChild(row));
+  };
+
+  const headers = table.querySelectorAll("thead th");
+
+  headers.forEach((header, index) => {
+    let ascending = true;
+
+    header.addEventListener("click", () => {
+      sortTable(index, ascending);
+      ascending = !ascending; // Toggle sorting order
+    });
   });
-  
+});

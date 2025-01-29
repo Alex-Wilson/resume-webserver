@@ -12,15 +12,16 @@ table {
 
 /* Table header styles */
 table thead th {
-  padding: 0.75rem; /* Add padding for spacing */
-  background-color: #3a3a3a; /* Slightly darker gray for headers */
-  color: #ffffff; /* White text for headers */
-  text-transform: uppercase; /* Make headers stand out */
-  font-weight: bold; /* Emphasize headers */
-  font-size: 0.9rem; /* Adjusted for readability */
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Subtle glowing bottom border */
-  position: relative; /* Required for button alignment */
-  text-align: center; /* Center header text */
+  padding: 1rem; /* Add more padding for emphasis */
+  background-color: #333333; /* Darker background for contrast */
+  color: #ffffff; /* Bright white text */
+  text-transform: uppercase; /* Stand out with uppercase text */
+  font-weight: 700; /* Bolder text */
+  font-size: 1rem; /* Slightly larger font size */
+  letter-spacing: 0.1em; /* Add spacing between letters */
+  text-align: center; /* Center-align text for a cleaner look */
+  border-bottom: 3px solid #00ff00; /* Add a subtle glowing green border */
+  vertical-align: middle; /* Ensure text aligns in the middle */
 }
 
 /* Sort button styles */
@@ -111,4 +112,29 @@ table tbody a:hover {
     color: #ffffff; /* White text for labels */
     margin-right: 1rem; /* Add spacing after labels */
   }
+}
+
+
+/* Hover effect for interactivity */
+table thead th:hover {
+  background-color: #444444; /* Slightly lighter shade on hover */
+  color: #00ff00; /* Glowing green text on hover */
+  cursor: pointer; /* Indicate interactivity */
+}
+
+/* Button alignment inside headers */
+table thead th button.sort-btn {
+  margin-left: 0.5rem; /* Space between text and button */
+  padding: 0.3rem 0.6rem; /* Adjust button size */
+  background-color: transparent; /* Keep the button subtle */
+  border: 1px solid #ffffff; /* Subtle border for visibility */
+  color: #ffffff; /* Button text color */
+  font-size: 0.8rem; /* Slightly smaller font size */
+  border-radius: 4px; /* Rounded edges for modern look */
+  transition: background-color 0.2s, color 0.2s; /* Smooth transitions */
+}
+
+table thead th button.sort-btn:hover {
+  background-color: #00ff00; /* Bright green highlight */
+  color: #000000; /* Black text for contrast */
 }

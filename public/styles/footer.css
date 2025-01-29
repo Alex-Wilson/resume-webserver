@@ -1,5 +1,10 @@
-.footer{
-    background-color: black;
+/* Define the official gray color for the site */
+:root {
+    --official-gray: #2e2e2e;
+}
+
+.footer {
+    background-color: var(--official-gray); /* Matches the page's standard gray background */
 }
 
 .ascii-text {
@@ -19,11 +24,9 @@
         -2px -2px 0 #ff0000,  2px -2px 0 #ff0000,
         -2px  2px 0 #ff0000,  2px  2px 0 #ff0000; /* Rainbow shadow for readability */
     animation: rainbowBorder 6.67s linear infinite; /* Smooth rainbow animation */
-    position: relative;
     letter-spacing: 0.5px; /* Slightly increases spacing for clarity */
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 
 /* Keyframe animation for the rainbow border effect */
 @keyframes rainbowBorder {
@@ -67,4 +70,15 @@
         -1px  1px 0 #ff0000,  1px  1px 0 #ff0000,
         -2px -2px 0 #ff0000,  2px -2px 0 #ff0000,
         -2px  2px 0 #ff0000,  2px  2px 0 #ff0000; }
+}
+
+
+/* Centralized animation for scrolling rainbow effect applied to text. */
+@keyframes rainbowScroll {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }

@@ -15,7 +15,7 @@
 /* Button styling for dropdown triggers. */
 .dropbtn {
     background-color: transparent; /* Matches the navbar background for seamless integration. */
-    color: #00ff00; /* Bright green for visibility. */
+    color: #32cd32; /* Bright green for visibility. */
     border: none; /* Removes any default button styling. */
     padding: 0.5rem 1rem; /* Adds padding around the button text. */
     font-size: 1rem;

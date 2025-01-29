@@ -1,119 +1,119 @@
 /* Navbar container styles to maintain a consistent structure. */
 nav {
-    background-color: #1a1a1a; /* Dark background for contrast. */
-    padding: .4rem 0; /* Adds space around the navigation links. */
-    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.1); /* Subtle glow effect below the navbar. */
-    position: sticky; /* Keeps the navbar at the top of the viewport when scrolling. */
-    top: 0;
-    z-index: 100; /* Ensures the navbar remains above other elements. */
+  background-color: #2e2e2e; /* Dark background for contrast. */
+  padding: .4rem 0; /* Adds space around the navigation links. */
+  box-shadow: 0 2px 4px rgba(0, 255, 0, 0.1); /* Subtle glow effect below the navbar. */
+  position: sticky; /* Keeps the navbar at the top of the viewport when scrolling. */
+  top: 0;
+  z-index: 100; /* Ensures the navbar remains above other elements. */
 }
 
 /* Container for navigation items to ensure proper alignment and spacing. */
 .nav-container {
-    max-width: 1200px; /* Limits the width of the navbar on larger screens. */
-    margin: 0 auto; /* Centers the container horizontally. */
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line if necessary. */
-    gap: .5rem; /* Adds spacing between navigation items. */
-    justify-content: space-between; /* Aligns items to the edges: left, center, right. */
-    align-items: center; /* Aligns navigation items vertically. */
+  max-width: 1200px; /* Limits the width of the navbar on larger screens. */
+  margin: 0 auto; /* Centers the container horizontally. */
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line if necessary. */
+  gap: .5rem; /* Adds spacing between navigation items. */
+  justify-content: center; /* Center-aligns navigation links. */
+  align-items: center; /* Aligns navigation items vertically. */
 }
 
 /* Styling for navigation links to enhance visibility and interactivity. */
 .nav-link {
-    color: #00ff00; /* Bright green for visibility. */
-    text-decoration: none; /* Removes underline from links. */
-    font-size: .8rem;
-    transition: all 0.3s ease; /* Smooth hover effects. */
-    text-shadow: 0 0 5px rgba(0, 255, 0, 0.3); /* Subtle glowing effect. */
-    padding: 0.3rem .6rem; /* Adds padding around the links. */
-    border-radius: 4px; /* Slightly rounded edges for a softer look. */
-    gap: 1rem;
+  color: #32cd32; /* Bright green for visibility. */
+  text-decoration: none; /* Removes underline from links. */
+  font-size: .8rem;
+  transition: all 0.3s ease; /* Smooth hover effects. */
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.3); /* Subtle glowing effect. */
+  padding: 0.3rem .6rem; /* Adds padding around the links. */
+  border-radius: 4px; /* Slightly rounded edges for a softer look. */
+  gap: 1rem;
 }
 
 /* Hover effects to indicate interactivity. */
 .nav-link:hover {
-    color: #ffffff; /* Changes text color to white. */
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* Intensifies the glowing effect. */
-    background-color: rgba(0, 255, 0, 0.1); /* Adds a translucent background. */
+  color: #ffffff; /* Changes text color to white. */
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* Intensifies the glowing effect. */
+  background-color: rgba(0, 255, 0, 0.1); /* Adds a translucent background. */
 }
 
 /* Container for icons (LinkedIn, GitHub) positioned on the far right of the navbar. */
 .nav-icons {
-    display: flex; /* Aligns icons horizontally. */
-    gap: .5rem; /* Adds spacing between icons. */
-    align-items: center;;
+  display: flex; /* Aligns icons horizontally. */
+  gap: .5rem; /* Adds spacing between icons. */
+  align-items: center;
+  justify-content: flex-end; /* Align icons to the right. */
 }
 
 /* Styling for icon images to maintain consistent size and alignment. */
 .nav-icons img {
-    width: 24px; /* Set a standard size for the icons. */
-    height: 24;
-    cursor: pointer; /* Adds a pointer cursor to indicate interactivity. */
-    transition: opacity 0.3s ease; /* Smooth hover effect. */
-    display: flex;
-    align-items: center;
+  width: 24px; /* Set a standard size for the icons. */
+  height: 24px;
+  cursor: pointer; /* Adds a pointer cursor to indicate interactivity. */
+  transition: opacity 0.3s ease; /* Smooth hover effect. */
+  display: flex;
+  align-items: center;
 }
 
 /* Hover effect for icons. */
 .nav-icons img:hover {
-    opacity: 0.8; /* Slightly dims icons on hover. */
+  opacity: 0.8; /* Slightly dims icons on hover. */
 }
-
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    /* Stack navigation items vertically */
-    .nav-container {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.8rem; /* Add some spacing between items */
-    }
-  
-    /* Adjust navigation links */
-    .nav-link {
-      font-size: 1rem; /* Slightly larger font for readability */
-      padding: 0.4rem 0.8rem; /* Increase padding */
-      text-align: left; /* Align text to the left */
-      width: 100%; /* Take full width */
-    }
-  
-    /* Center icons horizontally */
-    .nav-icons {
-      justify-content: center;
-      width: 100%; /* Center-align in the container */
-      gap: 1rem;
-    }
-  
-    .nav-icons img {
-      width: 20px; /* Slightly larger icons */
-      height: 20px;
-    }
+  /* Stack navigation items vertically */
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem; /* Add some spacing between items */
   }
-  
-  @media (max-width: 480px) {
-    /* Adjust padding for very small screens */
-    nav {
-      padding: 0.3rem;
-    }
-  
-    /* Stack everything centrally */
-    .nav-container {
-      align-items: center;
-      text-align: center;
-    }
-  
-    .nav-link {
-      font-size: 0.9rem;
-      padding: 0.5rem 1rem;
-    }
-  
-    .nav-icons {
-      gap: 0.5rem;
-    }
-  
-    .nav-icons img {
-      width: 18px;
-      height: 18px;
-    }
+
+  /* Adjust navigation links */
+  .nav-link {
+    font-size: 1rem; /* Slightly larger font for readability */
+    padding: 0.4rem 0.8rem; /* Increase padding */
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Take full width */
   }
+
+  /* Center icons horizontally */
+  .nav-icons {
+    justify-content: center;
+    width: 100%; /* Center-align in the container */
+    gap: 1rem;
+  }
+
+  .nav-icons img {
+    width: 20px; /* Slightly larger icons */
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust padding for very small screens */
+  nav {
+    padding: 0.3rem;
+  }
+
+  /* Stack everything centrally */
+  .nav-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-icons {
+    gap: 0.5rem;
+  }
+
+  .nav-icons img {
+    width: 18px;
+    height: 18px;
+  }
+}
