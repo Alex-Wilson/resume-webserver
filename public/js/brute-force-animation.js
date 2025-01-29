@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const runTypingAnimation = async (container, targetText) => {
-    let currentText = ">";
+    let currentText = "$";
     const baseText = createSpan("", "base");
     container.appendChild(baseText);
 
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const init = () => {
     if (!isValidElement(glitchText)) return;
 
-    const targetText = ">alexwilson.info";
+    const targetText = "$alexwilson.info";
     if (window.location.pathname === "/") {
       runTypingAnimation(glitchText, targetText);
     } else {

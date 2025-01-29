@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
   res.render('index'); // Render the homepage (index.pug)
 });
 
+app.get('/cpu-emu', (req, res) => {
+  res.render('cpu-emu');
+});
+
 app.get('/certifications', (req, res) => {
   const certsPath = path.join(__dirname, '../public/extras/certs.json');
 
