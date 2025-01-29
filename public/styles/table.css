@@ -20,7 +20,7 @@ table thead th {
   font-size: 1rem; /* Slightly larger font size */
   letter-spacing: 0.1em; /* Add spacing between letters */
   text-align: center; /* Center-align text for a cleaner look */
-  border-bottom: 3px solid #00ff00; /* Add a subtle glowing green border */
+  border-bottom: 3px solid #000; /* Add a subtle glowing green border */
   vertical-align: middle; /* Ensure text aligns in the middle */
 }
 

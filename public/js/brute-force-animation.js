@@ -76,12 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         pool.splice(randomIndex, 1); // Remove incorrect character from pool
-        await delay(37.5); // Typing speed
+        await delay(1); // Typing speed
       }
 
       currentText += targetChar;
       baseText.textContent = currentText; // Update current text
-      await delay(5); // Delay between letters
+      await delay(1); // Delay between letters
     }
 
     createGlitchEffect(container, currentText);

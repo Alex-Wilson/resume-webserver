@@ -38,7 +38,7 @@
 .dropdown-content {
     display: none; /* Hidden by default. */
     position: absolute; /* Positioned relative to the dropdown button. */
-    background-color: #1a1a1a; /* Matches the navbar background for consistency. */
+    background-color: #000; /* Matches the navbar background for consistency. */
     box-shadow: 0 2px 8px rgba(0, 255, 0, 0.3); /* Subtle shadow effect for depth. */
     padding: 0.5rem 0; /* Adds padding to the dropdown menu. */
     min-width: 200px; /* Ensures a consistent dropdown width. */
@@ -48,12 +48,12 @@
 
 /* Styling for individual dropdown items. */
 .dropdown-content a {
-    color: #00ff00; /* Bright green for visibility. */
+    color: #32cd32; /* Bright green for visibility. */
     padding: 0.5rem 1rem; /* Adds padding around each link. */
     text-decoration: none; /* Removes underline from links. */
     display: block; /* Ensures each link is on a new line. */
     font-family: 'Space Mono', monospace; /* Consistent font with the rest of the site. */
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.3); /* Subtle glowing effect. */
     transition: all 0.3s ease; /* Smooth hover effect. */
 }
@@ -63,7 +63,7 @@
     background-color: rgba(0, 255, 0, 0.2); /* Adds a translucent background. */
     color: #ffffff; /* Changes text color to white. */
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* Intensifies the glowing effect. */
-    border-radius: 3px; /* Adds a subtle rounding to the edges. */
+    border-radius: 5px; /* Adds a subtle rounding to the edges. */
 }
 
 /* Display dropdown content on hover. */

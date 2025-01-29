@@ -23,12 +23,11 @@ nav {
 .nav-link {
   color: #32cd32; /* Bright green for visibility. */
   text-decoration: none; /* Removes underline from links. */
-  font-size: .8rem;
+  font-size: 1rem;
   transition: all 0.3s ease; /* Smooth hover effects. */
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.3); /* Subtle glowing effect. */
-  padding: 0.3rem .6rem; /* Adds padding around the links. */
-  border-radius: 4px; /* Slightly rounded edges for a softer look. */
-  gap: 1rem;
+  padding: 0.5rem 1rem; /* Adds padding around the links. */
+  border-radius: 5px; /* Slightly rounded edges for a softer look. */
 }
 
 /* Hover effects to indicate interactivity. */
@@ -36,6 +35,7 @@ nav {
   color: #ffffff; /* Changes text color to white. */
   text-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* Intensifies the glowing effect. */
   background-color: rgba(0, 255, 0, 0.1); /* Adds a translucent background. */
+  border-radius: 5px;
 }
 
 /* Container for icons (LinkedIn, GitHub) positioned on the far right of the navbar. */
