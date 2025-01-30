@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
   res.render('index'); // Render the homepage (index.pug)
 });
 
-app.get('/cpu-emu', (req, res) => {
-  res.render('cpu-emu');
+app.get('/resume-website-deployment', (req, res) => {
+  res.render('resume-website-deployment');
 });
 
 app.get('/certifications', (req, res) => {
