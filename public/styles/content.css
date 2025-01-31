@@ -1,8 +1,16 @@
-/* Define the official gray color for the site */
+/* Define the official  colors for the site */
 :root {
     --official-gray: #2e2e2e;
     --official-green: #32cd32;
     --official-black: #000;
+}
+
+/* Center content headings */
+.markdown-content h1, 
+.markdown-content h2, 
+.markdown-content h3,
+.markdown-content p {
+    text-align: center;
 }
 
 /* Importing the font used across the application. This can be centralized here to avoid repetition. */

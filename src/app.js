@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Load Markdown for the homepage
 app.get('/', (req, res) => {
-  const filePath = path.join(__dirname, '../src/views/markdown/about-me.md');
+  const filePath = path.join(__dirname, '../src/views/markdown/index.md');
 
   let markdownContent = "";
   if (fs.existsSync(filePath)) {
