@@ -1,30 +1,42 @@
+require('dotenv').config(); // Load environment variables
+
 const express = require('express');
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
+const markdownIt = require("markdown-it");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // Default to 3000 if not in .env
+const md = markdownIt();
 
 // Set Pug as the view engine
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, '../views'));
+app.set('views', path.join(__dirname, '../src/views'));
 
-// Serve static files from the "public" folder
+// Serve static files from "public"
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Define routes
+// Load Markdown for the homepage
 app.get('/', (req, res) => {
-  res.render('index'); // Render the homepage (index.pug)
+  const filePath = path.join(__dirname, '../src/views/markdown/about-me.md');
+
+  let markdownContent = "";
+  if (fs.existsSync(filePath)) {
+    markdownContent = md.render(fs.readFileSync(filePath, "utf8"));
+  }
+
+  res.render('index', { content: markdownContent });
 });
 
+// Resume website deployment page
 app.get('/resume-website-deployment', (req, res) => {
   res.render('resume-website-deployment');
 });
 
+// Certifications page (loads JSON data)
 app.get('/certifications', (req, res) => {
   const certsPath = path.join(__dirname, '../public/extras/certs.json');
 
-  // Read the JSON file for certifications
   fs.readFile(certsPath, 'utf-8', (err, data) => {
     if (err) {
       console.error('Error reading certifications JSON:', err);
@@ -32,8 +44,8 @@ app.get('/certifications', (req, res) => {
       return;
     }
 
-    const certifications = JSON.parse(data).certifications; // Parse the JSON data
-    res.render('certifications', { certifications }); // Pass the data to the template
+    const certifications = JSON.parse(data).certifications;
+    res.render('certifications', { certifications });
   });
 });
 
