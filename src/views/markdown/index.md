@@ -1,2 +1,4 @@
 # Welcome to My Page
-TESTING MARKDOWN
+My name is Alex Wilson and I am a computer enthusiast. I love building and breaking things to learn about all of the processes in between. 
+
+I have an education in computer science from Missouri State (bear up!) and a background in IT support and project management. I am currently exploring cloud security and vulnerability development completing the certifications and studies that will help me grow to complete this goal. I’m an advocate for open-source tools and security-first development. I enjoy working out, gaming, spending time with my dogs, cooking, reading, and arguing about yu-gi-oh. 
