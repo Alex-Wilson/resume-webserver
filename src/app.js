@@ -1,3 +1,4 @@
+//imports and initilization
 require('dotenv').config(); // Load environment variables
 
 const express = require('express');
@@ -16,21 +17,25 @@ app.set('views', path.join(__dirname, '../src/views'));
 // Serve static files from "public"
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Load Markdown for the homepage
-app.get('/', (req, res) => {
-  const filePath = path.join(__dirname, '../src/views/markdown/index.md');
 
+
+
+//helper functions --------------------------
+// Function to render markdown files
+function renderMarkdownPage(res, filePath, pageTitle) {
   let markdownContent = "";
   if (fs.existsSync(filePath)) {
     markdownContent = md.render(fs.readFileSync(filePath, "utf8"));
   }
+  res.render('index', { title: pageTitle, content: markdownContent });
+}
 
-  res.render('index', { content: markdownContent });
-});
+//Routes
 
-// Resume website deployment page
-app.get('/resume-website-deployment', (req, res) => {
-  res.render('resume-website-deployment');
+// Default homepage (index.md)
+app.get('/', (req, res) => {
+  const filePath = path.join(__dirname, '../src/views/markdown/index.md');
+  renderMarkdownPage(res, filePath, "Home");
 });
 
 // Certifications page (loads JSON data)
@@ -44,10 +49,29 @@ app.get('/certifications', (req, res) => {
       return;
     }
 
-    const certifications = JSON.parse(data).certifications;
-    res.render('certifications', { certifications });
+    try {
+      const certifications = JSON.parse(data).certifications;
+      res.render('certifications', { certifications });
+    } catch (parseError) {
+      console.error('Error parsing JSON:', parseError);
+      res.status(500).send('Invalid JSON format');
+    }
   });
 });
+
+
+
+// About Me page
+app.get('/about-me', (req, res) => {
+  const filePath = path.join(__dirname, '../src/views/markdown/about-me.md');
+  renderMarkdownPage(res, filePath, "about-me");
+});
+
+
+app.get('/ascii-art-editor', (req, res) => {
+  res.render('ascii-art-editor', { title: "ASCII Art Editor" });
+});
+
 
 // Start the server
 app.listen(PORT, () => {

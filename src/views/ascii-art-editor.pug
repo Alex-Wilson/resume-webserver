@@ -1,0 +1,113 @@
+extends layouts/template
+
+block head
+    link(rel="stylesheet" href="/styles/ascii-art-editor.css")
+    script(src="/js/ascii-art-editor.js")
+
+block content
+  .layout
+    aside.sidebar
+      section.control-group.global-settings
+        h3 Global Settings
+        .control
+          label(for="theme") Theme:
+          select#theme
+            option(value="dark" selected) Dark
+            option(value="light") Light
+        .control
+          label(for="ignoreWhite") Ignore Pure White:
+          input(type="checkbox" id="ignoreWhite" checked)
+
+      section.control-group.upload-group
+        h3 1. Upload Your File
+        .control
+          input(type="file" id="upload" accept="image/*")
+
+      section.control-group.image-processing
+        h3 2. Basic Adjustments
+        .control
+          label(for="asciiWidth") Output Width (chars):
+          input(type="range" id="asciiWidth" min="20" max="300" value="150")
+          span.value-label#asciiWidthVal 100
+        .control
+          label(for="brightness") Brightness:
+          input(type="range" id="brightness" min="-100" max="100" value="0")
+          span.value-label#brightnessVal 0
+        .control
+          label(for="contrast") Contrast:
+          input(type="range" id="contrast" min="-100" max="100" value="0")
+          span.value-label#contrastVal 0
+        .control
+          label(for="blur") Blur (px):
+          input(type="range" id="blur" min="0" max="10" step="0.01" value="0")
+          span.value-label#blurVal 0
+        .control
+          label(for="invert") Invert Colors:
+          input(type="checkbox" id="invert")
+
+      section.control-group.dithering-settings
+        h3 3. Dithering Options
+        .control
+          label(for="dithering") Enable Dithering:
+          input(type="checkbox" id="dithering" checked)
+        .control
+          label(for="ditherAlgorithm") Dither Algorithm:
+          select#ditherAlgorithm
+            option(value="floyd" selected) Floyd–Steinberg
+            option(value="atkinson") Atkinson
+            option(value="noise") Noise
+            option(value="ordered") Ordered
+
+      section.control-group.charset-settings
+        h3 4. Character Set
+        .control
+          label(for="charset") Select Set:
+          select#charset
+            option(value="detailed" selected) Detailed
+            option(value="standard") Standard
+            option(value="blocks") Blocks
+            option(value="binary") Binary
+            option(value="hex") Hex
+            option(value="manual") Manual
+        .control#manualCharControl(style="display: none;")
+          label(for="manualCharInput") Manual Character:
+          input(type="text" id="manualCharInput" maxlength="1" value="0")
+
+      section.control-group.edge-detection-settings
+        h3 5. Edge Detection
+        p Select one edge detection method:
+        .control
+          input(type="radio" name="edgeMethod" id="edgeNone" value="none" checked)
+          label(for="edgeNone") No Edge Detection
+        .control
+          input(type="radio" name="edgeMethod" id="edgeSobel" value="sobel")
+          label(for="edgeSobel") Sobel Edge Detection
+        .control
+          input(type="radio" name="edgeMethod" id="edgeDoG" value="dog")
+          label(for="edgeDoG") DoG (Contour) Detection
+        .control#sobelThresholdControl(style="display: none;")
+          label(for="edgeThreshold") Sobel Threshold:
+          input(type="range" id="edgeThreshold" min="0" max="255" value="100")
+          span.value-label#edgeThresholdVal 100
+        .control#dogThresholdControl(style="display: none;")
+          label(for="dogEdgeThreshold") DoG Threshold:
+          input(type="range" id="dogEdgeThreshold" min="0" max="255" value="100")
+          span.value-label#dogEdgeThresholdVal 100
+
+      section.control-group.display-settings
+        h3 6. Display Settings
+        .control
+          label(for="zoom") Zoom (%):
+          input(type="range" id="zoom" min="20" max="600" value="100")
+          span.value-label#zoomVal 100
+
+      section.control-group.misc-settings
+        .control
+          button#reset Reset All Settings
+
+    main.main-content
+      pre#ascii-art
+      button#copyBtn Copy ASCII Art
+      button#downloadBtn Download PNG
+
+  canvas#canvas(style="display: none;")

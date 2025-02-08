@@ -1,0 +1,40 @@
+## About me
+Hello, World! Welcome to alexwilson.info! I'm Alex Wilson, a self-proclaimed technologist. I've always been fascinated by science, technology, engineering, and math, but I find true fulfillment in using computers to enhance creativity, efficiency, and problem-solving. 
+
+I love converting abstract ideas into practical solutions, finding magic in automating repetitive tasks, feeling the satisfaction of solving complex problems, and enjoying the freedom to express myself digitally!
+
+## Purpose
+As computers become more ingrained in daily life, opportunities in technology and software development will only continue to grow. This website serves as my digital resume, showcasing my projects, problem-solving skills, design acumen, and achievements to potential employers.
+
+I also use this space to share knowledge, as I’ve found that teaching a concept is the best way to truly master it myself.
+
+## Career Goals
+My goal is to transition into a highly technical role where I can apply my skills in system, network, and cloud administration, security, DevOps, and software development. I want to work hands-on with infrastructure, automation, and security, solving complex problems and continuously learning new technologies.
+
+Long term, I aim to specialize in cybersecurity, exploit development, or cloud security architecture. I am passionate about understanding systems at a deep level, improving security, and building reliable, scalable solutions.
+
+
+## Interests and Hobbies
+My academic and professional interests include system, network, and cloud administration, peer-to-peer networking, DevOps, application and web development, machine learning, cryptography, and exploit development. 
+
+When my brain needs a break and I can’t keep coding, you’ll probably find me gaming, working out, cooking, spending time with family, friends, or my pets, watching anime, drawing, reading non-fiction or manga, arguing about Yu-Gi-Oh bans, assembling Zoids/Gundam/40K figurines, or attempting to make music.
+
+## "Personal" Computing
+For Christmas of 2010, my mom took me to MicroCenter and let me pick out parts for a budget desktop. After days of watching YouTube videos on my iTouch, I finally assembled it myself! I was so proud I was able to get my rig (Athlon X4, Radeon HD 5770, 256GB HDD (lol)) to successfully POST. Then, after PURCHASING and installing Windows 8, I realized my Steam library was empty... I had no games to play (thank god for TF2, but it was no Halo 3 or Reach).
+
+I scoured the internet for the best games and stumbled upon World of Warcraft. I instantly fell in love with the idea of the game, but I needed money, $40 upfront and $15 per month. Researching ways to make money online led me to Amazon Mechanical Turk, a platform that paid users to complete small puzzles, label data, and respond to surveys. That experience opened my eyes to how people were making real money using their computers, whether as a side hustle or a full-time career. From that moment on, I knew I wanted to work with computers professionally.
+
+Later, a schoolmate who ran a small business replacing iPhone screens told me he was closing up shop to take a job at another company, where he already knew the team from his time at Geek Squad. He suggested I apply as well, and before long, I found myself handling hardware repairs, software troubleshooting, and small network setups It was my first real job in IT, and it laid the foundation for everything that followed.
+
+
+In 2018, while studying Computer Science at Missouri State, I landed an internship with Ameren, a Fortune 500 energy provider that serves most of Missouri. I joined a team responsible for migrating users, their content, and their structure from SharePoint 2016, an on-premises system, to SharePoint Online in the cloud—all while ensuring minimal disruption for users. While the job was straightforward, I knew I wasn’t as experienced or trusted as the more senior programmers. Without realizing it at the time, I naturally took on a project management role, communicating with stakeholders, gathering requirements, developing project artifacts, updating activities, and tracking progress.
+
+My internship was extended into 2019, where I continued on the same team but took on a more technical role with the goal of establishing Microsoft teams as the only officially supported video conferencing platform. This involved ensuring access for users, migrating meeting data, standardizing permissions, coordinating with stakeholders, and providing support to minimize disruptions during the transition. 
+
+At the end of my internship, I was told there were no openings on my current team for a full-time developer role. However, leadership recognized my strengths in areas that aligned with project management. They recommended me for an open position, and I was fortunate enough to receive an offer..
+
+I worked as a project manager there for five years, where I met amazing people and gained extensive experience with both Waterfall and Agile project management methodologies. I led a wide variety of projects, including the Workday Phase 2 implementation, digitizing pen-and-paper processes, completing compliance audits, creating training materials, and overseeing hardware upgrades across data centers.
+
+In total, I managed over 20 projects in five years. I enjoyed building trust with stakeholders, managing project timelines, and developing financial forecasts while taking ownership and guiding projects from start to finish."
+
+While I enjoy working as a project manager, I often feel like I am taking a back seat to the work I truly want to do. I want to be in the command line, actually doing the work. That is why I am looking to transition into a more technical role.
