@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const glitchText = document.querySelector(".glitch-text");
-
+  
   const isValidElement = (element) => {
     if (!element) {
       console.error("Error: .glitch-text element not found.");
@@ -42,14 +42,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const setupClickToggle = async (container, text) => {
     const hash = await generateHash(text); // Generate hash once
     let isHashVisible = false;
-
-    container.addEventListener("click", () => {
+  
+    container.addEventListener("click", (event) => {
+      console.log("SHA-256 Hash:", hash); // Log hash to console
+  
+      if (window.location.pathname !== "/") {
+        event.preventDefault(); // Prevent any unwanted changes
+        window.location.href = "/"; // Redirect to root
+        return;
+      }
+  
+      // Only toggle display if already on the root page
       isHashVisible = !isHashVisible;
       const displayText = isHashVisible ? hash : text;
-      createGlitchEffect(container, displayText); // Toggle display
+      createGlitchEffect(container, displayText);
     });
   };
-
+  
   const runTypingAnimation = async (container, targetText) => {
     let currentText = "$";
     const baseText = createSpan("", "base");
