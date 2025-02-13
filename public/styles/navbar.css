@@ -1,6 +1,6 @@
 /* Navbar container styles to maintain a consistent structure. */
 nav {
-  background-color: #2e2e2e; /* Dark background for contrast. */
+  background-color: #292a2d; /* Dark background for contrast. */
   padding: .4rem 0; /* Adds space around the navigation links. */
   box-shadow: 0 2px 4px rgba(0, 255, 0, 0.1); /* Subtle glow effect below the navbar. */
   position: sticky; /* Keeps the navbar at the top of the viewport when scrolling. */

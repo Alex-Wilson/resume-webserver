@@ -4,7 +4,7 @@ table {
   border-collapse: collapse; /* Remove spacing between table cells */
   margin: 1rem 0; /* Add spacing around the table */
   font-size: 0.9rem; /* Adjust font size for readability */
-  background-color: #2e2e2e; /* Dark gray background for contrast */
+  background-color: #292a2d; /* Dark gray background for contrast */
   color: #ffffff; /* White text for all table content */
   text-align: center; /* Center all text in table */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border to frame the table */
@@ -73,14 +73,14 @@ table tbody td {
 
 /* Links in table */
 table tbody a {
-  color: #dcdcdc; /* Light gray for distinction */
+  color: var(--official-white); /* Light gray for distinction */
   text-decoration: underline; /* Indicate that it's a link */
   font-weight: bold; /* Emphasize links */
   transition: color 0.3s ease; /* Smooth color transition */
 }
 
 table tbody a:hover {
-  color: #ffffff; /* Bright white text when hovered */
+  color: var(--official-green);
 }
 
 /* Responsive table for smaller screens */
