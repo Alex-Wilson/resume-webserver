@@ -1,14 +1,17 @@
+/* Wrapper to contain glitch text without affecting layout */
 .glitch-text-wrapper {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  overflow: hidden;
-  padding: 0.5rem 0;
+  width: auto; /* Allows it to scale across different screen sizes */
+  max-width: min(90%, fit-content); /* Prevents excessive stretching on large screens */
+  text-align: center; /* Ensures text stays centered */
+  margin: 0 auto; /* Centers the wrapper within its container */
+  overflow: visible; /* Prevents hover effects from getting cut off */
+  min-height: 250px; /* Ensure glitch text has enough space to scroll away */
 }
 
+
+/* Main glitch text styling */
 .glitch-text {
-  font-size: 2.25rem;
+  font-size: 2.25rem; /* Restored original size */
   font-weight: 700;
   text-transform: lowercase;
   position: relative;
@@ -17,6 +20,7 @@
   transition: text-shadow 0.2s ease, transform 0.2s ease;
 }
 
+/* Layers for glitch effect */
 .glitch-text span.before,
 .glitch-text span.after {
   position: absolute;
@@ -26,11 +30,13 @@
   height: 100%;
 }
 
+/* Ensures glitch effect is visible when active */
 .glitch-text.active span.before,
 .glitch-text.active span.after {
   visibility: visible;
 }
 
+/* Glitch distortion layers */
 .glitch-text.active span.before {
   animation: glitch 650ms infinite;
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
@@ -45,22 +51,20 @@
   opacity: 0.8;
 }
 
-/* Hover Effect */
+/* Hover effect with smooth scaling */
 .glitch-text:hover {
   text-shadow: 0.15em 0 0 rgba(255, 0, 0, 0.85),
     -0.1em -0.1em 0 rgba(0, 255, 0, 0.85),
     0.1em 0.1em 0 rgba(0, 0, 255, 0.85);
-  transform: scale(1.05); /* Slightly enlarge the text */
+  transform: scale(1.05); /* Enlarges text slightly */
 }
 
 .glitch-text:hover span.before {
   transform: translate(-0.05em, -0.025em);
-  opacity: 1; /* Increase opacity on hover */
 }
 
 .glitch-text:hover span.after {
   transform: translate(0.025em, 0.05em);
-  opacity: 1; /* Increase opacity on hover */
 }
 
 /* Glitch animation */
@@ -74,18 +78,5 @@
     text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
       -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
       -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
-  }
-}
-
-@media (max-width: 768px) {
-  .glitch-text {
-    font-size: 8vw;
-  }
-}
-
-@media (max-width: 480px) {
-  .glitch-text {
-    font-size: 10vw;
-    padding: 0.5rem;
   }
 }

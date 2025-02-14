@@ -1,18 +1,28 @@
-nav
-  .nav-container
-    include glitch-text.pug
-    // Navigation links
-    .nav-links
+.scroll-nav-bar
+  include glitch-text.pug
+
+nav.nav-bar
+  .sticky-nav-bar
+    .nav-bar-icons-container
+      a.nav-link(href='https://www.linkedin.com/in/alex-wilson-pmp-3021a5257' target='_blank')
+        img.icon(src='icons/linkedin-icon.ico', alt='LinkedIn')
+      a.nav-link(href='https://www.github.com/Alex-Wilson' target='_blank')
+        img.icon(src='icons/github-icon.png', alt='GitHub')
+      a.nav-link(href='https://leetcode.com/u/AlexWilson0425/' target='_blank')
+        img.icon(src='icons/leetcode-icon.ico', alt='leetcode')
+      a.nav-link(href='https://tryhackme.com/r/p/AlexWilson0425' target='_blank')
+        img.icon(src='icons/thm-icon.png', alt='thm')
+    .nav-bar-links-container
+      a.nav-link(href='/about-me') About Me
       a.nav-link(href='/documents/alex-wilson-resume.pdf' target='_blank') Resume
       a.nav-link(href='/certifications') Certifications
-      a.nav-link(href='/about-me') About Me
-      .dropdown
+      .nav-bar-dropdown
         button.dropbtn Projects
-        .dropdown-content
+        .nav-bar-dropdown-content
           a(href='/ascii-art-editor') ASCII Art Editor
-      .dropdown
+      .nav-bar-dropdown
         button.dropbtn References and Resources
-        .dropdown-content
+        .nav-bar-dropdown-content
           a(href='#') Test
           //a(href='#') Basic Math
           //a(href='#') History of Computers
@@ -22,22 +32,12 @@ nav
           //a(href='#') Machine Learning
           //a(href='#') System Design
           //a(href='#') System Architecture
-      .dropdown
+      .nav-bar-dropdown
         button.dropbtn For Fun
-        .dropdown-content
+        .nav-bar-dropdown-content
           a(href='#') Software List
           //a(href='#') Booklist
           //a(href='#') Nioh 2 Builds
           //a(href='#') Siege Maps
           //a(href='#') YGO Deck/Binder Sim 
           //a(href='#') Media Reviews and Tier Lists
-              // Icons section on the far right
-    .nav-icons
-      a(href='https://www.linkedin.com/in/alex-wilson-pmp-3021a5257' target='_blank')
-        img.icon(src='icons/linkedin-icon.ico', alt='LinkedIn')
-      a(href='https://www.github.com/Alex-Wilson' target='_blank')
-        img.icon(src='icons/github-icon.png', alt='GitHub')
-      a(href='https://tryhackme.com/r/p/AlexWilson0425' target='_blank')
-        img.icon(src='icons/thm-icon.png', alt='thm')
-      a(href='https://leetcode.com/u/AlexWilson0425/' target='_blank')
-        img.icon(src='icons/leetcode-icon.ico', alt='leetcode')

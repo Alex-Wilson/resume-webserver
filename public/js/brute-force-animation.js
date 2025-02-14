@@ -17,17 +17,18 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const createGlitchEffect = (container, text) => {
+    container.style.minHeight = "250px"; // Prevents height collapse
     container.innerHTML = ""; // Clear existing content
-
+  
     // Create the before and after spans
     const beforeSpan = createSpan(text, "before");
     const afterSpan = createSpan(text, "after");
-
+  
     // Append spans for glitch effect
     container.appendChild(beforeSpan);
     container.appendChild(document.createTextNode(text)); // Main visible text
     container.appendChild(afterSpan);
-
+  
     container.classList.add("active"); // Activate glitch animation
   };
 

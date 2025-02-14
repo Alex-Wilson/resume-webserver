@@ -9,3 +9,11 @@
     --official-white: #FFF;
     --primary-font: 'Space Mono', monospace; /* Define the font variable */
 }
+
+body{
+    font-family: var(--primary-font);
+    background-color: var(--official-gray);
+    color: var(--official-white);
+    margin: 0;
+    padding: 0;
+}
