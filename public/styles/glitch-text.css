@@ -5,7 +5,7 @@
   text-align: center; /* Ensures text stays centered */
   margin: 0 auto; /* Centers the wrapper within its container */
   overflow: visible; /* Prevents hover effects from getting cut off */
-  min-height: 250px; /* Ensure glitch text has enough space to scroll away */
+  padding: 1rem; /* Adds spacing to prevent clipping */
 }
 
 
@@ -15,7 +15,7 @@
   font-weight: 700;
   text-transform: lowercase;
   position: relative;
-  color: #32cd32;
+  color: var(--official-green);
   line-height: 1;
   transition: text-shadow 0.2s ease, transform 0.2s ease;
 }

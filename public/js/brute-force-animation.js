@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const createGlitchEffect = (container, text) => {
-    container.style.minHeight = "250px"; // Prevents height collapse
     container.innerHTML = ""; // Clear existing content
   
     // Create the before and after spans

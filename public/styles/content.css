@@ -1,15 +1,3 @@
-
-/* Global styling for the body to ensure a consistent layout and background color. */
-body {
-    background-color: var(--official-gray);
-    margin: 0;
-    font-family: 'Space Mono', monospace; /* Defined once to avoid re-declaration in multiple files. */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    color: #ffffff;
-}
-
 /* Styling for markdown-generated content */
 .markdown-content {
     max-width: 800px;  /* Limits width for better readability */
