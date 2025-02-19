@@ -1,42 +1,40 @@
-.scroll-nav-bar
+.glitch-text-scroll-area
   include glitch-text.pug
 
-nav.nav-bar
-  .sticky-nav-bar
-    .nav-bar-links-container
-      a.nav-link(href='/about-me') About Me
-      a.nav-link(href='/documents/alex-wilson-resume.pdf' target='_blank') Resume
-      a.nav-link(href='/certifications') Certifications
-      .nav-bar-dropdown
-        button.dropbtn Projects
-        .nav-bar-dropdown-content
-          a(href='/ascii-art-editor') ASCII Art Editor
-      .nav-bar-dropdown
-        button.dropbtn Educational
-        .nav-bar-dropdown-content
-          a(href='#') Test
-          //a(href='#') Basic Math
-          //a(href='#') History of Computers
-          //a(href='#') Data Structures and Algorithms
-          //a(href='#') Security
-          //a(href='#') Animations
-          //a(href='#') Machine Learning
-          //a(href='#') System Design
-          //a(href='#') System Architecture
-      .nav-bar-dropdown
-        button.dropbtn Fun
-        .nav-bar-dropdown-content
-          a(href='#') Software List
-          //a(href='#') Booklist
-          //a(href='#') Nioh 2 Builds
-          //a(href='#') Siege Maps
-          //a(href='#') YGO Deck/Binder Sim 
-          //a(href='#') Media Reviews and Tier Lists
-      .nav-bar-dropdown
-        button.dropbtn Contact Me
-        .nav-bar-dropdown-content
-          a(href='mailto:alex.wilson.0425@gmail.com') Email
-          a(href='https://www.linkedin.com/in/alex-wilson-pmp-3021a5257' target='_blank') LinkedIn
-          a(href='https://www.github.com/Alex-Wilson' target='_blank') Github
-          a(href='https://leetcode.com/u/AlexWilson0425' target='_blank') LeetCode
-          a(href='https://tryhackme.com/r/p/AlexWilson0425' target='_blank') TryHackMe
+nav.sticky-nav-bar
+  a.nav-link(href='/about-me') About Me
+  a.nav-link(href='/documents/alex-wilson-resume.pdf' target='_blank') Resume
+  a.nav-link(href='/certifications') Certifications
+  .dropdown
+    button.dropbtn Projects
+    .dropdown-content
+      a.drop-down-link(href='/ascii-art-editor') ASCII Art Editor
+  .dropdown
+    button.dropbtn Educational
+    .dropdown-content
+      a.drop-down-link(href='#') Test
+      //a(href='#') Basic Math
+      //a(href='#') History of Computers
+      //a(href='#') Data Structures and Algorithms
+      //a(href='#') Security
+      //a(href='#') Animations
+      //a(href='#') Machine Learning
+      //a(href='#') System Design
+      //a(href='#') System Architecture
+  .dropdown
+    button.dropbtn Fun
+    .dropdown-content
+      a.drop-down-link(href='#') Software List
+      //a(href='#') Booklist
+      //a(href='#') Nioh 2 Builds
+      //a(href='#') Siege Maps
+      //a(href='#') YGO Deck/Binder Sim 
+      //a(href='#') Media Reviews and Tier Lists
+  .dropdown
+    button.dropbtn Contact Me
+    .dropdown-content
+      a.drop-down-link(href='mailto:alex.wilson.0425@gmail.com') Email
+      a.drop-down-link(href='https://www.linkedin.com/in/alex-wilson-pmp-3021a5257' target='_blank') LinkedIn
+      a.drop-down-link(href='https://www.github.com/Alex-Wilson' target='_blank') Github
+      a.drop-down-link(href='https://leetcode.com/u/AlexWilson0425' target='_blank') LeetCode
+      a.drop-down-link(href='https://tryhackme.com/r/p/AlexWilson0425' target='_blank') TryHackMe
