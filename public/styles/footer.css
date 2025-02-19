@@ -1,27 +1,56 @@
 .footer {
-    background-color: var(--official-gray); /* Matches the page's standard gray background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Space between ASCII text and icons */
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Space between icons */
+}
+
+.footer-icons img {
+    width: 40px; /* Adjust as needed */
+    height: 40px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.footer-icons img:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
 }
 
 .ascii-text {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Ensures text remains centered */
+    max-width: 95vw;
     position: relative;
-    overflow: hidden;
-    font-family: 'Space Mono', monospace; /* Ensures consistency with the site's font */
-    white-space: pre; /* Preserves the structure of the ASCII art */
-    line-height: 1.2; /* Consistent spacing between lines */
-    font-size: 14px; /* Default font size for ASCII art */
-    color: #ffffff; /* Fallback color in case gradient fails */
+    font-family: 'Space Mono', monospace;
+    white-space: pre; /* Keeps ASCII formatting intact */
+    line-height: 1;
+    font-size: clamp(0.1rem, 1vw, 1rem); /* Allows it to shrink even further */
+    color: #ffffff;
     text-shadow: 
         -1px -1px 0 #ff0000,  1px -1px 0 #ff0000,
         -1px  1px 0 #ff0000,  1px  1px 0 #ff0000,
         -2px -2px 0 #ff0000,  2px -2px 0 #ff0000,
-        -2px  2px 0 #ff0000,  2px  2px 0 #ff0000; /* Rainbow shadow for readability */
-    animation: rainbowBorder 6.67s linear infinite; /* Smooth rainbow animation */
-    letter-spacing: 0.5px; /* Slightly increases spacing for clarity */
+        -2px  2px 0 #ff0000,  2px  2px 0 #ff0000;
+    animation: rainbowBorder 6.67s linear infinite;
+    letter-spacing: 0.5px;
     transition: color 0.3s ease, text-shadow 0.3s ease;
+    max-width: 95vw; /* Ensures it never overflows */
+    padding: 0;
+    margin: 0 auto;
+    overflow: hidden; /* Prevents horizontal scrolling issues */
+    word-break: keep-all; /* Prevents accidental breaking */
 }
+
 
 /* Keyframe animation for the rainbow border effect */
 @keyframes rainbowBorder {

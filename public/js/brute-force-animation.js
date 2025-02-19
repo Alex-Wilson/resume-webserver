@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const glitchText = document.querySelector(".glitch-text");
-  
+
   const isValidElement = (element) => {
     if (!element) {
       console.error("Error: .glitch-text element not found.");
@@ -19,52 +19,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const createGlitchEffect = (container, text) => {
     container.innerHTML = ""; // Clear existing content
   
-    // Create the before and after spans
     const beforeSpan = createSpan(text, "before");
     const afterSpan = createSpan(text, "after");
   
-    // Append spans for glitch effect
     container.appendChild(beforeSpan);
-    container.appendChild(document.createTextNode(text)); // Main visible text
+    container.appendChild(document.createTextNode(text));
     container.appendChild(afterSpan);
   
-    container.classList.add("active"); // Activate glitch animation
+    container.classList.add("active");
   };
 
-  const generateHash = async (text) => {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(text);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
-  };
+  const setupClickToggle = (container, text) => {
+    let isSSHPrompt = false;
 
-  const setupClickToggle = async (container, text) => {
-    const hash = await generateHash(text); // Generate hash once
-    let isHashVisible = false;
-  
     container.addEventListener("click", (event) => {
-      console.log("SHA-256 Hash:", hash); // Log hash to console
-  
       if (window.location.pathname !== "/") {
-        event.preventDefault(); // Prevent any unwanted changes
-        window.location.href = "/"; // Redirect to root
+        event.preventDefault();
+        window.location.href = "/";
         return;
       }
-  
-      // Only toggle display if already on the root page
-      isHashVisible = !isHashVisible;
-      const displayText = isHashVisible ? hash : text;
+
+      isSSHPrompt = !isSSHPrompt;
+      const displayText = isSSHPrompt
+        ? ">>Cannot open '/root': PERSMISSION DENIED\n"
+        : text;
+
       createGlitchEffect(container, displayText);
+
+      // Log secret message to console on click after animation
+      console.log("Can you find the .onion?");
     });
   };
-  
+
   const runTypingAnimation = async (container, targetText) => {
     let currentText = "$";
     const baseText = createSpan("", "base");
     container.appendChild(baseText);
 
-    // Initialize character pools for each position
     const charPools = targetText.split("").map(() =>
       Array.from({ length: 126 - 32 }, (_, i) => String.fromCharCode(32 + i))
     );
@@ -81,20 +72,20 @@ document.addEventListener("DOMContentLoaded", () => {
         baseText.textContent = currentText + randomLetter;
 
         if (randomLetter === targetChar) {
-          break; // Correct character guessed
+          break;
         }
 
-        pool.splice(randomIndex, 1); // Remove incorrect character from pool
-        await delay(1); // Typing speed
+        pool.splice(randomIndex, 1);
+        await delay(1);
       }
 
       currentText += targetChar;
-      baseText.textContent = currentText; // Update current text
-      await delay(1); // Delay between letters
+      baseText.textContent = currentText;
+      await delay(1);
     }
 
     createGlitchEffect(container, currentText);
-    setupClickToggle(container, currentText); // Enable click toggling
+    setupClickToggle(container, currentText);
   };
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -107,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       runTypingAnimation(glitchText, targetText);
     } else {
       createGlitchEffect(glitchText, targetText);
-      setupClickToggle(glitchText, targetText); // Enable click toggling
+      setupClickToggle(glitchText, targetText);
     }
   };
 
