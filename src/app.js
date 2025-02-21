@@ -1,3 +1,9 @@
+//TODO:
+//Implement pug template for educations and applicaiton pages
+//Redo nav links and site structure for better UX
+//update ascii editor page
+//
+
 // Load environment variables from .env file
 require('dotenv').config();
 
