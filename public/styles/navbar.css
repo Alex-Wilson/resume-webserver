@@ -36,7 +36,6 @@ nav.sticky-nav-bar.scrolled {
   text-decoration: none;
   font-size: 1rem;
   padding: 0.3rem 0.8rem;
-  border-radius: 5px;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -73,8 +72,6 @@ nav.sticky-nav-bar.scrolled {
     min-width: 180px;
     background: rgba(0, 0, 0, 0.95);
     box-shadow: 0 2px 8px rgba(0, 255, 0, 0.5);
-    border-radius: 5px;
-    padding: 0.5rem 0;
     text-align: center;
     z-index: 999;
   }
