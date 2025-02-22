@@ -1,4 +1,8 @@
-/* Ensure glitch text scrolls before navbar sticks */
+/* ============================
+   NAVBAR BASE STYLING
+   ============================ */
+
+/* Ensures glitch text scrolls away before navbar sticks */
 .glitch-text-scroll-area {
   max-width: min(90%, fit-content);
   text-align: center;
@@ -19,15 +23,10 @@ nav.sticky-nav-bar {
   padding: 0.5rem 1rem;
   z-index: 1000;
   gap: 1rem;
+  min-width: 0;
   width: 100%;
   flex-wrap: wrap;
   transition: all 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
-}
-
-/* Blur effect when sticky */
-nav.sticky-nav-bar.scrolled {
-  backdrop-filter: blur(8px);
-  background: rgba(41, 42, 45, 0.85);
 }
 
 /* Navigation link styling */
@@ -48,6 +47,7 @@ nav.sticky-nav-bar.scrolled {
   white-space: nowrap;
 }
 
+/* Hover effect */
 .nav-link:hover, .dropbtn:hover {
   color: var(--official-white);
   text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
@@ -55,14 +55,41 @@ nav.sticky-nav-bar.scrolled {
   transform: scale(1.05);
 }
 
-/* Dropdown container */
+/* ============================
+   DROPDOWN STYLING
+   ============================ */
+
+/* Ensures dropdowns position correctly */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Desktop Dropdown */
+/* Dropdown links */
+.dropdown-content a {
+  display: block;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: var(--official-green);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+/* Dropdown hover effect */
+.dropdown-content a:hover {
+  background: rgba(0, 255, 0, 0.3);
+  color: var(--official-white);
+  text-shadow: 0 0 10px rgba(0, 255, 0, 1);
+}
+
+/* ============================
+   MEDIA QUERIES FOR RESPONSIVENESS
+   ============================ */
+
+/* ✅ Desktop Layout (769px and above) */
 @media screen and (min-width: 769px) {
+  /* Fix dropdown not applying styles at 769px */
   .dropdown-content {
     display: none;
     position: absolute;
@@ -79,9 +106,21 @@ nav.sticky-nav-bar.scrolled {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  /* ✅ Prevent flex-wrap by adjusting spacing */
+  nav.sticky-nav-bar {
+    gap: 0.5rem; /* Reduce gap to prevent line break */
+    padding: 0.4rem 0.8rem; /* Adjust padding */
+    justify-content: space-evenly;
+  }
+
+  .nav-link, .dropbtn {
+    font-size: 0.95rem; /* Slightly reduce font size */
+    padding: 0.2rem 0.6rem; /* Adjust padding */
+  }
 }
 
-/* Mobile Mode - Remove translateX */
+/* ✅ Mobile Mode (768px and below) */
 @media screen and (max-width: 768px) {
   nav.sticky-nav-bar {
     flex-direction: column;
@@ -115,7 +154,7 @@ nav.sticky-nav-bar.scrolled {
     display: block !important;
   }
 
-  /* ✅ Fix: Ensure dropdown links are visible */
+  /* ✅ Ensure dropdown links are visible */
   .dropdown-content a {
     display: block;
     padding: 0.5rem;
@@ -129,24 +168,7 @@ nav.sticky-nav-bar.scrolled {
   }
 }
 
-/* Dropdown links */
-.dropdown-content a {
-  display: block;
-  padding: 0.5rem;
-  font-size: 1rem;
-  color: var(--official-green);
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
-}
-
-.dropdown-content a:hover {
-  background: rgba(0, 255, 0, 0.3);
-  color: var(--official-white);
-  text-shadow: 0 0 10px rgba(0, 255, 0, 1);
-}
-
-/* Smallest screen sizes */
+/* ✅ Smallest screens (400px and below) */
 @media screen and (max-width: 400px) {
   nav.sticky-nav-bar {
     flex-direction: column;
