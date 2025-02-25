@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       isSSHPrompt = !isSSHPrompt;
       const displayText = isSSHPrompt
-        ? ">>Cannot open '/root': PERSMISSION DENIED\n"
+        ? ">>Cannot open '/root': PERSMISSION DENIED"
         : text;
 
       createGlitchEffect(container, displayText);
