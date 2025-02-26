@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const runTypingAnimation = async (container, targetText) => {
-    let currentText = "#";
+    let currentText = "$";
     const baseText = createSpan("", "base");
     container.appendChild(baseText);
 
