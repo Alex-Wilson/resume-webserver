@@ -1,3 +1,12 @@
+/* Center markdown headings */
+h1, 
+h2, 
+h3,
+p {
+  text-align: center;
+}
+
+
 /* Table container styles */
 table {
   width: 100%; /* Full-width table */

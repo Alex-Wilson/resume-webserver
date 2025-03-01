@@ -1,9 +1,16 @@
 //TODO:
+//@Hardware
+//Setup Zen Broswer
+//NAS Research
+//NAS Setup
+//Plex Migration
+//Move FF creds
+//Setup BYB VPN
+//Move off Mozilla VPN
 //
-//Implement pug template for educations and applicaiton pages
-//Redo nav links and site structure for better UX
+//@Site:
+//Implement css for pug/markdown and application pages
 //update ascii editor page
-//
 
 // Load environment variables from .env file
 require('dotenv').config();
