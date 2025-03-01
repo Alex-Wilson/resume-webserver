@@ -7,6 +7,10 @@
 //Move FF creds
 //Setup BYB VPN
 //Move off Mozilla VPN
+//Dual Boot Arch Research
+//Dual Boot Arch Setup
+//Rice Arch
+//
 //
 //@Site:
 //Implement css for pug/markdown and application pages
