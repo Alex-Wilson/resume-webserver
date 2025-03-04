@@ -4,13 +4,13 @@
 //NAS Research
 //NAS Setup
 //Plex Migration
-//Move FF creds
+//Move FF creds to KeyPassXC, consolidate keys, fix git/gh auth issue 
 //Setup BYB VPN
 //Move off Mozilla VPN
 //Dual Boot Arch Research
 //Dual Boot Arch Setup
 //Rice Arch
-//
+//Github Auth Issue
 //
 //@Site:
 //Implement css for pug/markdown and application pages
