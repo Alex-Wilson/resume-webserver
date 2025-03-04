@@ -1,9 +1,6 @@
 //TODO:
 //@Hardware
 //Setup Zen Broswer
-//NAS Research
-//NAS Setup
-//Plex Migration
 //Move FF creds to KeyPassXC, consolidate keys, fix git/gh auth issue 
 //Setup BYB VPN
 //Move off Mozilla VPN
