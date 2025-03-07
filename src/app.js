@@ -1,6 +1,5 @@
 //TODO:
 //@Hardware
-//Setup Zen Broswer
 //Move FF creds to KeyPassXC, consolidate keys, fix git/gh auth issue 
 //Setup BYB VPN
 //Move off Mozilla VPN
@@ -8,6 +7,9 @@
 //Dual Boot Arch Setup
 //Rice Arch
 //Github Auth Issue
+//
+//@ENV:
+//Setup cursor on windows
 //
 //@Site:
 //Implement css for pug/markdown and application pages
