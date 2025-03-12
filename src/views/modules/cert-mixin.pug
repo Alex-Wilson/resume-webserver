@@ -6,8 +6,8 @@ mixin certificationTable(rows)
         th(data-column="status") Status
         th(data-column="certName") Certification Name
         th(data-column="orgName") Organization
-        th(data-column="price") Price
-        th(data-column="workExperienceRequired") Work Experience Required
+        //th(data-column="price") Price
+        //th(data-column="workExperienceRequired") Work Experience Required
         th(data-column="description") Description
     tbody
       each row in rows
@@ -17,6 +17,6 @@ mixin certificationTable(rows)
           td(data-column="certName" data-label="Certification Name") 
             a(href=row.link, target="_blank") #{row.certName}
           td(data-column="orgName" data-label="Organization") #{row.orgName}
-          td(data-column="price" data-label="Price") $#{row.price}
-          td(data-column="workExperienceRequired" data-label="Work Experience Required") #{row.workExperienceRequired ? 'Yes' : 'No'}
+          //td(data-column="price" data-label="Price") $#{row.price}
+          //td(data-column="workExperienceRequired" data-label="Work Experience Required") #{row.workExperienceRequired ? 'Yes' : 'No'}
           td(data-column="description" data-label="Description") #{row.description}
