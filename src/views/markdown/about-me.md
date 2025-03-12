@@ -1,24 +1,3 @@
-## About me
-Hello, World! Welcome to alexwilson.info! I'm Alex Wilson, a self-proclaimed technologist. I've always been fascinated by science, technology, engineering, and math, but I find true fulfillment in using computers to enhance creativity, efficiency, and problem-solving. 
-
-I love converting abstract ideas into practical solutions, finding magic in automating repetitive tasks, feeling the satisfaction of solving complex problems, and enjoying the freedom to express myself digitally!
-
-## Purpose
-As computers become more ingrained in daily life, opportunities in technology and software development will only continue to grow. This website serves as my digital resume, showcasing my projects, problem-solving skills, design acumen, and achievements to potential employers.
-
-I also use this space to share knowledge, as I’ve found that teaching a concept is the best way to truly master it myself.
-
-## Career Goals
-My goal is to transition into a highly technical role where I can apply my skills in system, network, and cloud administration, security, DevOps, and software development. I want to work hands-on with infrastructure, automation, and security, solving complex problems and continuously learning new technologies.
-
-Long term, I aim to specialize in cybersecurity, exploit development, or cloud security architecture. I am passionate about understanding systems at a deep level, improving security, and building reliable, scalable solutions.
-
-
-## Interests and Hobbies
-My academic and professional interests include system, network, and cloud administration, peer-to-peer networking, DevOps, application and web development, machine learning, cryptography, and exploit development. 
-
-When my brain needs a break and I can’t keep coding, you’ll probably find me gaming, working out, cooking, spending time with family, friends, or my pets, watching anime, drawing, reading non-fiction or manga, arguing about Yu-Gi-Oh bans, assembling Zoids/Gundam/40K figurines, or attempting to make music.
-
 ## "Personal" Computing
 For Christmas of 2010, my mom took me to MicroCenter and let me pick out parts for a budget desktop. After days of watching YouTube videos on my iTouch, I finally assembled it myself! I was so proud I was able to get my rig (Athlon X4, Radeon HD 5770, 256GB HDD (lol)) to successfully POST. Then, after PURCHASING and installing Windows 8, I realized my Steam library was empty... I had no games to play (thank god for TF2, but it was no Halo 3 or Reach).
 
@@ -38,3 +17,8 @@ I worked as a project manager there for five years, where I met amazing people a
 In total, I managed over 20 projects in five years. I enjoyed building trust with stakeholders, managing project timelines, and developing financial forecasts while taking ownership and guiding projects from start to finish."
 
 While I enjoy working as a project manager, I often feel like I am taking a back seat to the work I truly want to do. I want to be in the command line, actually doing the work. That is why I am looking to transition into a more technical role.
+
+## Interests and Hobbies
+My academic and professional interests include system, network, and cloud administration, peer-to-peer networking, DevOps, application and web development, machine learning, cryptography, and exploit development. 
+
+When my brain needs a break and I can’t keep coding, you’ll probably find me gaming, working out, cooking, spending time with family, friends, or my pets, watching anime, drawing, reading non-fiction or manga, arguing about Yu-Gi-Oh bans, assembling Zoids/Gundam/40K figurines, or attempting to make music.
