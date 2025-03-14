@@ -59,6 +59,24 @@ app.get('/about-me', (req, res) => {
   renderMarkdownPage(res, filePath, "about-me"); // Matches about-me.pug
 });
 
+// Resume route, serves the PDF file directly
+app.get('/resume', (req, res) => {
+  const resumePath = path.join(__dirname, '../public/documents/alexander-wilson-resume.pdf');
+  
+  // Check if file exists
+  if (fs.existsSync(resumePath)) {
+    // Set the appropriate content type for PDF
+    res.setHeader('Content-Type', 'application/pdf');
+    
+    // Stream the file to the response
+    fs.createReadStream(resumePath).pipe(res);
+  } else {
+    // If file doesn't exist, send a 404 error
+    res.status(404).send('Resume not found');
+  }
+});
+
+
 // Certifications page, loads JSON and renders certifications.pug
 app.get('/certifications', (req, res) => {
   fs.readFile(path.join(__dirname, '../public/extras/certs.json'), 'utf-8', (err, data) => {
@@ -66,6 +84,8 @@ app.get('/certifications', (req, res) => {
     res.render('certifications', { certifications: JSON.parse(data).certifications });
   });
 });
+
+app.get('resume')
 
 // ASCII Art Editor page, renders ascii-art-editor.pug
 app.get('/ascii-art-editor', (req, res) => {

@@ -2,25 +2,27 @@ mixin certificationTable(rows)
   table#certifications-table
     thead
       tr
-        th(data-column="domain") Domain
-        th(data-column="status") Status
         th(data-column="certName") Certification Name
-        th(data-column="orgName") Organization
-        //th(data-column="price") Price
-        //th(data-column="workExperienceRequired") Work Experience Required
-        th(data-column="description") Description
-        th(data-column="earnedDate") Earned Date
+        th(data-column="orgName") Organization Name
+        th(data-column="earnedDate") Certification Date 
         th(data-column="expirationDate") Expiration Date
+        th(data-column="workExperienceRequired") Work Experience Required
+        th(data-column="domain") Domain
+        th(data-column="description") Description
+
+        //th(data-column="price") Price
     tbody
       each row in rows
         tr
-          td(data-column="domain" data-label="Domain") #{row.domain}
-          td(data-column="status" data-label="Status") #{row.status}
           td(data-column="certName" data-label="Certification Name") 
-            a(href=row.link, target="_blank") #{row.certName}
+            a(href=row.link, target="_blank") #{row.certName} 
           td(data-column="orgName" data-label="Organization") #{row.orgName}
+          td(data-column="earnedDate" data-label="earnedDate") #{row.earnedDate}
+          td(data-column="expirationDate" data-label="expirationDate") #{row.expirationDate}
+          td(data-column="workExperienceRequired" data-label="Work Experience Required") #{row.workExperienceRequired ? 'Yes' : 'No'}
+
+          td(data-column="domain" data-label="Domain") #{row.domain}
+          td(data-column="description" data-label="Description") #{row.description}
+
           //td(data-column="price" data-label="Price") $#{row.price}
-          //td(data-column="workExperienceRequired" data-label="Work Experience Required") #{row.workExperienceRequired ? 'Yes' : 'No'}
-          td(data-column="description" data-label="Description") #{row.earned}
-          td(data-column="earned" data-label="earned") #{row.earned}
-          td(data-column="expires" data-label="expires") #{row.expires}
+

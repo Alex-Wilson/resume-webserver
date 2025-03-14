@@ -9,8 +9,8 @@
         "price": 675,
         "workExperienceRequired": "3-5 years",
         "description": "Demonstrate your ability to lead projects in any industry with this globally recognized certification and open the door to a world of opportunities",
-        "earned": "02/09/2024",
-        "expires": "02/09/2027"
+        "earnedDate": "02/09/2024",
+        "expirationDate": "02/09/2027"
     },
     {
         "domain": "Networking",
@@ -21,8 +21,8 @@
         "price": 369,
         "workExperienceRequired": false,
         "description": "Covers foundational networking concepts, protocols, and troubleshooting techniques.",
-        "earned": "12/10/2024",
-        "expires": "12/10/2027"
+        "earnedDate": "12/10/2024",
+        "expirationDate": "12/10/2027"
     }
     ]
 }
