@@ -4,36 +4,55 @@
     margin: 40px auto; /* Centers the content */
     padding: 20px;
     background: var(--official-gray); /* Keeps site color scheme */
-    line-height: 1.7;
-    font-size: 1.1rem;
+    line-height: 1.5;
+    font-size: 1.2rem;
     color: #ffffff; /* Ensures text remains readable */
-}
-
-/* Center markdown headings */
-.markdown-content h1, 
-.markdown-content h2, 
-.markdown-content h3,
-.markdown-content p {
-    text-align: center;
 }
 
 /* Headings */
 .markdown-content h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #ddd;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #fff;
     padding-bottom: 5px;
+    text-align: center;
+    margin: 15px;
+}
+
+h1{
+    font-size: 1.5rem;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+    text-align: center;
+    margin: 15px;
 }
 
 .markdown-content h2 {
     font-size: 1.5rem;
     margin-top: 20px;
     border-bottom: 1px solid #ddd;
+    text-align: center;
 }
+
+.markdown-content h3 {
+    font-size: 1.25rem;
+    margin-top: 30px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+
 
 /* Paragraphs */
 .markdown-content p {
-    margin-bottom: 15px;
+    margin: 10px;
+    text-align: left;
+    padding: 5px;
+}
+
+p{
+    margin: 10px;
+    text-align: center;
+    padding: 5px;
 }
 
 /* Lists */

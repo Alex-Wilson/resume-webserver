@@ -1,13 +1,12 @@
 # Hello, World!
-Welcome to alexwilson.info! I am Alex Wilson, a self-proclaimed technologist from the US. I have always been fascinated by math, science, engineering, but most of all computers. I find the most  fulfillment when I am able to enhance efficiency, automate processes, innovate, or solve complex real-world problems with high-level electronic and digital abstactions.
+Welcome to alexwilson.info! I am Alex Wilson, a self-proclaimed technologist from the US with a passion for math, science, engineering, and, most of all, technology. I find the most fulfillment in automating tedious processes, exploring electronic and digital abstractions, solving complex real-world problems, and continuously expanding my technical knowledge.
 
-## Purpose
-As computers become more ingrained in daily life, opportunities in technology and software development are expected to grow. This website serves as my digital resume, showcasing my projects, problem-solving skills, design acumen, and achievements to those potential future employers.
+# Purpose
+This website serves as my digital resume, showcasing my projects, problem-solving skills, design expertise, and achievements for potential future employers.
 
-I also use this space to share knowledge, as I believe that teaching is the best way to truly master any concept.
+I also use this space to share knowledge, as I believe teaching is one of the best ways to master a concept.
 
-## Career Goals
-I’m pursuing a highly technical role where I can apply my expertise in system, network, and cloud administration, security, DevOps, and software development. I want to work hands-on with infrastructure, automation, and security—solving complex problems while continuously learning new technologies.
+# Career Goals
+I am pursuing a role where I can apply my expertise in system, network, and cloud administration, security, DevOps, and software development. I thrive in hands on work with infrastructure, automation, and security while solving complex problems and learning new technologies.
 
-Long term, I aim to specialize in cybersecurity, exploit development, and cloud security architecture. I’m passionate about understanding systems at a deep level, enhancing security, and building reliable, scalable solutions.
-
+Long term, I aim to specialize in cybersecurity, exploit development, and cloud security architecture, driven by my passion for understanding systems at a deep level and building secure, resilient solutions.

@@ -145,7 +145,6 @@ nav.sticky-nav-bar {
     box-shadow: none;
     background: rgba(0, 0, 0, 0.85);
     text-align: center;
-    padding: 0.5rem;
     display: none;
     transform: none !important;
   }
