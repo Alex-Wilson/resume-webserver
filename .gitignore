@@ -1,3 +1,23 @@
+*.pem
+*.key
+*.pub
+*.crt
+*.cert
+*.enc
+*.asc
+*.gpg
+*.pfx
+*.p12
+*.ppk
+
+# SSH-related
+.ssh/
+*.ssh
+*id_rsa*
+*id_ed25519*
+authorized_keys
+known_hosts
+
 # Node.js dependencies
 node_modules/
 
