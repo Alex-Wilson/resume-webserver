@@ -1,18 +1,16 @@
 //TODO:
 //@Hardware
-//Move FF creds to KeyPassXC, consolidate keys, fix git/gh auth issue 
+//Move FF creds to KeyPassXC, consolidate keys
 //Setup BYB VPN
 //Move off Mozilla VPN
 //Dual Boot Arch Research
 //Dual Boot Arch Setup
 //Rice Arch
-//Github Auth Issue
 //
 //@ENV:
 //Setup cursor on windows
 //
 //@Site:
-//Implement css for pug/markdown and application pages
 //update ascii editor page
 
 // Load environment variables from .env file
@@ -58,6 +56,18 @@ app.get('/about-me', (req, res) => {
   const filePath = path.join(__dirname, '../src/views/markdown/about-me.md');
   renderMarkdownPage(res, filePath, "about-me"); // Matches about-me.pug
 });
+
+// About Me page, renders about-me.md with about-me.pug
+app.get('/deployment-guide', (req, res) => {
+  const filePath = path.join(__dirname, '../src/views/markdown/deployment-guide.md');
+  renderMarkdownPage(res, filePath, "deployment-guide"); // Matches deployment-guide.pug
+});
+
+
+
+
+
+
 
 // Resume route, serves the PDF file directly
 app.get('/resume', (req, res) => {
