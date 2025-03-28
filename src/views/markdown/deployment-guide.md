@@ -13,10 +13,11 @@ Before proceeding, ensure you have the following:
 - Common sense (optional but encouraged)
 
 ## Step 0: Learning
+--------- Cut this out to another doc later --------------------------------------
 ### `cmd.exe`, a Windows Terminal (?)
-Your computer operates through a series of abstraction layers that simplify complex hardware operations into user-friendly interactions. While you may be used to common tasks such as playing video games, watching cat videos, or checking your email, these activities almost always rely on a **Graphical User Interface (GUI)**. A GUI consists of windows, icons, buttons, and other visual elements that allow you to interact with your system using a mouse and keyboard. While intuitive and user-friendly, GUIs are not always the most efficient way to communicate with a computer.
+Your computer operates through a series of abstraction layers that simplify complex hardware operations into user-friendly interactions. While you may be used to common tasks such as playing video games, watching cat videos, or checking your email, these activities typically rely on a **Graphical User Interface (GUI)**. A GUI consists of windows, icons, buttons, and other visual elements that allow you to interact with your system using a mouse and keyboard. While intuitive and user-friendly, GUIs are not always the most efficient way to communicate with a computer.
 
-Many of the world’s most powerful technologies operate primarily through **Command Line Interfaces (CLIs)**. These environments accept only **text-based input** as commands. Although this may seem unintuitive at first, the CLI allows users to perform complex tasks repeatedly, autonomously, and with far greater control. Rather than clicking through dozens of checkboxes in a GUI, a single command-line instruction can accomplish the same result instantly and reliably.
+Many of the world’s most powerful and important technologies operate primarily through **Command Line Interfaces (CLIs)**. These are environments which only accept **text-based input**. Think of this as  as commands. Although this may seem unintuitive at first, the CLI allows users to perform complex tasks repeatedly, autonomously, and with far greater control. Rather than clicking through dozens of checkboxes in a GUI, a single command-line instruction can accomplish the same result instantly and reliably.
 
 The terms **terminal**, **shell**, and **command line** are often used interchangeably, but they refer to subtly different components of the command-line ecosystem:
 
@@ -33,7 +34,7 @@ In Windows, the traditional terminal is `cmd.exe`. This guide exclusively uses `
 1. Press `Windows` + `R` 
 2. Type `cmd`
 3. Press `Enter`
-### General Security
+### General Security Info
 #### Information Security
 
 **Information Security (InfoSec)**, refers to the practice of protecting data from unauthorized access, disclosure, alteration, or destruction. This protection applies to data in all forms, whether physical, digital, or transmitted. Effective information security ensures that systems and data remain trustworthy, confidential, and accessible only to those with appropriate authorization.
@@ -98,12 +99,15 @@ Consider the fear of returning to your Miami Vice mansion after a successful Hol
 
 
 
-#### Example Activities
-
+Examples of :
 - Avoiding password reuse  
 - Masking or rotating IP addresses  
 - Concealing internal system architecture  
 - Restricting public disclosure of internal details
+
+
+
+
 
 #### Analogy
 
