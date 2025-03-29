@@ -73,7 +73,7 @@ Cybersecurity is a broad and evolving field. While the domains listed below are 
 | **Security Awareness and Training**| Educates users about cybersecurity best practices and social engineering risks. Supports organizational resilience through phishing simulations and user testing. |
 | **Third-Party and Supply Chain Risk Management** | Assesses and mitigates risks introduced by vendors, contractors, and external dependencies. Often includes due diligence and contract controls. |
 
-Cybersecurity professionals often work in specialized roles based on their approach to offense and defense:
+Cybersecurity professionals often work in specialized **roles** based on their approach to offense and defense:
 
 | Operational Role        | Description |
 |-------------|------|
@@ -81,7 +81,7 @@ Cybersecurity professionals often work in specialized roles based on their appro
 | **Blue Team** | Defensive operators who monitor, protect, and respond to threats in real time. |
 | **Purple Team** | A cooperative function that facilitates communication and shared learning between red and blue teams, helping improve defenses based on offensive insights. |
 
-Cybersecurity practices can also be categorized by **when** in the attack timeline they operate:
+Cybersecurity practices can also be categorized by **when** in the attack timeline they operate also known as what **response phase** they operate in:
 
 | Response Phase | Timing     | Focus |
 |----------------|------------|-------|
@@ -89,7 +89,7 @@ Cybersecurity practices can also be categorized by **when** in the attack timeli
 | **Detect**      | **During** | Monitoring tools, intrusion detection systems, log analysis, threat intelligence, and anomaly detection. |
 | **Respond**     | **After**  | Incident handling, containment, recovery, forensic investigation, and reporting. |
 
-> These perspectives are not mutually exclusive. A strong cybersecurity strategy often maps tools, personnel, and processes across **all three views**: by technical domain, by operational role, and by response phase.
+> These perspectives are not mutually exclusive. A strong cybersecurity strategy often maps tools, personnel, and processes across **all three views**: by **technical domain, by operational role, and by response phase**.
 
 #### Operational Security (OpSec)
 Consider the fear of returning to your Miami Vice mansion after a successful Hollywood-style bank robbery, only to realize you left your wallet and government-issued ID inside the vault. This is the essence of a failure in OpSec.

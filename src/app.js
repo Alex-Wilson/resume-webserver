@@ -1,4 +1,19 @@
 //TODO:
+//
+//consolidate creds
+//update bookmarks
+
+//Deployment Guide on site
+//Fix css for md files
+//AWS CCP Notes on site
+//Network+ Notes on site
+//Security+ Notes on site
+
+//Create schedule
+//NAS Pentest
+
+
+
 //@Hardware
 //Move FF creds to KeyPassXC, consolidate keys
 //Setup BYB VPN
