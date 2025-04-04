@@ -80,7 +80,7 @@ app.get('/deployment-guide', (req, res) => {
 
 // Certification Resources page, renders about-me.md with about-me.pug
 app.get('/certification-resources', (req, res) => {
-  const filePath = path.join(__dirname, '../src/views/markdown/certificaiton-resource.md');
+  const filePath = path.join(__dirname, '../src/views/markdown/certification-resources.md');
   renderMarkdownPage(res, filePath, "certification-resources"); // Matches certification-resources.pug
 });
 
