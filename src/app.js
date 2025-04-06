@@ -60,32 +60,20 @@ function renderMarkdownPage(res, filePath, pageTitle) {
 }
 
 // Routes-----------------------------------------------------------------------
-// Default homepage route, renders index.md with index.pug
 app.get('/', (req, res) => {
   const filePath = path.join(__dirname, '../src/views/markdown/index.md');
   renderMarkdownPage(res, filePath, "index"); // Matches index.pug
 });
 
-// About Me page, renders about-me.md with about-me.pug
 app.get('/about-me', (req, res) => {
   const filePath = path.join(__dirname, '../src/views/markdown/about-me.md');
   renderMarkdownPage(res, filePath, "about-me"); // Matches about-me.pug
 });
 
-// About Me page, renders about-me.md with about-me.pug
-app.get('/deployment-guide', (req, res) => {
-  const filePath = path.join(__dirname, '../src/views/markdown/deployment-guide.md');
-  renderMarkdownPage(res, filePath, "deployment-guide"); // Matches deployment-guide.pug
+app.get('/educational-resources', (req, res) => {
+  const filePath = path.join(__dirname, '../src/views/markdown/educational-resources.md');
+  renderMarkdownPage(res, filePath, "educational-resources"); // Matches certification-resources.pug
 });
-
-// Certification Resources page, renders about-me.md with about-me.pug
-app.get('/certification-resources', (req, res) => {
-  const filePath = path.join(__dirname, '../src/views/markdown/certification-resources.md');
-  renderMarkdownPage(res, filePath, "certification-resources"); // Matches certification-resources.pug
-});
-
-
-
 
 
 
@@ -114,13 +102,6 @@ app.get('/certifications', (req, res) => {
     if (err) return res.status(500).send('Error loading certifications data');
     res.render('certifications', { certifications: JSON.parse(data).certifications });
   });
-});
-
-app.get('resume')
-
-// ASCII Art Editor page, renders ascii-art-editor.pug
-app.get('/ascii-art-editor', (req, res) => {
-  res.render('ascii-art-editor');
 });
 
 // Start the Express server on the specified port
