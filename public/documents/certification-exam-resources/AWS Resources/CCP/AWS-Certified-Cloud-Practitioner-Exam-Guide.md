@@ -131,11 +131,24 @@ An Auto Scaling Group automatically manages a group of EC2 instances. It can inc
 
 
 TO ADD:
-DynamoDB vs RDS
 AutoScale vs ELB
-CloudTrail vs Cloudwatch Logs
-
+CloudTrail vs Cloudwatch Logs vs Inspector vs Trusted Advisor vs Artificat
+AWS Premium Support
 Cost of EC2 instance (location, AMI type, and instance type)
+Tiers/limits/cost of S3
+AWS Config
+AWS Multi-AZ
+VPC vs Subnets vs Security Group vs NACL
+ECR
+EMR
+ECS
+Storage Gateway vs AWS DMS
+EBS Volume vs EBS Snapshot
+Elasticache 
+Glacier vs Redshift vs Aurora vs DynamoDB vs RDS
+AWS IAM (AWS IAM Groups vs AWS IAM Permissions vs AWS IAM Users vs AWS IAM Roles )
+
+Role/Resource/Permission/Policy
 
 
 
