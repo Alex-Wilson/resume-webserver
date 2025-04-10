@@ -433,3 +433,140 @@ Classic Load Balancer (CLB): OSI Layer 7 and Layer 4, used for application built
 
 ## SNS vs SES
 Simple Notificaiton Service is used for plain text while SES allows the construction of html emails, templating engines, and custom domain name emails. 
+
+
+Auto Scaling vs ELB
+
+    Auto Scaling: Automatically adjusts the number of EC2 instances based on demand (e.g., CPU usage or network traffic).
+
+    Elastic Load Balancer (ELB): Distributes incoming traffic across multiple targets (EC2, Lambda, containers) to ensure fault tolerance and high availability.
+
+    Key Difference: Auto Scaling handles quantity of resources; ELB handles traffic distribution.
+
+CloudTrail vs CloudWatch Logs vs Inspector vs Trusted Advisor vs Artifact
+
+    CloudTrail: Logs all API calls (who did what and when).
+
+    CloudWatch Logs: Collects logs from apps/services and allows custom alarms/metrics.
+
+    Inspector: Security assessment tool for vulnerabilities and best practices.
+
+    Trusted Advisor: Gives real-time recommendations for cost optimization, security, fault tolerance, and performance.
+
+    Artifact: Provides compliance reports and AWS agreements (for audits, etc.).
+
+AWS Premium Support
+
+    Plans: Basic (free), Developer, Business, Enterprise.
+
+    Services: 24/7 access to Cloud Support Engineers, architectural guidance, third-party software support (depending on tier).
+
+Cost of EC2 Instance
+
+    Determined by:
+
+        Location (region): e.g., us-east-1 is cheaper than eu-west-1
+
+        AMI Type: Windows vs Linux vs Custom
+
+        Instance Type: t2.micro (cheap) vs m5.2xlarge (expensive)
+
+        Purchase Model: On-Demand, Reserved, Spot, Savings Plan
+
+S3 Tiers/Limits/Cost
+
+    Storage Classes: Standard, Intelligent-Tiering, Glacier, Glacier Deep Archive, Infrequent Access
+
+    Cost: Based on storage size, retrieval times, and access frequency
+
+    Limits: Virtually unlimited storage, individual object max size = 5TB, bucket naming limits
+
+AWS Config
+
+    Tracks resource configurations and changes over time.
+
+    Can evaluate compliance with custom or managed rules.
+
+AWS Multi-AZ
+
+    For RDS and some other services: Automatically replicates data across Availability Zones.
+
+    Improves high availability and failover resilience.
+
+VPC vs Subnets vs Security Groups vs NACL
+
+    VPC: Your isolated AWS network.
+
+    Subnets: Divide VPC into logical sections (public/private).
+
+    Security Group: Instance-level firewall (stateful).
+
+    NACL: Subnet-level firewall (stateless, rule-based access control).
+
+ECR (Elastic Container Registry)
+
+    Managed Docker container image registry.
+
+    Works with ECS, EKS, and CodePipeline.
+
+EMR (Elastic MapReduce)
+
+    Managed Hadoop framework for big data processing (Spark, Hive, HBase).
+
+    Scalable and cost-effective for analytics.
+
+ECS (Elastic Container Service)
+
+    Container orchestration using Docker.
+
+    Can run on EC2 (self-managed) or Fargate (serverless).
+
+Storage Gateway vs AWS DMS
+
+    Storage Gateway: Connects on-prem storage with cloud storage (backup, caching, file system).
+
+    DMS (Database Migration Service): Migrates databases from on-prem/cloud to AWS.
+
+EBS Volume vs EBS Snapshot
+
+    Volume: Persistent block storage for EC2.
+
+    Snapshot: Point-in-time backup of an EBS volume, stored in S3.
+
+ElastiCache
+
+    In-memory data store (Redis or Memcached).
+
+    Used to cache frequently accessed data, reducing DB load.
+
+Glacier vs Redshift vs Aurora vs DynamoDB vs RDS
+
+    Glacier: Archival storage, slow retrieval.
+
+    Redshift: Data warehousing, optimized for analytics.
+
+    Aurora: High-performance, MySQL/PostgreSQL-compatible DB.
+
+    DynamoDB: NoSQL, fast and scalable key-value store.
+
+    RDS: Managed relational databases (MySQL, PostgreSQL, Oracle, SQL Server).
+
+AWS IAM: Groups vs Permissions vs Users vs Roles
+
+    Users: Individual accounts with credentials.
+
+    Groups: Collection of users with shared permissions.
+
+    Permissions: Defined by policies, determine allowed actions.
+
+    Roles: Used by services or users to assume temporary permissions.
+
+Roles vs Resources vs Permissions vs Policies
+
+    Role: Temporary identity with permissions.
+
+    Resource: AWS service component (like S3 bucket, EC2).
+
+    Permission: What action is allowed on a resource.
+
+    Policy: JSON document defining permissions.
