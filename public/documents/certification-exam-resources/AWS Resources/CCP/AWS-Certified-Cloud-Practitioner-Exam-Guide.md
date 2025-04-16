@@ -15,7 +15,7 @@ Multiple Choice, Multiple Response
 Valid for 3 years
 
 ### Passing Score:
-70% (46/65)
+70% (46/65, typically 10-15 questions are not graded)
 
 ### Link to Exam: 
 https://aws.amazon.com/certification/certified-cloud-practitioner/
@@ -58,6 +58,14 @@ VMs vs Containers vs Serverless/Edge/Function @ https://youtu.be/NhDYbskXRgc?si=
 
 
 ## Content
+
+### Cloud Concepts and Vocab
+
+### AWS Cloud Services
+
+
+
+
 
 ### Vocab:
 **Cloud Computing:** Cloud computing is the on-demand delivery of IT resources over the internet with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical servers and infrastructure, companies can access technology services such as computing power, storage, and databases on an as-needed basis (Using someone else's computer).
