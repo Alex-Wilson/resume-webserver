@@ -80,6 +80,19 @@ VMs vs Containers vs Serverless/Edge/Function @ https://youtu.be/NhDYbskXRgc?si=
 #### Share Responsiblity Model
 AWS manages security of the cloud (Data center facilities, physical hardware, global network security, software for AWS services); you manage security in the cloud (OS patches, application-level security, encryption in-transit and at rest, IAM roles, IAM premissions, IAM policies, IAM MFA, network configurations,security group, NACL).
 
+### Well Architected Framework***
+**Operational Excellence:** Run and monitor systems to deliver business value, and continuously improve.
+
+**Security:** Protect data, systems, and assets through risk assessments and mitigation.
+
+**Reliability:** Ensure workloads perform correctly and consistently (includes failover).
+
+**Performance:** Use IT and computing resources efficiently.
+
+**Cost Optimization:**Avoid unnecessary costs.
+
+**Sustainability:** Minimize environmental impact (recently added).
+
 #### Cloud Deployment Models
 
 **Single-Tenancy:** A dedicated environment for one customer. Compute resources are not shared with others. Offers greater isolation, control, and security. Used in regulated industries or for compliance reasons.
@@ -200,6 +213,18 @@ Depends on Region, Instance Type, Amazon Machine Image, Pricing Model
 **Business**   | Yes            | 1 hr (critical)      | Full                | No       | AWS Technical Support | Yes               | Includes 3rd-party support
 **Enterprise** | Yes            | 15 min (critical)    | All checks          | Yes      | TAM + Concierge       | Yes               | For mission-critical workloads
 
+#### AWS Organizations
+
+**AWS Organizations** Centrally manage multiple AWS accounts from a single management account. It helps with centralized billing, access control, policy enforcement, and compliance across all accounts in your organization.  Group accounts by team, project, or environment. Apply policies to multiple accounts at once. Integrates with IAM for fine-grained access control
+
+**Root Account User:** The original account owner login created when setting up an AWS account. It has full administrative access to every AWS service and billing function. Use only for account setup and critical tasks Create and use IAM users for everyday accessAdd multi-factor authentication (MFA) to the Root User immediately
+
+**Organizational Units (OUs):** A group of AWS accounts inside an Organization. You can create a hierarchy by nesting OUs inside each other, which makes it easier to manage teams, departments, or environments like dev and prod.
+
+**Service Control Policies (SCPs):**
+SCPs let you set permission boundaries for all accounts in your Organization or OU. They help ensure accounts stay within your security and compliance rules, no matter what individual IAM users or roles are allowed to do.
+
+**Consolidated Billing:**
 
 ### AWS Services
 
@@ -207,6 +232,8 @@ Depends on Region, Instance Type, Amazon Machine Image, Pricing Model
 **Elastic Cloud Compute (EC2):** A virtual server in the cloud. It lets you run applications on scalable, resizable compute capacity without needing to own or maintain physical servers.
 
 **AWS Lamda or "Serverless Compute":** A serverless compute service that runs your code in response to events like a file upload, a database update, or an API call. You do not need to manage any servers. Lambda automatically handles scaling, availability, and performance. You only pay for the compute time your code uses. Best for short event-driven tasks. 
+
+**Resource Access Manager:** A service that is used to share resources across your AWS accounts.
 
 
 #### Networking
@@ -219,7 +246,12 @@ Depends on Region, Instance Type, Amazon Machine Image, Pricing Model
 
 **AWS Direct Connect:** A dedicated, private connection from your data center or office to AWS. Lower latency and more consistent performance than internet-based connections. Meets security and compliance needs.
 
-**Elastic Load Balancer (ELB):** Automatically distributes incoming traffic across multiple targets like EC2 instances, containers, or IP addresses. This improves availability and fault tolerance by ensuring no single server gets overwhelmed. ELBs can work across multiple Availability Zones and support health checks to route traffic only to healthy targets. Supports the following types of load balancing:
+**AWS Client VPN:** A managed client-based VPN service that gives you the ability to securely access your AWS resources and the resources in your on-premises network. With Client VPN, you can access your resources from any location through an OpenVPN-based VPN client. You would use Client VPN to connect individual laptops to AWS, not an entire data center.
+
+**Site-to-Site VPN:** Creates an encrypted network path between your on-premises network and your AWS Cloud network. This connection uses the internet, so you cannot expect consistency. Even though the traffic is encrypted, the connection is not private because the internet is a shared resource.
+
+
+**Elastic Load Balancer (ELB):** Automatically distributes incoming traffic to multiple registered targets like EC2 instances, containers, or IP addresses in the same AWS Region. This improves availability and fault tolerance by ensuring no single server gets overwhelmed. ELBs can work across multiple Availability Zones and support health checks to route traffic only to healthy targets. Supports the following types of load balancing:
 
 - **Application Load Balancer (ALB):** OSI Layer 7, HTTP/HTTPS routing, microservices, web apps
 - **Network Load Balancer (NLB):** OSI Layer 4, Extreme Performance, TCP/TLS. low latency
@@ -228,24 +260,8 @@ Depends on Region, Instance Type, Amazon Machine Image, Pricing Model
 
 **CloudFront:** AWS’s Content Delivery Network (CDN). It delivers data, videos, apps, and APIs to users around the world with low latency and high speed. It works by caching content at Edge Locations close to the user. 
 
-#### Databases
-**RDS:** A managed service for relational databases (tables, rows, columns, **SQL**) like MySQL, PostgreSQL, SQL Server, Oracle, and MariaDB. AWS handles backups, patching, and scaling. 
-
-**Aurora:** A high-performance database engine built by AWS. It is available as an option within RDS. Faster than traditional databases but more expensive. 
-
-**DynamoDB:** A fast, fully managed NoSQL database service. Great for apps that need millisecond response times at any scale. Key-Value and/or document based configurations. Serverless with built in backups. 
-
-**RedShift:** A data warehouse service used for analyzing large amounts of structured data.
-Optimized for running complex queries across petabytes of data.
-
-**Neptune:** A fully managed graph database service used to store and navigate highly connected data, like relationships between people, places, or things.
-
-**Elasticache:** A fully managed in-memory data store and cache service which improves application performance by storing frequently accessed data in memory, rather than querying a database every time. Supports Redis and Memcached.
-
-**Elastic Map Reduce (EMR):** A managed big data platform that lets you run Hadoop, Spark, and other frameworks to process massive datasets quickly and affordably.
-
 #### Storage
-**Simple Storage Service (S3):** A scalable object storage service used to store and retrieve any amount of data, at any time, from anywhere. It’s commonly used for storing files, backups, static websites, and media. S3 organizes data into buckets, and each file is called an object. It’s known for its durability, high availability, and built-in security features.
+**Simple Storage Service (S3):** A scalable, highly available, and durable storage service commonly used for storing files, backups, static websites, and media. Data is organized into buckets, and each file is called an object. Built in security features, considered the default for object storage.
 
 
 **S3 Glacier/Glacier Deep Archive:** Low-cost archival storage for infrequently accessed data used for long-term backups, archives, and compliance. Retrieval time can take minutes to hours but it is much cheaper than standard storage options.
@@ -256,6 +272,24 @@ Optimized for running complex queries across petabytes of data.
 
 **Storage Gateway:** Provides on-prem access to AWS storage (S3) using local interfaces like NFS, SMB, or iSCSI. Used for hybrid storage setups.
 
+#### Databases
+**RDS:** A managed service for relational databases (tables, rows, columns, **SQL**) like MySQL, PostgreSQL, SQL Server, Oracle, and MariaDB. AWS handles backups, patching, and scaling. 
+
+**Aurora:** A high-performance database engine built by AWS. It is available as an option within RDS. Faster than traditional databases but more expensive. 
+
+**DynamoDB:** A fast, fully managed NoSQL database service. Great for apps that need millisecond response times at any scale. Key-Value and/or document based configurations. Serverless with built in backups. 
+
+**DynamoDB Accelerator (DAX):** A fully managed, in-memory cache for Amazon DynamoDB that delivers microsecond response times — up to 10x faster than standard DynamoDB queries.
+
+**RedShift:** A data warehouse service used for analyzing large amounts of structured data.
+Optimized for running complex queries across petabytes of data.
+
+**Neptune:** A fully managed graph database service used to store and navigate highly connected data, like relationships between people, places, or things.
+
+**Elasticache:** A fully managed in-memory data store and cache service which improves application performance by storing frequently accessed data in memory, rather than querying a database every time. Supports Redis and Memcached.
+
+**Elastic Map Reduce (EMR):** A managed big data platform that lets you run Hadoop, Spark, and other frameworks to process massive datasets quickly and affordably.
+
 #### Migration
 **AWS Snowball:** Physical device for offline data transfer to AWS.
 
@@ -263,8 +297,9 @@ Optimized for running complex queries across petabytes of data.
 
 **AWS Snowmobile:** For extremely large data migrations (up to exabytes) using a literal shipping truck.
 
-**AWS Database Migration Service (DMS):** Migrates databases from on-premises or cloud environments to AWS quickly and securely.
+**AWS Database Migration Service (DMS):** Migrates databases from on-premises or cloud environments to AWS quickly and securely. Does not migrate servers or any other infrastructure. 
 
+**Application Migration Service (AWS MGN):** The primary service for lifting and shifting physical, virtual, or cloud-based servers to AWS. It automates the process of rehosting applications by continuously replicating your source servers to AWS, allowing for fast and reliable cutover with minimal downtime.
 
 #### Containerization
 **FarGate:** A serverless compute engine for containers. Used with ECS (or EKS) to run containers without provisioning or managing servers.You define CPU, memory, and container settings
@@ -318,7 +353,7 @@ An Auto Scaling Group automatically manages a group of EC2 instances. It can inc
 
 **Amazon GuardDuty:** A threat detection service that continuously monitors for malicious activity and unauthorized behavior in AWS accounts. Similar to IDS/IPS. 
 
-**AWS Control Tower:** A tool to help set up and govern a secure, multi-account AWS environment automatically. Automates account creation using AWS best practices and provides a dashboard for visibility and management. 
+**AWS Control Tower:** A tool to help set up and govern a secure, multi-account AWS environment automatically. Automates account creation using AWS best practices and provides a dashboard for visibility and management. Automates landing zone creation using AWS Organizations, Service Catalog, and CloudFormation.
 
 **AWS Config:** A service that records and monitors the configuration of AWS resources over time.
 
@@ -327,6 +362,10 @@ An Auto Scaling Group automatically manages a group of EC2 instances. It can inc
 **AWS Landing Zone:** A pre-configured, secure starting point for setting up a multi-account AWS environment. Think of it like a “blueprint” or starter kit for an enterprise-ready AWS setup. 
 
 **AWS Managed Microsoft Active Directory:** A managed directory service that runs Microsoft Active Directory in the AWS cloud to join an EC2 instances with a domain using Group Policy, LDAP, and/or Kerberos. Supports hybrid environments with on-prem AD. 
+
+**Certificate Manager (ACM):** A service that is used to create, store, and renew public and private SSL/TLS certificates. You can use ACM to implement encryption in transit and at rest by using a protocol, such as TLS.
+
+**Security Hub:** A service that is used to centrally view your security posture in AWS. You can use Security Hub to check your AWS environment against security industry standards and best practices.
 
 
 #### Inter-Application Services
@@ -352,26 +391,27 @@ An Auto Scaling Group automatically manages a group of EC2 instances. It can inc
 **CodeStar:** DevOps dashboard to scaffold and manage full app lifecycle
 
 
+**AWS Marketplace:** A digital catalog of software products and services that you can deploy directly into your AWS environment.
+
+**Pinpoint:** A user engagement service for sending targeted messages through email, SMS, push notifications, and voice.
+
+**Elemental MediaConvert:** A file-based video transcoding service used to convert media files into formats for playback on TVs, smartphones, and other devices.
 
 
+#### Artificial Intelligence/Machine Learning Tools
+**Transcribe:** A service that uses machine learning to convert audio data to text.
 
-Consolidated Billing
-**AWS Organizations** Centrally manage billing, access, security, and compliance for multiple AWS accounts. It helps you organize accounts into groups and apply settings from one place.
+**Polly:** A machine learning service that converts text to speech. This service provides the ability to read text out loud.
 
-**Root Account User:** The Root User is the original login for an AWS account. It has full access to all services and resources. Every AWS account starts with one Root User — but it is recommended to use it only for account setup and then switch to IAM users for daily tasks.
+**Textract:** A machine learning service that can extract text from scanned documents.
 
-**Organizational Units (OUs):** A group of AWS accounts inside an Organization. You can create a hierarchy by nesting OUs inside each other, which makes it easier to manage teams, departments, or environments like dev and prod.
+**Translate:** A machine learning language translation service.
 
-**Service Control Policies (SCPs):**
-SCPs let you set permission boundaries for all accounts in your Organization or OU. They help ensure accounts stay within your security and compliance rules, no matter what individual IAM users or roles are allowed to do.
+**SageMaker:**  A fully managed machine learning (ML) service that helps you build, train, and deploy ML models at scale handeling data preperation/cleaning, model building, model training, deployment, inference management, and monitoring. 
 
+**Amazon Comprehend:** Natural language processing model (NLP) to extract meaning from text like sentiment analysis or create a summary.
 
-- AWS QuickStart: pre-made packages that can launch and configure your AWS compute, network, storage, and other services required to deploy a workload on AWS
+**Amazon Rekognition:** Image and video analysis model for facial recognition or object detection.  
 
-- AWS Marketplace: A digital catalog of thousands of software listings from independent software vendors you can use to find, buy, test, and deploy software. 
-
-Pinpoint: Marketing campaign management system used for sending targeted emails, SMS, push notifcations, and voice messages
-Elastic Transcoder: The old way, transcodes videos to streaming formats
-
-AWS Elemental MediaConvert: Transcodes videos to streaming formats, overlay images, insert video clips, extract captions, robust UI
+**Amazon Lex:** Build conversational interfaces using voice and text (used in Alexa).
 
