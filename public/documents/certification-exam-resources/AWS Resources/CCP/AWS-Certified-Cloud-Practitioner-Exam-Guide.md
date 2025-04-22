@@ -32,34 +32,13 @@ https://aws.amazon.com/certification/certified-cloud-practitioner/
 
 
 ## Study Resources:
+Free Code Camp 4 Hour Crash Course (Out of date but still very informative in a short time): https://www.youtube.com/watch?v=3hLmDS179YE
 
-### Pre-Req:
-#### AWS Cloud Practitioner Essentials:
-https://explore.skillbuilder.aws/learn/courses/134/aws-cloud-practitioner-essentials
+Free Code Camp Updated Video (Pretty much every product in AWS): https://www.youtube.com/watch?v=NhDYbskXRgc
 
--------------------------------------------------------------------------------------------------------------
-### Studying:
-#### Exam Prep Standard Course:
-https://explore.skillbuilder.aws/learn/courses/16434/exam-prep-standard-course-aws-certified-cloud-practitioner-clf-c02-english
+Exam Pro Free Test: https://app.exampro.co 
 
-#### Exam Prep Enhanced Course:
-https://explore.skillbuilder.aws/learn/courses/16485/exam-prep-enhanced-course-aws-certified-cloud-practitioner-clf-c02-english
-
-### Pre-Test Preperation
-
-#### Exam Prep Official Questions:
-https://explore.skillbuilder.aws/learn/courses/14050/aws-certified-cloud-practitioner-official-practice-question-set-clf-c02-english
-
-#### Exam Prep Official-Pre Test:
-https://explore.skillbuilder.aws/learn/courses/18115/exam-prep-official-pre-test-aws-certified-cloud-practitioner-clf-c02
-
-#### Practice Exam:
-https://explore.skillbuilder.aws/learn/courses/14637/aws-certified-cloud-practitioner-official-practice-exam-clf-c02-english
-
-### Alternative Study Sources
-Free Code Camp: https://www.youtube.com/watch?v=NhDYbskXRgc
-
-VMs vs Containers vs Serverless/Edge/Function @ https://youtu.be/NhDYbskXRgc?si=pVKz1U2-UUgGYQ8e&t=4050
+W3 Schools AWS Quiz: https://www.w3schools.com/quiztest/quiztest.php?qtest=AWSCE
 
 ## Content
 
@@ -77,8 +56,24 @@ VMs vs Containers vs Serverless/Edge/Function @ https://youtu.be/NhDYbskXRgc?si=
 **Scalability or "Horizontal Scaling":** The system can handle increased demand by adding more resources. It can be done manually or automatically, and it ensures that the application keeps working well even as it grows. 
 
 
-#### Share Responsiblity Model
-AWS manages security of the cloud (Data center facilities, physical hardware, global network security, software for AWS services); you manage security in the cloud (OS patches, application-level security, encryption in-transit and at rest, IAM roles, IAM premissions, IAM policies, IAM MFA, network configurations,security group, NACL).
+#### Share Responsiblity Framework
+AWS manages security of the cloud (Data center facilities, physical hardware, global network security, software for AWS services); you manage security in the cloud (OS patches, application-level security, encryption in-transit and at rest, IAM roles, IAM premissions, IAM policies, IAM MFA, network configurations, security group, NACL).
+
+
+| **Responsibility Area**                        | **Responsible Party** |
+|------------------------------------------------|------------------------|
+| Physical security of AWS data centers          | AWS                    |
+| Patching the OS on EC2 instances               | Customer               |
+| Managing IAM users and permissions             | Customer               |
+| Encrypting data in transit                     | Customer               |
+| Power, networking, and cooling infrastructure  | AWS                    |
+| Configuring S3 bucket access policies          | Customer               |
+| Ensuring availability of core AWS services     | AWS                    |
+| Security **of** the cloud (e.g., hardware)     | AWS                    |
+| Security **in** the cloud (e.g., app config)   | Customer               |
+| Compliance and auditing setup/configuration    | Both                   |
+
+
 
 ### Well Architected Framework***
 **Operational Excellence:** Run and monitor systems to deliver business value, and continuously improve.
@@ -92,6 +87,18 @@ AWS manages security of the cloud (Data center facilities, physical hardware, gl
 **Cost Optimization:**Avoid unnecessary costs.
 
 **Sustainability:** Minimize environmental impact (recently added).
+
+#### Combo Questions
+Many of the "make-or-break" questions of the CCP will combine aspects of the Shared Resonsiblity Model or Well Architected Framwork like the questions below. Understanding what the customer is responsible for and why they are responsible is a huge help on the exam.
+
+    Q: Which pillar is supported by patching EC2 instances, and who is responsible?
+    A: Security, Customer
+
+    Q: Deploying an app in multiple AZs supports which pillar, and who handles that responsibility?
+    A: Reliability, Shared (AWS provides AZs, Customer configures deployment)
+
+    Q: Using CloudTrail to log account activity supports which pillar, and who’s responsible?
+    A: Security, Customer (must enable and configure)
 
 #### Cloud Deployment Models
 
@@ -177,6 +184,8 @@ AWS manages security of the cloud (Data center facilities, physical hardware, gl
 **Route Table**: Controls how traffic is directed within your VPC and beyond, Tells subnets where to send traffic (e.g., to the internet, NAT gateway, or another subnet.) Each subnet has one route table.
 
 
+
+
 ### Pricing, Billing, and Support
 
 #### Pricing Models
@@ -242,13 +251,19 @@ SCPs let you set permission boundaries for all accounts in your Organization or 
 
 **Amazon VPC:** Create your own private network within AWS. You control your IP ranges, subnets, routing, and security settings.
 
+**VPC Peering:** A non-transative networking connectiong between two VPCs that enables private IP communication. Must be manually configured with routing and security groups. 
+
+**AWS PrivateLink:** A service that allows private connectivity to services in another VPC without exposing traffic to the public internet. Creates interface VPC endpoints to access services more privately than VPC Peering for service-specific access. Best for simple direct communicaiton between two VPCs. 
+
+**Transit Gateway:** A hub-and-spoke model that allows you to connect multiple VPCs and on-prem networks through a central gateway. Supports transative routing. Highly scalable. Best for large, enterpise, hybrid cloud setups.  
+
 **Route 53:** A scalable and highly available Domain Name System (DNS) service.
 
 **AWS Direct Connect:** A dedicated, private connection from your data center or office to AWS. Lower latency and more consistent performance than internet-based connections. Meets security and compliance needs.
 
 **AWS Client VPN:** A managed client-based VPN service that gives you the ability to securely access your AWS resources and the resources in your on-premises network. With Client VPN, you can access your resources from any location through an OpenVPN-based VPN client. You would use Client VPN to connect individual laptops to AWS, not an entire data center.
 
-**Site-to-Site VPN:** Creates an encrypted network path between your on-premises network and your AWS Cloud network. This connection uses the internet, so you cannot expect consistency. Even though the traffic is encrypted, the connection is not private because the internet is a shared resource.
+**AWS Site-to-Site VPN:** Creates an encrypted network path between your on-premises network and your AWS Cloud network. This connection uses the internet, so you cannot expect consistency. Even though the traffic is encrypted, the connection is not private because the internet is a shared resource.
 
 
 **Elastic Load Balancer (ELB):** Automatically distributes incoming traffic to multiple registered targets like EC2 instances, containers, or IP addresses in the same AWS Region. This improves availability and fault tolerance by ensuring no single server gets overwhelmed. ELBs can work across multiple Availability Zones and support health checks to route traffic only to healthy targets. Supports the following types of load balancing:
