@@ -36,3 +36,21 @@ https://aws.amazon.com/certification/certified-ai-practitioner/
 FreeCodeCamp YouTube Video: https://www.youtube.com/watch?v=WZeZZ8_W-M4
 
 
+## Fundamentals of AI
+
+## Fundamentals of GenAI
+
+## Applicaitons of Foundation Models
+
+## AWS Traditional AI Pipelines
+
+## AWS Managed AI Services
+
+## AWS GenAI and LLM Services
+
+
+
+## Guidelines for Responsible AI
+
+## Security, Compliance, and Governance for AI Solutions
+
