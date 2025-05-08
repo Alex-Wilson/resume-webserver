@@ -35,6 +35,17 @@ https://aws.amazon.com/certification/certified-ai-practitioner/
 
 FreeCodeCamp YouTube Video: https://www.youtube.com/watch?v=WZeZZ8_W-M4
 
+## Vocab Terms 4 Now
+
+Statistics:
+
+Artificial Intelligence:
+
+Machine Learning:
+
+Deep Learning:
+
+
 
 ## Fundamentals of AI
 
