@@ -62,7 +62,20 @@ FreeCodeCamp YouTube Video: https://www.youtube.com/watch?v=WZeZZ8_W-M4
 
 **Reinforcement Learning (RL):** A type of machine learning where an agent learns to make decisions by interacting with an environment and receiving feedback in the form of rewards or penalties. Over time, the agent develops a strategy to maximize cumulative reward. It is used in robotics, game playing, and recommendation systems.
 
-**Deep Learning:** A specialized branch of machine learning that uses neural networks with many layers to model complex patterns in large datasets. Deep learning excels at processing unstructured data such as images, audio, and natural language. Applications include voice assistants, autonomous driving, and facial recognition.
+Neural Network:
+A computational model composed of layers of interconnected units called neurons that process information by applying weighted sums and activation functions. Neural networks learn from data by adjusting these weights through optimization algorithms such as gradient descent. They are foundational to deep learning and are used in tasks like classification, regression, and pattern recognition.
+
+Convolutional Neural Network (CNN):
+A type of neural network designed specifically for processing grid-like data such as images. It uses convolutional layers that apply filters to detect spatial features like edges, shapes, or textures, followed by pooling layers that reduce dimensionality. CNNs are widely used in computer vision tasks including object detection, facial recognition, and medical imaging.
+
+Generative Adversarial Network (GAN):
+A deep learning architecture consisting of two neural networks—a generator and a discriminator—that compete in a game-theoretic setup. The generator creates synthetic data, while the discriminator evaluates whether data is real or generated. Through this adversarial process, GANs learn to produce highly realistic data, such as images, audio, or text.
+
+Feedforward Neural Network (FNN):
+The simplest form of neural network, where information flows in one direction—from input to output—without any cycles or feedback loops. It consists of an input layer, one or more hidden layers, and an output layer. FNNs are used for tasks where a static input produces a static output, such as image classification or basic predictive modeling.
+
+
+**Deep Learning:** A specialized branch of machine learning that uses neural networks with many layers to model complex patterns in large datasets. Deep learning excels at processing unstructured data such as images, audio, and natural language. Applications include voice assistants, autonomous driving, and facial recognition. Typically considered nueral networks with 3-Layers or more.
 
 **Natural Language Processing (NLP):** A subfield of artificial intelligence that focuses on enabling computers to understand, interpret, and generate human language. NLP combines linguistics and machine learning to support tasks such as sentiment analysis, translation, speech recognition, and question answering.
 
