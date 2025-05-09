@@ -35,19 +35,156 @@ https://aws.amazon.com/certification/certified-ai-practitioner/
 
 FreeCodeCamp YouTube Video: https://www.youtube.com/watch?v=WZeZZ8_W-M4
 
-## Vocab Terms 4 Now
-
-Statistics:
-
-Artificial Intelligence:
-
-Machine Learning:
-
-Deep Learning:
-
-
-
 ## Fundamentals of AI
+
+### Buzz Words
+
+**Statistics:** A branch of mathematics focused on collecting, analyzing, and interpreting data. It has two main branches: descriptive statistics, which summarizes data, and inferential statistics, which makes predictions or inferences about a population from a sample. In AI, statistics is used to understand data patterns, evaluate models, and manage uncertainty in decision-making.
+
+**Artificial Intelligence (AI):** A field of computer science focused on creating systems that can perform tasks requiring human-like intelligence, such as reasoning, learning, decision-making, and language understanding. AI encompasses subfields like machine learning, natural language processing, and robotics. In practice, AI enables applications such as voice assistants, recommendation systems, and autonomous vehicles by mimicking cognitive functions through algorithms and data-driven models.
+
+**Machine Learning (ML):** A subset of artificial intelligence that focuses on developing algorithms that enable computers to learn patterns from data and make decisions or predictions without being explicitly programmed. It includes techniques such as supervised learning, unsupervised learning, and reinforcement learning. In AI systems, machine learning allows models to improve performance over time through exposure to more data, supporting tasks like image recognition, fraud detection, and language translation.
+
+**Data Cleaning:** The process of detecting and correcting errors, inconsistencies, and inaccuracies in data to improve its quality and reliability. This involves handling missing values, removing duplicates, correcting formatting issues, and standardizing entries. In machine learning and AI, clean data is critical to ensure that models learn accurate patterns and produce reliable outcomes.
+
+**Text-Wrangling or Text Pre-Processing:** The process of preparing raw text data for analysis by removing noise and formatting inconsistencies. This includes steps such as lowercasing, removing punctuation or stop words, correcting misspellings, and tokenization. Clean, structured text is essential for accurate NLP model performance.
+
+**Language Understanding:**  The ability of a system to comprehend the meaning and intent behind human language inputs. It involves parsing syntax, recognizing context, identifying entities, and extracting key information. In NLP, language understanding enables functions like virtual assistants, chatbots, and search engines to interpret user queries accurately.
+
+**Sentiment Analysis:** A natural language processing technique used to determine the emotional tone or subjective meaning behind text. It classifies text as positive, negative, or neutral, and can also detect intensity or specific emotions. Sentiment analysis is commonly used in customer feedback analysis, social media monitoring, and brand reputation management.
+
+### Types of Machine Learning
+
+#### Learning Problems
+**Supervised Learning:** A type of machine learning where algorithms are trained on labeled datasets, meaning each input is paired with a correct output. The model learns to map inputs to outputs and is evaluated on its ability to predict outcomes for new data. Common applications include spam detection, medical diagnosis, and credit scoring.
+
+**Unsupervised Learning:** A type of machine learning that analyzes data without labeled outcomes. The algorithm identifies patterns, groupings, or structures within the data, such as clusters or associations. It is often used in customer segmentation, anomaly detection, and data compression.
+
+**Reinforcement Learning (RL):** A type of machine learning where an agent learns to make decisions by interacting with an environment and receiving feedback in the form of rewards or penalties. Over time, the agent develops a strategy to maximize cumulative reward. It is used in robotics, game playing, and recommendation systems.
+
+**Deep Learning:** A specialized branch of machine learning that uses neural networks with many layers to model complex patterns in large datasets. Deep learning excels at processing unstructured data such as images, audio, and natural language. Applications include voice assistants, autonomous driving, and facial recognition.
+
+**Natural Language Processing (NLP):** A subfield of artificial intelligence that focuses on enabling computers to understand, interpret, and generate human language. NLP combines linguistics and machine learning to support tasks such as sentiment analysis, translation, speech recognition, and question answering.
+
+#### Hybrid Learning Problems
+
+**Semi-Supervised Learning:** A learning approach that combines a small amount of labeled data with a large amount of unlabeled data to improve model performance. It is useful when labeling data is expensive or time-consuming.
+
+**Self-Supervised Learning:** A form of unsupervised learning where the model generates its own labels from the input data. Often used in representation learning, it enables pretraining on large datasets without manual labeling. Common in natural language processing and computer vision.
+
+**Multi-Instance Learning:** A learning setting where the model receives labeled groups (bags) of instances, but not individual instance labels. The goal is to learn from these bags to classify new ones. Often applied in medical diagnosis and image classification where fine-grained labels are unavailable.
+
+#### Statistical Inference
+
+**Inductive:** A reasoning approach where general rules or patterns are inferred from specific observations. In machine learning, inductive inference refers to building models that generalize from training data to unseen data.
+
+**Deductive:** A reasoning approach that applies general rules to specific cases to derive conclusions. Deductive logic is less common in ML, but underlies rule-based systems and expert systems.
+
+**Transductive:** A reasoning method where the model makes predictions only for specific test instances rather than learning a general rule for unseen data. Transductive learning is used in tasks like graph-based semi-supervised learning and label propagation.
+
+#### Learning Techniques
+
+**Multi-Task Learning:** A technique where a model is trained to perform multiple related tasks simultaneously, allowing shared learning across tasks and often improving generalization. Useful in domains like NLP where tasks like translation and summarization benefit from shared representations.
+
+**Active Learning:** A learning approach where the model can query an oracle (e.g., a human annotator) for labels on specific data points that it finds most informative. It reduces the labeling effort by focusing on the most valuable examples.
+
+**Online Learning:** A method where the model learns incrementally from a continuous stream of data, updating itself as new data arrives. Useful in scenarios where data arrives in real time or storage is limited.
+
+**Transfer Learning:** A technique where knowledge gained from training a model on one task is reused or adapted for a different but related task. Commonly used in deep learning, especially for tasks with limited labeled data.
+
+**Ensemble Learning:** A method that combines multiple models to improve prediction accuracy and robustness. Examples include bagging (e.g., random forests), boosting (e.g., XGBoost), and stacking.
+
+### Regression
+
+**Regression:** A statistical method used to model the relationship between a dependent variable and one or more independent variables, typically for the purpose of prediction. In machine learning, regression algorithms estimate continuous outcomes, such as sales forecasts or temperature predictions. Common techniques include linear regression, logistic regression (for classification), and polynomial regression.
+
+**Regression Error:** The difference between the predicted value generated by a regression model and the actual observed value. It measures how far off a model's predictions are from reality. Common types of regression error include mean absolute error (MAE), mean squared error (MSE), and root mean squared error (RMSE). Minimizing error is essential for improving a model’s accuracy and reliability in tasks like price estimation or demand forecasting.
+
+#### Regression Algorithms:
+Linear Regression: A simple regression technique that models the relationship between one independent variable and a continuous dependent variable using a straight line. It assumes a linear correlation between the two variables.
+
+Multi-Linear Regression: An extension of linear regression that uses two or more independent variables to predict a single continuous dependent variable. It fits a plane (or hyperplane) in multidimensional space to minimize prediction error.
+
+Polynomial Regression: A form of regression that models the relationship between variables as an nth-degree polynomial. It is used when the relationship between variables is non-linear but can still be represented in a smooth curve.
+
+Support Vector Regression (SVR): A version of support vector machines adapted for regression tasks. It tries to fit the best line (or hyperplane) within a specified margin of tolerance, focusing on ignoring minor errors to generalize better.
+
+Decision Tree Regression: A non-linear regression technique that splits the dataset into branches based on feature values. Each leaf represents a predicted value, and the structure allows the model to capture complex patterns without requiring feature scaling.
+
+Random Forrest Regression: An ensemble method that builds multiple decision trees during training and outputs the average of their predictions. It reduces overfitting and improves accuracy compared to a single tree.
+
+### Classification
+**Classification:** A type of supervised learning used to predict categorical labels or classes based on input features. The model learns from labeled data and assigns new inputs to one of several predefined categories. Common examples include email spam detection, medical diagnosis (e.g., benign vs. malignant), and image recognition (e.g., identifying animals in photos).
+
+#### Classification Algorithms
+
+Logistic Regression: A statistical method used to model binary or multi-class outcomes. It predicts the probability that an input belongs to a particular category using the logistic (sigmoid) function. Despite its name, it is used for classification, not regression.
+
+K-Nearest Neighbours: A non-parametric, instance-based learning algorithm that classifies new data points based on the majority class among its 'k' closest neighbors in the training set. It is simple, effective, and sensitive to the choice of 'k' and distance metric.
+
+Support Vecor Machines (SVM): A powerful classification algorithm that finds the optimal hyperplane that maximally separates classes in the feature space. It works well for both linear and non-linear classification tasks using kernel functions.
+
+Naive Bayes: A probabilistic classification technique based on Bayes’ Theorem, assuming feature independence. It is computationally efficient and works well with high-dimensional datasets, especially in text classification.
+
+Decision Tree Classification: A model that uses a tree-like structure to make decisions based on feature values. Each internal node represents a decision rule, each branch an outcome, and each leaf a class label. It is intuitive and interpretable but prone to overfitting.
+
+Random Forrest Classification: An ensemble method that constructs multiple decision trees and outputs the most common class among them. It reduces variance and improves generalization over single decision trees.
+
+### Clustering
+**Clustering:** An unsupervised learning technique used to group data points into clusters based on their similarity or distance from one another. Unlike classification, clustering does not use labeled data; instead, it identifies natural groupings or patterns within the dataset. Clustering is often used for customer segmentation, anomaly detection, and data exploration. Common algorithms include k-means, DBSCAN, and hierarchical clustering.
+
+#### Clustering Algorithms
+K-Means:
+A centroid-based clustering algorithm that partitions data into k clusters by minimizing the variance within each cluster. It assigns each data point to the nearest cluster center and updates centers iteratively. It works best when clusters are spherical and roughly equal in size.
+
+Density-Based Spatial Clustering of Applications with Noise (DBScan):
+A density-based clustering algorithm that groups together points that are closely packed while marking points in low-density regions as outliers. It does not require specifying the number of clusters and is well-suited for detecting clusters of arbitrary shape.
+
+K-Modes:
+An adaptation of K-Means for clustering categorical data. Instead of using means, it uses modes (most frequent values) to define cluster centers and a simple matching dissimilarity measure to assign data points.
+
+### Association
+
+Association:
+A type of unsupervised learning used to discover interesting relationships, patterns, or rules among variables in large datasets. It is widely used in market basket analysis, where it helps identify items frequently bought together.
+
+#### Association Algorithms
+Apriori:
+An algorithm that identifies frequent itemsets by iteratively expanding them and applying a minimum support threshold. It then uses these itemsets to generate association rules. It is easy to understand but computationally expensive for large datasets.
+
+Equivalence Class Clustering and bottom-up Lattice Traversal (Eclat):
+A depth-first algorithm that uses vertical data representation to find frequent itemsets. It is generally faster and more memory-efficient than Apriori for dense datasets.
+
+Frequent Pattern Growth (FP-Growth):
+An algorithm that uses a compact data structure called an FP-tree to avoid candidate generation. It builds the tree once and recursively mines it for frequent itemsets, making it faster and more scalable than Apriori in many cases.
+
+### Dimensionality Reduction
+
+Dimensionality Reduction:
+A technique used to reduce the number of input variables (features) in a dataset while preserving as much relevant information as possible. It helps simplify models, reduce computation time, eliminate noise, and improve visualization, especially in high-dimensional datasets.
+
+#### Dimensionality Reduction Algorithms
+
+Principal Component Analysis (PCA):
+A linear transformation technique that projects data onto a lower-dimensional space by identifying the directions (principal components) that capture the maximum variance. It is widely used for compression, visualization, and noise reduction.
+
+Linear Discriminant Analysis (LDA):
+A supervised dimensionality reduction method that projects data in a way that maximizes class separability. It is commonly used for feature extraction in classification tasks by preserving discriminative information.
+
+Generalized Discriminant Analysis (GDA):
+An extension of LDA that uses kernel functions to handle non-linear class boundaries. It projects data into a higher-dimensional feature space before applying LDA, making it suitable for complex, non-linearly separable data.
+
+Singular Value Decomposition (SVD):
+A matrix factorization technique that decomposes a dataset into three matrices, capturing its essential structure with fewer dimensions. In machine learning, it is commonly used for dimensionality reduction, especially in recommendation systems and latent semantic analysis.
+
+Latent Dirichlet Allocation (LDA):
+A generative probabilistic model used to identify topics within a collection of documents. It assumes each document is a mixture of topics and each topic is a distribution over words. LDA is widely used for topic modeling and organizing large text datasets.
+
+Latent Semantic Analysis (LSA):
+A technique for extracting relationships between terms and documents by applying SVD to a term-document matrix. It reduces noise and reveals hidden semantic structures, making it useful for information retrieval, indexing, and text similarity tasks.
+
+t-distributed Stochastic Neighbor Embedding (t-SNE):
+A non-linear dimensionality reduction technique used for visualizing high-dimensional data in two or three dimensions. It emphasizes preserving local structure (i.e., the relative distance between nearby points) and is widely used for exploratory data analysis in fields like bioinformatics and computer vision.
 
 ## Fundamentals of GenAI
 
@@ -58,8 +195,6 @@ Deep Learning:
 ## AWS Managed AI Services
 
 ## AWS GenAI and LLM Services
-
-
 
 ## Guidelines for Responsible AI
 
