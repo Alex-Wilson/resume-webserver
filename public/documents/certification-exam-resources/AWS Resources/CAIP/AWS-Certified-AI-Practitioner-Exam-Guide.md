@@ -74,6 +74,8 @@ A deep learning architecture consisting of two neural networks—a generator and
 Feedforward Neural Network (FNN):
 The simplest form of neural network, where information flows in one direction—from input to output—without any cycles or feedback loops. It consists of an input layer, one or more hidden layers, and an output layer. FNNs are used for tasks where a static input produces a static output, such as image classification or basic predictive modeling.
 
+Backpropagation:
+A training algorithm used in neural networks to minimize prediction error by adjusting the model’s weights. It works by computing the gradient of the loss function with respect to each weight using the chain rule of calculus, starting from the output layer and moving backward through the network. These gradients are then used in conjunction with optimization methods like gradient descent to update the weights. Backpropagation is essential for enabling deep networks to learn complex patterns from data.
 
 **Deep Learning:** A specialized branch of machine learning that uses neural networks with many layers to model complex patterns in large datasets. Deep learning excels at processing unstructured data such as images, audio, and natural language. Applications include voice assistants, autonomous driving, and facial recognition. Typically considered nueral networks with 3-Layers or more.
 
