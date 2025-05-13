@@ -81,6 +81,9 @@ A training algorithm used in neural networks to minimize prediction error by adj
 
 **Natural Language Processing (NLP):** A subfield of artificial intelligence that focuses on enabling computers to understand, interpret, and generate human language. NLP combines linguistics and machine learning to support tasks such as sentiment analysis, translation, speech recognition, and question answering.
 
+Fully Connected Feed Forward Neural Network
+Recurrent Neural Network (RNN)
+
 #### Hybrid Learning Problems
 
 **Semi-Supervised Learning:** A learning approach that combines a small amount of labeled data with a large amount of unlabeled data to improve model performance. It is useful when labeling data is expensive or time-consuming.
@@ -127,6 +130,15 @@ A training algorithm used in neural networks to minimize prediction error by adj
 **Decision Tree Regression:** A non-linear regression technique that splits the dataset into branches based on feature values. Each leaf represents a predicted value, and the structure allows the model to capture complex patterns without requiring feature scaling.
 
 **Random Forrest Regression:** An ensemble method that builds multiple decision trees during training and outputs the average of their predictions. It reduces overfitting and improves accuracy compared to a single tree.
+
+**Loss Function:** 
+
+**Activation Layer:**
+
+**Neural Network Density:**
+
+
+
 
 ### Classification
 **Classification:** A type of supervised learning used to predict categorical labels or classes based on input features. The model learns from labeled data and assigns new inputs to one of several predefined categories. Common examples include email spam detection, medical diagnosis (e.g., benign vs. malignant), and image recognition (e.g., identifying animals in photos).
