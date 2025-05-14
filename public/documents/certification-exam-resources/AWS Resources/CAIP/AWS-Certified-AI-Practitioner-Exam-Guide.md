@@ -53,6 +53,16 @@ FreeCodeCamp YouTube Video: https://www.youtube.com/watch?v=WZeZZ8_W-M4
 
 **Sentiment Analysis:** A natural language processing technique used to determine the emotional tone or subjective meaning behind text. It classifies text as positive, negative, or neutral, and can also detect intensity or specific emotions. Sentiment analysis is commonly used in customer feedback analysis, social media monitoring, and brand reputation management.
 
+
+Deep Belief Network (DBN):
+A type of deep neural network composed of multiple layers of unsupervised models, typically stacked Restricted Boltzmann Machines (RBMs). Each layer learns to represent features of the data hierarchically, with lower layers learning simple features and higher layers capturing more abstract representations. DBNs are trained layer by layer in an unsupervised fashion, followed by fine-tuning with supervised learning. They were an early architecture used in deep learning for tasks such as image and speech recognition.
+
+Stacked Autoencoders (SAE):
+A deep learning architecture built by stacking multiple autoencoders, where the output of each layer is used as the input for the next. Each autoencoder consists of an encoder that compresses input data and a decoder that reconstructs it. The model learns compact, hierarchical feature representations of data, typically in an unsupervised manner. Stacked autoencoders are useful for dimensionality reduction, anomaly detection, and pretraining deep networks.
+
+Restricted Boltzmann Machine (RBM):
+A type of generative stochastic neural network that learns a probability distribution over its input data. It consists of two layers: a visible layer (input data) and a hidden layer (features), with symmetric connections and no intra-layer connections. RBMs are used for feature learning, dimensionality reduction, and as building blocks for deeper networks like DBNs. Training is typically done using a method called contrastive divergence.
+
 ### Types of Machine Learning
 
 #### Learning Problems
