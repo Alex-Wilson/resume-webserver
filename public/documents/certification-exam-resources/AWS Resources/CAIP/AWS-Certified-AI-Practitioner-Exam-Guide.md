@@ -63,6 +63,18 @@ A deep learning architecture built by stacking multiple autoencoders, where the 
 Restricted Boltzmann Machine (RBM):
 A type of generative stochastic neural network that learns a probability distribution over its input data. It consists of two layers: a visible layer (input data) and a hidden layer (features), with symmetric connections and no intra-layer connections. RBMs are used for feature learning, dimensionality reduction, and as building blocks for deeper networks like DBNs. Training is typically done using a method called contrastive divergence.
 
+Bias-Variance Tradeoff: Explains the balance between model complexity (variance) and error due to incorrect assumptions (bias).
+
+Overfitting / Underfitting: Key concepts related to model generalization and performance.
+
+Cross-Validation: A resampling technique used to evaluate model performance on unseen data.
+
+Loss Function / Cost Function: A measure of how well a model's predictions match actual results (e.g., MSE, log loss).
+
+Gradient Descent: An optimization algorithm used to minimize a loss function by adjusting model weights.
+
+Epoch / Batch / Iteration: Definitions for units of training in deep learning.
+
 ### Types of Machine Learning
 
 #### Learning Problems
