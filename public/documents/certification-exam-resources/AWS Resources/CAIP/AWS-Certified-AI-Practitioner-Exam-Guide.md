@@ -36,8 +36,162 @@ https://aws.amazon.com/certification/certified-ai-practitioner/
 FreeCodeCamp YouTube Video: https://www.youtube.com/watch?v=WZeZZ8_W-M4
 
 ## Fundamentals of AI
+### Core AI Concepts
 
-### Buzz Words
+Artificial Intelligence (AI):
+A field of computer science focused on creating systems that can perform tasks requiring human-like intelligence, such as reasoning, learning, decision-making, and language understanding. AI encompasses subfields like machine learning, natural language processing, and robotics. In practice, AI enables applications such as voice assistants, recommendation systems, and autonomous vehicles by mimicking cognitive functions through algorithms and data-driven models.
+
+Machine Learning (ML):
+A subset of artificial intelligence that focuses on developing algorithms that enable computers to learn patterns from data and make decisions or predictions without being explicitly programmed. It includes techniques such as supervised learning, unsupervised learning, and reinforcement learning. In AI systems, machine learning allows models to improve performance over time through exposure to more data, supporting tasks like image recognition, fraud detection, and language translation.
+
+Deep Learning:
+A specialized branch of machine learning that uses neural networks with many layers to model complex patterns in large datasets. Deep learning excels at processing unstructured data such as images, audio, and natural language. Applications include voice assistants, autonomous driving, and facial recognition. Typically considered neural networks with three layers or more.
+
+Neural Network:
+A computational model composed of layers of interconnected units called neurons that process information by applying weighted sums and activation functions. Neural networks learn from data by adjusting these weights through optimization algorithms such as gradient descent. They are foundational to deep learning and are used in tasks like classification, regression, and pattern recognition.
+
+Backpropagation:
+A training algorithm used in neural networks to minimize prediction error by adjusting the model’s weights. It works by computing the gradient of the loss function with respect to each weight using the chain rule of calculus, starting from the output layer and moving backward through the network. These gradients are then used in conjunction with optimization methods like gradient descent to update the weights. Backpropagation is essential for enabling deep networks to learn complex patterns from data.
+
+Bias-Variance Tradeoff:
+Explains the balance between model complexity (variance) and error due to incorrect assumptions (bias).
+
+Overfitting / Underfitting:
+Key concepts related to model generalization and performance.
+
+Gradient Descent:
+An optimization algorithm used to minimize a loss function by adjusting model weights.
+
+Loss Function / Cost Function:
+A measure of how well a model's predictions match actual results (e.g., MSE, log loss).
+
+Epoch / Batch / Iteration:
+Definitions for units of training in deep learning.
+
+### Data Preparation and Preprocessing
+Statistics:
+A branch of mathematics focused on collecting, analyzing, and interpreting data. It has two main branches: descriptive statistics, which summarizes data, and inferential statistics, which makes predictions or inferences about a population from a sample. In AI, statistics is used to understand data patterns, evaluate models, and manage uncertainty in decision-making.
+
+Data Cleaning:
+The process of detecting and correcting errors, inconsistencies, and inaccuracies in data to improve its quality and reliability. This involves handling missing values, removing duplicates, correcting formatting issues, and standardizing entries. In machine learning and AI, clean data is critical to ensure that models learn accurate patterns and produce reliable outcomes.
+
+Text-Wrangling or Text Pre-Processing:
+The process of preparing raw text data for analysis by removing noise and formatting inconsistencies. This includes steps such as lowercasing, removing punctuation or stop words, correcting misspellings, and tokenization. Clean, structured text is essential for accurate NLP model performance.
+
+Feature Engineering:
+The process of transforming raw data into meaningful features for model input.
+
+Feature Selection:
+The process of choosing the most relevant features to reduce dimensionality and improve performance.
+Learning Types and Paradigms
+
+### Learning Types and Paradigms
+Supervised Learning:
+A type of machine learning where algorithms are trained on labeled datasets, meaning each input is paired with a correct output. The model learns to map inputs to outputs and is evaluated on its ability to predict outcomes for new data. Common applications include spam detection, medical diagnosis, and credit scoring.
+
+Unsupervised Learning:
+A type of machine learning that analyzes data without labeled outcomes. The algorithm identifies patterns, groupings, or structures within the data, such as clusters or associations. It is often used in customer segmentation, anomaly detection, and data compression.
+
+Reinforcement Learning (RL):
+A type of machine learning where an agent learns to make decisions by interacting with an environment and receiving feedback in the form of rewards or penalties. Over time, the agent develops a strategy to maximize cumulative reward. It is used in robotics, game playing, and recommendation systems.
+
+Semi-Supervised Learning:
+A learning approach that combines a small amount of labeled data with a large amount of unlabeled data to improve model performance. It is useful when labeling data is expensive or time-consuming.
+
+Self-Supervised Learning:
+A form of unsupervised learning where the model generates its own labels from the input data. Often used in representation learning, it enables pretraining on large datasets without manual labeling. Common in natural language processing and computer vision.
+
+Multi-Instance Learning:
+A learning setting where the model receives labeled groups (bags) of instances, but not individual instance labels. The goal is to learn from these bags to classify new ones. Often applied in medical diagnosis and image classification where fine-grained labels are unavailable.
+
+### Inference and Reasoning Approaches
+Inductive:
+A reasoning approach where general rules or patterns are inferred from specific observations. In machine learning, inductive inference refers to building models that generalize from training data to unseen data.
+
+Deductive:
+A reasoning approach that applies general rules to specific cases to derive conclusions. Deductive logic is less common in ML, but underlies rule-based systems and expert systems.
+
+Transductive:
+A reasoning method where the model makes predictions only for specific test instances rather than learning a general rule for unseen data. Transductive learning is used in tasks like graph-based semi-supervised learning and label propagation.
+
+### Natural Language Processing (NLP)
+Natural Language Processing (NLP):
+A subfield of artificial intelligence that focuses on enabling computers to understand, interpret, and generate human language. NLP combines linguistics and machine learning to support tasks such as sentiment analysis, translation, speech recognition, and question answering.
+
+Language Understanding:
+The ability of a system to comprehend the meaning and intent behind human language inputs. It involves parsing syntax, recognizing context, identifying entities, and extracting key information. In NLP, language understanding enables functions like virtual assistants, chatbots, and search engines to interpret user queries accurately.
+
+Sentiment Analysis:
+A natural language processing technique used to determine the emotional tone or subjective meaning behind text. It classifies text as positive, negative, or neutral, and can also detect intensity or specific emotions. Sentiment analysis is commonly used in customer feedback analysis, social media monitoring, and brand reputation management.
+
+### Neural Network Architectures
+Fully Connected Feed Forward Neural Network:
+A neural network where each neuron in one layer is connected to every neuron in the next layer. It is the most basic structure in neural networks and is often used as a foundation for more complex architectures.
+
+Feedforward Neural Network (FNN):
+The simplest form of neural network, where information flows in one direction—from input to output—without any cycles or feedback loops. It consists of an input layer, one or more hidden layers, and an output layer. FNNs are used for tasks where a static input produces a static output, such as image classification or basic predictive modeling.
+
+Recurrent Neural Network (RNN):
+A neural network designed for sequential data, where connections form loops that allow information to persist across time steps. RNNs are used for tasks like language modeling, time-series prediction, and speech recognition.
+
+Convolutional Neural Network (CNN):
+A type of neural network designed specifically for processing grid-like data such as images. It uses convolutional layers that apply filters to detect spatial features like edges, shapes, or textures, followed by pooling layers that reduce dimensionality. CNNs are widely used in computer vision tasks including object detection, facial recognition, and medical imaging.
+
+Generative Adversarial Network (GAN):
+A deep learning architecture consisting of two neural networks—a generator and a discriminator—that compete in a game-theoretic setup. The generator creates synthetic data, while the discriminator evaluates whether data is real or generated. Through this adversarial process, GANs learn to produce highly realistic data, such as images, audio, or text.
+
+Deep Belief Network (DBN):
+A type of deep neural network composed of multiple layers of unsupervised models, typically stacked Restricted Boltzmann Machines (RBMs). Each layer learns to represent features of the data hierarchically, with lower layers learning simple features and higher layers capturing more abstract representations. DBNs are trained layer by layer in an unsupervised fashion, followed by fine-tuning with supervised learning. They were an early architecture used in deep learning for tasks such as image and speech recognition.
+
+Stacked Autoencoders (SAE):
+A deep learning architecture built by stacking multiple autoencoders, where the output of each layer is used as the input for the next. Each autoencoder consists of an encoder that compresses input data and a decoder that reconstructs it. The model learns compact, hierarchical feature representations of data, typically in an unsupervised manner. Stacked autoencoders are useful for dimensionality reduction, anomaly detection, and pretraining deep networks.
+
+Restricted Boltzmann Machine (RBM):
+A type of generative stochastic neural network that learns a probability distribution over its input data. It consists of two layers: a visible layer (input data) and a hidden layer (features), with symmetric connections and no intra-layer connections. RBMs are used for feature learning, dimensionality reduction, and as building blocks for deeper networks like DBNs. Training is typically done using a method called contrastive divergence.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==========================================================================
+
+### Key Terms
 
 **Statistics:** A branch of mathematics focused on collecting, analyzing, and interpreting data. It has two main branches: descriptive statistics, which summarizes data, and inferential statistics, which makes predictions or inferences about a population from a sample. In AI, statistics is used to understand data patterns, evaluate models, and manage uncertainty in decision-making.
 
@@ -48,6 +202,15 @@ FreeCodeCamp YouTube Video: https://www.youtube.com/watch?v=WZeZZ8_W-M4
 **Data Cleaning:** The process of detecting and correcting errors, inconsistencies, and inaccuracies in data to improve its quality and reliability. This involves handling missing values, removing duplicates, correcting formatting issues, and standardizing entries. In machine learning and AI, clean data is critical to ensure that models learn accurate patterns and produce reliable outcomes.
 
 **Text-Wrangling or Text Pre-Processing:** The process of preparing raw text data for analysis by removing noise and formatting inconsistencies. This includes steps such as lowercasing, removing punctuation or stop words, correcting misspellings, and tokenization. Clean, structured text is essential for accurate NLP model performance.
+
+
+
+
+
+
+
+
+
 
 **Language Understanding:**  The ability of a system to comprehend the meaning and intent behind human language inputs. It involves parsing syntax, recognizing context, identifying entities, and extracting key information. In NLP, language understanding enables functions like virtual assistants, chatbots, and search engines to interpret user queries accurately.
 
