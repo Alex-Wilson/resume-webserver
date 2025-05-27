@@ -191,59 +191,18 @@ A type of generative stochastic neural network that learns a probability distrib
 
 ==========================================================================
 
-### Key Terms
-
-**Statistics:** A branch of mathematics focused on collecting, analyzing, and interpreting data. It has two main branches: descriptive statistics, which summarizes data, and inferential statistics, which makes predictions or inferences about a population from a sample. In AI, statistics is used to understand data patterns, evaluate models, and manage uncertainty in decision-making.
-
-**Artificial Intelligence (AI):** A field of computer science focused on creating systems that can perform tasks requiring human-like intelligence, such as reasoning, learning, decision-making, and language understanding. AI encompasses subfields like machine learning, natural language processing, and robotics. In practice, AI enables applications such as voice assistants, recommendation systems, and autonomous vehicles by mimicking cognitive functions through algorithms and data-driven models.
-
-**Machine Learning (ML):** A subset of artificial intelligence that focuses on developing algorithms that enable computers to learn patterns from data and make decisions or predictions without being explicitly programmed. It includes techniques such as supervised learning, unsupervised learning, and reinforcement learning. In AI systems, machine learning allows models to improve performance over time through exposure to more data, supporting tasks like image recognition, fraud detection, and language translation.
-
-**Data Cleaning:** The process of detecting and correcting errors, inconsistencies, and inaccuracies in data to improve its quality and reliability. This involves handling missing values, removing duplicates, correcting formatting issues, and standardizing entries. In machine learning and AI, clean data is critical to ensure that models learn accurate patterns and produce reliable outcomes.
-
-**Text-Wrangling or Text Pre-Processing:** The process of preparing raw text data for analysis by removing noise and formatting inconsistencies. This includes steps such as lowercasing, removing punctuation or stop words, correcting misspellings, and tokenization. Clean, structured text is essential for accurate NLP model performance.
-
-
-
-
-
-
-
-
-
-
-**Language Understanding:**  The ability of a system to comprehend the meaning and intent behind human language inputs. It involves parsing syntax, recognizing context, identifying entities, and extracting key information. In NLP, language understanding enables functions like virtual assistants, chatbots, and search engines to interpret user queries accurately.
-
-**Sentiment Analysis:** A natural language processing technique used to determine the emotional tone or subjective meaning behind text. It classifies text as positive, negative, or neutral, and can also detect intensity or specific emotions. Sentiment analysis is commonly used in customer feedback analysis, social media monitoring, and brand reputation management.
-
-
-Deep Belief Network (DBN):
-A type of deep neural network composed of multiple layers of unsupervised models, typically stacked Restricted Boltzmann Machines (RBMs). Each layer learns to represent features of the data hierarchically, with lower layers learning simple features and higher layers capturing more abstract representations. DBNs are trained layer by layer in an unsupervised fashion, followed by fine-tuning with supervised learning. They were an early architecture used in deep learning for tasks such as image and speech recognition.
-
-Stacked Autoencoders (SAE):
-A deep learning architecture built by stacking multiple autoencoders, where the output of each layer is used as the input for the next. Each autoencoder consists of an encoder that compresses input data and a decoder that reconstructs it. The model learns compact, hierarchical feature representations of data, typically in an unsupervised manner. Stacked autoencoders are useful for dimensionality reduction, anomaly detection, and pretraining deep networks.
-
-Restricted Boltzmann Machine (RBM):
-A type of generative stochastic neural network that learns a probability distribution over its input data. It consists of two layers: a visible layer (input data) and a hidden layer (features), with symmetric connections and no intra-layer connections. RBMs are used for feature learning, dimensionality reduction, and as building blocks for deeper networks like DBNs. Training is typically done using a method called contrastive divergence.
-
-Bias-Variance Tradeoff: Explains the balance between model complexity (variance) and error due to incorrect assumptions (bias).
-
-Overfitting / Underfitting: Key concepts related to model generalization and performance.
+### OLD
 
 Cross-Validation: A resampling technique used to evaluate model performance on unseen data.
 
-Loss Function / Cost Function: A measure of how well a model's predictions match actual results (e.g., MSE, log loss).
 
-Gradient Descent: An optimization algorithm used to minimize a loss function by adjusting model weights.
 
-Epoch / Batch / Iteration: Definitions for units of training in deep learning.
 
 ### Types of Machine Learning
 
 #### Learning Problems
 **Supervised Learning:** A type of machine learning where algorithms are trained on labeled datasets, meaning each input is paired with a correct output. The model learns to map inputs to outputs and is evaluated on its ability to predict outcomes for new data. Common applications include spam detection, medical diagnosis, and credit scoring.
 
-**Unsupervised Learning:** A type of machine learning that analyzes data without labeled outcomes. The algorithm identifies patterns, groupings, or structures within the data, such as clusters or associations. It is often used in customer segmentation, anomaly detection, and data compression.
 
 **Reinforcement Learning (RL):** A type of machine learning where an agent learns to make decisions by interacting with an environment and receiving feedback in the form of rewards or penalties. Over time, the agent develops a strategy to maximize cumulative reward. It is used in robotics, game playing, and recommendation systems.
 
@@ -269,21 +228,7 @@ A training algorithm used in neural networks to minimize prediction error by adj
 Fully Connected Feed Forward Neural Network
 Recurrent Neural Network (RNN)
 
-#### Hybrid Learning Problems
 
-**Semi-Supervised Learning:** A learning approach that combines a small amount of labeled data with a large amount of unlabeled data to improve model performance. It is useful when labeling data is expensive or time-consuming.
-
-**Self-Supervised Learning:** A form of unsupervised learning where the model generates its own labels from the input data. Often used in representation learning, it enables pretraining on large datasets without manual labeling. Common in natural language processing and computer vision.
-
-**Multi-Instance Learning:** A learning setting where the model receives labeled groups (bags) of instances, but not individual instance labels. The goal is to learn from these bags to classify new ones. Often applied in medical diagnosis and image classification where fine-grained labels are unavailable.
-
-#### Statistical Inference
-
-**Inductive:** A reasoning approach where general rules or patterns are inferred from specific observations. In machine learning, inductive inference refers to building models that generalize from training data to unseen data.
-
-**Deductive:** A reasoning approach that applies general rules to specific cases to derive conclusions. Deductive logic is less common in ML, but underlies rule-based systems and expert systems.
-
-**Transductive:** A reasoning method where the model makes predictions only for specific test instances rather than learning a general rule for unseen data. Transductive learning is used in tasks like graph-based semi-supervised learning and label propagation.
 
 #### Learning Techniques
 
