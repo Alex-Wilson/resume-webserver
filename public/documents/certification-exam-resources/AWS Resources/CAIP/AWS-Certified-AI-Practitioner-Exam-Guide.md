@@ -32,11 +32,24 @@ https://aws.amazon.com/certification/certified-ai-practitioner/
 
 
 ## Study Resources
-
 FreeCodeCamp YouTube Video: https://www.youtube.com/watch?v=WZeZZ8_W-M4
 
-## Fundamentals of AI
-### Core AI Concepts
+## Intro for Skids
+Artificial Intelligence (AI), put simply, is when a computer is designed to recognize patterns, solve problems, make predictions, and even generate its own content. In doing so, it can appear to "think" and "learn" in ways that mimic natural intelligence. When building or deploying AI solutions, there’s usually a set of common steps or a pattern that’s followed. This will be called the AI Development Lifecycle.
+
+
+## AI Devlopement Lifecycle
+A step-by-step process used to build, train, and deploy AI systems. Think of it like a recipe that guides you from a raw idea all the way to a working AI product. It’s a pattern followed by data scientists, engineers, and AI teams to make sure the AI works well and solves the right problems.
+
+
+
+
+
+
+
+
+
+## Core AI Concepts
 
 Artificial Intelligence (AI):
 A field of computer science focused on creating systems that can perform tasks requiring human-like intelligence, such as reasoning, learning, decision-making, and language understanding. AI encompasses subfields like machine learning, natural language processing, and robotics. In practice, AI enables applications such as voice assistants, recommendation systems, and autonomous vehicles by mimicking cognitive functions through algorithms and data-driven models.
@@ -53,39 +66,22 @@ A computational model composed of layers of interconnected units called neurons 
 Backpropagation:
 A training algorithm used in neural networks to minimize prediction error by adjusting the model’s weights. It works by computing the gradient of the loss function with respect to each weight using the chain rule of calculus, starting from the output layer and moving backward through the network. These gradients are then used in conjunction with optimization methods like gradient descent to update the weights. Backpropagation is essential for enabling deep networks to learn complex patterns from data.
 
+Loss Function / Cost Function:
+A measure of how well a model's predictions match actual results (e.g., MSE, log loss).
+
+Gradient Descent:
+An optimization algorithm used to minimize a loss function by adjusting model weights.
+
+Epoch / Batch / Iteration:
+Definitions for units of training in deep learning.
+
 Bias-Variance Tradeoff:
 Explains the balance between model complexity (variance) and error due to incorrect assumptions (bias).
 
 Overfitting / Underfitting:
 Key concepts related to model generalization and performance.
 
-Gradient Descent:
-An optimization algorithm used to minimize a loss function by adjusting model weights.
-
-Loss Function / Cost Function:
-A measure of how well a model's predictions match actual results (e.g., MSE, log loss).
-
-Epoch / Batch / Iteration:
-Definitions for units of training in deep learning.
-
-### Data Preparation and Preprocessing
-Statistics:
-A branch of mathematics focused on collecting, analyzing, and interpreting data. It has two main branches: descriptive statistics, which summarizes data, and inferential statistics, which makes predictions or inferences about a population from a sample. In AI, statistics is used to understand data patterns, evaluate models, and manage uncertainty in decision-making.
-
-Data Cleaning:
-The process of detecting and correcting errors, inconsistencies, and inaccuracies in data to improve its quality and reliability. This involves handling missing values, removing duplicates, correcting formatting issues, and standardizing entries. In machine learning and AI, clean data is critical to ensure that models learn accurate patterns and produce reliable outcomes.
-
-Text-Wrangling or Text Pre-Processing:
-The process of preparing raw text data for analysis by removing noise and formatting inconsistencies. This includes steps such as lowercasing, removing punctuation or stop words, correcting misspellings, and tokenization. Clean, structured text is essential for accurate NLP model performance.
-
-Feature Engineering:
-The process of transforming raw data into meaningful features for model input.
-
-Feature Selection:
-The process of choosing the most relevant features to reduce dimensionality and improve performance.
-Learning Types and Paradigms
-
-### Learning Types and Paradigms
+## Learning Types and Paradigms
 Supervised Learning:
 A type of machine learning where algorithms are trained on labeled datasets, meaning each input is paired with a correct output. The model learns to map inputs to outputs and is evaluated on its ability to predict outcomes for new data. Common applications include spam detection, medical diagnosis, and credit scoring.
 
@@ -104,30 +100,25 @@ A form of unsupervised learning where the model generates its own labels from th
 Multi-Instance Learning:
 A learning setting where the model receives labeled groups (bags) of instances, but not individual instance labels. The goal is to learn from these bags to classify new ones. Often applied in medical diagnosis and image classification where fine-grained labels are unavailable.
 
-### Inference and Reasoning Approaches
-Inductive:
-A reasoning approach where general rules or patterns are inferred from specific observations. In machine learning, inductive inference refers to building models that generalize from training data to unseen data.
+## Data Preparation and Preprocessing
 
-Deductive:
-A reasoning approach that applies general rules to specific cases to derive conclusions. Deductive logic is less common in ML, but underlies rule-based systems and expert systems.
+Statistics:
+A branch of mathematics focused on collecting, analyzing, and interpreting data. It has two main branches: descriptive statistics, which summarizes data, and inferential statistics, which makes predictions or inferences about a population from a sample. In AI, statistics is used to understand data patterns, evaluate models, and manage uncertainty in decision-making.
 
-Transductive:
-A reasoning method where the model makes predictions only for specific test instances rather than learning a general rule for unseen data. Transductive learning is used in tasks like graph-based semi-supervised learning and label propagation.
+Data Cleaning:
+The process of detecting and correcting errors, inconsistencies, and inaccuracies in data to improve its quality and reliability. This involves handling missing values, removing duplicates, correcting formatting issues, and standardizing entries. In machine learning and AI, clean data is critical to ensure that models learn accurate patterns and produce reliable outcomes.
 
-### Natural Language Processing (NLP)
-Natural Language Processing (NLP):
-A subfield of artificial intelligence that focuses on enabling computers to understand, interpret, and generate human language. NLP combines linguistics and machine learning to support tasks such as sentiment analysis, translation, speech recognition, and question answering.
+Text-Wrangling or Text Pre-Processing:
+The process of preparing raw text data for analysis by removing noise and formatting inconsistencies. This includes steps such as lowercasing, removing punctuation or stop words, correcting misspellings, and tokenization. Clean, structured text is essential for accurate NLP model performance.
 
-Language Understanding:
-The ability of a system to comprehend the meaning and intent behind human language inputs. It involves parsing syntax, recognizing context, identifying entities, and extracting key information. In NLP, language understanding enables functions like virtual assistants, chatbots, and search engines to interpret user queries accurately.
+Feature Engineering:
+The process of transforming raw data into meaningful features for model input.
 
-Sentiment Analysis:
-A natural language processing technique used to determine the emotional tone or subjective meaning behind text. It classifies text as positive, negative, or neutral, and can also detect intensity or specific emotions. Sentiment analysis is commonly used in customer feedback analysis, social media monitoring, and brand reputation management.
+Feature Selection:
+The process of choosing the most relevant features to reduce dimensionality and improve performance.
+Learning Types and Paradigms
 
-### Neural Network Architectures
-Fully Connected Feed Forward Neural Network:
-A neural network where each neuron in one layer is connected to every neuron in the next layer. It is the most basic structure in neural networks and is often used as a foundation for more complex architectures.
-
+## Nueral Network Architecture
 Feedforward Neural Network (FNN):
 The simplest form of neural network, where information flows in one direction—from input to output—without any cycles or feedback loops. It consists of an input layer, one or more hidden layers, and an output layer. FNNs are used for tasks where a static input produces a static output, such as image classification or basic predictive modeling.
 
@@ -149,7 +140,55 @@ A deep learning architecture built by stacking multiple autoencoders, where the 
 Restricted Boltzmann Machine (RBM):
 A type of generative stochastic neural network that learns a probability distribution over its input data. It consists of two layers: a visible layer (input data) and a hidden layer (features), with symmetric connections and no intra-layer connections. RBMs are used for feature learning, dimensionality reduction, and as building blocks for deeper networks like DBNs. Training is typically done using a method called contrastive divergence.
 
+### Inference and Reasoning Approaches
+Inductive:
+A reasoning approach where general rules or patterns are inferred from specific observations. In machine learning, inductive inference refers to building models that generalize from training data to unseen data.
 
+Deductive:
+A reasoning approach that applies general rules to specific cases to derive conclusions. Deductive logic is less common in ML, but underlies rule-based systems and expert systems.
+
+Transductive:
+A reasoning method where the model makes predictions only for specific test instances rather than learning a general rule for unseen data. Transductive learning is used in tasks like graph-based semi-supervised learning and label propagation.
+
+### Natural Language Processing (NLP)
+Natural Language Processing (NLP):
+A subfield of artificial intelligence that focuses on enabling computers to understand, interpret, and generate human language. NLP combines linguistics and machine learning to support tasks such as sentiment analysis, translation, speech recognition, and question answering.
+
+Language Understanding:
+The ability of a system to comprehend the meaning and intent behind human language inputs. It involves parsing syntax, recognizing context, identifying entities, and extracting key information. In NLP, language understanding enables functions like virtual assistants, chatbots, and search engines to interpret user queries accurately.
+
+Sentiment Analysis:
+A natural language processing technique used to determine the emotional tone or subjective meaning behind text. It classifies text as positive, negative, or neutral, and can also detect intensity or specific emotions. Sentiment analysis is commonly used in customer feedback analysis, social media monitoring, and brand reputation management.
+
+### Traditional ML Tehniques
+
+
+
+
+
+
+
+
+
+Fully Connected Feed Forward Neural Network:
+A neural network where each neuron in one layer is connected to every neuron in the next layer. It is the most basic structure in neural networks and is often used as a foundation for more complex architectures.
+
+
+
+
+## Fundamentals of GenAI
+
+## Applicaitons of Foundation Models
+
+## AWS Traditional AI Pipelines
+
+## AWS Managed AI Services
+
+## AWS GenAI and LLM Services
+
+## Guidelines for Responsible AI
+
+## Security, Compliance, and Governance for AI Solutions
 
 
 
@@ -342,17 +381,3 @@ A technique for extracting relationships between terms and documents by applying
 
 **t-distributed Stochastic Neighbor Embedding (t-SNE):**
 A non-linear dimensionality reduction technique used for visualizing high-dimensional data in two or three dimensions. It emphasizes preserving local structure (i.e., the relative distance between nearby points) and is widely used for exploratory data analysis in fields like bioinformatics and computer vision.
-
-## Fundamentals of GenAI
-
-## Applicaitons of Foundation Models
-
-## AWS Traditional AI Pipelines
-
-## AWS Managed AI Services
-
-## AWS GenAI and LLM Services
-
-## Guidelines for Responsible AI
-
-## Security, Compliance, and Governance for AI Solutions
