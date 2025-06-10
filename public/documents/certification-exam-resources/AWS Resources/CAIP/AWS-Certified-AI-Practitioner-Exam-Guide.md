@@ -193,41 +193,6 @@ A neural network where each neuron in one layer is connected to every neuron in 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ==========================================================================
 
 ### OLD
