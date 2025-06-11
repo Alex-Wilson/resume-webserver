@@ -195,7 +195,7 @@ A neural network where each neuron in one layer is connected to every neuron in 
 
 ==========================================================================
 
-### OLD
+### NEEDS TO BE EDITED
 
 Cross-Validation: A resampling technique used to evaluate model performance on unseen data.
 
