@@ -51,6 +51,11 @@ The earliest verifiable mechanical clocks appeared in Europe in the late 13th an
 
 
 
+To Add:
+Animals examples of counting, numerosity, rule-based reasoning, approximation, 
+insect step counting and pathing
+
+
 
 
 ## Early Computing (Babbage, Liebnitz, Lovelace, Hollerith)
