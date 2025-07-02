@@ -32,21 +32,13 @@ function renderMarkdownPage(res, filePath, pageTitle) {
 // Routes-----------------------------------------------------------------------
 app.get('/', (req, res) => {
   const filePath = path.join(__dirname, '../src/views/markdown/index.md');
-  renderMarkdownPage(res, filePath, "index"); // Matches index.pug
+  renderMarkdownPage(res, filePath, "index");
 });
 
-app.get('/readme', (req, res) => {
-  const filePath = path.join(__dirname, '../src/views/markdown/readme.md');
-  renderMarkdownPage(res, filePath, "about-me"); // Matches about-me.pug
+app.get('/README', (req, res) => {
+  const filePath = path.join(__dirname, '../src/views/markdown/README.md');
+  renderMarkdownPage(res, filePath, "README");
 });
-
-app.get('/educational-resources', (req, res) => {
-  const filePath = path.join(__dirname, '../src/views/markdown/educational-resources.md');
-  renderMarkdownPage(res, filePath, "educational-resources"); // Matches certification-resources.pug
-});
-
-
-
 
 // Resume route, serves the PDF file directly
 app.get('/resume', (req, res) => {
@@ -65,7 +57,6 @@ app.get('/resume', (req, res) => {
   }
 });
 
-
 // Certifications page, loads JSON and renders certifications.pug
 app.get('/certifications', (req, res) => {
   fs.readFile(path.join(__dirname, '../public/extras/certs.json'), 'utf-8', (err, data) => {
@@ -73,6 +64,23 @@ app.get('/certifications', (req, res) => {
     res.render('certifications', { certifications: JSON.parse(data).certifications });
   });
 });
+
+app.get('/projects', (req, res) => {
+  const filePath = path.join(__dirname, '../src/views/markdown/projects.md');
+  renderMarkdownPage(res, filePath, "projects");
+});
+
+app.get('/resources', (req, res) => {
+  const filePath = path.join(__dirname, '../src/views/markdown/resources.md');
+  renderMarkdownPage(res, filePath, "resources"); 
+});
+
+app.get('/media', (req, res) => {
+  const filePath = path.join(__dirname, '../src/views/markdown/media.md');
+  renderMarkdownPage(res, filePath, "media");
+});
+
+
 
 // Start the Express server on the specified port
 app.listen(PORT, () => {
