@@ -1,28 +1,40 @@
 {
-    "certifications": [
+  "certifications": [
     {
-        "domain": "Project Management",
-        "status": "✔️",
-        "certName": "Project Management Professional (PMP)",
-        "orgName": "Project Management Institute",
-        "link": "https://www.pmi.org/certifications/project-management-pmp",
-        "price": 675,
-        "workExperienceRequired": "3-5 years",
-        "description": "Demonstrate your ability to lead projects in any industry with this globally recognized certification and open the door to a world of opportunities",
-        "earnedDate": "02/09/2024",
-        "expirationDate": "02/09/2027"
+      "domain": "Project Management",
+      "status": "✔️",
+      "certName": "Project Management Professional (PMP)",
+      "orgName": "Project Management Institute",
+      "link": "https://www.pmi.org/certifications/project-management-pmp",
+      "price": 675,
+      "workExperienceRequired": "3-5 years",
+      "description": "Globally recognized. Validates ability to lead and direct projects effectively across any industry, enhancing career opportunities.",
+      "earnedDate": "02/09/2024",
+      "expirationDate": "02/09/2027"
     },
     {
-        "domain": "Networking",
-        "status": "✔️",
-        "certName": "Network+",
-        "orgName": "CompTIA",
-        "link": "https://www.comptia.org/certifications/network",
-        "price": 369,
-        "workExperienceRequired": false,
-        "description": "Covers foundational networking concepts, protocols, and troubleshooting techniques.",
-        "earnedDate": "12/10/2024",
-        "expirationDate": "12/10/2027"
+      "domain": "Networking",
+      "status": "✔️",
+      "certName": "Network+",
+      "orgName": "CompTIA",
+      "link": "https://www.comptia.org/certifications/network",
+      "price": 369,
+      "workExperienceRequired": false,
+      "description": "Establishes essential skills in managing, maintaining, troubleshooting, installing, and configuring basic network infrastructures.",
+      "earnedDate": "12/10/2024",
+      "expirationDate": "12/10/2027"
+    },
+    {
+      "domain": "Cloud",
+      "status": "✔️",
+      "certName": "Cloud Practitioner Foundational",
+      "orgName": "AWS",
+      "link": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+      "price": 100,
+      "workExperienceRequired": false,
+      "description": "Confirms fundamental understanding of AWS Cloud concepts, services, security, architecture, pricing, and support.",
+      "earnedDate": "4/19/2025",
+      "expirationDate": "4/19/2028"
     }
-    ]
+  ]
 }

@@ -71,16 +71,6 @@
         "description": "Covers an evolving job role that focuses more on how Linux powers the cloud."
     },
     {
-        "domain": "Cloud",
-        "status": "🎯",
-        "certName": "Cloud Practitioner Foundational",
-        "orgName": "AWS",
-        "link": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
-        "price": 100,
-        "workExperienceRequired": false,
-        "description": "Provides foundational knowledge of AWS services, billing, and architecture."
-    },
-    {
         "domain": "Machine Learning",
         "status": "🎯",
         "certName": "AI Practitioner Foundational",
