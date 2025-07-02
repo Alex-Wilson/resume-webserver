@@ -1,33 +1,3 @@
-//TODO:
-//
-//consolidate creds
-//update bookmarks
-
-//Deployment Guide on site
-//Fix css for md files
-//AWS CCP Notes on site
-//Network+ Notes on site
-//Security+ Notes on site
-
-//Create schedule
-//NAS Pentest
-
-
-
-//@Hardware
-//Move FF creds to KeyPassXC, consolidate keys
-//Setup BYB VPN
-//Move off Mozilla VPN
-//Dual Boot Arch Research
-//Dual Boot Arch Setup
-//Rice Arch
-//
-//@ENV:
-//Setup cursor on windows
-//
-//@Site:
-//update ascii editor page
-
 // Load environment variables from .env file
 require('dotenv').config();
 
@@ -65,8 +35,8 @@ app.get('/', (req, res) => {
   renderMarkdownPage(res, filePath, "index"); // Matches index.pug
 });
 
-app.get('/about-me', (req, res) => {
-  const filePath = path.join(__dirname, '../src/views/markdown/about-me.md');
+app.get('/readme', (req, res) => {
+  const filePath = path.join(__dirname, '../src/views/markdown/readme.md');
   renderMarkdownPage(res, filePath, "about-me"); // Matches about-me.pug
 });
 
@@ -80,7 +50,7 @@ app.get('/educational-resources', (req, res) => {
 
 // Resume route, serves the PDF file directly
 app.get('/resume', (req, res) => {
-  const resumePath = path.join(__dirname, '../public/documents/alexander-wilson-resume.pdf');
+  const resumePath = path.join(__dirname, '../public/documents/resumes/alexander-wilson-resume.pdf');
   
   // Check if file exists
   if (fs.existsSync(resumePath)) {

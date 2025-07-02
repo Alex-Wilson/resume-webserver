@@ -2,13 +2,22 @@
   include glitch-text.pug
 
 nav.sticky-nav-bar
-  a.nav-link(href='/about-me') About
   .dropdown
-    button.dropbtn Contact
-      .dropdown-content
-        a.drop-down-link(href='mailto:alex.wilson.0425@gmail.com') Email
-        a.drop-down-link(href='https://www.linkedin.com/in/alex-wilson-pmp-3021a5257' target='_blank') LinkedIn
-  a.nav-link(href='/educational-resources') Educational Resources
-  a.nav-link(href='fun-projects') Fun Stuff
-  a.nav-link(href='https://www.github.com/alex-wilson') Github
+    button.dropbtn whoami
+    .dropdown-content
+      a.drop-down-link(href='/readme') /README
+      a.drop-down-link(href='/resume') /resume
+      a.drop-down-link(href='/certifications') /certifications
+  .dropdown
+    button.dropbtn ping
+    .dropdown-content
+      a.drop-down-link(href='https://www.linkedin.com/in/alex-wilson-pmp-3021a5257' target='_blank') linkedin
+      a.drop-down-link(href='https://www.github.com/alex-wilson' target='_blank') github
+      a.drop-down-link(href='https://leetcode.com/u/AlexWilson0425' target='_blank') leetcode
+      a.drop-down-link(href='mailto:alex.wilson.0425@gmail.com') email
+  a.nav-link(href='/projects') /projects
+  a.nav-link(href='/resources') /resources
+  a.nav-link(href='/media') /media
+
+
 
