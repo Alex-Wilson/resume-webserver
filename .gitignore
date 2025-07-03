@@ -21,6 +21,10 @@ known_hosts
 # Node.js dependencies
 node_modules/
 
+#YGO Data
+public/images/ygo-images
+public/images/ygo-images/
+
 # Lock files
 package-lock.json
 
