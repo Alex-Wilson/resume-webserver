@@ -1,5 +1,73 @@
 #!/bin/bash
 
+# Function to check for command existence
+command_exists () {
+  command -v "$1" >/dev/null 2>&1
+}
+
+# Initial Welcome and System Information Display
+echo "#####################################################"
+echo "#       System Health Check and Initialization    #"
+echo "#                 Script                          #"
+echo "#####################################################"
+
+echo -e "\n--- Initial System Overview ---"
+
+# OS
+echo "OS: $(lsb_release -ds 2>/dev/null || grep '^PRETTY_NAME=' /etc/os-release | cut -d'=' -f2 | tr -d '"' || uname -o)"
+# User
+echo "User: $(whoami)"
+
+# CPU related
+echo -e "\nCPU Info:"
+if command_exists lscpu; then
+  lscpu | grep -E 'Model name|CPU\(s\):|Thread' | sed 's/^  *//' | tr '\n' ' ' | sed 's/  */, /g; s/, $//'
+else
+  echo "  lscpu not found."
+fi
+
+echo -e "CPU Usage (Snapshot):"
+if command_exists mpstat; then
+  mpstat 1 1 | grep 'Average' | awk '{print "  " $NF "% Idle"}'
+elif command_exists sar; then
+  sar 1 1 | grep 'Average' | awk '{print "  " $NF "% Idle"}'
+elif command_exists top; then
+  echo "  $(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/g" | awk '{print 100 - $1}')% Used"
+else
+  echo "  (Install sysstat or top for detailed CPU usage)"
+fi
+
+# Mem related
+echo -e "\nMemory Usage:"
+free -h | awk 'NR==1 || NR==2' | column -t
+
+# Disk related
+echo -e "\nDisk Usage:"
+df -h | awk 'NR==1 || /^\/dev\// {print $1, $2, $3, $4, $5, $6}' | column -t
+
+# Network Wired/Wi-Fi (keeping this general as it's just interfaces)
+echo -e "\nNetwork Interfaces:"
+if command_exists ip; then
+  ip -o -4 a | awk '{print "  " $2 ": " $4 " (" $7 ")"}'
+else
+  echo "  ip command not found."
+fi
+
+# Network Related (e.g., DNS, routing, but for simplicity, we'll keep it to just ping)
+# If you wanted more "network related" info, you might add:
+# echo "  DNS Servers: $(grep -E '^nameserver' /etc/resolv.conf | awk '{print $2}' | paste -sd ", " -)"
+# echo "  Default Gateway: $(ip r | grep default | awk '{print $3}')"
+
+# Internet connectivity being the last
+echo -e "\nInternet Connectivity (8.8.8.8):"
+if command_exists ping; then
+  ping -c 1 8.8.8.8 > /dev/null 2>&1 && echo "  ✅ Connected" || echo "  ❌ Disconnected"
+else
+  echo "  ping command not found."
+fi
+
+echo -e "\n-----------------------------------------------------\n"
+
 echo "Running basic Debian system test..."
 
 # Show OS and kernel info
