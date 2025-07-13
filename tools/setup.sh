@@ -1,22 +1,24 @@
 #!/bin/bash
 
-if [ "$EUID" -eq 0 ]; then
-  echo "This script should be run by a user account."
-  echo "Do NOT run as root or use 'sudo' to execute this script."
-  exit 1
+# --- Dependency Check ---
+INFO_SCRIPT_PATH="./tools/info.sh"
+INFO_STATUS_FILE="/tmp/info_status.env"
+
+if [ ! -f "$INFO_STATUS_FILE" ]; then
+  echo "$INFO_STATUS_FILE not found. Running $INFO_SCRIPT_PATH..."
+  "$INFO_SCRIPT_PATH"
+  
+  if [ ! -f "$INFO_STATUS_FILE" ]; then
+      echo "Error: $INFO_SCRIPT_PATH failed to create $INFO_STATUS_FILE. Cannot proceed."
+      exit 1
+  fi
 fi
 
-if [ ! -f "/tmp/info_status.env" ]; then
-  echo "Error: /tmp/info_status.env not found."
-  exit 1
-fi
+#link file
 source /tmp/info_status.env
 
-if [ "$HAS_SUDO" != "Yes" ]; then
-  echo "Current user: '$USERNAME' does NOT have sudo access."
-  exit 1
-fi
 
+# --- Package Check ---
 # Updated list of Debian APT packages to check
 # 'nodejs' for Node.js runtime
 # 'npm' for Node Package Manager
@@ -24,10 +26,13 @@ fi
 # 'nginx' for web server
 # 'mongodb' for MongoDB database
 # 'certbot' for Let's Encrypt SSL certificates
-PACKAGES_TO_CHECK="nodejs npm python3 nginx mongodb certbot"
+# 'docker.io' for Docker engine
+PACKAGES_TO_CHECK="nodejs npm python3 nginx mongodb certbot docker.io"
 MISSING_PACKAGES=""
 ALL_PACKAGES_INSTALLED=true
 
+
+#check if anything is written in the installed attribute of a package
 check_package_installed_apt_policy() {
   local pkg_name="$1"
   if apt-cache policy "$pkg_name" 2>/dev/null | grep -q "Installed: (none)"; then
@@ -39,6 +44,7 @@ check_package_installed_apt_policy() {
   fi
 }
 
+#iterate through packages, adding any not found to our string
 for pkg in $PACKAGES_TO_CHECK; do
   if ! check_package_installed_apt_policy "$pkg"; then
     ALL_PACKAGES_INSTALLED=false

@@ -1,19 +1,24 @@
-
 #!/bin/bash
 
-# Function to check for command existence
+# Check for the prerequisite info file (This comment might be for the other script, keeping it as is)
 command_exists () {
   command -v "$1" >/dev/null 2>&1
 }
 
 OS_NAME=$(lsb_release -ds 2>/dev/null || grep '^PRETTY_NAME=' /etc/os-release | cut -d'=' -f2 | tr -d '"' || uname -o)
+CURRENT_DIR=$(pwd)
 CURRENT_USER=$(whoami)
 IS_ROOT=$(if [ "$EUID" -eq 0 ]; then echo "Yes"; else echo "No"; fi)
-CURRENT_DIR=$(pwd)
+
+# All Users
+# Fetching users from /etc/passwd, excluding system users that typically don't have shells
+# and ensuring each user is listed only once.
+ALL_USERS=$(awk -F: '{ if ($7 != "" && $7 != "/sbin/nologin" && $7 != "/bin/false" && $7 != "/usr/sbin/nologin") print $1}' /etc/passwd | paste -sd ', ' -)
+
 
 # Internet Connectivity
 if command_exists ping; then
-  PING_RESULT=$(ping -c 1 8.8.8.8 >/dev/null 2>&1 && echo "✅ Connected" || echo "❌ Disconnected")
+  PING_RESULT=$(ping -c 1 8.8.8.8 >/dev/null 2>&1 && echo "Connected" || echo "Disconnected")
 else
   PING_RESULT="ping not found"
 fi
@@ -83,6 +88,7 @@ echo -e "\n--- System Overview ---"
 printf "+----------------------+-----------------------------+\n"
 printf "| %-20s | %-27s |\n" "OS" "$OS_NAME"
 printf "| %-20s | %-27s |\n" "User" "$CURRENT_USER"
+printf "| %-20s | %-27s |\n" "All Users" "$ALL_USERS" # Added All Users here
 printf "| %-20s | %-27s |\n" "Root/Sudo" "$IS_ROOT"
 printf "| %-20s | %-27s |\n" "Current Directory" "$CURRENT_DIR"
 printf "+----------------------+-----------------------------+\n"
@@ -121,6 +127,8 @@ echo "RAM_TOTAL=\"$RAM_TOTAL\"" >> "$STATUS_FILE"
 echo "RAM_AVAIL=\"$RAM_AVAIL\"" >> "$STATUS_FILE"
 echo "DISK_TOTAL=\"$DISK_TOTAL\"" >> "$STATUS_FILE"
 echo "DISK_AVAIL=\"$DISK_AVAIL\"" >> "$STATUS_FILE"
+# Added export for ALL_USERS
+echo "ALL_USERS=\"$ALL_USERS\"" >> "$STATUS_FILE"
 
 
 echo -e "\nHealth and information check completed!\n"
