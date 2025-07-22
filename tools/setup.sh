@@ -24,16 +24,17 @@ source /tmp/info_status.env
 # 'nodejs' for Node.js runtime
 # 'npm' for Node Package Manager
 # 'python3' for Python 3 runtime
-# 'nginx' for web server
+# 'nginx' for nginx web server
 # 'mongodb' for MongoDB database
 # 'certbot' for Let's Encrypt SSL certificates
 # 'docker.io' for Docker engine
-#
-#
+# 'git' for Git version control
+# 'doctl' for Digital Ocean
 PACKAGES_TO_CHECK="nodejs npm python3 nginx mongodb certbot docker.io git doctl"
 MISSING_PACKAGES=""
 ALL_PACKAGES_INSTALLED=true # Assume all are installed initially for this logic
 
+------------------------------------------------------------
 #check if anything is written in the installed attribute of a package
 check_package_installed_apt_policy() {
   local pkg_name="$1"
