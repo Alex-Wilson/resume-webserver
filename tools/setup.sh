@@ -1,22 +1,25 @@
 #!/bin/bash
 
-
 INFO_SCRIPT_PATH="./tools/info.sh"
 INFO_STATUS_FILE="/tmp/info_status.env"
+TIME_THRESHOLD=$((60 * 60 * 24)) # 24 hours in seconds
 
-
+# Check if info_status.env exists and is fresh
 if [ ! -f "$INFO_STATUS_FILE" ]; then
-  echo "$INFO_STATUS_FILE: file not found. Trying to execute $INFO_SCRIPT_PATH..."
+  echo "$INFO_STATUS_FILE: file not found. Running $INFO_SCRIPT_PATH..."
   "$INFO_SCRIPT_PATH"
-  if [ ! -f "$INFO_STATUS_FILE" ]; then
-      echo "Error: $INFO_SCRIPT_PATH failed to create $INFO_STATUS_FILE. Cannot proceed. Check location and permissions."
-      exit 1
-  fi
+elif [ $(( $(date +%s) - $(stat -c %Y "$INFO_STATUS_FILE") )) -gt "$TIME_THRESHOLD" ]; then
+  echo "$INFO_STATUS_FILE is older than $TIME_THRESHOLD seconds. Re-running $INFO_SCRIPT_PATH..."
+  "$INFO_SCRIPT_PATH"
 fi
-echo "Information script ran succesfully."
 
-#link file
-source /tmp/info_status.env
+# Validate that info_status.env now exists
+if [ ! -f "$INFO_STATUS_FILE" ]; then
+  echo "Error: $INFO_SCRIPT_PATH failed to create $INFO_STATUS_FILE. Cannot proceed. Check location and permissions."
+  exit 1
+fi
+
+echo "Information script ran successfully."
 
 
 # --- Package Check ---
@@ -31,8 +34,8 @@ source /tmp/info_status.env
 # 'git' for Git version control
 # 'doctl' for Digital Ocean
 PACKAGES_TO_CHECK="nodejs npm python3 nginx mongodb certbot docker.io git doctl"
-MISSING_PACKAGES=""
-ALL_PACKAGES_INSTALLED=true # Assume all are installed initially for this logic
+MISSING_PACKAGES=()
+
 
 ------------------------------------------------------------
 #check if anything is written in the installed attribute of a package
