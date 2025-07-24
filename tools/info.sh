@@ -91,6 +91,7 @@ printf "| %-20s | %-27s |\n" "User" "$CURRENT_USER"
 printf "| %-20s | %-27s |\n" "All Users" "$ALL_USERS" # Added All Users here
 printf "| %-20s | %-27s |\n" "Root/Sudo" "$IS_ROOT"
 printf "| %-20s | %-27s |\n" "Current Directory" "$CURRENT_DIR"
+printf "| %-20s | %-27s |\n" "Package Manager" "$CURRENT_DIR"
 printf "+----------------------+-----------------------------+\n"
 echo -e "\n--- Network Overview ---"
 printf "+----------------------+-----------------------------+\n"
@@ -119,6 +120,8 @@ printf "+----------------------+-----------------------------+\n"
 STATUS_FILE="/tmp/info_status.env"
 echo "USERNAME=\"$CURRENT_USER\"" >> "$STATUS_FILE"
 echo "IS_ROOT=\"$IS_ROOT\"" >> "$STATUS_FILE"
+echo "PACKAGE_MANAGER=\"$PKG_MANAGER\"" >> "$STATUS_FILE"
+echo "PACKAGE_MANAGER_VERSION=\"$PKG_MANAGER_VERSION\"" >> "$STATUS_FILE"
 echo "INTERNET=\"$PING_RESULT\"" >> "$STATUS_FILE"
 echo "IPV4=\"$IP4_ADDR\"" >> "$STATUS_FILE"
 echo "IPV6=\"$IP6_ADDR\"" >> "$STATUS_FILE"
@@ -127,8 +130,8 @@ echo "RAM_TOTAL=\"$RAM_TOTAL\"" >> "$STATUS_FILE"
 echo "RAM_AVAIL=\"$RAM_AVAIL\"" >> "$STATUS_FILE"
 echo "DISK_TOTAL=\"$DISK_TOTAL\"" >> "$STATUS_FILE"
 echo "DISK_AVAIL=\"$DISK_AVAIL\"" >> "$STATUS_FILE"
-# Added export for ALL_USERS
 echo "ALL_USERS=\"$ALL_USERS\"" >> "$STATUS_FILE"
+
 
 
 echo -e "\nHealth and information check completed!\n"
