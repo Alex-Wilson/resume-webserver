@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INFO_SCRIPT_PATH="./tools/info.sh"
+INFO_SCRIPT_PATH="./deploy/get_info.sh"
 INFO_STATUS_FILE="/tmp/info_status.env"
 TIME_THRESHOLD=$((60 * 60 * 24)) # 24 hours in seconds
 
