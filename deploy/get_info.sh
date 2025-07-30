@@ -19,7 +19,7 @@ write_to_info_file() {
 # Parses df output to calculate total disk capacity in GB
 parse_disk_sizes_for_gb() {
   local awk_script='
-  /^Filesystem/ { next } # Skip header
+  /^Filesystem/ { next }
   !/\/dev\/sr[0-9]*/ && !/\/dev\/loop[0-9]*/ && !/tmpfs/ && !/devtmpfs/ && !/overlay/ && !/squashfs/ {
     cap=$2; unit=""; total_gb=0;
     if (cap ~ /[0-9.]*[MGTP]/) {
@@ -39,7 +39,7 @@ parse_disk_sizes_for_gb() {
 # Parses lsblk output to extract drive names, sizes, FS types, and mount points
 parse_lsblk_for_drive_details() {
   local awk_script='
-  !/\/dev\/sr[0-9]*/ && !/\/dev\/loop[0-9]*/ { # Filter out CD/DVD and loop devices
+  !/\/dev\/sr[0-9]*/ && !/\/dev\/loop[0-9]*/ {
     name=$1; size=$2; fstype=$3; mountpoint=$4;
     if (mountpoint != "" && fstype != "" && fstype != "vfat" && fstype != "ntfs" && fstype != "exfat") { NUM_DRIVES++; }
     drive_info = "  Name: " name ", Size: " size ", FS Type: " fstype ", Mounted On: " mountpoint;
@@ -63,7 +63,7 @@ parse_lsblk_for_drive_details() {
 # Fallback for drive details if lsblk is not available
 parse_df_for_drive_details() {
   local awk_script='
-  /^Filesystem/ { next } # Skip header
+  /^Filesystem/ { next }
   !/\/dev\/sr[0-9]*/ && !/\/dev\/loop[0-9]*/ && !/tmpfs/ && !/devtmpfs/ && !/overlay/ && !/squashfs/ {
     fs=$1; size=$2; used=$3; avail=$4; mountpoint=$6; fstype=$7;
     if (fs ~ /\/dev\/sd[a-z][0-9]*/ || fs ~ /\/dev\/nvme[0-9]*n[0-9]*/) { NUM_DRIVES++; }
@@ -87,9 +87,15 @@ parse_df_for_drive_details() {
 
 
 # --- Information Gathering Functions ---
-
 get_os_info() {
-  OS_NAME=$(lsb_release -ds 2>/dev/null || grep '^PRETTY_NAME=' /etc/os-release | cut -d'=' -f2 | tr -d '"' || uname -o)
+  OS_NAME=$(lsb_release -ds 2>/dev/null || grep '^PRETTY_NAME=' /etc/os-release | cut -d'=' -f2 | tr -d '"' || uname -o)  # Add OS_VERSION here
+  if command_exists lsb_release; then
+    OS_VERSION=$(lsb_release -rs)
+  elif grep -q '^VERSION_ID=' /etc/os-release; then
+    OS_VERSION=$(grep '^VERSION_ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
+  else
+    OS_VERSION=$(uname -r) # Fallback to kernel version if no OS version found
+  fi
   CURRENT_DIR=$(pwd)
   CURRENT_USER=$(whoami)
   IS_ROOT=$(if [ "$EUID" -eq 0 ]; then echo "Yes"; else echo "No"; fi)
@@ -144,24 +150,19 @@ get_ram_info() {
   fi
 }
 
-# --- UPDATED get_disk_info using parsing functions ---
 get_disk_info() {
-  # Use local variables within the function for clarity
   local total_disk_capacity_gb=0
   local num_drives=0
   local drive_details=""
 
-  # Get total disk capacity
   total_disk_capacity_gb=$(parse_disk_sizes_for_gb)
 
-  # Get drive details and count, preferring lsblk
   if command_exists lsblk && command_exists awk; then
     local lsblk_output_and_count
     lsblk_output_and_count=$(parse_lsblk_for_drive_details)
     num_drives=$(echo "$lsblk_output_and_count" | tail -n 1)
     drive_details=$(echo "$lsblk_output_and_count" | head -n -1)
 
-    # If lsblk failed to provide valid data (e.g., N/A for count), fall back to df
     if [[ "$num_drives" == "N/A" || -z "$num_drives" ]]; then
       local df_output_and_count
       df_output_and_count=$(parse_df_for_drive_details)
@@ -169,23 +170,19 @@ get_disk_info() {
       drive_details=$(echo "$df_output_and_count" | head -n -1)
     fi
   elif command_exists df && command_exists awk; then
-    # If lsblk is not available, try df directly
     local df_output_and_count
     df_output_and_count=$(parse_df_for_drive_details)
     num_drives=$(echo "$df_output_and_count" | tail -n 1)
     drive_details=$(echo "$df_output_and_count" | head -n -1)
   else
-    # If neither lsblk nor df could gather details
     num_drives="N/A"
     drive_details="Could not gather disk information."
   fi
 
-  # Assign to the global variables used by other parts of the script
   DISK_TOTAL="$total_disk_capacity_gb"
   NUM_DRIVES=$num_drives
   DRIVE_DETAILS="$drive_details"
 }
-
 
 get_package_manager_info() {
   PKG_MANAGER=""
@@ -206,7 +203,29 @@ get_package_manager_info() {
   fi
 }
 
-# --- Display Information ---
+get_hostname_info() {
+  HOSTNAME_VALUE=$(hostname)
+}
+
+get_kernel_info() {
+  KERNEL_VERSION=$(uname -r)
+}
+
+get_ufw_status() {
+  if command_exists ufw; then
+    UFW_STATUS=$(sudo ufw status | head -n 1 | awk '{print $2}') # Gets "Status: inactive" or "Status: active" and takes second field
+    if [[ "$UFW_STATUS" == "inactive" ]]; then
+      UFW_STATUS="Inactive"
+    elif [[ "$UFW_STATUS" == "active" ]]; then
+      UFW_STATUS="Active"
+    else
+      UFW_STATUS="Unknown"
+    fi
+  else
+    UFW_STATUS="UFW not installed"
+  fi
+}
+
 # --- Display Information ---
 display_system_info() {
   echo "#####################################################"
@@ -215,11 +234,14 @@ display_system_info() {
 
   echo -e "\n--- System Overview ---"
   printf "+----------------------+-----------------------------+\n"
+  printf "| %-20s | %-27s |\n" "Hostname" "$HOSTNAME_VALUE" # Added Hostname
   printf "| %-20s | %-27s |\n" "OS" "$OS_NAME"
+  printf "| %-20s | %-27s |\n" "OS Version" "$OS_VERSION" # Added OS Version
+  printf "| %-20s | %-27s |\n" "Kernel" "$KERNEL_VERSION" # Added Kernel Version
   printf "| %-20s | %-27s |\n" "User" "$CURRENT_USER"
   printf "| %-20s | %-27s |\n" "All Users" "$ALL_USERS"
   printf "| %-20s | %-27s |\n" "Root/Sudo" "$IS_ROOT"
-  printf "| %-20s | %-27s |\n" "Current Directory" "$CURRENT_DIR" # Added CURRENT_DIR display
+  printf "| %-20s | %-27s |\n" "Current Directory" "$CURRENT_DIR"
   printf "| %-20s | %-27s |\n" "Package Manager" "$PKG_MANAGER $PKG_MANAGER_VERSION"
   printf "+----------------------+-----------------------------+\n"
 
@@ -255,6 +277,11 @@ display_system_info() {
     echo -e "$DRIVE_DETAILS" # This variable already contains newlines and formatting
     printf "+-----------------------------------------------------+\n"
   fi
+
+  echo -e "\n--- Security Overview ---" # New section for UFW status
+  printf "+----------------------+-----------------------------+\n"
+  printf "| %-20s | %-27s |\n" "UFW Status" "$UFW_STATUS"
+  printf "+----------------------+-----------------------------+\n"
 }
 
 
@@ -264,35 +291,43 @@ get_all_users
 get_network_info
 get_cpu_info
 get_ram_info
-get_disk_info # Call the updated function
+get_disk_info
 get_package_manager_info
+get_hostname_info
+get_kernel_info
+get_ufw_status
 
 # --- Display Information ---
 display_system_info
 
+# --- Save Information to File ---
 declare -A info_data
 info_data["OS_NAME"]="$OS_NAME"
-info_data["CURRENT_DIR"]="$CURRENT_DIR" # Added CURRENT_DIR
-info_data["CURRENT_USER"]="$CURRENT_USER" # Renamed for clarity in array
+info_data["OS_VERSION"]="$OS_VERSION" # Added OS_VERSION
+info_data["KERNEL_VERSION"]="$KERNEL_VERSION" # Added KERNEL_VERSION
+info_data["HOSTNAME"]="$HOSTNAME_VALUE" # Added HOSTNAME
+info_data["CURRENT_DIR"]="$CURRENT_DIR"
+info_data["CURRENT_USER"]="$CURRENT_USER"
 info_data["IS_ROOT"]="$IS_ROOT"
 info_data["ALL_USERS"]="$ALL_USERS"
-info_data["PING_RESULT"]="$PING_RESULT" # Renamed for clarity in array
+info_data["PING_RESULT"]="$PING_RESULT"
 info_data["IP4_ADDR"]="$IP4_ADDR"
 info_data["IP6_ADDR"]="$IP6_ADDR"
 info_data["INTERFACES"]="$INTERFACES"
-info_data["CPU_MODEL"]="$CPU_MODEL" # Added CPU_MODEL
-info_data["CPU_FREQ"]="$CPU_FREQ" # Added CPU_FREQ
-info_data["CPU_THREADS"]="$CPU_THREADS" # Added CPU_THREADS
+info_data["CPU_MODEL"]="$CPU_MODEL"
+info_data["CPU_FREQ"]="$CPU_FREQ"
+info_data["CPU_THREADS"]="$CPU_THREADS"
 info_data["CPU_USAGE"]="$CPU_USAGE"
 info_data["RAM_TOTAL"]="$RAM_TOTAL"
 info_data["RAM_USED"]="$RAM_USED"
 info_data["RAM_AVAIL"]="$RAM_AVAIL"
-info_data["RAM_SPEED"]="$RAM_SPEED" # Added RAM_SPEED
+info_data["RAM_SPEED"]="$RAM_SPEED"
 info_data["DISK_TOTAL"]="$DISK_TOTAL"
 info_data["NUM_DRIVES"]="$NUM_DRIVES"
 info_data["DRIVE_DETAILS"]="$DRIVE_DETAILS"
-info_data["PKG_MANAGER"]="$PKG_MANAGER" # Renamed for clarity in array
+info_data["PKG_MANAGER"]="$PKG_MANAGER"
 info_data["PKG_MANAGER_VERSION"]="$PKG_MANAGER_VERSION"
+info_data["UFW_STATUS"]="$UFW_STATUS"
 
 write_to_info_file "info_data"
 
