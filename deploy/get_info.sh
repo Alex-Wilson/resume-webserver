@@ -234,10 +234,10 @@ display_system_info() {
 
   echo -e "\n--- System Overview ---"
   printf "+----------------------+-----------------------------+\n"
-  printf "| %-20s | %-27s |\n" "Hostname" "$HOSTNAME_VALUE" # Added Hostname
+  printf "| %-20s | %-27s |\n" "Hostname" "$HOSTNAME_VALUE"
   printf "| %-20s | %-27s |\n" "OS" "$OS_NAME"
-  printf "| %-20s | %-27s |\n" "OS Version" "$OS_VERSION" # Added OS Version
-  printf "| %-20s | %-27s |\n" "Kernel" "$KERNEL_VERSION" # Added Kernel Version
+  printf "| %-20s | %-27s |\n" "OS Version" "$OS_VERSION"
+  printf "| %-20s | %-27s |\n" "Kernel" "$KERNEL_VERSION"
   printf "| %-20s | %-27s |\n" "User" "$CURRENT_USER"
   printf "| %-20s | %-27s |\n" "All Users" "$ALL_USERS"
   printf "| %-20s | %-27s |\n" "Root/Sudo" "$IS_ROOT"
@@ -278,7 +278,7 @@ display_system_info() {
     printf "+-----------------------------------------------------+\n"
   fi
 
-  echo -e "\n--- Security Overview ---" # New section for UFW status
+  echo -e "\n--- Security Overview ---"
   printf "+----------------------+-----------------------------+\n"
   printf "| %-20s | %-27s |\n" "UFW Status" "$UFW_STATUS"
   printf "+----------------------+-----------------------------+\n"
@@ -303,9 +303,9 @@ display_system_info
 # --- Save Information to File ---
 declare -A info_data
 info_data["OS_NAME"]="$OS_NAME"
-info_data["OS_VERSION"]="$OS_VERSION" # Added OS_VERSION
-info_data["KERNEL_VERSION"]="$KERNEL_VERSION" # Added KERNEL_VERSION
-info_data["HOSTNAME"]="$HOSTNAME_VALUE" # Added HOSTNAME
+info_data["OS_VERSION"]="$OS_VERSION"
+info_data["KERNEL_VERSION"]="$KERNEL_VERSION"
+info_data["HOSTNAME"]="$HOSTNAME_VALUE"
 info_data["CURRENT_DIR"]="$CURRENT_DIR"
 info_data["CURRENT_USER"]="$CURRENT_USER"
 info_data["IS_ROOT"]="$IS_ROOT"
