@@ -1,26 +1,19 @@
 #!/bin/bash
 
+echo "Running setup.sh"
+
 INFO_SCRIPT_PATH="./deploy/get_info.sh"
-INFO_STATUS_FILE="/tmp/info_status.env"
-TIME_THRESHOLD=$((60 * 60 * 24)) # 24 hours in seconds
+INFO_FILE="/tmp/info.env"
 
-# Check if info_status.env exists and is fresh
-if [ ! -f "$INFO_STATUS_FILE" ]; then
-  echo "$INFO_STATUS_FILE: file not found. Running $INFO_SCRIPT_PATH..."
+if [ ! -f "$INFO_FILE" ]; then
+  echo "$INFO_FILE: file not found. Running $INFO_SCRIPT_PATH..."
   "$INFO_SCRIPT_PATH"
-elif [ $(( $(date +%s) - $(stat -c %Y "$INFO_STATUS_FILE") )) -gt "$TIME_THRESHOLD" ]; then
-  echo "$INFO_STATUS_FILE is older than $TIME_THRESHOLD seconds. Re-running $INFO_SCRIPT_PATH..."
-  "$INFO_SCRIPT_PATH"
+  echo "Information script ran."
+  if [ ! -f "$INFO_FILE" ]; then
+    echo "$INFO_FILE still not found after running the script. Exiting."
+    exit 1
+  fi
 fi
-
-# Validate that info_status.env now exists
-if [ ! -f "$INFO_STATUS_FILE" ]; then
-  echo "Error: $INFO_SCRIPT_PATH failed to create $INFO_STATUS_FILE. Cannot proceed. Check location and permissions."
-  exit 1
-fi
-
-echo "Information script ran successfully."
-
 
 # --- Package Check ---
 # Updated list of Debian APT packages to check
@@ -101,17 +94,4 @@ if [ "$ALL_PACKAGES_INSTALLED" = false ]; then
   fi
 else
   echo "All required system packages are installed."
-fi
-
-echo "Starting project setup"
-
-DEFAULT_PROJECT_DIR="$HOME/projects/"
-
-# Prompt user for project directory
-read -p "Enter the absolute path for your project directory: " PROJECT_DIR
-
-# Validate the path
-if [ -z "$PROJECT_DIR" ]; then
-  echo "Error: Project directory cannot be empty."
-  exit 1
 fi
