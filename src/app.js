@@ -57,9 +57,6 @@ const markdownPages = [
 markdownPages.forEach((route) => {
   const markdownFileName =
     route === '/' ? 'index.md' : `${route.substring(1)}.md`; // Convert /route to route.md
-  // Adjust Pug template name generation based on your actual Pug file names
-  // For '/README', it would become 'README'
-  // For '/projects', it would become 'projects'
   const pugTemplateName =
     route === '/' ? 'index' : route.substring(1).replace(/\//g, '-');
 
@@ -125,7 +122,7 @@ app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
 
-
+/*
 --------------------------------------------------------------------------------------------------------------------------------
 // Load environment variables
 const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development';
@@ -231,7 +228,7 @@ function buildQuery(filters) {
   console.log('\n=== Type Mapping Debug ===');
   
   const cardTypeMap = {
-    Monster: /.*Monster.*/i,
+    Monster: /.*Monster.i,
     Spell: /^Spell Card$/i,
     Trap: /^Trap Card$/i,
   };
@@ -657,3 +654,5 @@ const shutdown = () => {
 };
 
 process.on('SIGINT', shutdown).on('SIGTERM', shutdown);
+
+*/
