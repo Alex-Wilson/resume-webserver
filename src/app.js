@@ -32,41 +32,30 @@ function renderMarkdownPage(res, markdownFileName, pugTemplateName) {
   let markdownContent = '';
 
   if (fs.existsSync(filePath)) {
-    // Check if file exists before reading
     markdownContent = md.render(fs.readFileSync(filePath, 'utf8'));
   } else {
-    // Optional: Render a 404 page or show a message if Markdown file is not found
     console.warn(`Markdown file not found: ${filePath}`);
     return res.status(404).render('404', {
       message: 'Content not found.',
-    }); // Assuming you have a 404.pug template
+    });
   }
   res.render(pugTemplateName, { content: markdownContent }); // Use pugTemplateName
 }
 
 // Routes
-// Generic route for Markdown-based pages
 const markdownPages = [
   '/',
-  '/README',
-  '/projects',
-  '/resources',
-  '/blog',
+  '/README'
 ];
 
 markdownPages.forEach((route) => {
   const markdownFileName =
-    route === '/' ? 'index.md' : `${route.substring(1)}.md`; // Convert /route to route.md
+    route === '/' ? 'README.md' : `${route.substring(1)}.md`; // Convert /route to route.md
   const pugTemplateName =
     route === '/' ? 'index' : route.substring(1).replace(/\//g, '-');
 
   app.get(route, (req, res) => {
-    // Choose ONE of these options based on your Pug template strategy:
-    // Option A: All Markdown pages use a single, generic Pug template (e.g., 'index.pug' or 'markdown.pug')
     renderMarkdownPage(res, markdownFileName, 'index'); // Using 'index' as the generic template
-
-    // Option B: Each Markdown page has a corresponding Pug template with the same base name (e.g., README.md -> README.pug)
-    // renderMarkdownPage(res, markdownFileName, pugTemplateName);
   });
 });
 
@@ -74,7 +63,7 @@ markdownPages.forEach((route) => {
 app.get('/resume', (req, res) => {
   const resumePath = path.join(
     __dirname,
-    '../public/documents/resumes/alexander-wilson-resume.pdf'
+    '../public/documents/resume/alexander-wilson-resume.pdf'
   );
 
   if (fs.existsSync(resumePath)) {
@@ -104,17 +93,9 @@ app.get('/certifications', (req, res) => {
 
 // Dedicated route for YGO Tool (NOT a Markdown file)
 app.get('/projects/ygo-tool', (req, res) => {
-  // --- ADD YOUR CUSTOM LOGIC FOR THE YGO TOOL PAGE HERE ---
-  // This might involve:
-  // 1. Rendering a specific Pug template for the tool:
-  res.render('ygo-tool'); // Assuming you'll have a src/views/ygo-tool-page.pug
-  // 2. Serving a static HTML file for the tool (if it's a separate app):
-  // res.sendFile(path.join(__dirname, '../public/ygo-tool/index.html'));
-  // 3. Proxying to a different server where the tool runs:
-  // (More complex, requires middleware like 'http-proxy-middleware')
 
-  // For now, let's just render a placeholder page or a specific Pug template.
-  // Make sure 'ygo-tool-page.pug' exists in src/views/
+  res.render('ygo-tool'); 
+
 });
 
 // Start the Express server on the specified port

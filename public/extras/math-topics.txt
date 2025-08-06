@@ -1,0 +1,46 @@
+# Calc:
+Pre-Calc
+Calc 1
+Calc 2
+Calc 3
+Multivariable Calculus
+Diff Eq
+Real Analysis
+Complex Analysis
+
+# Stats:
+Descriptive and Inferential Statistics
+Probability Theory
+Sampling Theory
+Stochastic Processes and Probabilistic Models
+Bayesian Statistics
+Statistical Learning Theory
+
+# Algebra:
+Linear Algerbra
+Abstract Algebra
+Number Theory
+Category Theory
+Galois Theory
+Representation Theory
+
+
+# Geometry:
+Fractal Geometry
+Non-Euclidian Geometry
+Topology
+Differential Geometry
+Algebraic Geometry
+Projective Geometry
+
+
+# Logic and Discrete Math:
+Discrete Math
+Set Theory
+Combinatorics
+Graph Theory
+Boolean Algebra and Digital Logic
+Lattices and Posets
+Cryptographic Primitives 
+Discrete Geometry
+Probabilistic Methods in Discrete Math

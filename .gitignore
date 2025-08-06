@@ -23,7 +23,8 @@ node_modules/
 
 #YGO Data
 public/images/ygo-images
-public/images/ygo-images/
+public/images/ygo/ygo-images
+public/images/ygo/ygo-images
 
 # Lock files
 package-lock.json

@@ -1,6 +1,8 @@
 # README
 
-My name is Alex Wilson. I am a developer living in the U.S. with a passion for learning about all things related to STEM. I always wanted to study mathematics as I was drawn to caluclus, linear and abstract algebra, fractal and non-Euclidean geometry, and topology. But, when I took my first discrete mathematics course at Missouri State University in Springfield, MO, I fell in love with abstraction, digitization, logic, set theory, and category theory. Ultimately, I decided I  wanted to earn my B.S. in Computer Science. I am still especially drawn to topics like mathematical optimization, algorithmic design, cryptography, inferential statistics, genetic algorithms, machine learning, and computer vision. I also love teaching myself about topics not directly related to math like evolutionary biology, microscopic life, molecular biology, chemical kinetics, pharmacodynamics, spectroscopy, and manufacturing.
+My name is Alex Wilson. I am a developer living in the U.S. with a passion for learning about all things related to STEM!
+
+I have a deep love for mathematics, especially caluclus, linear and abstract algebra, fractal and non-Euclidean geometry, and topology. But, when I took my first discrete mathematics course at Missouri State University in Springfield, MO, I fell in love with abstraction, digitization, logic, set theory, and category theory. Ultimately, I decided I  wanted to earn my B.S. in Computer Science. I am still especially drawn to topics like mathematical optimization, algorithmic design, cryptography, inferential statistics, genetic algorithms, machine learning, and computer vision. I also love teaching myself about topics not directly related to math like evolutionary biology, microscopic life, molecular biology, chemical kinetics, pharmacodynamics, spectroscopy, and manufacturing.
 
 After graduation, I expanded my interests to include more applicable (read "employable") skills such as software engineering best practices, application security, decentralized networking, network security, cloud orchestration, cloud security, intrusion detection evasion, reverse engineering, malware analysis, and exploit development. I have earned many
 [/certifications](/certifications) across a wide range of technologies, but preparing for and conquering these certifications has taught me more about myself than anything else.
@@ -11,6 +13,6 @@ and daily satisfaction. I also am obsessed with achieving [flow state](https://e
 To relax, I enjoy coding, reading, practicing my offensive security skills, playing video games or poker, building Yu-Gi-Oh decks (tearlements and ryzeal mainly), watching anime, ricing my Linux distro, listening to music, creating digital art, cuddling with my dogs, spending time with friends and family, and (most importantly) laughing.
 
 
-![Alex's Profile Picture](images/harley-alex.png "My Profile Pic")
+![Alex's Profile Picture](images/pics-of-me/harley-alex.png "My Profile Pic")
 
 
