@@ -10,18 +10,18 @@ html
     link(rel="stylesheet", href="/styles/glitch-text.css")
     link(rel="stylesheet", href="/styles/content.css")
     link(rel="stylesheet", href="/styles/footer.css")
-    link(rel="stylesheet" href="/styles/certifications.css")
+    link(rel="stylesheet", href="/styles/certifications.css")
     block head
   body
     // Navigation section
-    include ../modules/nav.pug
+    include ../components/nav.pug
 
     // Content section
     block content
 
     // Footer section
-    include ../modules/footer.pug
+    include ../components/footer.pug
     
     //scripts
-    script(src="/js/brute-force-animation.js")
+    script(src="/js/brute-force-animation.js" defer)
     script(src="/js/responsive-navbar.js" defer)
