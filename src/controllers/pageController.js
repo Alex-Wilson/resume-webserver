@@ -71,7 +71,7 @@ export async function renderCertificationsPage(req, res, next) {
     const data = await fs.readFile(filePath, 'utf8');
     const certsData = JSON.parse(data);
 
-    res.render('pages/certifications', {
+    res.render('../views/pages/certifications', {
       title: 'Certifications',
       certifications: certsData.certifications,
     });
@@ -86,6 +86,7 @@ export function serveResumePdf(req, res, next) {
     process.cwd(),
     'public',
     'documents',
+    'resume',
     'alexander-wilson-resume.pdf', // Make sure this path is correct
   );
   res.sendFile(resumePath, (err) => {
