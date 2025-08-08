@@ -5,21 +5,11 @@ import * as pageController from '../controllers/pageController.js';
 
 const router = express.Router();
 
-// --- Core & "whoami" Routes ---
-router.get('/', pageController.renderHomePage);
-router.get('/resume', pageController.serveResumePdf);
-router.get('/certifications', pageController.renderCertificationsPage);
+// Route for the main list of articles (e.g., /articles)
+router.get('/', pageController.renderArticleListPage);
 
-// --- Generic Content Routes (handled by one controller) ---
-// These routes will look for a matching .md file in the /content directory
-router.get('/math', pageController.renderMarkdownPage);
-router.get('/certification-resources', pageController.renderMarkdownPage);
-router.get('/leet-code-write-ups', pageController.renderMarkdownPage);
-router.get('/how-does-a-computer-work', pageController.renderMarkdownPage);
-router.get('/time-line-of-computing', pageController.renderMarkdownPage);
-
-// --- Dev Tool Routes (have their own templates and logic) ---
-router.get('/ygo-tool', pageController.renderYgoToolPage);
-router.get('/ascii-art-tool', pageController.renderAsciiArtToolPage);
+// Route for a single article with a dynamic slug (e.g., /articles/my-first-post)
+// This must come AFTER any other specific routes in this file.
+router.get('/:slug', pageController.renderSingleArticle);
 
 export default router;
