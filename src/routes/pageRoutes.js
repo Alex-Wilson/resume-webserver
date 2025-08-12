@@ -8,8 +8,10 @@ const router = express.Router();
 // Route for the main list of articles (e.g., /articles)
 router.get('/', pageController.renderArticleListPage);
 
-// Route for a single article with a dynamic slug (e.g., /articles/my-first-post)
+// --- CHANGE: Use a wildcard (*) to capture nested paths in the slug ---
+// This will match '/articles/anything/can/go/here' and capture the full
+// path in `req.params.slug`.
 // This must come AFTER any other specific routes in this file.
-router.get('/:slug', pageController.renderSingleArticle);
+router.get('/:slug(*)', pageController.renderSingleArticle);
 
 export default router;

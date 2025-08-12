@@ -5,30 +5,37 @@ import path from 'path';
 import markdownIt from 'markdown-it';
 
 const md = markdownIt({ html: true }); // Enable HTML tags in Markdown
-const contentDir = path.join(process.cwd(), 'content');
+// --- CHANGE: Point to the new content directory inside 'public' ---
+const contentDir = path.join(process.cwd(), 'public', 'content');
 
 // This cache will hold all our rendered articles in memory.
 const articleCache = new Map();
 
 /**
- * Reads all .md files from the /content directory, renders them to HTML,
- * and stores them in the cache. This function is called once on server startup.
+ * Recursively scans a directory for markdown files.
+ * @param {string} dir - The directory to scan.
  */
-export async function initializeContent() {
-  console.log('Initializing content cache...');
-  try {
-    const files = await fs.readdir(contentDir);
-    const markdownFiles = files.filter((file) => path.extname(file) === '.md');
+async function findMarkdownFiles(dir) {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      // If it's a directory, recurse into it
+      await findMarkdownFiles(fullPath);
+    } else if (path.extname(entry.name) === '.md') {
+      // --- CHANGE: Slug is now the relative path from the root content dir ---
+      // This ensures uniqueness, e.g., 'folder/my-article'
+      const slug = path
+        .relative(contentDir, fullPath)
+        .replace(/\\/g, '/') // Normalize path separators to forward slashes
+        .replace(/\.md$/, ''); // Remove the .md extension
 
-    for (const file of markdownFiles) {
-      const filePath = path.join(contentDir, file);
-      const slug = path.basename(file, '.md'); // 'my-article.md' -> 'my-article'
-      const markdownContent = await fs.readFile(filePath, 'utf8');
+      const markdownContent = await fs.readFile(fullPath, 'utf8');
       const htmlContent = md.render(markdownContent);
 
-      // For now, we'll generate a simple title from the slug.
-      // This can be enhanced later with front-matter.
-      const title = slug
+      // For now, we'll generate a simple title from the slug's last part.
+      const title = path
+        .basename(slug)
         .replace(/-/g, ' ')
         .replace(/\b\w/g, (l) => l.toUpperCase());
 
@@ -38,15 +45,35 @@ export async function initializeContent() {
         html: htmlContent,
       });
     }
-    console.log(`Content cache initialized. Loaded ${articleCache.size} articles.`);
+  }
+}
+
+/**
+ * Reads all .md files from the /public/content directory recursively,
+ * renders them to HTML, and stores them in the cache.
+ */
+export async function initializeContent() {
+  console.log('Initializing content cache...');
+  try {
+    articleCache.clear(); // Clear cache for potential reloads
+    await findMarkdownFiles(contentDir); // Start the recursive search
+    console.log(
+      `Content cache initialized. Loaded ${articleCache.size} articles.`
+    );
   } catch (error) {
     console.error('Failed to initialize content cache:', error);
+    // If content dir doesn't exist, we can just log it and continue
+    if (error.code === 'ENOENT') {
+      console.warn(
+        `Content directory not found at ${contentDir}. No articles loaded.`
+      );
+    }
   }
 }
 
 /**
  * Retrieves a single article from the cache by its slug.
- * @param {string} slug - The slug of the article.
+ * @param {string} slug - The slug of the article (e.g., 'folder/my-article').
  * @returns {object | undefined} The article object or undefined if not found.
  */
 export function getArticleBySlug(slug) {
@@ -58,6 +85,5 @@ export function getArticleBySlug(slug) {
  * @returns {Array<object>} A list of all articles.
  */
 export function getAllArticles() {
-  // Return an array of all values from the map
   return Array.from(articleCache.values());
 }
