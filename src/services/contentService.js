@@ -5,14 +5,14 @@ import path from 'path';
 import markdownIt from 'markdown-it';
 
 const md = markdownIt({ html: true }); // Enable HTML tags in Markdown
-// --- CHANGE: Point to the new content directory inside 'public' ---
 const contentDir = path.join(process.cwd(), 'public', 'content');
 
 // This cache will hold all our rendered articles in memory.
 const articleCache = new Map();
 
 /**
- * Recursively scans a directory for markdown files.
+ * Recursively scans a directory for markdown files, processes them,
+ * and adds them to the article cache.
  * @param {string} dir - The directory to scan.
  */
 async function findMarkdownFiles(dir) {
@@ -23,8 +23,8 @@ async function findMarkdownFiles(dir) {
       // If it's a directory, recurse into it
       await findMarkdownFiles(fullPath);
     } else if (path.extname(entry.name) === '.md') {
-      // --- CHANGE: Slug is now the relative path from the root content dir ---
-      // This ensures uniqueness, e.g., 'folder/my-article'
+      // The slug is the relative path from the root content directory,
+      // ensuring uniqueness (e.g., 'math/algebra/pre-algebra').
       const slug = path
         .relative(contentDir, fullPath)
         .replace(/\\/g, '/') // Normalize path separators to forward slashes
@@ -33,7 +33,7 @@ async function findMarkdownFiles(dir) {
       const markdownContent = await fs.readFile(fullPath, 'utf8');
       const htmlContent = md.render(markdownContent);
 
-      // For now, we'll generate a simple title from the slug's last part.
+      // Generate a simple title from the last part of the slug.
       const title = path
         .basename(slug)
         .replace(/-/g, ' ')
@@ -49,8 +49,8 @@ async function findMarkdownFiles(dir) {
 }
 
 /**
- * Reads all .md files from the /public/content directory recursively,
- * renders them to HTML, and stores them in the cache.
+ * Initializes the content cache by recursively scanning the content directory.
+ * This function is called once on server startup.
  */
 export async function initializeContent() {
   console.log('Initializing content cache...');
@@ -62,7 +62,6 @@ export async function initializeContent() {
     );
   } catch (error) {
     console.error('Failed to initialize content cache:', error);
-    // If content dir doesn't exist, we can just log it and continue
     if (error.code === 'ENOENT') {
       console.warn(
         `Content directory not found at ${contentDir}. No articles loaded.`
@@ -72,8 +71,8 @@ export async function initializeContent() {
 }
 
 /**
- * Retrieves a single article from the cache by its slug.
- * @param {string} slug - The slug of the article (e.g., 'folder/my-article').
+ * Retrieves a single article from the cache by its full slug.
+ * @param {string} slug - The slug of the article (e.g., 'math/algebra/pre-algebra').
  * @returns {object | undefined} The article object or undefined if not found.
  */
 export function getArticleBySlug(slug) {
@@ -86,4 +85,43 @@ export function getArticleBySlug(slug) {
  */
 export function getAllArticles() {
   return Array.from(articleCache.values());
+}
+
+/**
+ * Retrieves articles for a specific category, structured by subdirectory.
+ * This version handles both direct articles (e.g., math/pre-algebra.md) and
+ * articles in sub-folders (e.g., math/algebra/linear-algebra.md).
+ * @param {string} category - The top-level category to filter by (e.g., 'math').
+ * @returns {object} An object where keys are formatted subdirectory names
+ *                   and values are arrays of article objects.
+ */
+export function getArticlesByCategory(category) {
+  const structuredContent = {};
+
+  for (const article of articleCache.values()) {
+    if (article.slug.startsWith(`${category}/`)) {
+      const parts = article.slug.split('/');
+      // Set a default group name based on the category itself (e.g., "Math")
+      let groupName = category
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, (l) => l.toUpperCase());
+
+      // If there is a sub-folder (e.g., math/algebra/file), use it as the group name instead.
+      if (parts.length >= 3) {
+        const group = parts[1]; // e.g., 'algebra'
+        groupName = group
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, (l) => l.toUpperCase());
+      }
+
+      // If we haven't seen this group before, create an empty array for it
+      if (!structuredContent[groupName]) {
+        structuredContent[groupName] = [];
+      }
+
+      // Add the current article to its group
+      structuredContent[groupName].push(article);
+    }
+  }
+  return structuredContent;
 }

@@ -10,10 +10,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-// /resume, /certifications, /resources, and /dev
-
-
-
 export function renderHomePage(req, res) {
   res.render('pages/index');
 }
@@ -40,7 +36,6 @@ export function serveResumePdf(req, res) {
     '..',
     'public',
     'content',
-    'resume',
     'alexander-wilson-resume.pdf'
   );
   res.sendFile(pdfPath);
@@ -56,14 +51,13 @@ export async function renderCertificationsPage(req, res, next) {
     );
 
     const fileContent = await fs.readFile(certsPath, 'utf8');
-    const certifications = JSON.parse(fileContent);
-
-    console.log('Certifications data being sent to template:', certifications);
+    const data = JSON.parse(fileContent);
+    const certificationsArray = data.certifications;
 
     // Render the page and pass the parsed data to it
     res.render('pages/certifications', {
       title: 'Certifications',
-      certifications: certifications,
+      certifications: certificationsArray, // Pass the array, not the whole object
     });
   } catch (err) {
     console.error('Failed to load or parse certifications.json:', err);

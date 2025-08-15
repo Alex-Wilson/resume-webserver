@@ -1,0 +1,33 @@
+extends ../layouts/template.pug
+
+block head
+  link(rel="stylesheet", href="/styles/content.css")
+  // Optional: You could add a specific stylesheet for this list view
+  // link(rel="stylesheet", href="/styles/resource-list.css") 
+
+block content
+  .content-container
+    //- The 'title' variable (e.g., "Math") is passed from the controller.
+    h1= title
+    
+    //- First, check if the 'content' object has any keys. If it's empty,
+    //- it means no articles were found for this category.
+    if Object.keys(content).length > 0
+      //- Loop through the 'content' object. For each entry, 'articles' will be
+      //- the array of article objects, and 'groupName' will be the key (e.g., "Algebra").
+      each articles, groupName in content
+        //- Display the formatted group name as a subheading.
+        h2.resource-group-title= groupName
+        
+        //- Create an unordered list for the articles in this group.
+        ul.resource-list
+          //- Loop through each 'article' in the 'articles' array.
+          each article in articles
+            li
+              //- Create a link. The 'href' uses the article's full slug
+              //- (e.g., "/math/algebra/pre-algebra"), and the link text
+              //- is the article's formatted title (e.g., "Pre Algebra").
+              a(href=`/${article.slug}`)= article.title
+    else
+      //- This message is shown if the 'content' object was empty.
+      p No content found in this category.

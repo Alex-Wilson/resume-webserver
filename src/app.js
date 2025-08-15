@@ -6,9 +6,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import mainRouter from './routes/mainRoutes.js';
-import pageRouter from './routes/pageRoutes.js';
-import { initializeContent } from './services/contentService.js';
+import resourceRouter from './routes/resourceRoutes.js';
 
+import { initializeContent } from './services/contentService.js';
 // --- Initialize Content Cache on Startup ---
 initializeContent();
 
@@ -25,13 +25,13 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // --- Routes ---
 
-// 1. Main application routes are mounted first at the root level.
-//    Handles URLs like: /, /resume, /certifications
+// 1. Main application routes are mounted first.
 app.use('/', mainRouter);
 
-// 2. The article router is mounted at the '/articles' base path.
-//    Handles URLs like: /articles, /articles/my-first-post
-app.use('/articles', pageRouter);
+// 2. The generic resource router handles all dynamic content categories.
+//    Catches patterns like /math or /math/algebra/pre-algebra.
+app.use('/', resourceRouter);
+
 
 // --- Error Handlers ---
 
