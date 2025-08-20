@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use('/', mainRouter);
 
 // 2. The generic resource router handles all dynamic content categories.
-//    Catches patterns like /math or /math/algebra/pre-algebra.
+//    Catches patterns like /math/pre-algebra or /leet-code-write-ups/easy/two-sum.
 app.use('/', resourceRouter);
 
 
