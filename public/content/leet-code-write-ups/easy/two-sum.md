@@ -39,8 +39,8 @@ Loop through the list looking not not two values, but to see if a number and its
     complement = target - list[index]
 
 If our complement is found in the hashmap already, we can use it to quickly lookup the matching value from the key,value pair we pushed
-        if compliment in hashmap
-            return (hashmap[compliment], index)
+        if complement in hashmap
+            return (hashmap[complement], index)
 
 If the complement is not found in the hashmap yet, we need to add the key value pair to the hashmap and keep searching in our for loop
         hashmap.add(list[item]:item)
@@ -49,11 +49,11 @@ If the complement is not found in the hashmap yet, we need to add the key value 
 function(list, target)
     init hashmap
     for item in list:
-        compliment = target - list[item]
+        complement = target - list[item]
 
         //if the number is already found
-        if compliment in hashmap
-            return (hashmap[compliment], index)
+        if complement in hashmap
+            return (hashmap[complement], index)
         
         //base case, number is not in the hashmap, target not yet found
         //add in the key value pair as (value of list @ item, index)
@@ -70,16 +70,16 @@ class Solution:
         #loop through the list
         for index in range(len(nums)):
 
-            #look for the compliment of the target number
-            compliment = target - nums[index]
+            #look for the complement of the target number
+            complement = target - nums[index]
 
             #check to see if the value is already in the hash map
-            if compliment in hash_map:
+            if complement in hash_map:
 
-                #if the value of the compliment is in the hashmap return its index and the current index
-                return [hash_map[compliment], index]
+                #if the value of the complement is in the hashmap return its index and the current index
+                return [hash_map[complement], index]
 
-            # if the compliment is not in the list, add it as KV:{nums[index],index} 
+            # if the complement is not in the list, add it as KV:{nums[index],index} 
             hash_map[nums[index]] = index
 ```
 
