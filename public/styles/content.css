@@ -1,112 +1,80 @@
-/* Styling for markdown-generated content */
+/* public/styles/content.css */
+/* This file ONLY styles the HTML generated from a Markdown file. */
+/* Every rule is prefixed with .markdown-content to prevent conflicts. */
+
 .markdown-content {
-    max-width: 800px;  /* Limits width for better readability */
-    margin: 40px auto; /* Centers the content */
-    padding: 20px;
-    background: var(--official-gray); /* Keeps site color scheme */
-    line-height: 1.5;
-    font-size: 1.2rem;
-    color: #ffffff; /* Ensures text remains readable */
+  max-width: 800px;
+  margin: 2rem auto; /* Add margin for spacing */
+  padding: 20px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: var(--official-green);
+  font-family: var(--font-sans);
 }
 
-/* Headings */
-.markdown-content h1 {
-    font-size: 1.5rem;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 5px;
-    text-align: center;
-    margin: 15px;
-}
-
-h1{
-    font-size: 1.5rem;
-    padding-bottom: 5px;
-    text-align: center;
-    margin: 15px;
-}
-
-.markdown-content h2 {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-}
-
+/* Headings within markdown */
+.markdown-content h1,
+.markdown-content h2,
 .markdown-content h3 {
-    font-size: 1.25rem;
-    margin-top: 30px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
+  color: var(--accent-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
+.markdown-content h1 {
+  font-size: 2rem;
+}
+.markdown-content h2 {
+  font-size: 1.75rem;
+}
+.markdown-content h3 {
+  font-size: 1.5rem;
+}
 
-
-/* Paragraphs */
+/* Paragraphs within markdown */
 .markdown-content p {
-    margin: 10px;
-    text-align: center;
-    padding: 5px;
+  margin-bottom: 1rem;
 }
 
-p{
-    margin: 10px;
-    text-align: center;
-    padding: 5px;
-}
-
-/* Lists */
-.markdown-content ul, 
+/* Lists within markdown */
+.markdown-content ul,
 .markdown-content ol {
-    margin-left: 20px;
+  padding-left: 2rem; /* Use padding for indentation */
+  margin-bottom: 1rem;
 }
 
-/* Images */
-.markdown-content img {
-    max-width: 100%;  /* Ensures images never exceed content width */
-    height: auto;
-    display: block;   /* Prevents inline spacing issues */
-    margin: 10px auto; /* Centers images */
-    border-radius: 5px;
-}
-
-/* Blockquotes */
-.markdown-content blockquote {
-    font-style: italic;
-    color: #cccccc;
-    border-left: 4px solid var(--official-green);
-    padding-left: 15px;
-    margin: 20px 0;
-}
-
-/* Code Blocks */
-.markdown-content pre {
-    background: #444;
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-
-.markdown-content code {
-    background: #666;
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-family: "Courier New", Courier, monospace;
-}
-
-/* Links */
+/* Links within markdown */
 .markdown-content a {
-    color: var(--official-green);
-    text-decoration: none;
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent-color);
 }
 
 .markdown-content a:hover {
-    text-decoration: underline;
+  text-decoration: none;
+  background-color: var(--hover-background-color);
 }
 
-/* Responsive adjustments for smaller screen sizes */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column; /* Stacks navigation links vertically on smaller screens. */
-        gap: 1rem;
-    }
+/* Code Blocks within markdown */
+.markdown-content pre {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+.markdown-content code {
+  font-family: var(--font-mono);
+}
+
+/* Inline code snippets */
+.markdown-content p > code,
+.markdown-content li > code {
+  background-color: var(--hover-background-color);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
 }
