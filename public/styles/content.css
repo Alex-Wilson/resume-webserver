@@ -8,19 +8,21 @@
   padding: 20px;
   line-height: 1.6;
   font-size: 1.1rem;
-  color: var(--official-green);
-  font-family: var(--font-sans);
+  color: var(--official-white);
+  font-family: var(--primary-font);
 }
 
 /* Headings within markdown */
 .markdown-content h1,
 .markdown-content h2,
 .markdown-content h3 {
-  color: var(--accent-color);
+  font-family: var(--font-mono);
+  color: var(offical-white);
   margin-top: 2rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
+  text-align: center;
 }
 
 .markdown-content h1 {

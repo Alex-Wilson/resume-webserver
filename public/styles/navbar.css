@@ -33,9 +33,8 @@ nav.sticky-nav-bar {
 .nav-link, .dropbtn {
   color: var(--official-green);
   text-decoration: none;
-  font-size: 1rem;
-  padding: 0.3rem 0.8rem;
-  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  padding: 0.8rem 0.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -43,16 +42,13 @@ nav.sticky-nav-bar {
   background: none;
   border: none;
   font-family: var(--primary-font);
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
   white-space: nowrap;
 }
 
 /* Hover effect */
 .nav-link:hover, .dropbtn:hover {
-  color: var(--official-white);
-  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-  background: rgba(0, 255, 0, 0.1);
-  transform: scale(1.05);
+  background-color: var(--official-green);
+  color: var(--official-black);
 }
 
 /* ============================
@@ -71,6 +67,7 @@ nav.sticky-nav-bar {
   padding: 0.5rem;
   font-size: 1rem;
   color: var(--official-green);
+  background-color: var(--official-black);
   text-decoration: none;
   transition: all 0.3s ease;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
@@ -78,8 +75,8 @@ nav.sticky-nav-bar {
 
 /* Dropdown hover effect */
 .dropdown-content a:hover {
-  background: rgba(0, 255, 0, 0.3);
-  color: var(--official-white);
+  background-color: var(--official-green);
+  color: var(--official-black);
   text-shadow: 0 0 10px rgba(0, 255, 0, 1);
 }
 
