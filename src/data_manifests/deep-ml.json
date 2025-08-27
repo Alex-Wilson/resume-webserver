@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "title": "Introduction to Deep Learning",
+    "slug": "intro-to-deep-learning",
+    "level": "easy",
+    "tags": ["foundations", "neural-networks", "theory"]
+  },
+  {
+    "title": "Gradient Descent and Backpropagation Explained",
+    "slug": "gradient-descent-backpropagation",
+    "level": "easy",
+    "tags": ["foundations", "calculus", "optimization", "theory"]
+  },
+  {
+    "title": "Building Your First Neural Network (MNIST)",
+    "slug": "first-neural-network-mnist",
+    "level": "easy",
+    "tags": ["pytorch", "tensorflow", "keras", "computer-vision", "tutorial"]
+  },
+  {
+    "title": "Optimizers and Activation Functions",
+    "slug": "optimizers-activation-functions",
+    "level": "medium",
+    "tags": ["optimization", "adam", "relu", "sigmoid", "theory"]
+  },
+  {
+    "title": "Convolutional Neural Networks (CNNs) for Image Classification",
+    "slug": "cnns-for-image-classification",
+    "level": "medium",
+    "tags": ["cnn", "computer-vision", "pytorch", "convolution"]
+  },
+  {
+    "title": "Recurrent Neural Networks (RNNs) for Sequential Data",
+    "slug": "rnns-for-sequential-data",
+    "level": "medium",
+    "tags": ["rnn", "nlp", "time-series", "lstm", "gru"]
+  },
+  {
+    "title": "Understanding the Attention Mechanism",
+    "slug": "understanding-attention-mechanism",
+    "level": "hard",
+    "tags": ["attention", "nlp", "transformers", "theory"]
+  },
+  {
+    "title": "Transformers Explained (from scratch)",
+    "slug": "transformers-from-scratch",
+    "level": "hard",
+    "tags": ["transformers", "attention", "nlp", "pytorch", "tutorial"]
+  },
+  {
+    "title": "Introduction to Generative Adversarial Networks (GANs)",
+    "slug": "intro-to-gans",
+    "level": "hard",
+    "tags": ["gans", "generative-ai", "computer-vision", "unsupervised-learning"]
+  },
+  {
+    "title": "Deep Reinforcement Learning (DRL) Basics",
+    "slug": "deep-reinforcement-learning-basics",
+    "level": "hard",
+    "tags": ["reinforcement-learning", "drl", "q-learning", "robotics"]
+  },
+  {
+    "title": "Deploying PyTorch Models with TorchServe",
+    "slug": "deploying-pytorch-models-torchserve",
+    "level": "system-design",
+    "tags": ["deployment", "mlops", "inference", "production", "pytorch"]
+  },
+  {
+    "title": "Optimizing Inference with TensorRT",
+    "slug": "optimizing-inference-tensorrt",
+    "level": "system-design",
+    "tags": ["inference", "optimization", "production", "tensorrt", "cuda"]
+  }
+]

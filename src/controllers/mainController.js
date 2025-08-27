@@ -57,7 +57,7 @@ export function renderReadmePage(req, res, next) {
  * (This function does not need changes as it likely serves a static file.)
  */
 export function serveResumePdf(req, res, next) {
-  const resumePath = path.join(process.cwd(), 'public', 'content', 'alexander-wilson-resume.pdf');
+  const resumePath = path.join(process.cwd(), 'public', 'content', 'documents','resume', 'alexander-wilson-resume.pdf');
   res.sendFile(resumePath, (err) => {
     if (err) {
       console.error('Error sending resume PDF:', err);

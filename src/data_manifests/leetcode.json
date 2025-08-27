@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "title": "URL Shortener Design",
+    "slug": "url-shortner",
+    "level": "system-design",
+    "tags": ["design", "distributed-systems", "hash-function", "database", "load-balancer", "caching"]
+  },
+  {
+    "title": "Two Sum",
+    "slug": "two-sum",
+    "level": "easy",
+    "tags": ["array", "hash-map", "two-pointers"]
+  },
+  {
+    "title": "Split Array With Same Average",
+    "slug": "split-array-with-same-average",
+    "level": "hard",
+    "tags": ["array", "dynamic-programming", "math", "bit-manipulation"]
+  },
+  {
+    "title": "Longest Palindromic Substring",
+    "slug": "longest-palindromic-substring",
+    "level": "medium",
+    "tags": ["string", "dynamic-programming", "two-pointers"]
+  }
+]
