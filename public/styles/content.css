@@ -49,14 +49,22 @@
 
 /* Links within markdown */
 .markdown-content a {
-  color: var(--accent-color);
+  color: var(--official-green);
   text-decoration: none;
   border-bottom: 1px dotted var(--accent-color);
 }
 
 .markdown-content a:hover {
+  color: var(--official-green);
   text-decoration: none;
-  background-color: var(--hover-background-color);
+  border-bottom: 1px dotted var(--accent-color);
+}
+
+
+.markdown-content a:hover {
+  text-decoration: none;
+  color: var(--official-black);
+  background-color: var(--official-green);
 }
 
 /* Code Blocks within markdown */

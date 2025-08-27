@@ -9,6 +9,7 @@ import mainRouter from './routes/mainRoutes.js';
 import resourceRouter from './routes/resourceRoutes.js';
 
 import { initializeContent } from './services/contentService.js';
+
 // --- Initialize Content Cache on Startup ---
 initializeContent();
 
@@ -29,8 +30,10 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use('/', mainRouter);
 
 // 2. The generic resource router handles all dynamic content categories.
-//    Catches patterns like /math/pre-algebra or /leet-code-write-ups/easy/two-sum.
-app.use('/', resourceRouter);
+app.use('/math', resourceRouter);
+app.use('/certs', resourceRouter);
+app.use('/leetcode', resourceRouter);
+app.use('/deep-ml', resourceRouter);
 
 
 // --- Error Handlers ---

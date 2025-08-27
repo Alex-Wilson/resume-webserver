@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "pre-algebra",
+    "title": "Pre Algebra"
+  },
+  {
+    "slug": "linear-algebra",
+    "title": "Linear Algebra"
+  },
+  {
+    "slug": "number-theory",
+    "title": "Number Theory"
+  },
+  {
+    "slug": "abstract-algebra",
+    "title": "Abstract Algebra"
+  },
+  {
+    "slug": "galois-theory",
+    "title": "Galois Theory"
+  },
+  {
+    "slug": "representation-theory",
+    "title": "Representation Theory"
+  },
+  {
+    "slug": "category-theory",
+    "title": "Category Theory"
+  },
+  {
+    "slug": "pre-calc",
+    "title": "Pre Calc"
+  },
+  {
+    "slug": "calculus-1",
+    "title": "Calculus 1"
+  },
+  {
+    "slug": "calculus-2",
+    "title": "Calculus 2"
+  },
+  {
+    "slug": "calculus-3",
+    "title": "Calculus 3"
+  },
+  {
+    "slug": "multivariable-calculus",
+    "title": "Multivariable Calculus"
+  },
+  {
+    "slug": "diff-eq",
+    "title": "Diff Eq"
+  },
+  {
+    "slug": "real-analysis",
+    "title": "Real Analysis"
+  },
+  {
+    "slug": "complex-analysis",
+    "title": "Complex Analysis"
+  },
+  {
+    "slug": "intro-discrete-math",
+    "title": "Intro Discrete Math"
+  },
+  {
+    "slug": "set-theory",
+    "title": "Set Theory"
+  },
+  {
+    "slug": "boolean-algebra-and-digital-logic",
+    "title": "Boolean Algebra And Digital Logic"
+  },
+  {
+    "slug": "combinatorics",
+    "title": "Combinatorics"
+  },
+  {
+    "slug": "graph-theory",
+    "title": "Graph Theory"
+  },
+  {
+    "slug": "lattices-and-posets",
+    "title": "Lattices And Posets"
+  },
+  {
+    "slug": "probabilistic-methods-in-discrete-math",
+    "title": "Probabilistic Methods In Discrete Math"
+  },
+  {
+    "slug": "cryptographic-primitives",
+    "title": "Cryptographic Primitives"
+  },
+  {
+    "slug": "non-euclidean-geometry",
+    "title": "Non Euclidian Geometry"
+  },
+  {
+    "slug": "projective-geometry",
+    "title": "Projective Geometry"
+  },
+  {
+    "slug": "fractal-geometry",
+    "title": "Fractal Geometry"
+  },
+  {
+    "slug": "differential-geometry",
+    "title": "Differential Geometry"
+  },
+  {
+    "slug": "topology",
+    "title": "Topology"
+  },
+  {
+    "slug": "algebraic-geometry",
+    "title": "Algebraic Geometry"
+  },
+  {
+    "slug": "probability-theory",
+    "title": "Probability Theory"
+  },
+  {
+    "slug": "descriptive-and-inferential-statistics",
+    "title": "Descriptive And Inferential Statistics"
+  },
+  {
+    "slug": "sampling-theory",
+    "title": "Sampling Theory"
+  },
+  {
+    "slug": "stochastic-processes-and-probabilities",
+    "title": "Stochastic Processes And Probabilities"
+  },
+  {
+    "slug": "bayesian-statistics",
+    "title": "Bayesian Statistics"
+  },
+  {
+    "slug": "statistical-learning-theory",
+    "title": "Statistical Learning Theory"
+  }
+]
