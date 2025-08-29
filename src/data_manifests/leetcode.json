@@ -1,26 +1,71 @@
-[
-  {
-    "title": "URL Shortener Design",
-    "slug": "url-shortner",
-    "level": "system-design",
-    "tags": ["design", "distributed-systems", "hash-function", "database", "load-balancer", "caching"]
+{
+  "articles": [
+    {
+      "slug": "url-shortner",
+      "title": "URL Shortener Design",
+      "level": "system-design",
+      "tags": ["design", "distributed-systems", "hash-function", "database", "load-balancer", "caching"],
+      "description": "Designing a system that takes a long URL and generates a short, unique URL."
+    },
+    {
+      "problemId": 1,
+      "slug": "two-sum",
+      "title": "Two Sum",
+      "level": "easy",
+      "tags": ["array", "hash-map", "two-pointers"],
+      "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target."
+    },
+    {
+      "problemId": 805,
+      "slug": "split-array-with-same-average",
+      "title": "Split Array With Same Average",
+      "level": "hard",
+      "tags": ["array", "dynamic-programming", "math", "bit-manipulation"],
+      "description": "In a given array nums of n positive integers, find if it's possible to split nums into two non-empty subsets with the same average."
+    },
+    {
+      "problemId": 5,
+      "slug": "longest-palindromic-substring",
+      "title": "Longest Palindromic Substring",
+      "level": "medium",
+      "tags": ["string", "dynamic-programming", "two-pointers"],
+      "description": "Given a string s, return the longest palindromic substring in s."
+    }
+  ],
+  "sortingOptions": {
+    "alphabetical": { "label": "A - Z" },
+    "default": {
+      "label": "Difficulty",
+      "key": "level",
+      "groupOrder": [
+        "easy",
+        "medium",
+        "hard",
+        "system-design"
+      ]
+    },
+    "grouped_tags": {
+      "label": "Tags",
+      "key": "tags"
+    },
+    "by_problem_id": { "label": "ID#" }
   },
-  {
-    "title": "Two Sum",
-    "slug": "two-sum",
-    "level": "easy",
-    "tags": ["array", "hash-map", "two-pointers"]
-  },
-  {
-    "title": "Split Array With Same Average",
-    "slug": "split-array-with-same-average",
-    "level": "hard",
-    "tags": ["array", "dynamic-programming", "math", "bit-manipulation"]
-  },
-  {
-    "title": "Longest Palindromic Substring",
-    "slug": "longest-palindromic-substring",
-    "level": "medium",
-    "tags": ["string", "dynamic-programming", "two-pointers"]
+  "filteringOptions": {
+    "difficulty": {
+      "label": "Difficulty",
+      "type": "checkbox",
+      "key": "level",
+      "options": [
+        {"value": "easy", "label": "Easy"},
+        {"value": "medium", "label": "Medium"},
+        {"value": "hard", "label": "Hard"},
+        {"value": "system-design", "label": "System Design"}
+      ]
+    },
+    "tags": {
+      "label": "Tags",
+      "type": "checkbox",
+      "key": "tags"
+    }
   }
-]
+}

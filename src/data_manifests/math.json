@@ -247,10 +247,10 @@
     }
   ],
   "sortingOptions": {
-    "default": { "label": "Learn from Scratch Path" },
-    "alphabetical": { "label": "Alphabetical" },
+    "alphabetical": { "label": "A - Z" },
+    "default": { "label": "Zero to Hero" },
     "grouped": {
-      "label": "By Category",
+      "label": "Knowledge Area",
       "key": "group",
       "groupOrder": [
         "Algebra",
@@ -258,16 +258,6 @@
         "Discrete Mathematics",
         "Geometry",
         "Statistics"
-      ]
-    },
-    "by_level": {
-      "label": "By Difficulty Level",
-      "key": "level",
-      "levelOrder": [
-        "Low",
-        "Medium",
-        "High",
-        "Advanced"
       ]
     }
   },

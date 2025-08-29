@@ -24,3 +24,7 @@ body {
     overflow-x: hidden; /* Prevents horizontal scrolling */
     width: 100%; /* Avoids unintended horizontal scrollbars */
 }
+
+h1{
+    text-align: center;
+}
