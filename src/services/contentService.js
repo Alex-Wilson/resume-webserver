@@ -3,19 +3,11 @@
 import fs from 'fs';
 import path from 'path';
 
-// The path to our manifest JSON files, relative to this service file.
 const manifestsFolderPath = path.join(import.meta.dirname, '../data_manifests');
 
-// These will be populated by initializeContent() and then exported.
-// They start as empty objects, populated upon explicit initialization.
-export let manifest = {};
-export let slugMap = {};
+export let manifest = {}; // Stores { categoryIdentifier: { articles: [...], sortingOptions: {...}, filteringOptions: {...} } }
+export let slugMap = {};   // Stores a flat map of all articles by their unique slug
 
-/**
- * Initializes the content service by loading all manifest files
- * and building the manifest and slugMap.
- * This function should be called once at application startup (from app.js).
- */
 export function initializeContent() {
   console.log('ContentService: Starting content initialization...');
 
@@ -27,23 +19,28 @@ export function initializeContent() {
 
     for (const file of files) {
       if (path.extname(file) === '.json') {
-        const category = path.basename(file, '.json');
+        const categoryIdentifier = path.basename(file, '.json');
         const filePath = path.join(manifestsFolderPath, file);
-        const articles = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        const fileContent = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-        loadedManifest[category] = articles; // Populate local manifest first
+        // *** CRITICAL CHANGE: Expecting fileContent to be an OBJECT ***
+        // It now expects the JSON to be an object with 'articles', 'sortingOptions', and 'filteringOptions' keys.
+        const articles = fileContent.articles || [];
+        const sortingOptions = fileContent.sortingOptions || {};
+        const filteringOptions = fileContent.filteringOptions || {}; // Also grab filtering options
+
+        loadedManifest[categoryIdentifier] = { articles, sortingOptions, filteringOptions }; // Store all data
 
         for (const article of articles) {
           if (loadedSlugMap[article.slug]) {
             throw new Error(
-              `FATAL ERROR: Duplicate slug detected! The slug "${article.slug}" is used in both "${loadedSlugMap[article.slug].category}" and "${category}". Slugs must be unique.`
+              `FATAL ERROR: Duplicate slug detected! The slug "${article.slug}" is used in both "${loadedSlugMap[article.slug].category}" and "${categoryIdentifier}". Slugs must be unique.`
             );
           }
-          loadedSlugMap[article.slug] = { ...article, category: category }; // Populate local slugMap
+          loadedSlugMap[article.slug] = { ...article, category: categoryIdentifier };
         }
       }
     }
-    // Assign the locally loaded data to the exported variables
     manifest = loadedManifest;
     slugMap = loadedSlugMap;
 
@@ -54,7 +51,6 @@ export function initializeContent() {
     );
   } catch (error) {
     console.error('ContentService: ERROR during initialization:', error.message);
-    // It's critical for the app to have this data, so re-throw the error to halt startup.
     throw error;
   }
 }

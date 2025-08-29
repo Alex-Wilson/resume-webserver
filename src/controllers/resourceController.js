@@ -66,15 +66,19 @@ export function renderPageDispatcher(req, res, next) {
  */
 export function renderCategoryPage(req, res, next) {
   const category = req.params.category;
-
-  const articles = manifest[category]; // This is our flat array of articles
+  const categoryData = manifest[category];
+  const articles = categoryData.articles || [];
+  const sortingOptions = categoryData.sortingOptions || {};
+  const filteringOptions = categoryData.filteringOptions || {}; // Also grab filtering options
 
   const title = category.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
 
   res.render('pages/resource-category', {
     title: title,
     category: category,
-    content: articles, // <--- CRITICAL CHANGE: Pass the array as 'content'
+    content: articles,               // Still passing the articles array as 'content'
+    sortingOptions: sortingOptions,  // <--- NEW: Pass the sorting options
+    filteringOptions: filteringOptions // <--- NEW: Pass the filtering options
   });
 }
 

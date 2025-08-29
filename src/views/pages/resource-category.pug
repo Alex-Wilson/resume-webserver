@@ -2,22 +2,51 @@ extends ../layouts/template.pug
 
 block head
   link(rel="stylesheet", href="/styles/resource-list.css") 
+  // IMPORTANT: Ensure this link is present and correct for the toggle CSS
+  link(rel="stylesheet", href="/styles/toggle-switch.css")
+  script(src="/js/category-sorting.js", defer)
 
 block content
   .content-container
     // The 'title' variable (e.g., "Math") is passed from the controller.
-    h1= title
-    
-    // Check if there are any articles to display in this category.
-    // 'content' is now a flat array of article objects.
-    if content && content.length > 0
-      ul.resource-list
-        // Loop through each 'article' in the 'content' array.
-        each article in content
-          li
-            // Create a link. The 'href' uses the category and the article's slug
-            // (e.g., "/math/pre-algebra"), and the link text is the article's title.
-            a(href=`/${category}/${article.slug}`)= article.title
-    else
-      // This message is shown if the 'content' array was empty.
-      p No content found in this category.
+    h1= title 
+
+    // --- Sorting Options UI (Frontend) ---
+    .sorting-controls
+      span.sort-label Sort By:
+      .toggle-switch-group#sort-by-toggle(role="radiogroup", aria-label="Sort Articles By")
+        each optionId, optionConfig in sortingOptions
+          // Each option is a radio button inside a label
+          label.toggle-switch-button(for=`sort-${optionId}`)
+            input(
+              type="radio",
+              id=`sort-${optionId}`,
+              name="sort-order", // All radio buttons in a group share the same name
+              value=optionId,
+              checked=(optionId === 'default' ? true : false) // 'Learn from Scratch Path' is default
+            )
+            span.button-text= optionConfig.label
+      
+      // IMPORTANT: Embed the article data and sorting options for client-side JavaScript
+      script.
+        window.categoryArticles = !{JSON.stringify(content)};
+        window.sortingOptions = !{JSON.stringify(sortingOptions)};
+        window.currentCategoryIdentifier = '#{category}';
+
+    // --- Article List Container ---
+    // This div will initially contain the server-rendered 'Learn from Scratch Path'
+    // and will be dynamically updated by client-side JS when other sorting options are chosen.
+    #article-list-container.resource-list-container
+      if content && content.length > 0
+        - let lastGroup = null;
+        ul.resource-list
+          each article in content
+            // Render a new <h2> header if the group changes
+            if article.group && article.group !== lastGroup
+              h2.resource-group-title= article.group
+              - lastGroup = article.group
+
+            li
+              a(href=`/${category}/${article.slug}`)= article.title
+      else
+        p No content found for this category.

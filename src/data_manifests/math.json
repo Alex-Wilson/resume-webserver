@@ -1,247 +1,276 @@
-[
-  {
-    "slug": "pre-algebra",
-    "title": "Pre Algebra",
-    "group": "Algebra",
-    "level": "Low",
-    "description": "Fundamental concepts before algebra: arithmetic operations, integers, fractions, decimals, ratios, proportions, percentages, and basic equations."
+{
+  "articles": [
+    {
+      "slug": "pre-algebra",
+      "title": "Pre Algebra",
+      "group": "Algebra",
+      "level": "Low",
+      "description": "Fundamental concepts before algebra: arithmetic operations, integers, fractions, decimals, ratios, proportions, percentages, and basic equations."
+    },
+    {
+      "slug": "intro-discrete-math",
+      "title": "Intro Discrete Math",
+      "group": "Discrete Mathematics",
+      "level": "Low",
+      "description": "An introduction to fundamental concepts like logic, proofs, sets, functions, and elementary counting principles, crucial for computer science."
+    },
+    {
+      "slug": "set-theory",
+      "title": "Set Theory",
+      "group": "Discrete Mathematics",
+      "level": "Low",
+      "description": "Exploring the properties, operations, and paradoxes of sets, providing a rigorous basis for all areas of mathematics."
+    },
+    {
+      "slug": "pre-calc",
+      "title": "Pre Calc",
+      "group": "Calculus",
+      "level": "Medium",
+      "description": "Preparation for calculus, covering advanced algebra, functions (polynomial, rational, exponential, logarithmic), trigonometry, and an introduction to limits."
+    },
+    {
+      "slug": "calculus-1",
+      "title": "Calculus 1",
+      "group": "Calculus",
+      "level": "Medium",
+      "description": "Introduction to limits, derivatives, and integrals, fundamental theorems, and applications to optimization and rates of change."
+    },
+    {
+      "slug": "calculus-2",
+      "title": "Calculus 2",
+      "group": "Calculus",
+      "level": "Medium",
+      "description": "Advanced integration techniques, applications of integrals, sequences and series, and an introduction to parametric equations and polar coordinates."
+    },
+    {
+      "slug": "calculus-3",
+      "title": "Calculus 3",
+      "group": "Calculus",
+      "level": "Medium",
+      "description": "An extension of calculus to three dimensions, covering vectors, partial derivatives, multiple integrals, and vector calculus basics."
+    },
+    {
+      "slug": "multivariable-calculus",
+      "title": "Multivariable Calculus",
+      "group": "Calculus",
+      "level": "Medium",
+      "description": "A comprehensive study of calculus in multiple dimensions, including vector fields, line integrals, surface integrals, Green's, Stokes', and Divergence theorems."
+    },
+    {
+      "slug": "linear-algebra",
+      "title": "Linear Algebra",
+      "group": "Algebra",
+      "level": "Medium",
+      "description": "Study of vectors, matrices, linear transformations, systems of linear equations, eigenvalues, and eigenvectors, essential for modern data science."
+    },
+    {
+      "slug": "diff-eq",
+      "title": "Diff Eq",
+      "group": "Calculus",
+      "level": "Medium",
+      "description": "Introduction to differential equations, their solutions, applications in science and engineering, including first-order, second-order, and systems of equations."
+    },
+    {
+      "slug": "probability-theory",
+      "title": "Probability Theory",
+      "group": "Statistics",
+      "level": "Medium",
+      "description": "Foundations of probability, including axioms, conditional probability, random variables, probability distributions, and expectation."
+    },
+    {
+      "slug": "descriptive-and-inferential-statistics",
+      "title": "Descriptive And Inferential Statistics",
+      "group": "Statistics",
+      "level": "Medium",
+      "description": "Methods for summarizing data (descriptive) and drawing conclusions about populations from samples (inferential), including hypothesis testing and confidence intervals."
+    },
+    {
+      "slug": "boolean-algebra-and-digital-logic",
+      "title": "Boolean Algebra And Digital Logic",
+      "group": "Discrete Mathematics",
+      "level": "Medium",
+      "description": "The algebra of logical operations and its application to designing digital circuits, including logic gates, truth tables, and circuit minimization."
+    },
+    {
+      "slug": "combinatorics",
+      "title": "Combinatorics",
+      "group": "Discrete Mathematics",
+      "level": "Medium",
+      "description": "Techniques for counting and arranging objects, covering permutations, combinations, recurrence relations, and generating functions."
+    },
+    {
+      "slug": "graph-theory",
+      "title": "Graph Theory",
+      "group": "Discrete Mathematics",
+      "level": "Medium",
+      "description": "Study of graphs and networks, including paths, cycles, trees, connectivity, and various algorithms for analyzing graph structures."
+    },
+    {
+      "slug": "number-theory",
+      "title": "Number Theory",
+      "group": "Algebra",
+      "level": "High",
+      "description": "Properties and relationships of integers, prime numbers, divisibility, modular arithmetic, and Diophantine equations. Crucial for cryptography."
+    },
+    {
+      "slug": "real-analysis",
+      "title": "Real Analysis",
+      "group": "Calculus",
+      "level": "High",
+      "description": "Rigorous foundation for calculus, examining real numbers, sequences, series, continuity, differentiation, and integration with formal proofs."
+    },
+    {
+      "slug": "abstract-algebra",
+      "title": "Abstract Algebra",
+      "group": "Algebra",
+      "level": "High",
+      "description": "Study of algebraic structures such as groups, rings, and fields, exploring their properties and relationships through axioms and proofs."
+    },
+    {
+      "slug": "galois-theory",
+      "title": "Galois Theory",
+      "group": "Algebra",
+      "level": "Advanced",
+      "description": "Connecting field theory with group theory to study the roots of polynomials, leading to proofs of the impossibility of solving quintic equations by radicals."
+    },
+    {
+      "slug": "representation-theory",
+      "title": "Representation Theory",
+      "group": "Algebra",
+      "level": "Advanced",
+      "description": "The study of abstract algebraic structures by representing their elements as linear transformations of vector spaces, simplifying complex problems."
+    },
+    {
+      "slug": "category-theory",
+      "title": "Category Theory",
+      "group": "Algebra",
+      "level": "Advanced",
+      "description": "A highly abstract mathematical framework that formalizes mathematical structure and concepts in terms of categories, functors, and natural transformations."
+    },
+    {
+      "slug": "complex-analysis",
+      "title": "Complex Analysis",
+      "group": "Calculus",
+      "level": "High",
+      "description": "Extension of calculus to complex numbers, exploring analytic functions, contour integration, residues, and series representations."
+    },
+    {
+      "slug": "sampling-theory",
+      "title": "Sampling Theory",
+      "group": "Statistics",
+      "level": "High",
+      "description": "Techniques for selecting representative samples from a population to make inferences, including various sampling designs and estimation methods."
+    },
+    {
+      "slug": "stochastic-processes-and-probabilities",
+      "title": "Stochastic Processes And Probabilities",
+      "group": "Statistics",
+      "level": "High",
+      "description": "Study of systems that evolve randomly over time, covering concepts like Markov chains, Poisson processes, and random walks, with applications in finance and science."
+    },
+    {
+      "slug": "bayesian-statistics",
+      "title": "Bayesian Statistics",
+      "group": "Statistics",
+      "level": "High",
+      "description": "A statistical framework that uses Bayes' theorem to update the probability for a hypothesis as evidence or information becomes available."
+    },
+    {
+      "slug": "statistical-learning-theory",
+      "group": "Statistics",
+      "title": "Statistical Learning Theory",
+      "level": "High",
+      "description": "The theoretical foundation of machine learning, combining statistics and functional analysis to understand generalization, model complexity, and prediction."
+    },
+    {
+      "slug": "lattices-and-posets",
+      "title": "Lattices And Posets",
+      "group": "Discrete Mathematics",
+      "level": "High",
+      "description": "Study of partially ordered sets and lattices, exploring their algebraic structures and applications in areas like computer science and logic."
+    },
+    {
+      "slug": "probabilistic-methods-in-discrete-math",
+      "title": "Probabilistic Methods In Discrete Math",
+      "group": "Discrete Mathematics",
+      "level": "High",
+      "description": "Using probability theory to prove existence of discrete structures with certain properties, a powerful non-constructive technique."
+    },
+    {
+      "slug": "cryptographic-primitives",
+      "title": "Cryptographic Primitives",
+      "group": "Discrete Mathematics",
+      "level": "High",
+      "description": "The fundamental algorithms and protocols that form the building blocks of cryptographic systems, such as hashing, encryption, and digital signatures."
+    },
+    {
+      "slug": "non-euclidean-geometry",
+      "title": "Non Euclidian Geometry",
+      "group": "Geometry",
+      "level": "High",
+      "description": "Geometries that do not rely on Euclid's fifth postulate, such as hyperbolic and elliptic geometries, with profound implications for mathematics and physics."
+    },
+    {
+      "slug": "projective-geometry",
+      "title": "Projective Geometry",
+      "group": "Geometry",
+      "level": "High",
+      "description": "Study of geometric properties that are invariant under projection, focusing on incidence, duality, and the concept of points at infinity."
+    },
+    {
+      "slug": "fractal-geometry",
+      "title": "Fractal Geometry",
+      "group": "Geometry",
+      "level": "High",
+      "description": "Mathematics of fractal sets, characterized by self-similarity across different scales, infinite detail, and fractional dimensions."
+    },
+    {
+      "slug": "differential-geometry",
+      "title": "Differential Geometry",
+      "group": "Geometry",
+      "level": "Advanced",
+      "description": "Applying calculus to study geometric properties of curves, surfaces, and manifolds in higher dimensions, fundamental to general relativity."
+    },
+    {
+      "slug": "topology",
+      "title": "Topology",
+      "group": "Geometry",
+      "level": "Advanced",
+      "description": "Study of topological spaces and continuous maps, focusing on properties preserved under continuous deformation, such as connectedness and compactness."
+    },
+    {
+      "slug": "algebraic-geometry",
+      "title": "Algebraic Geometry",
+      "group": "Geometry",
+      "level": "Advanced",
+      "description": "A field of mathematics studying geometric solutions of systems of polynomial equations, blending abstract algebra with geometry."
+    }
+  ],
+  "sortingOptions": {
+    "default": { "label": "Learn from Scratch Path" },
+    "alphabetical": { "label": "Alphabetical" },
+    "grouped": {
+      "label": "By Category",
+      "key": "group",
+      "groupOrder": [
+        "Algebra",
+        "Calculus",
+        "Discrete Mathematics",
+        "Geometry",
+        "Statistics"
+      ]
+    },
+    "by_level": {
+      "label": "By Difficulty Level",
+      "key": "level",
+      "levelOrder": [
+        "Low",
+        "Medium",
+        "High",
+        "Advanced"
+      ]
+    }
   },
-  {
-    "slug": "intro-discrete-math",
-    "title": "Intro Discrete Math",
-    "group": "Discrete Mathematics",
-    "level": "Low",
-    "description": "An introduction to fundamental concepts like logic, proofs, sets, functions, and elementary counting principles, crucial for computer science."
-  },
-  {
-    "slug": "set-theory",
-    "title": "Set Theory",
-    "group": "Discrete Mathematics",
-    "level": "Low",
-    "description": "Exploring the properties, operations, and paradoxes of sets, providing a rigorous basis for all areas of mathematics."
-  },
-  {
-    "slug": "pre-calc",
-    "title": "Pre Calc",
-    "group": "Calculus",
-    "level": "Medium",
-    "description": "Preparation for calculus, covering advanced algebra, functions (polynomial, rational, exponential, logarithmic), trigonometry, and an introduction to limits."
-  },
-  {
-    "slug": "calculus-1",
-    "title": "Calculus 1",
-    "group": "Calculus",
-    "level": "Medium",
-    "description": "Introduction to limits, derivatives, and integrals, fundamental theorems, and applications to optimization and rates of change."
-  },
-  {
-    "slug": "calculus-2",
-    "title": "Calculus 2",
-    "group": "Calculus",
-    "level": "Medium",
-    "description": "Advanced integration techniques, applications of integrals, sequences and series, and an introduction to parametric equations and polar coordinates."
-  },
-  {
-    "slug": "calculus-3",
-    "title": "Calculus 3",
-    "group": "Calculus",
-    "level": "Medium",
-    "description": "An extension of calculus to three dimensions, covering vectors, partial derivatives, multiple integrals, and vector calculus basics."
-  },
-  {
-    "slug": "multivariable-calculus",
-    "title": "Multivariable Calculus",
-    "group": "Calculus",
-    "level": "Medium",
-    "description": "A comprehensive study of calculus in multiple dimensions, including vector fields, line integrals, surface integrals, Green's, Stokes', and Divergence theorems."
-  },
-  {
-    "slug": "linear-algebra",
-    "title": "Linear Algebra",
-    "group": "Algebra",
-    "level": "Medium",
-    "description": "Study of vectors, matrices, linear transformations, systems of linear equations, eigenvalues, and eigenvectors, essential for modern data science."
-  },
-  {
-    "slug": "diff-eq",
-    "title": "Diff Eq",
-    "group": "Calculus",
-    "level": "Medium",
-    "description": "Introduction to differential equations, their solutions, applications in science and engineering, including first-order, second-order, and systems of equations."
-  },
-  {
-    "slug": "probability-theory",
-    "title": "Probability Theory",
-    "group": "Statistics",
-    "level": "Medium",
-    "description": "Foundations of probability, including axioms, conditional probability, random variables, probability distributions, and expectation."
-  },
-  {
-    "slug": "descriptive-and-inferential-statistics",
-    "title": "Descriptive And Inferential Statistics",
-    "group": "Statistics",
-    "level": "Medium",
-    "description": "Methods for summarizing data (descriptive) and drawing conclusions about populations from samples (inferential), including hypothesis testing and confidence intervals."
-  },
-  {
-    "slug": "boolean-algebra-and-digital-logic",
-    "title": "Boolean Algebra And Digital Logic",
-    "group": "Discrete Mathematics",
-    "level": "Medium",
-    "description": "The algebra of logical operations and its application to designing digital circuits, including logic gates, truth tables, and circuit minimization."
-  },
-  {
-    "slug": "combinatorics",
-    "title": "Combinatorics",
-    "group": "Discrete Mathematics",
-    "level": "Medium",
-    "description": "Techniques for counting and arranging objects, covering permutations, combinations, recurrence relations, and generating functions."
-  },
-  {
-    "slug": "graph-theory",
-    "title": "Graph Theory",
-    "group": "Discrete Mathematics",
-    "level": "Medium",
-    "description": "Study of graphs and networks, including paths, cycles, trees, connectivity, and various algorithms for analyzing graph structures."
-  },
-  {
-    "slug": "number-theory",
-    "title": "Number Theory",
-    "group": "Algebra",
-    "level": "High",
-    "description": "Properties and relationships of integers, prime numbers, divisibility, modular arithmetic, and Diophantine equations. Crucial for cryptography."
-  },
-  {
-    "slug": "real-analysis",
-    "title": "Real Analysis",
-    "group": "Calculus",
-    "level": "High",
-    "description": "Rigorous foundation for calculus, examining real numbers, sequences, series, continuity, differentiation, and integration with formal proofs."
-  },
-  {
-    "slug": "abstract-algebra",
-    "title": "Abstract Algebra",
-    "group": "Algebra",
-    "level": "High",
-    "description": "Study of algebraic structures such as groups, rings, and fields, exploring their properties and relationships through axioms and proofs."
-  },
-  {
-    "slug": "galois-theory",
-    "title": "Galois Theory",
-    "group": "Algebra",
-    "level": "Advanced",
-    "description": "Connecting field theory with group theory to study the roots of polynomials, leading to proofs of the impossibility of solving quintic equations by radicals."
-  },
-  {
-    "slug": "representation-theory",
-    "title": "Representation Theory",
-    "group": "Algebra",
-    "level": "Advanced",
-    "description": "The study of abstract algebraic structures by representing their elements as linear transformations of vector spaces, simplifying complex problems."
-  },
-  {
-    "slug": "category-theory",
-    "title": "Category Theory",
-    "group": "Algebra",
-    "level": "Advanced",
-    "description": "A highly abstract mathematical framework that formalizes mathematical structure and concepts in terms of categories, functors, and natural transformations."
-  },
-  {
-    "slug": "complex-analysis",
-    "title": "Complex Analysis",
-    "group": "Calculus",
-    "level": "High",
-    "description": "Extension of calculus to complex numbers, exploring analytic functions, contour integration, residues, and series representations."
-  },
-  {
-    "slug": "sampling-theory",
-    "title": "Sampling Theory",
-    "group": "Statistics",
-    "level": "High",
-    "description": "Techniques for selecting representative samples from a population to make inferences, including various sampling designs and estimation methods."
-  },
-  {
-    "slug": "stochastic-processes-and-probabilities",
-    "title": "Stochastic Processes And Probabilities",
-    "group": "Statistics",
-    "level": "High",
-    "description": "Study of systems that evolve randomly over time, covering concepts like Markov chains, Poisson processes, and random walks, with applications in finance and science."
-  },
-  {
-    "slug": "bayesian-statistics",
-    "title": "Bayesian Statistics",
-    "group": "Statistics",
-    "level": "High",
-    "description": "A statistical framework that uses Bayes' theorem to update the probability for a hypothesis as evidence or information becomes available."
-  },
-  {
-    "slug": "statistical-learning-theory",
-    "group": "Statistics",
-    "title": "Statistical Learning Theory",
-    "level": "High",
-    "description": "The theoretical foundation of machine learning, combining statistics and functional analysis to understand generalization, model complexity, and prediction."
-  },
-  {
-    "slug": "lattices-and-posets",
-    "title": "Lattices And Posets",
-    "group": "Discrete Mathematics",
-    "level": "High",
-    "description": "Study of partially ordered sets and lattices, exploring their algebraic structures and applications in areas like computer science and logic."
-  },
-  {
-    "slug": "probabilistic-methods-in-discrete-math",
-    "title": "Probabilistic Methods In Discrete Math",
-    "group": "Discrete Mathematics",
-    "level": "High",
-    "description": "Using probability theory to prove existence of discrete structures with certain properties, a powerful non-constructive technique."
-  },
-  {
-    "slug": "cryptographic-primitives",
-    "title": "Cryptographic Primitives",
-    "group": "Discrete Mathematics",
-    "level": "High",
-    "description": "The fundamental algorithms and protocols that form the building blocks of cryptographic systems, such as hashing, encryption, and digital signatures."
-  },
-  {
-    "slug": "non-euclidean-geometry",
-    "title": "Non Euclidian Geometry",
-    "group": "Geometry",
-    "level": "High",
-    "description": "Geometries that do not rely on Euclid's fifth postulate, such as hyperbolic and elliptic geometries, with profound implications for mathematics and physics."
-  },
-  {
-    "slug": "projective-geometry",
-    "title": "Projective Geometry",
-    "group": "Geometry",
-    "level": "High",
-    "description": "Study of geometric properties that are invariant under projection, focusing on incidence, duality, and the concept of points at infinity."
-  },
-  {
-    "slug": "fractal-geometry",
-    "title": "Fractal Geometry",
-    "group": "Geometry",
-    "level": "High",
-    "description": "Mathematics of fractal sets, characterized by self-similarity across different scales, infinite detail, and fractional dimensions."
-  },
-  {
-    "slug": "differential-geometry",
-    "title": "Differential Geometry",
-    "group": "Geometry",
-    "level": "Advanced",
-    "description": "Applying calculus to study geometric properties of curves, surfaces, and manifolds in higher dimensions, fundamental to general relativity."
-  },
-  {
-    "slug": "topology",
-    "title": "Topology",
-    "group": "Geometry",
-    "level": "Advanced",
-    "description": "Study of topological spaces and continuous maps, focusing on properties preserved under continuous deformation, such as connectedness and compactness."
-  },
-  {
-    "slug": "algebraic-geometry",
-    "title": "Algebraic Geometry",
-    "group": "Geometry",
-    "level": "Advanced",
-    "description": "A field of mathematics studying geometric solutions of systems of polynomial equations, blending abstract algebra with geometry."
+  "filteringOptions": {
   }
-]
+}

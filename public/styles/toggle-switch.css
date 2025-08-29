@@ -1,0 +1,109 @@
+/* public/styles/toggle-switch.css */
+
+/* --- Custom Properties for Easy Theming (Now using your global variables) --- */
+/* These map to your global variables defined in global.css */
+:root {
+  --toggle-background-color: var(--official-black); /* Background of the whole toggle group */
+  --toggle-border-color: var(--official-grey);     /* Border around the group and between segments */
+  --toggle-text-color: var(--official-white);      /* Text color for inactive buttons */
+  --toggle-active-bg: var(--official-green);       /* Background for the active (selected) button */
+  --toggle-active-text: var(--official-black);     /* Text color for the active button (for contrast with green) */
+  --toggle-font-family: var(--primary-font);       /* Your desired font family */
+  --toggle-font-size: 0.9em;
+  --toggle-padding: 0.6em 1.2em;
+  --toggle-border-radius: 8px;
+  --toggle-transition-speed: 0.2s;
+}
+
+/* --- Container for sorting controls --- */
+.sorting-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between "Sort By:" label and the toggle group */
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.sort-label {
+  color: var(--toggle-text-color);
+  font-family: var(--toggle-font-family);
+  font-size: var(--toggle-font-size);
+  white-space: nowrap; /* Prevent "Sort By:" from breaking */
+}
+
+/* --- Toggle Switch Group --- */
+.toggle-switch-group {
+  display: flex;
+  border: 1px solid var(--toggle-border-color);
+  border-radius: var(--toggle-border-radius);
+  overflow: hidden; /* Important for the rounded corners to work correctly */
+  background-color: var(--toggle-background-color);
+  font-family: var(--toggle-font-family);
+}
+
+/* --- Individual Toggle Button (Label) --- */
+.toggle-switch-button {
+  flex-grow: 1; /* Make buttons expand evenly */
+  text-align: center;
+  cursor: pointer;
+  position: relative; /* Needed for z-index with border overlap */
+  z-index: 1; /* Default z-index */
+  transition: background-color var(--toggle-transition-speed) ease, color var(--toggle-transition-speed) ease;
+}
+
+.toggle-switch-button:not(:last-child) {
+  border-right: 1px solid var(--toggle-border-color); /* Separator between buttons */
+}
+
+/* --- Hidden Radio Input --- */
+.toggle-switch-button input[type="radio"] {
+  position: absolute; /* Hide the actual radio button */
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* --- Visible Button Text (Span) --- */
+.toggle-switch-button .button-text {
+  display: block;
+  padding: var(--toggle-padding);
+  color: var(--toggle-text-color);
+  font-size: var(--toggle-font-size);
+  white-space: nowrap;
+}
+
+/* --- Active (Checked) State --- */
+.toggle-switch-button input[type="radio"]:checked + .button-text {
+  background-color: var(--toggle-active-bg);
+  color: var(--toggle-active-text);
+  /* Optional: bring active button slightly forward for visual overlap */
+  z-index: 2;
+  position: relative;
+}
+
+/* Optional: Hover state for inactive buttons */
+.toggle-switch-button:hover .button-text {
+  /* You can add a subtle hover effect here */
+  background-color: rgba(var(--toggle-active-bg), 0.1); /* Subtle highlight */
+}
+
+/* Adjustments for first/last child to ensure rounded corners on active state */
+.toggle-switch-button:first-child input[type="radio"]:checked + .button-text {
+    border-top-left-radius: var(--toggle-border-radius);
+    border-bottom-left-radius: var(--toggle-border-radius);
+}
+
+.toggle-switch-button:last-child input[type="radio"]:checked + .button-text {
+    border-top-right-radius: var(--toggle-border-radius);
+    border-bottom-right-radius: var(--toggle-border-radius);
+}
+
+/* Make sure the text color is correctly applied to inactive hover state */
+.toggle-switch-button:hover:not(:has(input[type="radio"]:checked)) .button-text {
+  color: var(--toggle-text-color); /* Keep inactive text color on hover */
+}
