@@ -18,8 +18,8 @@ block content
               type="radio",
               id=`sort-${optionKey}`,
               name="sort-order",
-              value=optionKey
-              checked=(optionKey === 'default') ? true : false
+              value=optionKey,
+              checked=(optionKey === 'default')
             )
             span.button-text= optionValue.label 
       
@@ -35,11 +35,20 @@ block content
         - let lastGroup = null;
         ul.resource-list
           each article in content
-            if article.group && article.group !== lastGroup
-              h2.resource-group-title= article.group
-              - lastGroup = article.group
+            // Determine if grouping headers are needed for the initial server-side render
+            - const currentSortConfig = sortingOptions.default; 
+            - const requiresGrouping = currentSortConfig && currentSortConfig.key;
+
+            if requiresGrouping && article[currentSortConfig.key] && article[currentSortConfig.key] !== lastGroup
+              h2.resource-group-title= article[currentSortConfig.key].replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
+              - lastGroup = article[currentSortConfig.key]
 
             li
-              a(href=`/${category}/${article.slug}`)= article.title
+              // CRITICAL FIX: Conditionally format the link text for LeetCode OR DeepML
+              - let articleDisplayText = article.title;
+              if (currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml') && article.problemId
+                - articleDisplayText = `#${article.problemId} - ${article.title}`;
+              
+              a(href=`/${category}/${article.slug}`)= articleDisplayText
       else
         p No content found for this category.

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Creates an <li> element for a given article,
-   * conditionally formatting the title for LeetCode problems.
+   * conditionally formatting the title for LeetCode/DeepML problems.
    * @param {Object} article - The article data.
    * @returns {HTMLElement} The created <li> element.
    */
@@ -24,8 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const a = document.createElement('a');
     a.href = `/${currentCategoryIdentifier}/${article.slug}`;
     
+    // CRITICAL FIX: Conditionally add problemId to title for LeetCode OR DeepML
     let displayText = article.title;
-    if (currentCategoryIdentifier === 'leetcode' && article.problemId) {
+    if ((currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml') && article.problemId) {
       displayText = `#${article.problemId} - ${article.title}`;
     }
     a.textContent = displayText;
@@ -36,8 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Renders the articles into the container based on the current sorted/grouped state.
-   * @param {Array} articlesToRender - The array of articles (already sorted/filtered).
-   * @param {string} activeSortId - The ID of the currently active sorting option (e.g., 'default', 'grouped').
+   * (No changes needed here, as it calls createArticleListItem now)
    */
   function renderArticles(articlesToRender, activeSortId) {
     if (!articleListContainer) return;
@@ -50,16 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const currentSortConfig = sortingOptions[activeSortId];
-
-    // *** CRITICAL FIX: The condition for requiring grouping ***
-    // Grouping is required IF the current sort config HAS a 'key' property.
-    // This allows the 'default' sort (Difficulty for LeetCode) to be grouped.
-    const requiresGrouping = currentSortConfig && currentSortConfig.key;
+    const requiresGrouping = currentSortConfig && currentSortConfig.key; // Fixed grouping condition
 
     if (requiresGrouping) {
-      const groupKey = currentSortConfig.key; // e.g., 'group' for math, 'level' for leetcode
+      const groupKey = currentSortConfig.key;
       
-      // Handle 'tags' grouping specifically, as an article can have multiple tags
       if (groupKey === 'tags') {
           const tagsMap = {};
           articlesToRender.forEach(article => {
@@ -74,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
               }
           });
 
-          // Sort tags alphabetically
           const sortedTags = Object.keys(tagsMap).sort((a, b) => a.localeCompare(b));
 
           sortedTags.forEach(tag => {
@@ -87,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
                   const ul = document.createElement('ul');
                   ul.classList.add('resource-list');
                   
-                  // Sort articles within each tag group alphabetically by title
                   const sortedTagArticles = [...new Set(tagsMap[tag])].sort((a, b) => a.title.localeCompare(b.title));
                   sortedTagArticles.forEach(article => ul.appendChild(createArticleListItem(article)));
                   articleListContainer.appendChild(ul);
@@ -102,20 +95,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return acc;
           }, {});
 
-          // Determine the order of groups (from manifest or alphabetical if not specified)
           const groupOrder = currentSortConfig.groupOrder || Object.keys(grouped).sort((a, b) => a.localeCompare(b));
 
           groupOrder.forEach(groupName => {
             if (grouped[groupName] && grouped[groupName].length > 0) {
               const h2 = document.createElement('h2');
               h2.classList.add('resource-group-title');
-              h2.textContent = groupName.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()); // Format group name
+              h2.textContent = groupName.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
               articleListContainer.appendChild(h2);
 
               const ul = document.createElement('ul');
               ul.classList.add('resource-list');
               
-              // Sort articles within each group alphabetically by title for consistency
               const sortedGroupArticles = grouped[groupName].sort((a, b) => a.title.localeCompare(b.title));
               sortedGroupArticles.forEach(article => ul.appendChild(createArticleListItem(article)));
               articleListContainer.appendChild(ul);
@@ -124,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     } else {
-      // No grouping required (e.g., 'Zero to One' for Math, 'A - Z', 'ID')
       const ul = document.createElement('ul');
       ul.classList.add('resource-list');
       articlesToRender.forEach(article => ul.appendChild(createArticleListItem(article)));
@@ -144,32 +134,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sortId === 'alphabetical') {
       sorted.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sortId === 'default') { // LeetCode's default is now "Difficulty", which groups
-      // If the default option has a 'key' (like 'level' for difficulty),
-      // we need to sort by that key for a consistent base before rendering.
-      if (sortConfig && sortConfig.key) {
-        const groupKey = sortConfig.key;
-        sorted.sort((a, b) => {
-            const groupA = a[groupKey] || 'Uncategorized';
-            const groupB = b[groupKey] || 'Uncategorized';
-            const groupOrder = sortConfig.groupOrder;
-            
-            let compareGroups = 0;
-            if (groupOrder && groupOrder.length > 0) {
-                compareGroups = groupOrder.indexOf(groupA) - groupOrder.indexOf(groupB);
-            } else {
-                compareGroups = groupA.localeCompare(groupB);
-            }
-            if (compareGroups !== 0) {
-              return compareGroups;
-            }
-            return a.title.localeCompare(b.title); // Alphabetical within groups
-        });
-      } else { // Math's 'default' is the original manifest order (Zero to One)
-          return [...allArticles]; // Return original order
+    } else if (sortId === 'default') { // This is "Difficulty" for LeetCode/DeepML, "Zero to One" for Math
+      if (currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml') {
+          // Default for LeetCode/DeepML is "Difficulty", which uses grouping
+          // Sort by difficulty level, then alphabetically
+          const groupKey = sortConfig.key;
+          sorted.sort((a, b) => {
+              const groupA = a[groupKey] || 'Uncategorized';
+              const groupB = b[groupKey] || 'Uncategorized';
+              const groupOrder = sortConfig.groupOrder;
+              
+              let compareGroups = 0;
+              if (groupOrder && groupOrder.length > 0) {
+                  compareGroups = groupOrder.indexOf(groupA) - groupOrder.indexOf(groupB);
+              } else {
+                  compareGroups = groupA.localeCompare(groupB);
+              }
+              if (compareGroups !== 0) {
+                return compareGroups;
+              }
+              return a.title.localeCompare(b.title);
+          });
+      } else { // 'default' for math is original manifest order
+          return [...allArticles];
       }
-    } else if (sortId === 'grouped') { // Math's 'Knowledge Area' (groups by 'group')
-      // Handled by default case for LeetCode
+    } else if (sortId === 'grouped') { // Math's 'Knowledge Area'
       const groupKey = sortConfig.key;
       sorted.sort((a, b) => {
         const valA = a[groupKey] || 'Uncategorized';
@@ -189,9 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return a.title.localeCompare(b.title);
       });
-    } else if (sortId === 'grouped_difficulty') { // This specific ID might no longer be used if 'default' is Difficulty
-        // Assuming 'default' is now the 'difficulty' sorting for leetcode
-        // This block might be redundant if 'default' handles it.
+    } else if (sortId === 'grouped_difficulty') { // LeetCode's old "By Difficulty" (now 'default')
+        // This sorting option might be redundant now if 'default' handles difficulty for leetcode
+        // Kept for robustness if grouped_difficulty is used elsewhere
         const groupKey = sortingOptions.grouped_difficulty.key;
         sorted.sort((a, b) => {
             const groupA = a[groupKey] || 'Uncategorized';
@@ -209,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return a.title.localeCompare(b.title);
         });
-    } else if (sortId === 'grouped_tags') { // LeetCode's "Tags" option
+    } else if (sortId === 'grouped_tags') { // LeetCode/DeepML "Tags"
         sorted.sort((a, b) => {
             const tagA = (a.tags && a.tags.length > 0) ? a.tags[0] : '';
             const tagB = (b.tags && b.tags.length > 0) ? b.tags[0] : '';
@@ -219,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return a.title.localeCompare(b.title);
         });
-    } else if (sortId === 'by_problem_id') { // LeetCode's "ID" option
+    } else if (sortId === 'by_problem_id') { // LeetCode/DeepML "ID#"
         sorted.sort((a, b) => (a.problemId || Infinity) - (b.problemId || Infinity));
     }
     
