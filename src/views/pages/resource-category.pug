@@ -1,15 +1,22 @@
 extends ../layouts/template.pug
 
 block head
+  include ../mixins/dynamic-resource-mixin.pug
+
   link(rel="stylesheet", href="/styles/resource-list.css") 
   link(rel="stylesheet", href="/styles/toggle-switch.css")
+  
+
+  if currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml' || currentCategoryIdentifier === 'certifications'
+    link(rel="stylesheet", href="/styles/certifications.css")
+    script(src="/js/table-sorting.js", defer)
+  
   script(src="/js/category-sorting.js", defer)
 
 block content
   .content-container
     h1= title 
 
-    // --- Sorting Options UI (Frontend) ---
     .sorting-controls
       .toggle-switch-group#sort-by-toggle(role="radiogroup", aria-label="Sort Articles By")
         each optionValue, optionKey in sortingOptions
@@ -23,32 +30,50 @@ block content
             )
             span.button-text= optionValue.label 
       
-      // IMPORTANT: Embed the article data and sorting options for client-side JavaScript
       script.
         window.categoryArticles = !{JSON.stringify(content)};
         window.sortingOptions = !{JSON.stringify(sortingOptions)};
+        window.filteringOptions = !{JSON.stringify(filteringOptions)};
         window.currentCategoryIdentifier = '#{category}';
 
-    // --- Article List Container ---
+
     #article-list-container.resource-list-container
       if content && content.length > 0
-        - let lastGroup = null;
-        ul.resource-list
-          each article in content
-            // Determine if grouping headers are needed for the initial server-side render
-            - const currentSortConfig = sortingOptions.default; 
-            - const requiresGrouping = currentSortConfig && currentSortConfig.key;
+        if currentCategoryIdentifier === 'math'
+          - let lastGroup = null;
+          ul.resource-list
+            each article in content
+              // Render a new <h2> header if the group changes
+              - const currentSortConfig = sortingOptions.default;
+              - const requiresGrouping = currentSortConfig && currentSortConfig.key;
 
-            if requiresGrouping && article[currentSortConfig.key] && article[currentSortConfig.key] !== lastGroup
-              h2.resource-group-title= article[currentSortConfig.key].replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
-              - lastGroup = article[currentSortConfig.key]
-
-            li
-              // CRITICAL FIX: Conditionally format the link text for LeetCode OR DeepML
-              - let articleDisplayText = article.title;
-              if (currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml') && article.problemId
-                - articleDisplayText = `#${article.problemId} - ${article.title}`;
-              
-              a(href=`/${category}/${article.slug}`)= articleDisplayText
+              if requiresGrouping && article[currentSortConfig.key] && article[currentSortConfig.key] !== lastGroup
+                h2.resource-group-title= article[currentSortConfig.key].replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
+                - lastGroup = article[currentSortConfig.key]
+              li
+                a(href=`/${category}/${article.slug}`)= article.title
+        else if currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml'
+          -
+            const problemColumns = [
+              { key: 'problemId', label: 'ID' },
+              { key: 'title', label: 'Problem Title' },
+              { key: 'level', label: 'Difficulty' },
+              { key: 'tags', label: 'Tags' }
+            ];
+          +dynamicResourceTable(content, problemColumns, categoryIdentifier)
+        else if currentCategoryIdentifier === 'certifications'
+          -
+            const certColumns = [
+              { key: 'domain', label: 'Domain' },
+              { key: 'orgName', label: 'Organization' },
+              { key: 'title', label: 'Certification' },
+              { key: 'earnedDate', label: 'Achieved' },
+              { key: 'expirationDate', label: 'Expires' },
+              { key: 'price', label: 'Cost' },
+              { key: 'link', label: 'Link' }
+            ];
+          +dynamicResourceTable(content, certColumns, categoryIdentifier)
+        else
+          p No content display format defined for this category.
       else
-        p No content found for this category.
+        p No articles found for this category.

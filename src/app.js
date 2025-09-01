@@ -31,7 +31,7 @@ app.use('/', mainRouter);
 
 // 2. The generic resource router handles all dynamic content categories.
 app.use('/math', resourceRouter);
-app.use('/certs', resourceRouter);
+app.use('/certifications', resourceRouter);
 app.use('/leetcode', resourceRouter);
 app.use('/deep-ml', resourceRouter);
 

@@ -1,0 +1,30 @@
+// src/views/mixins/dynamic-resource-mixin.pug
+
+mixin dynamicResourceTable(articles, columnsConfig, categoryIdentifier)
+  table.content-table#dynamic-content-table
+    thead
+      tr
+        each column in columnsConfig
+          th(data-column=column.key)= column.label
+    tbody
+      each article in articles
+        tr
+          each column in columnsConfig
+            td(data-column=column.key)
+              if column.key === 'title'
+                - let articleDisplayText = article.title;
+                if (categoryIdentifier === 'leetcode' || categoryIdentifier === 'deep-ml') && article.problemId
+                  - articleDisplayText = `#${article.problemId} - ${article.title}`;
+                a(href=`/${categoryIdentifier}/${article.slug}`)= articleDisplayText
+              else if column.key === 'link' && article.link
+                a(href=article.link, target="_blank", rel="noopener noreferrer") View Cert
+              else if column.key === 'price' && typeof article.price === 'number'
+                = `$${article.price.toFixed(2)}`
+              else if (column.key === 'earnedDate' || column.key === 'dateAchieved' || column.key === 'expirationDate') && article[column.key]
+                = article[column.key]
+              else if (column.key === 'level' || column.key === 'difficulty') && article[column.key]
+                span.level-badge(class=`level-${article[column.key]}`)= article[column.key]
+              else if column.key === 'tags' && article.tags && article.tags.length > 0
+                = article.tags.join(', ')
+              else
+                = article[column.key] || 'N/A'

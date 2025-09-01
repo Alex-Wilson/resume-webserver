@@ -1,0 +1,36 @@
+{
+  "articles": [
+    {
+      "slug": "pmp",
+      "title": "Project Management Professional (PMP)",
+      "domain": "Project Management",
+      "orgName": "Project Management Institute",
+      "link": "https://www.pmi.org/certifications/project-management-pmp",
+      "price": 675,
+      "earnedDate": "02/09/2024",
+      "expirationDate": "02/09/2027"
+    },
+    {
+      "slug": "comptia-network-plus",
+      "title": "Network+",
+      "domain": "Networking",
+      "orgName": "CompTIA",
+      "link": "https://www.comptia.org/certifications/network",
+      "price": 369,
+      "earnedDate": "12/10/2024",
+      "expirationDate": "12/10/2027"
+    },
+    {
+      "slug": "aws-cloud-practitioner",
+      "title": "Cloud Practitioner Foundational",
+      "domain": "Cloud",
+      "orgName": "AWS",
+      "link": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+      "price": 100,
+      "earnedDate": "4/19/2025",
+      "expirationDate": "4/19/2028"
+    }
+  ],
+  "sortingOptions": {},
+  "filteringOptions": {}
+}

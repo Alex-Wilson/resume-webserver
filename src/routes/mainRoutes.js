@@ -9,6 +9,5 @@ const router = express.Router();
 router.get('/', mainController.renderHomePage);
 router.get('/readme', mainController.renderReadmePage);
 router.get('/resume', mainController.serveResumePdf);
-router.get('/certifications', mainController.renderCertificationsPage);
 
 export default router;

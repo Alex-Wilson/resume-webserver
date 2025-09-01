@@ -37,8 +37,6 @@ export function renderPageDispatcher(req, res, next) {
     }
   }
 
-  // If we have an identifier, it's a potential slug for an article.
-  // Check if this identifier (slug) exists in our master slugMap.
   if (slugMap[identifier]) {
     // And ensure it belongs to the correct category base if mounted
     if (slugMap[identifier].category === categoryBase) {
