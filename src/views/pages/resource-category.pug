@@ -1,22 +1,26 @@
+// src/views/pages/resource-category.pug
+
 extends ../layouts/template.pug
 
 block head
+  // Import our new dynamic table mixin
   include ../mixins/dynamic-resource-mixin.pug
 
   link(rel="stylesheet", href="/styles/resource-list.css") 
   link(rel="stylesheet", href="/styles/toggle-switch.css")
   
-
+  // Conditionally link table-specific CSS and JS for problem/cert categories
   if currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml' || currentCategoryIdentifier === 'certifications'
-    link(rel="stylesheet", href="/styles/certifications.css")
-    script(src="/js/table-sorting.js", defer)
+    link(rel="stylesheet", href="/styles/certifications.css") // Using your existing certs CSS for general table styling
+    script(src="/js/table-sorting.js", defer) // Link table sorting JS
   
-  script(src="/js/category-sorting.js", defer)
+  script(src="/js/category-sorting.js", defer) // Always link main category sorting JS
 
 block content
   .content-container
     h1= title 
 
+    // --- Sorting Options UI (Frontend) ---
     .sorting-controls
       .toggle-switch-group#sort-by-toggle(role="radiogroup", aria-label="Sort Articles By")
         each optionValue, optionKey in sortingOptions
@@ -30,29 +34,20 @@ block content
             )
             span.button-text= optionValue.label 
       
+      // IMPORTANT: Embed the article data and sorting options for client-side JavaScript
       script.
         window.categoryArticles = !{JSON.stringify(content)};
         window.sortingOptions = !{JSON.stringify(sortingOptions)};
         window.filteringOptions = !{JSON.stringify(filteringOptions)};
-        window.currentCategoryIdentifier = '#{category}';
+        window.currentCategoryIdentifier = '#{category}'; // Ensure this matches 'certifications'
 
-
+    // --- Article List Container ---
     #article-list-container.resource-list-container
       if content && content.length > 0
-        if currentCategoryIdentifier === 'math'
-          - let lastGroup = null;
-          ul.resource-list
-            each article in content
-              // Render a new <h2> header if the group changes
-              - const currentSortConfig = sortingOptions.default;
-              - const requiresGrouping = currentSortConfig && currentSortConfig.key;
-
-              if requiresGrouping && article[currentSortConfig.key] && article[currentSortConfig.key] !== lastGroup
-                h2.resource-group-title= article[currentSortConfig.key].replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
-                - lastGroup = article[currentSortConfig.key]
-              li
-                a(href=`/${category}/${article.slug}`)= article.title
-        else if currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml'
+        // --- Conditionally Render Table or List ---
+        // This 'if' must correctly catch 'certifications'
+        if currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml'
+          // Define columns for LeetCode/DeepML problems
           -
             const problemColumns = [
               { key: 'problemId', label: 'ID' },
@@ -61,18 +56,33 @@ block content
               { key: 'tags', label: 'Tags' }
             ];
           +dynamicResourceTable(content, problemColumns, categoryIdentifier)
-        else if currentCategoryIdentifier === 'certifications'
+        else if currentCategoryIdentifier === 'certifications' // <--- This 'else if' must catch it
+          // Define columns for Certifications
           -
             const certColumns = [
               { key: 'domain', label: 'Domain' },
               { key: 'orgName', label: 'Organization' },
-              { key: 'title', label: 'Certification' },
+              { key: 'title', label: 'Certification' }, // 'title' from manifest maps to certName
               { key: 'earnedDate', label: 'Achieved' },
               { key: 'expirationDate', label: 'Expires' },
               { key: 'price', label: 'Cost' },
               { key: 'link', label: 'Link' }
             ];
           +dynamicResourceTable(content, certColumns, categoryIdentifier)
+        else if currentCategoryIdentifier === 'math' // <--- Math is the last check
+          // Render Math as an unordered list (ul) with groups
+          - let lastGroup = null;
+          ul.resource-list
+            each article in content // Iterates in the manifest's defined order
+              // Render a new <h2> header if the group changes
+              - const currentSortConfig = sortingOptions.default; // Get the default sort config for Math
+              - const requiresGrouping = currentSortConfig && currentSortConfig.key;
+
+              if requiresGrouping && article[currentSortConfig.key] && article[currentSortConfig.key] !== lastGroup
+                h2.resource-group-title= article[currentSortConfig.key].replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
+                - lastGroup = article[currentSortConfig.key]
+              li
+                a(href=`/${category}/${article.slug}`)= article.title
         else
           p No content display format defined for this category.
       else

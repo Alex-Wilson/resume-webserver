@@ -15,7 +15,7 @@ export function renderReadmePage(req, res, next) {
     process.cwd(),
     'public',
     'content',
-    'math',
+    'readme',
     'README.md',
   );
 
