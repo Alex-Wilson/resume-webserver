@@ -1,5 +1,3 @@
-// src/views/pages/resource-category.pug
-
 extends ../layouts/template.pug
 
 block head
@@ -11,10 +9,10 @@ block head
   
   // Conditionally link table-specific CSS and JS for problem/cert categories
   if currentCategoryIdentifier === 'leetcode' || currentCategoryIdentifier === 'deep-ml' || currentCategoryIdentifier === 'certifications'
-    link(rel="stylesheet", href="/styles/certifications.css") // Using your existing certs CSS for general table styling
-    script(src="/js/table-sorting.js", defer) // Link table sorting JS
+    link(rel="stylesheet", href="/styles/certifications.css")
+    script(src="/js/table-sorting.js", defer)
   
-  script(src="/js/category-sorting.js", defer) // Always link main category sorting JS
+  script(src="/js/category-sorting.js", defer)
 
 block content
   .content-container
@@ -56,8 +54,7 @@ block content
               { key: 'tags', label: 'Tags' }
             ];
           +dynamicResourceTable(content, problemColumns, categoryIdentifier)
-        else if currentCategoryIdentifier === 'certifications' // <--- This 'else if' must catch it
-          // Define columns for Certifications
+        else if currentCategoryIdentifier === 'certifications'
           -
             const certColumns = [
               { key: 'domain', label: 'Domain' },
@@ -69,13 +66,10 @@ block content
               { key: 'link', label: 'Link' }
             ];
           +dynamicResourceTable(content, certColumns, categoryIdentifier)
-        else if currentCategoryIdentifier === 'math' // <--- Math is the last check
-          // Render Math as an unordered list (ul) with groups
-          - let lastGroup = null;
           ul.resource-list
-            each article in content // Iterates in the manifest's defined order
+            each article in content
               // Render a new <h2> header if the group changes
-              - const currentSortConfig = sortingOptions.default; // Get the default sort config for Math
+              - const currentSortConfig = sortingOptions.default;
               - const requiresGrouping = currentSortConfig && currentSortConfig.key;
 
               if requiresGrouping && article[currentSortConfig.key] && article[currentSortConfig.key] !== lastGroup
