@@ -1,10 +1,18 @@
 extends ../layouts/template.pug
 
 block head
-  // Only list-specific CSS and JS for this template
+  // Import our dynamic table mixin directly for this template
+  include ../mixins/dynamic-resource-mixin.pug
+
   link(rel="stylesheet", href="/styles/resource-list.css") 
   link(rel="stylesheet", href="/styles/toggle-switch.css")
-  script(src="/js/category-sorting.js", defer) // Client-side sorting for lists
+  // Use 'certifications.css' for general table styling, as it's already there and table-focused.
+  link(rel="stylesheet", href="/styles/certifications.css") 
+  
+  // Link the table sorting and main category sorting JS directly
+  // Note: table-sorting.js contains window.initTableSorting
+  script(src="/js/table-sorting.js", defer)
+  script(src="/js/category-sorting.js", defer)
 
 block content
   .content-container
@@ -31,22 +39,10 @@ block content
         window.filteringOptions = !{JSON.stringify(filteringOptions)};
         window.currentCategoryIdentifier = '#{category}';
 
-    // --- Article List Container (Always a List for this template) ---
+    // --- Article List Container (Always a Table for this template) ---
     #article-list-container.resource-list-container
       if content && content.length > 0
-        // Render as an unordered list (ul) with groups
-        - let lastGroup = null;
-        ul.resource-list
-          each article in content
-            // Determine if grouping headers are needed for the current sort
-            - const currentSortConfig = sortingOptions.default;
-            - const requiresGrouping = currentSortConfig && currentSortConfig.key;
-
-            if requiresGrouping && article[currentSortConfig.key] && article[currentSortConfig.key] !== lastGroup
-              h2.resource-group-title= article[currentSortConfig.key].replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
-              - lastGroup = article[currentSortConfig.key]
-            li
-              // Render title directly (no problemId for math)
-              a(href=`/${category}/${article.slug}`)= article.title
+        // Use the tableColumns defined in the manifest for this category
+        +dynamicResourceTable(content, tableColumns, categoryIdentifier)
       else
-        p No articles found for this category.
+        p No content found for this category.

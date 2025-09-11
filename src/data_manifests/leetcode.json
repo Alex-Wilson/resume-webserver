@@ -1,4 +1,12 @@
 {
+  "template": "problem-category",
+  "displayType": "table",
+  "tableColumns": [
+    { "key": "problemId", "label": "ID" },
+    { "key": "title", "label": "Problem Title" },
+    { "key": "level", "label": "Difficulty" },
+    { "key": "tags", "label": "Tags" }
+  ],
   "articles": [
     {
       "slug": "url-shortner",

@@ -1,4 +1,15 @@
 {
+  "template": "problem-category",
+  "displayType": "table",
+  "tableColumns": [
+    { "key": "domain", "label": "Domain" },
+    { "key": "orgName", "label": "Issuing Org" },
+    { "key": "title", "label": "Certification" },
+    { "key": "earnedDate", "label": "Achieved" },
+    { "key": "expirationDate", "label": "Expires" },
+    { "key": "price", "label": "Cost" },
+    { "key": "link", "label": "View" }
+  ],
   "articles": [
     {
       "slug": "pmp",
@@ -23,7 +34,7 @@
     {
       "slug": "aws-cloud-practitioner",
       "title": "Cloud Practitioner Foundational",
-      "domain": "Cloud",
+      "domain": "Cloud Administration",
       "orgName": "AWS",
       "link": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
       "price": 100,
@@ -31,6 +42,28 @@
       "expirationDate": "4/19/2028"
     }
   ],
-  "sortingOptions": {},
+  "sortingOptions": {
+    "default": {
+      "label": "Domain",
+      "key": "domain",
+      "groupOrder": [
+        "Project Management",
+        "Networking",
+        "Cloud Administration",
+        "Cybersecurity"
+      ]
+    },
+    "by_vendor": {
+      "label": "Vendor",
+      "key": "orgName",
+      "groupOrder": [
+        "Project Management Institute",
+        "CompTIA",
+        "AWS",
+        "Microsoft",
+        "ISC²"
+      ]
+    }
+  },
   "filteringOptions": {}
 }

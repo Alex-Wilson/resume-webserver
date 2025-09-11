@@ -5,7 +5,7 @@ import path from 'path';
 
 const manifestsFolderPath = path.join(import.meta.dirname, '../data_manifests');
 
-export let manifest = {}; // Stores { categoryIdentifier: { articles: [...], sortingOptions: {...}, filteringOptions: {...} } }
+export let manifest = {}; // Stores { categoryIdentifier: { articles: [...], sortingOptions: {...}, filteringOptions: {...}, template: "...", displayType: "...", tableColumns: [...] } }
 export let slugMap = {};   // Stores a flat map of all articles by their unique slug
 
 export function initializeContent() {
@@ -23,13 +23,15 @@ export function initializeContent() {
         const filePath = path.join(manifestsFolderPath, file);
         const fileContent = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-        // *** CRITICAL CHANGE: Expecting fileContent to be an OBJECT ***
-        // It now expects the JSON to be an object with 'articles', 'sortingOptions', and 'filteringOptions' keys.
+        // *** CRITICAL CHANGE: Extract new manifest properties ***
         const articles = fileContent.articles || [];
         const sortingOptions = fileContent.sortingOptions || {};
-        const filteringOptions = fileContent.filteringOptions || {}; // Also grab filtering options
+        const filteringOptions = fileContent.filteringOptions || {};
+        const template = fileContent.template || 'resource-category'; // Default to resource-category
+        const displayType = fileContent.displayType || 'list'; // Default to list
+        const tableColumns = fileContent.tableColumns || [];   // Default to empty array
 
-        loadedManifest[categoryIdentifier] = { articles, sortingOptions, filteringOptions }; // Store all data
+        loadedManifest[categoryIdentifier] = { articles, sortingOptions, filteringOptions, template, displayType, tableColumns }; // Store all data
 
         for (const article of articles) {
           if (loadedSlugMap[article.slug]) {

@@ -247,9 +247,7 @@
     }
   ],
   "sortingOptions": {
-    "alphabetical": { "label": "A - Z" },
-    "default": { "label": "Zero to Hero" },
-    "grouped": {
+    "default": {
       "label": "Knowledge Area",
       "key": "group",
       "groupOrder": [
@@ -259,7 +257,8 @@
         "Geometry",
         "Statistics"
       ]
-    }
+    },
+    "learning_from_zero": { "label": "Learning from Zero" }
   },
   "filteringOptions": {
   }

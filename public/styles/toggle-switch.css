@@ -24,63 +24,68 @@
 /* Main container for the segmented buttons */
 .toggle-switch-group {
   display: flex;
-  /* CRITICAL FIX: Increase max-width to allow text to fit without truncation */
-  max-width: 600px; /* Increased from 450px. Adjust further if needed. */
-  width: 100%; /* Make it take full width up to max-width */
-  
   border: 1px solid var(--toggle-border-color);
-  border-radius: 8px; /* Basic rounding for the whole group */
-  overflow: hidden; /* Ensures borders/backgrounds are within the rounded corners */
-  background-color: var(--toggle-background-color);
+  border-radius: 8px; /* CRITICAL: Outer rounding applied ONLY to the group container */
+  overflow: hidden; /* CRITICAL: Clips contents (including individual segments' corners) */
   font-family: var(--toggle-font-family);
-  align-items: stretch; /* Ensure all flex items stretch to fill height */
+  align-items: stretch; /* Ensures all buttons fill available height */
 }
 
-/* Individual button segment (the label element) */
+/* Individual button segment (the <label> element) */
 .toggle-switch-button {
-  /* This width is calculated based on the parent's max-width/width */
-  width: calc(100% / 3); /* Still ensures 3 equal parts */
-  
+  flex-grow: 1; /* Makes buttons share space equally */
+  flex-basis: min-content; /* Allows buttons to grow from their minimum content width */
   text-align: center;
   cursor: pointer;
-  color: var(--toggle-text-color); /* Default text color */
-  transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition */
+  position: relative; /* Needed for `input[type="radio"]` absolute positioning */
+  /* NO border-radius, background-color, or color directly on this label */
 }
 
-/* Separator between buttons */
+/* Separator between buttons (applied to all but the last) */
 .toggle-switch-button:not(:last-child) {
   border-right: 1px solid var(--toggle-border-color);
 }
 
-/* Hide the actual radio input dots */
+/* Hide the actual radio input dots, but keep them functional */
 .toggle-switch-button input[type="radio"] {
   position: absolute;
   opacity: 0;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+  width: 100%; /* Make input cover full label for clickability */
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2; /* Ensures input is on top for click handling */
 }
 
-/* The visible text inside each button segment */
+/* The visible text and its background area inside each button segment */
 .toggle-switch-button .button-text {
-  display: block;
-  padding: 0.6em 1.2em; /* Basic padding */
-  color: inherit; /* Inherit color from parent .toggle-switch-button */
+  display: block; /* CRITICAL: Make it block to fill the entire label's space */
+  padding: 0.6em 1.2em; /* Defines button's visual padding/size */
   font-family: var(--toggle-font-family);
   font-size: 0.9em;
-  white-space: nowrap; /* Keep text on one line */
-  /* Remove overflow: hidden; and text-overflow: ellipsis; as we expect text to fit now */
-  /* If text *still* overflows, we can put these back or make buttons even wider. */
-  line-height: 1; /* Ensures text aligns vertically */
+  white-space: nowrap;
+  line-height: 1; /* For vertical alignment of text */
+  transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition */
+
+  /* Default (inactive) styling for the text and background of the segment */
+  background-color: var(--toggle-background-color);
+  color: var(--toggle-text-color);
+  
+  /* CRITICAL: No individual border-radius on .button-text. Rely purely on parent's overflow:hidden */
 }
 
-/* Styling for the active (selected) button segment */
+/* Styling for the active (selected) button segment - applies to .button-text */
 .toggle-switch-button input[type="radio"]:checked + .button-text {
-  background-color: var(--toggle-active-bg); /* Active background color */
-  color: var(--toggle-active-text);         /* Active text color */
+  background-color: var(--toggle-active-bg);
+  color: var(--toggle-active-text);
 }
 
-/* Optional: Add a subtle hover effect for inactive buttons */
-.toggle-switch-button:hover:not(:has(input[type="radio"]:checked)) .button-text {
-  filter: brightness(1.2);
+/* Hover state for INACTIVE buttons - applies to .button-text */
+/* Using :not(:checked) on the radio input sibling selector for precision */
+.toggle-switch-button input[type="radio"]:not(:checked) + .button-text:hover {
+  background-color: var(--official-grey); /* Use official grey as a hover background for inactive */
+  color: var(--toggle-text-color); /* Keep inactive text color on hover */
 }
