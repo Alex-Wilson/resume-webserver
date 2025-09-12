@@ -1,6 +1,6 @@
 {
-  "template": "problem-category",
-  "displayType": "table",
+  "template": "resource-category",
+  "displayType": "list",
   "tableColumns": [
     { "key": "domain", "label": "Domain" },
     { "key": "orgName", "label": "Issuing Org" },
@@ -23,7 +23,7 @@
     },
     {
       "slug": "comptia-network-plus",
-      "title": "Network+",
+      "title": "CompTIA Network+",
       "domain": "Networking",
       "orgName": "CompTIA",
       "link": "https://www.comptia.org/certifications/network",
@@ -33,7 +33,7 @@
     },
     {
       "slug": "aws-cloud-practitioner",
-      "title": "Cloud Practitioner Foundational",
+      "title": "AWS Cloud Practitioner Foundational",
       "domain": "Cloud Administration",
       "orgName": "AWS",
       "link": "https://aws.amazon.com/certification/certified-cloud-practitioner/",

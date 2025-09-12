@@ -1,4 +1,6 @@
 {
+  "template": "resource-category",
+  "displayType": "list",
   "articles": [
     {
       "slug": "pre-algebra",
@@ -124,7 +126,7 @@
       "title": "Abstract Algebra",
       "group": "Algebra",
       "level": "High",
-      "description": "Study of algebraic structures such as groups, rings, and fields, exploring their properties and relationships through axioms and proofs."
+      "description": "Study of algebraic structures suchs as groups, rings, and fields, exploring their properties and relationships through axioms and proofs."
     },
     {
       "slug": "galois-theory",

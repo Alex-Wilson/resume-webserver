@@ -1,43 +1,20 @@
 extends ../layouts/template.pug
 
 block head
-  // Import our dynamic table mixin directly for this template
   include ../mixins/dynamic-resource-mixin.pug
-
   link(rel="stylesheet", href="/styles/resource-list.css") 
-  link(rel="stylesheet", href="/styles/toggle-switch.css")
-  // Use 'certifications.css' for general table styling, as it's already there and table-focused.
   link(rel="stylesheet", href="/styles/certifications.css") 
-  
-  // Link the table sorting and main category sorting JS directly
-  // Note: table-sorting.js contains window.initTableSorting
-  script(src="/js/table-sorting.js", defer)
-  script(src="/js/category-sorting.js", defer)
 
 block content
   .content-container
     h1= title 
-
-    // --- Sorting Options UI (Frontend) ---
-    .sorting-controls
-      .toggle-switch-group#sort-by-toggle(role="radiogroup", aria-label="Sort Articles By")
-        each optionValue, optionKey in sortingOptions
-          label.toggle-switch-button(for=`sort-${optionKey}`)
-            input(
-              type="radio",
-              id=`sort-${optionKey}`,
-              name="sort-order",
-              value=optionKey,
-              checked=(optionKey === 'default')
-            )
-            span.button-text= optionValue.label 
-      
-      // IMPORTANT: Embed the article data and sorting options for client-side JavaScript
       script.
-        window.categoryArticles = !{JSON.stringify(content)};
-        window.sortingOptions = !{JSON.stringify(sortingOptions)};
-        window.filteringOptions = !{JSON.stringify(filteringOptions)};
-        window.currentCategoryIdentifier = '#{category}';
+        window.categoryArticles = JSON.parse('!{JSON.stringify(content)}');
+        window.sortingOptions = JSON.parse('!{JSON.stringify(sortingOptions)}');
+        window.filteringOptions = JSON.parse('!{JSON.stringify(filteringOptions)}');
+        window.currentCategoryIdentifier = '!{category}'; 
+        window.tableColumns = JSON.parse('!{JSON.stringify(tableColumns)}');
+
 
     // --- Article List Container (Always a Table for this template) ---
     #article-list-container.resource-list-container
@@ -45,4 +22,4 @@ block content
         // Use the tableColumns defined in the manifest for this category
         +dynamicResourceTable(content, tableColumns, categoryIdentifier)
       else
-        p No content found for this category.
+        p No content found for this category (from problem-category.pug).

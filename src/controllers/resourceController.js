@@ -46,27 +46,37 @@ export function renderPageDispatcher(req, res, next) {
 export function renderCategoryPage(req, res, next) {
   const category = req.params.category;
 
-  // *** CRITICAL CHANGE: Get all relevant data from the manifest entry ***
   const categoryData = manifest[category];
+  if (!categoryData) {
+      console.error(`Error: Category data for "${category}" not found in manifest.`);
+      const err = new Error('Category Data Missing');
+      err.status = 500;
+      return next(err);
+  }
+
   const articles = categoryData.articles || [];
   const sortingOptions = categoryData.sortingOptions || {};
   const filteringOptions = categoryData.filteringOptions || {};
-  // NEW: Extract displayType and tableColumns from manifest
-  const templateName = categoryData.template || 'resource-category'; // Use specified template, default to 'resource-category'
-  const displayType = categoryData.displayType || 'list'; // Use specified displayType, default to 'list'
-  const tableColumns = categoryData.tableColumns || []; // Use specified tableColumns
+  
+  // NEW: Extract templateName, displayType, tableColumns directly
+  const templateName = categoryData.template || 'resource-category'; // Default to resource-category
+  const displayType = categoryData.displayType || 'list'; // Default to list
+  const tableColumns = categoryData.tableColumns || []; // Default to empty array
 
   const title = category.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
 
-  // *** CRITICAL FIX: Dynamically select the Pug template to render ***
+  // *** CRITICAL DEBUGGING: Log which template is being selected ***
+  console.log(`Rendering category: ${category} with template: pages/${templateName}.pug`);
+  console.log(`Display Type: ${displayType}, Table Columns: ${tableColumns.length}`);
+
   res.render(`pages/${templateName}`, { // Renders 'pages/resource-category' or 'pages/problem-category'
     title: title,
-    category: category,
+    category: category, // Always pass 'category' for window.currentCategoryIdentifier
     content: articles,
     sortingOptions: sortingOptions,
     filteringOptions: filteringOptions,
-    displayType: displayType,   // NEW: Pass displayType to template
-    tableColumns: tableColumns  // NEW: Pass tableColumns to template
+    displayType: displayType,   // Pass displayType to template
+    tableColumns: tableColumns  // Pass tableColumns to template
   });
 }
 

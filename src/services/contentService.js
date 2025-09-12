@@ -9,7 +9,8 @@ export let manifest = {}; // Stores { categoryIdentifier: { articles: [...], sor
 export let slugMap = {};   // Stores a flat map of all articles by their unique slug
 
 export function initializeContent() {
-  console.log('ContentService: Starting content initialization...');
+  console.log('ContentService: Starting content initialization (VERIFIED)'); // Added VERIFIED
+  console.log(`Loading manifests from: ${manifestsFolderPath}`); // Debugging path
 
   const loadedManifest = {};
   const loadedSlugMap = {};
@@ -23,15 +24,15 @@ export function initializeContent() {
         const filePath = path.join(manifestsFolderPath, file);
         const fileContent = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-        // *** CRITICAL CHANGE: Extract new manifest properties ***
+        // *** CRITICAL VERIFICATION: Ensure these properties are extracted ***
         const articles = fileContent.articles || [];
         const sortingOptions = fileContent.sortingOptions || {};
         const filteringOptions = fileContent.filteringOptions || {};
-        const template = fileContent.template || 'resource-category'; // Default to resource-category
-        const displayType = fileContent.displayType || 'list'; // Default to list
-        const tableColumns = fileContent.tableColumns || [];   // Default to empty array
+        const template = fileContent.template || 'resource-category'; // Check this exact line
+        const displayType = fileContent.displayType || 'list';
+        const tableColumns = fileContent.tableColumns || [];
 
-        loadedManifest[categoryIdentifier] = { articles, sortingOptions, filteringOptions, template, displayType, tableColumns }; // Store all data
+        loadedManifest[categoryIdentifier] = { articles, sortingOptions, filteringOptions, template, displayType, tableColumns };
 
         for (const article of articles) {
           if (loadedSlugMap[article.slug]) {
@@ -41,6 +42,7 @@ export function initializeContent() {
           }
           loadedSlugMap[article.slug] = { ...article, category: categoryIdentifier };
         }
+        console.log(`  Loaded manifest for: ${categoryIdentifier}. Template: ${template}, DisplayType: ${displayType}`); // Debugging each manifest
       }
     }
     manifest = loadedManifest;
@@ -49,7 +51,7 @@ export function initializeContent() {
     console.log(
       `ContentService: Successfully loaded ${Object.keys(manifest).length} categories and ${
         Object.keys(slugMap).length
-      } unique articles.`
+      } unique articles (VERIFIED).`
     );
   } catch (error) {
     console.error('ContentService: ERROR during initialization:', error.message);
