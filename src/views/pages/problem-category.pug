@@ -20,6 +20,6 @@ block content
     #article-list-container.resource-list-container
       if content && content.length > 0
         // Use the tableColumns defined in the manifest for this category
-        +dynamicResourceTable(content, tableColumns, categoryIdentifier)
+        +dynamicResourceTable(content, tableColumns, category)
       else
         p No content found for this category (from problem-category.pug).
