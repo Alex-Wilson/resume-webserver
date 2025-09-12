@@ -2,16 +2,17 @@
   "template": "problem-category",
   "displayType": "table",
   "tableColumns": [
-    { "key": "problemId", "label": "ID" },
+    { "key": "problemId", "label": "Problem Number" },
     { "key": "title", "label": "Problem Title" },
     { "key": "level", "label": "Difficulty" },
     { "key": "tags", "label": "Tags" }
   ],
   "articles": [
     {
+      "problemId": "System Design",
       "slug": "url-shortner",
       "title": "URL Shortener Design",
-      "level": "system-design",
+      "level": "System Design",
       "tags": ["design", "distributed-systems", "hash-function", "database", "load-balancer", "caching"],
       "description": "Designing a system that takes a long URL and generates a short, unique URL."
     },

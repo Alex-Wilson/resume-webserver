@@ -32,8 +32,8 @@
       "expirationDate": "12/10/2027"
     },
     {
-      "slug": "aws-cloud-practitioner",
-      "title": "AWS Cloud Practitioner Foundational",
+      "slug": "aws-certified-cloud-practitioner-foundational",
+      "title": "AWS Certified Cloud Practitioner Foundational",
       "domain": "Cloud Administration",
       "orgName": "AWS",
       "link": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
