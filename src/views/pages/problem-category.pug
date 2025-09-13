@@ -9,13 +9,16 @@ block content
   .content-container
     h1= title 
       script.
-        window.categoryArticles = JSON.parse('!{JSON.stringify(content)}');
-        window.sortingOptions = JSON.parse('!{JSON.stringify(sortingOptions)}');
-        window.filteringOptions = JSON.parse('!{JSON.stringify(filteringOptions)}');
-        window.currentCategoryIdentifier = '!{category}'; 
-        window.tableColumns = JSON.parse('!{JSON.stringify(tableColumns)}');
+        window.categoryArticles = JSON.parse(decodeURIComponent('!{encodeURIComponent(JSON.stringify(content))}'));
+        window.sortingOptions = JSON.parse(decodeURIComponent('!{encodeURIComponent(JSON.stringify(sortingOptions))}'));
+        window.filteringOptions = JSON.parse(decodeURIComponent('!{encodeURIComponent(JSON.stringify(filteringOptions))}'));
+        window.currentCategoryIdentifier = '!{category}';
+        window.tableColumns = JSON.parse(decodeURIComponent('!{encodeURIComponent(JSON.stringify(tableColumns))}'));
+    script(src="/js/problem-search.js" defer)
 
-
+    .search-container
+      label(for='article-search') Search:
+      input#article-search(type='text', placeholder='Type to search for a problem, by: ID number (#123), tag (#array), or title (two sum)');
     // --- Article List Container (Always a Table for this template) ---
     #article-list-container.resource-list-container
       if content && content.length > 0
