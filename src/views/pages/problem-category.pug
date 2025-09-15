@@ -18,8 +18,7 @@ block content
 
     .search-container
       label(for='article-search') Search:
-      input#article-search(type='text', placeholder='Type to search for a problem, by: ID number (#123), tag (#array), or title (two sum)');
-    // --- Article List Container (Always a Table for this template) ---
+      input#article-search(type='text', placeholder='Type to search for a problem, by: ID number (#123), tag (#array), or title (two sum)')
     #article-list-container.resource-list-container
       if content && content.length > 0
         // Use the tableColumns defined in the manifest for this category

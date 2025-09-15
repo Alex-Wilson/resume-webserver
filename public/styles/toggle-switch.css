@@ -15,10 +15,11 @@
 /* Container for the button group */
 .sorting-controls {
   display: flex;
-  justify-content: center; /* Centers the content horizontally */
+  justify-content: center; /* Centers the toggle-switch-group horizontally */
   align-items: center;
   margin-bottom: 20px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allows buttons to wrap to the next line on smaller screens if group gets too wide */
+  width: 100%; /* Ensure the container spans full width to allow centering */
 }
 
 /* Main container for the segmented buttons */
@@ -29,12 +30,19 @@
   overflow: hidden; /* CRITICAL: Clips contents (including individual segments' corners) */
   font-family: var(--toggle-font-family);
   align-items: stretch; /* Ensures all buttons fill available height */
+  /* Ensure the group is allowed to expand as much as needed to fit content. */
+  /* If there are more than two items, you might want to reconsider flex-basis on buttons. */
+  min-width: 360px; /* Adjust this value to ensure longest text (e.g., "Learning from Zero") fits in 50% without overflow */
+  /* You can make this larger if needed. */
 }
 
 /* Individual button segment (the <label> element) */
 .toggle-switch-button {
-  flex-grow: 1; /* Makes buttons share space equally */
-  flex-basis: min-content; /* Allows buttons to grow from their minimum content width */
+  /* Reverted to a more common flex pattern that plays well with min-width on parent,
+     while still achieving 50/50 due to the parent's flex behavior and min-width. */
+  flex-grow: 1;    /* Allows the button to grow and take available space */
+  flex-shrink: 0;  /* Prevents the button from shrinking below its content's width */
+  flex-basis: 50%; /* Target 50% initially, but content might push it wider if needed, due to min-width on parent */
   text-align: center;
   cursor: pointer;
   position: relative; /* Needed for `input[type="radio"]` absolute positioning */
@@ -66,7 +74,7 @@
   padding: 0.6em 1.2em; /* Defines button's visual padding/size */
   font-family: var(--toggle-font-family);
   font-size: 0.9em;
-  white-space: nowrap;
+  white-space: nowrap; /* Keeps text on a single line */
   line-height: 1; /* For vertical alignment of text */
   transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition */
 
