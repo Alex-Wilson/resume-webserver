@@ -2,8 +2,9 @@ extends ../layouts/template.pug
 
 block head
   include ../mixins/dynamic-resource-mixin.pug
-  link(rel="stylesheet", href="/styles/resource-list.css") 
-  link(rel="stylesheet", href="/styles/certifications.css") 
+  link(rel="stylesheet", href="/styles/problem-list.css") 
+  link(rel="stylesheet", href="/styles/table.css")
+  script(src="/js/table-sorting.js" defer)
 
 block content
   .content-container
@@ -12,16 +13,15 @@ block content
         window.categoryArticles = JSON.parse(decodeURIComponent('!{encodeURIComponent(JSON.stringify(content))}'));
         window.sortingOptions = JSON.parse(decodeURIComponent('!{encodeURIComponent(JSON.stringify(sortingOptions))}'));
         window.filteringOptions = JSON.parse(decodeURIComponent('!{encodeURIComponent(JSON.stringify(filteringOptions))}'));
-        window.currentCategoryIdentifier = '!{category}';
+        window.currentCategoryIdentifier = '!{category}'; 
         window.tableColumns = JSON.parse(decodeURIComponent('!{encodeURIComponent(JSON.stringify(tableColumns))}'));
-    script(src="/js/problem-search.js" defer)
 
     .search-container
       label(for='article-search') Search:
-      input#article-search(type='text', placeholder='Type to search for a problem, by: ID number (#123), tag (#array), or title (two sum)')
+      input#article-search(type='text', placeholder='Type to search for a problem, by: ID#, tag, or title')
+
     #article-list-container.resource-list-container
       if content && content.length > 0
-        // Use the tableColumns defined in the manifest for this category
         +dynamicResourceTable(content, tableColumns, category)
       else
         p No content found for this category (from problem-category.pug).

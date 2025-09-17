@@ -1,7 +1,6 @@
 extends ../layouts/template.pug
 
 block head
-  // Only list-specific CSS and JS for this template
   link(rel="stylesheet", href="/styles/resource-list.css") 
   link(rel="stylesheet", href="/styles/toggle-switch.css")
   script(src="/js/category-sorting.js", defer)
@@ -9,8 +8,6 @@ block head
 block content
   .content-container
     h1= title 
-
-    // --- Sorting Options UI (Frontend) ---
     .sorting-controls
       .toggle-switch-group#sort-by-toggle(role="radiogroup", aria-label="Sort Articles By")
         each optionValue, optionKey in sortingOptions

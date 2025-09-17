@@ -2,7 +2,7 @@
   "template": "problem-category",
   "displayType": "table",
   "tableColumns": [
-    { "key": "problemId", "label": "Problem Number" },
+    { "key": "problemId", "label": "Problem ID#" },
     { "key": "title", "label": "Problem Title" },
     { "key": "level", "label": "Difficulty" },
     { "key": "tags", "label": "Tags" }
@@ -30,7 +30,7 @@
       "title": "Split Array With Same Average",
       "level": "hard",
       "tags": ["array", "dynamic-programming", "math", "bit-manipulation"],
-      "description": "In a given array nums of n positive integers, find if it's possible to split nums into two non-empty subsets with the same average."
+      "description": "In a given array nums of n positive integers, find if it is possible to split nums into two non-empty subsets with the same average."
     },
     {
       "problemId": 5,

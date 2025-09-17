@@ -1,0 +1,142 @@
+/* Minimal Core Styling for Table Pages */
+
+h1, h2, h3, p {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem auto;
+  font-size: 0.9rem;
+  background-color: #292a2d;
+  color: #ffffff;
+  border: 1px solid #444444; /* Simple border */
+}
+
+table thead th {
+  padding: 0.8rem;
+  background-color: #333333;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #555555; /* Simple bottom border */
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative; /* Needed for sort arrows/filter icon */
+  
+  /* Reduced padding-right as filter icon styling will be minimal */
+  padding-right: 15px; 
+}
+
+table thead th span:first-child {
+  line-height: 1.2;
+  display: inline-block; 
+}
+
+/* Minimal sort indicator arrows */
+table thead th span:first-child.sorted-asc::after {
+  content: ' ▲'; 
+  font-size: 0.8em;
+  margin-left: 5px;
+  color: #00ff00; 
+}
+
+table thead th span:first-child.sorted-desc::after {
+  content: ' ▼'; 
+  font-size: 0.8em;
+  margin-left: 5px;
+  color: #00ff00; 
+}
+
+/* Minimal filter icon styling */
+.filter-icon-trigger {
+  position: absolute; 
+  top: 50%;
+  right: 5px; /* Position closer to the edge */
+  transform: translateY(-50%);
+  width: 1em; /* Smaller size for minimalism */
+  height: 1em; 
+  vertical-align: middle;
+  cursor: pointer;
+  filter: none; /* No filter properties for simplicity */
+  /* transition: none; Removed transition */
+}
+
+/* Remove hover and active states for minimalism, or keep very simple */
+.filter-icon-trigger:hover {
+  filter: brightness(1.5); /* Simple brightness boost on hover */
+}
+
+/* Minimal active filter indicator */
+.filter-icon-trigger.filter-active-indicator {
+  filter: brightness(1.5) sepia(1) saturate(5) hue-rotate(100deg); /* Simple green tint for active */
+}
+
+
+table tbody tr {
+  border-bottom: 1px solid #444444; /* Simple row separators */
+  /* transition: none; Removed transition */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #3a3a3a; 
+}
+
+table tbody tr:hover {
+  background-color: #4a4a4a; /* Simple hover highlight */
+}
+
+table tbody td {
+  padding: 0.75rem;
+  color: #ffffff;
+  vertical-align: middle;
+  text-align: center;
+}
+
+table tbody a {
+  color: #add8e6; /* Light blue for links */
+  text-decoration: underline;
+  font-weight: normal; /* Default font weight */
+  /* transition: none; Removed transition */
+}
+
+table tbody a:hover {
+  color: #00ff00; /* Green on hover */
+}
+
+/* Minimal Responsive table for smaller screens (keep core structure) */
+@media screen and (max-width: 768px) {
+  table {
+    font-size: 0.8rem;
+  }
+
+  table thead {
+    display: none; 
+  }
+
+  table tbody tr {
+    display: block; 
+    margin-bottom: 0.5rem; /* Reduced margin */
+    border: 1px solid #444444; /* Border around stacked row */
+  }
+
+  table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border: none; /* No internal borders in stacked rows */
+  }
+
+  table tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #cccccc; /* Lighter color for labels */
+    margin-right: 1rem;
+  }
+}
+
+/* Removed redundant th:hover and sort-btn sections for minimalism */
