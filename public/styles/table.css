@@ -25,15 +25,17 @@ table thead th {
   border-bottom: 1px solid #555555; /* Simple bottom border */
   vertical-align: middle;
   cursor: pointer;
-  position: relative; /* Needed for sort arrows/filter icon */
-  
-  /* Reduced padding-right as filter icon styling will be minimal */
+  position: relative; 
   padding-right: 15px; 
 }
 
 table thead th span:first-child {
   line-height: 1.2;
   display: inline-block; 
+  user-select: none; /* CRITICAL: Prevent text highlighting */
+  -webkit-user-select: none; /* For Webkit browsers */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; /* For Edge/IE */
 }
 
 /* Minimal sort indicator arrows */
@@ -55,30 +57,25 @@ table thead th span:first-child.sorted-desc::after {
 .filter-icon-trigger {
   position: absolute; 
   top: 50%;
-  right: 5px; /* Position closer to the edge */
+  right: 5px;
   transform: translateY(-50%);
-  width: 1em; /* Smaller size for minimalism */
+  width: 1em; 
   height: 1em; 
   vertical-align: middle;
   cursor: pointer;
-  filter: none; /* No filter properties for simplicity */
-  /* transition: none; Removed transition */
+  filter: none;
 }
 
-/* Remove hover and active states for minimalism, or keep very simple */
 .filter-icon-trigger:hover {
-  filter: brightness(1.5); /* Simple brightness boost on hover */
+  filter: brightness(1.5);
 }
 
-/* Minimal active filter indicator */
 .filter-icon-trigger.filter-active-indicator {
-  filter: brightness(1.5) sepia(1) saturate(5) hue-rotate(100deg); /* Simple green tint for active */
+  filter: brightness(1.5) sepia(1) saturate(5) hue-rotate(100deg);
 }
-
 
 table tbody tr {
-  border-bottom: 1px solid #444444; /* Simple row separators */
-  /* transition: none; Removed transition */
+  border-bottom: 1px solid #444444;
 }
 
 table tbody tr:nth-child(even) {
@@ -86,7 +83,7 @@ table tbody tr:nth-child(even) {
 }
 
 table tbody tr:hover {
-  background-color: #4a4a4a; /* Simple hover highlight */
+  background-color: #4a4a4a;
 }
 
 table tbody td {
@@ -97,17 +94,15 @@ table tbody td {
 }
 
 table tbody a {
-  color: #add8e6; /* Light blue for links */
+  color: #add8e6;
   text-decoration: underline;
-  font-weight: normal; /* Default font weight */
-  /* transition: none; Removed transition */
+  font-weight: normal;
 }
 
 table tbody a:hover {
-  color: #00ff00; /* Green on hover */
+  color: #00ff00;
 }
 
-/* Minimal Responsive table for smaller screens (keep core structure) */
 @media screen and (max-width: 768px) {
   table {
     font-size: 0.8rem;
@@ -119,24 +114,79 @@ table tbody a:hover {
 
   table tbody tr {
     display: block; 
-    margin-bottom: 0.5rem; /* Reduced margin */
-    border: 1px solid #444444; /* Border around stacked row */
+    margin-bottom: 0.5rem;
+    border: 1px solid #444444;
   }
 
   table tbody td {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
-    border: none; /* No internal borders in stacked rows */
+    border: none;
+  }
+
+  table tbody td:last-child {
+      border-bottom: none;
   }
 
   table tbody td::before {
     content: attr(data-label);
     font-weight: bold;
     text-transform: uppercase;
-    color: #cccccc; /* Lighter color for labels */
+    color: #cccccc;
     margin-right: 1rem;
   }
 }
 
-/* Removed redundant th:hover and sort-btn sections for minimalism */
+
+.filter-icon-trigger:hover {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(100deg);
+}
+
+.filter-icon-trigger.filter-active-indicator {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(100deg);
+}
+
+
+table thead th {
+  padding: 1rem;
+  background-color: #333333;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  border-bottom: 3px solid #000;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative; /* CRITICAL: For absolute positioning of the icon */
+  
+  padding-right: 35px; 
+
+  text-align: center;
+}
+
+table thead th span:first-child {
+  line-height: 1.2;
+  display: inline-block; 
+  /* The text span does not need z-index, as it is in the normal flow */
+}
+
+/* ... (previous unchanged CSS for header hover, sort indicators, rows, cells, links) ... */
+
+/* Filter icon styling */
+.filter-icon-trigger {
+  position: absolute; 
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  cursor: pointer;
+  filter: invert(1) brightness(0.8);
+  transition: filter 0.2s ease;
+  
+  z-index: 2; /* CRITICAL: Ensure icon is on top of other content within the th */
+}

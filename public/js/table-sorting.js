@@ -140,87 +140,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
   tableHead.querySelectorAll('th').forEach((header, headerIndex) => {
     const sortKey = header.dataset.column;
-    const filterIconTrigger = header.querySelector('.filter-icon-trigger');
-    const headerTextSpan = header.querySelector('span:first-child'); 
+    // We don't need to find individual elements here, as we'll use event.target inside the handler
     console.log(`table-sorting.js: Processing Header ${headerIndex} ('${header.textContent.trim()}'), data-column: '${sortKey}'.`);
 
-    // Attach Sorting Listener to the HEADER TEXT SPAN (if it exists and is a sortable key)
-    // CRITICAL FIX: Exclude 'tags' from sortable columns as per user's original intent
-    if (sortKey && (sortKey === 'problemId' || sortKey === 'title' || sortKey === 'level')) { 
-      if (headerTextSpan) { 
+    // Attach ONE click listener to the TH itself for robustness
+    header.addEventListener('click', (event) => {
+        console.groupCollapsed(`table-sorting.js: CLICK EVENT - Header clicked: '${header.textContent.trim()}' (SortKey: '${sortKey}')`);
+        console.time('table-sorting.js: Header click processing');
+        console.log("Clicked Element (event.target):", event.target); // Log the exact element that was clicked
+
+        // CRITICAL FIX: Use .closest() to robustly check if the filter icon was clicked
+        const clickedOnFilterIcon = event.target.closest('.filter-icon-trigger');
+        console.log("Clicked on Filter Icon (result of closest()):", clickedOnFilterIcon); // Log the result of closest()
+
+        if (clickedOnFilterIcon) {
+            event.stopPropagation(); // Prevent sorting from triggering
+            console.log('table-sorting.js: Filter icon click confirmed. Toggling active class.');
+            clickedOnFilterIcon.classList.toggle('filter-active-indicator');
+            // Your filter popup/options reveal logic would go here
+        } else if (sortKey && (sortKey === 'problemId' || sortKey === 'title' || sortKey === 'level')) { 
+            // If not filter icon, and it's a sortable column
+            console.log('table-sorting.js: Sortable header text area clicked.');
+            if (currentSortKey === sortKey) {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                console.log(`table-sorting.js: Toggling sort direction to: '${sortDirection}'.`);
+            } else {
+                console.log(`table-sorting.js: New sort key selected: '${sortKey}'. Setting direction to 'asc'.`);
+                currentSortKey = sortKey;
+                sortDirection = 'asc';
+
+                tableHead.querySelectorAll('th').forEach((th) => {
+                    th.classList.remove('sorted-asc', 'sorted-desc'); 
+                    const span = th.querySelector('span:first-child');
+                    if (span) span.classList.remove('sorted-asc', 'sorted-desc');
+                });
+            }
+
+            const headerTextSpan = header.querySelector('span:first-child');
+            const targetForVisuals = headerTextSpan || header; // Apply sort classes to text span or TH
+            targetForVisuals.classList.add(`sorted-${sortDirection}`);
+            targetForVisuals.classList.remove(`sorted-${sortDirection === 'asc' ? 'desc' : 'asc'}`);
+            
+            sortArticles();
+            reorderTable();
+        } else {
+            console.log('table-sorting.js: Non-sortable header area clicked.');
+        }
+        console.timeEnd('table-sorting.js: Header click processing');
+        console.groupEnd();
+    });
+
+    // We no longer need to add separate listeners, but we should still set cursors for UX
+    const headerTextSpan = header.querySelector('span:first-child');
+    if (headerTextSpan && (sortKey === 'problemId' || sortKey === 'title' || sortKey === 'level')) {
         headerTextSpan.style.cursor = 'pointer';
-        console.log(`table-sorting.js: Header '${header.textContent.trim()}' (text span) is sortable. Attaching click listener.`);
-
-        headerTextSpan.addEventListener('click', () => {
-          console.groupCollapsed(`table-sorting.js: CLICK EVENT - Sortable header text clicked: '${header.textContent.trim()}' (SortKey: '${sortKey}')`);
-          console.time('table-sorting.js: Header click processing');
-
-          if (currentSortKey === sortKey) {
-            sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-            console.log(`table-sorting.js: Header click - Toggling sort direction to: '${sortDirection}'.`);
-          } else {
-            console.log(`table-sorting.js: Header click - New sort key selected: '${sortKey}'. Setting direction to 'asc'.`);
-            currentSortKey = sortKey;
-            sortDirection = 'asc';
-
-            tableHead.querySelectorAll('th').forEach((th) => {
-                th.classList.remove('sorted-asc', 'sorted-desc'); 
-                const span = th.querySelector('span:first-child');
-                if (span) span.classList.remove('sorted-asc', 'sorted-desc');
-            });
-          }
-
-          headerTextSpan.classList.add(`sorted-${sortDirection}`);
-          headerTextSpan.classList.remove(`sorted-${sortDirection === 'asc' ? 'desc' : 'asc'}`);
-          
-          sortArticles();
-          reorderTable();
-          console.timeEnd('table-sorting.js: Header click processing');
-          console.groupEnd();
-        });
-      } else {
-          // Fallback: If no text span, attach to header directly, but this means icon clicks might also trigger
-          header.style.cursor = 'pointer';
-          console.warn(`table-sorting.js: Header '${header.textContent.trim()}' has no text span. Attaching sort listener directly to TH (fallback).`);
-          header.addEventListener('click', () => {
-              console.groupCollapsed(`table-sorting.js: CLICK EVENT - Sortable header clicked (fallback): '${header.textContent.trim()}' (SortKey: '${sortKey}')`);
-              console.time('table-sorting.js: Header click processing (fallback)');
-
-              if (currentSortKey === sortKey) {
-                  sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-              } else {
-                  currentSortKey = sortKey;
-                  sortDirection = 'asc';
-                  tableHead.querySelectorAll('th').forEach((th) => th.classList.remove('sorted-asc', 'sorted-desc'));
-              }
-              header.classList.add(`sorted-${sortDirection}`);
-              header.classList.remove(`sorted-${sortDirection === 'asc' ? 'desc' : 'asc'}`);
-              sortArticles();
-              reorderTable();
-              console.timeEnd('table-sorting.js: Header click processing (fallback)');
-              console.groupEnd();
-          });
-      }
-    } else {
-        console.log(`table-sorting.js: Header '${header.textContent.trim()}' is NOT sortable.`);
     }
-
-    // Attach Listener to Filter Icon Trigger (if present)
+    const filterIconTrigger = header.querySelector('.filter-icon-trigger');
     if (filterIconTrigger) {
         filterIconTrigger.style.cursor = 'pointer';
-        console.log(`table-sorting.js: Header '${header.textContent.trim()}' has filter icon. Attaching click listener to icon.`);
-        filterIconTrigger.addEventListener('click', (event) => {
-            event.stopPropagation(); // CRITICAL: Stop the click event from bubbling up to the TH
-            console.groupCollapsed(`table-sorting.js: CLICK EVENT - Filter icon clicked: '${header.textContent.trim()}' (SortKey: '${sortKey}')`);
-            console.time('table-sorting.js: Filter icon click processing'); // Time filter icon specific actions
-            
-            console.log('table-sorting.js: Filter icon clicked. Sorting prevented due to event.stopPropagation().');
-            filterIconTrigger.classList.toggle('filter-active-indicator');
-            // Your filter popup/options reveal logic would go here
-            
-            console.timeEnd('table-sorting.js: Filter icon click processing');
-            console.groupEnd();
-        });
+        console.log(`table-sorting.js: Found filter icon for '${header.textContent.trim()}'. It is ready for clicks.`);
+    } else {
+        console.warn(`table-sorting.js: Could not find filter icon for '${header.textContent.trim()}'. Check mixin.`);
     }
   });
 
@@ -242,5 +222,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   console.log('table-sorting.js: Initialization finished. DOMContentLoaded handler complete.');
   console.timeEnd('table-sorting.js: Total Initialization Time');
-  console.groupEnd(); // End of initial group
+  console.groupEnd(); 
 });
