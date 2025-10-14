@@ -1,5 +1,7 @@
 # README
-My name is Alex Wilson. I am a developer from the U.S. with a passion for learning. I fell in love with math the first time I isolated a variable in a linear equation. The realization that math could be "undone" to find an answer was awesome, in a biblical sense. Through high school I never understood my career options, but I knew I wanted to learn more about the intersection of my main academic interest, math, and my main hobby at the time, modding video games.
+Welcome to my site, my name is Alex Wilson. 
+
+I live in the U.S. and I am passionate about learning! I fell in love with math the first time I isolated a variable in a linear equation. The realization that math could be "undone" to find an answer was awesome, in a biblical sense. Through high school I never understood my career options, but I knew I wanted to learn more about the intersection of my main academic interest, math, and my main hobby at the time, modding video games.
 
 I chose to pursue a degree computer science at Missouri State University in Springfield, MO, where I found myself drawn to complex topics like genetic algorithms, semi-supervised learning, computer vision, decentralized networking, and cryptography.
 
