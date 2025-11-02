@@ -2,6 +2,13 @@ setup git on cachy
 setup keys on cachy
 
 
+NAS Update
+
+NAS Upgrade
+Virt Upgrade
+Network Red Team engage
+
+
 Fusion 360
 FOSS Cad
 Bambu Labs
