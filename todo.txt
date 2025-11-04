@@ -1,5 +1,12 @@
-setup git on cachy
-setup keys on cachy
+generate keys
+verify keys
+setup github auth on cachy
+setup KPXC for ssh
+
+Start new repo
+Commit to repo
+
+setup keybindings on cachy
 
 
 NAS Update
