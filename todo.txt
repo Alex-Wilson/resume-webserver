@@ -1,5 +1,8 @@
 generate keys
 verify keys
+setup ssh agent
+write down the process so no keys are ever exposed
+
 setup github auth on cachy
 setup KPXC for ssh
 
