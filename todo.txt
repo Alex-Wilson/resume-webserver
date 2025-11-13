@@ -11,7 +11,7 @@ Commit to repo
 
 setup keybindings on cachy
 
-
+incorperate latex
 NAS Update
 
 NAS Upgrade
