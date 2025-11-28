@@ -1,21 +1,38 @@
-generate keys
-verify keys
-setup ssh agent
-write down the process so no keys are ever exposed
+maginifaction tool/microscrope/patchkit/compressor/launchpad/split keyboard
 
-setup github auth on cachy
+setup schedule and calendar in Notion for certs, work, gym, and study, meal plan, and budget
+
+reserach john-15 build
+split keyboard?
+
+setup tail scale
+setup pi hole
+
 setup KPXC for ssh
 
-Start new repo
-Commit to repo
-
 setup keybindings on cachy
+setup theme and desktop experience on cachy
 
 incorperate latex
 NAS Update
 
-NAS Upgrade
-Virt Upgrade
+NAS Backup
+NAS OS Change
+Update Plex
+Get Plex Running on cachy
+ensure gpu is being used
+book/manga service on NAS
+subtitle solution for anime and foreign movies
+book shopping spree
+
+
+setup open code/codium/cursor/nvim/docker
+
+Game emulation/ROM  on NAS
+
+
+research alternative servers for Plex
+research case for Plex
 Network Red Team engage
 
 
