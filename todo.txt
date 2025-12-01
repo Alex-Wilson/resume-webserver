@@ -1,4 +1,4 @@
-maginifaction tool/microscrope/patchkit/compressor/launchpad/split keyboard
+microscrope/launchpad/split keyboard
 
 setup schedule and calendar in Notion for certs, work, gym, and study, meal plan, and budget
 
