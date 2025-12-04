@@ -3,7 +3,6 @@ microscrope/launchpad/split keyboard
 setup schedule and calendar in Notion for certs, work, gym, and study, meal plan, and budget
 
 reserach john-15 build
-split keyboard?
 
 setup tail scale
 setup pi hole
@@ -28,7 +27,7 @@ book shopping spree
 
 setup open code/codium/cursor/nvim/docker
 
-Game emulation/ROM  on NAS
+Game emulation/ROM on NAS
 
 
 research alternative servers for Plex
