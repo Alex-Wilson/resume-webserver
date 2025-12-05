@@ -1,4 +1,6 @@
-microscrope/launchpad/split keyboard
+microscrope
+launchpad
+keyboard (WOOTING? SPLIT? LOGITECH?)
 
 setup schedule and calendar in Notion for certs, work, gym, and study, meal plan, and budget
 
