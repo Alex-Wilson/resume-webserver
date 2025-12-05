@@ -27,7 +27,7 @@ book shopping spree
 
 setup open code/codium/cursor/nvim/docker
 
-Game emulation/ROM on NAS
+Game emulation/ROM on NAS (360/PS2/PS3/PS4/GC/DS/GBA/N64)
 
 
 research alternative servers for Plex
