@@ -1,0 +1,9 @@
+kanban board with reminders/alert's
+  email integrations
+math resources
+digital logic resources
+ygo
+   deck builder
+   binder builder
+   rarity explanations 
+  shopping experience
