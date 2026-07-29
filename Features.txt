@@ -2,6 +2,7 @@ kanban board with reminders/alert's
   email integrations
 math resources
 digital logic resources
+networking resources
 ygo
    deck builder
    binder builder
