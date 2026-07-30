@@ -8,3 +8,4 @@ ygo
    binder builder
    rarity explanations 
   shopping experience
+games
