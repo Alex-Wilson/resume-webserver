@@ -10,4 +10,7 @@ ygo
   shopping experience
 Games:
   brick breaker
+
+media library management plans
+   ability to request media
   
