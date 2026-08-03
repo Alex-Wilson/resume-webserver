@@ -14,3 +14,5 @@ Games:
 media library management plans
    ability to request media
   
+syncthing clone 
+bittorrent client 
