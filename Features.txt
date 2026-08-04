@@ -15,4 +15,4 @@ media library management plans
    ability to request media
   
 syncthing clone 
-bittorrent client 
+way to play emulator via web
