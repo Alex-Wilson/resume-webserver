@@ -3,6 +3,7 @@ kanban board with reminders/alert's
 math resources
 digital logic resources
 networking resources
+c resources 
 ygo
    deck builder
    binder builder
@@ -14,5 +15,5 @@ Games:
 media library management plans
    ability to request media
   
-syncthing clone 
+syncthing clone
 way to play emulator via web
