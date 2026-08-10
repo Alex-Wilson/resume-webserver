@@ -4,6 +4,8 @@ math resources
 EE resources 
 digital logic resources
 networking resources
+data in c 
+web server in c 
 c resources 
 ygo
    deck builder
