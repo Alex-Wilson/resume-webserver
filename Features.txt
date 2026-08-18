@@ -12,7 +12,12 @@ ygo
    binder builder
    rarity explanations 
   shopping experience
+playable
 Games:
+chess
+solitaire
+balatro clone
+pin ball clone
   brick breaker
 
 media library management plans
@@ -21,4 +26,4 @@ media library management plans
 syncthing clone
 way to play emulator via web
 
-resume automated web flow
+resume submitted automated web flow
