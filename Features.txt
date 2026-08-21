@@ -22,6 +22,7 @@ pin ball clone
 
 media library management plans
    ability to request media
+   Quasi TV setup
   
 syncthing clone
 way to play emulator via web
