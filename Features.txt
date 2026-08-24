@@ -18,7 +18,7 @@ chess
 solitaire
 balatro clone
 pin ball clone
-  brick breaker
+brick breaker
 
 media library management plans
    ability to request media
