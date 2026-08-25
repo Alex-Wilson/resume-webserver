@@ -4,7 +4,8 @@ math resources
 EE resources 
 digital logic resources
 networking resources
-data in c 
+data structures and algos in c 
+crypto in assembly
 web server in c 
 c resources 
 ygo
@@ -23,7 +24,7 @@ brick breaker
 media library management plans
    ability to request media
    Quasi TV setup
-  
+
 syncthing clone
 way to play emulator via web
 
