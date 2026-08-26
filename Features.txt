@@ -5,6 +5,8 @@ EE resources
 digital logic resources
 networking resources
 data structures and algos in c 
+  search 
+  compression 
 crypto in assembly
 web server in c 
 c resources 
