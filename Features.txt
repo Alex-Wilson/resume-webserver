@@ -1,6 +1,7 @@
 kanban board with reminders/alert's
   email integrations
 math resources
+calc/linear algebra/diff eq
 EE resources 
 digital logic resources
 networking resources
