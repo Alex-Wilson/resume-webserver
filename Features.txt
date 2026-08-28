@@ -2,8 +2,10 @@ kanban board with reminders/alert's
   email integrations
 math resources
 calc/linear algebra/diff eq
-EE resources 
-digital logic resources
+EE resources
+  Gates
+  Bool logic
+  digital logic
 networking resources
 data structures and algos in c 
   search 
