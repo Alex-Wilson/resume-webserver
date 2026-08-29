@@ -12,7 +12,8 @@ data structures and algos in c
   compression 
 crypto in assembly
 web server in c 
-c resources 
+c resources
+ pointers
 ygo
    deck builder
    binder builder
