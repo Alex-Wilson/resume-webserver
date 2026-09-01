@@ -1,5 +1,5 @@
-kms
-
+git resources
+qr code maker 
 kanban board with reminders/alert's
   email integrations
 math resources
