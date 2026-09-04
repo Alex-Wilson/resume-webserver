@@ -1,5 +1,6 @@
 git resources
-qr code maker 
+qr code maker
+Ryo qr ???
 kanban board with reminders/alert's
   email integrations
 math resources
